@@ -1,4 +1,2 @@
 # BetterXP-Installer
 BetterXP'yi kurmanızı sağlayan bir yazılım.
-____________________________________________________________________________________________________________________________________________________________________
-Bu Repo BetterXP-Installer için oluşturulmuş olup yakın bir zamanda dosyalar eklenecektir.
