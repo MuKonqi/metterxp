@@ -26,8 +26,8 @@ if os.path.isfile('/etc/debian_version'):
             user3=user+user1+user2
             user4="/Desktop/"
             user5=user+user1+user4
-            print("Gerekli paketler yükleniyor. Lütfen sizde onay veriniz.")
-            os.system("sudo apt install python3 python3-tk git snapd")
+            print("Gerekli paketler yükleniyor.")
+            os.system("sudo apt install python3 python3-tk git -y")
             os.system("sudo git clone https://github.com/androidprotmmas/BetterXP_Debian.git")
             os.system("sudo mv BetterXP_Debian BetterXP")
             os.system("cd BetterXP")
@@ -109,7 +109,7 @@ elif os.path.isfile('/etc/fedora-release'):
             user4="/Desktop/"
             user5=user+user1+user4
             print("Gerekli paketler yükleniyor. Lütfen sizde onay veriniz.")
-            os.system("sudo dnf install python3 python3-tkinter git")
+            os.system("sudo dnf install python3 python3-tkinter git -y")
             os.system("sudo git clone https://github.com/androidprotmmas/BetterXP_Fedora.git")
             os.system("sudo mv BetterXP_Fedora BetterXP")
             os.system("cd BetterXP")
@@ -191,7 +191,7 @@ elif os.path.isfile('/etc/solus-release'):
             user4="/Desktop/"
             user5=user+user1+user4
             print("Gerekli paketler yükleniyor. Lütfen sizde onay veriniz.")
-            os.system("sudo eopkg it python3 python3-tkinter git")
+            os.system("sudo eopkg it python3 python3-tkinter git -y")
             os.system("sudo mkdir /usr/local ; sudo mkdir /usr/local/bin")
             os.system("sudo git clone https://github.com/androidprotmmas/BetterXP_Solus.git")
             os.system("sudo mv BetterXP_Solus BetterXP")
