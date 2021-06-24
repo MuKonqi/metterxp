@@ -1,0 +1,23 @@
+[Desktop Entry]
+Categories=System;
+Comment[tr_TR]=BetterXP! Son kullanıcı için tasarlandı.
+Comment=BetterXP! Son kullanıcı için tasarlandı.
+Encoding=UTF-8
+Exec=sudo python3 /usr/local/bin/BetterXP/BetterXP.py
+GenericName[tr_TR]=
+GenericName=
+Icon=/usr/local/bin/BetterXP/desktop.png
+MimeType=
+Name[tr_TR]=BetterXP
+Name=BetterXP
+Path=/usr/local/bin/BetterXP
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Type=Application
+Version=1.x
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-RunOnDiscreteGpu=false
+X-KDE-SubstituteUID=false
+X-KDE-Username=
