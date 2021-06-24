@@ -1,6 +1,5 @@
 [Desktop Entry]
 Categories=System;
-Comment[tr_TR]=BetterXP! Son kullanıcı için tasarlandı.
 Comment=BetterXP! Son kullanıcı için tasarlandı.
 Encoding=UTF-8
 Exec=sudo python3 /usr/local/bin/BetterXP/BetterXP.py
