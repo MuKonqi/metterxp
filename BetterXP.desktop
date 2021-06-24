@@ -1,5 +1,4 @@
 [Desktop Entry]
-Categories=System;
 Comment=BetterXP! Son kullanıcı için tasarlandı.
 Encoding=UTF-8
 Exec=sudo python3 /usr/local/bin/BetterXP/BetterXP.py
@@ -13,3 +12,4 @@ Terminal=true
 TerminalOptions=
 Type=Application
 Version=1.x
+Categories=System;
