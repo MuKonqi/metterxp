@@ -2,7 +2,6 @@
 BetterXP'yi kurmanızı sağlayan bir yazılım.
 __________________________________________________________________________________________________________________________________________________________________
 BetterXP Installer'ı çalıştırmak için yapmanız gerekenler şunlardır:
-__________________________________________________________________________________________________________________________________________________________________
 # *Dosyaların adresi:*
 1. https://github.com/androidprotmmas/BetterXP-Installer adresine gidin.
 # *Terminalden çalıştırma:*
