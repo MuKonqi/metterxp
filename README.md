@@ -12,6 +12,7 @@ ________________________________________________________________________________
 # *El ile çalıştırma:*
 2. Dosyaları 'https://github.com/androidprotmmas/BetterXP-Installer>Code>Download Zip' yoluyla indirin.
 3. Zip dosyasını çıkarın.
-4. Zip dosyasını çıkardığınız klasörde şunu yazın: ```sudo python3 installer-1.2.py```
+4. Python3 paketini yükleyin.
+5. Zip dosyasını çıkardığınız klasörde şunu yazın: ```sudo python3 installer-1.2.py```
 __________________________________________________________________________________________________________________________________________________________________
 Bundan sonra BetterXP Installer, bilgisayarınıza uygun BetterXP sürümünü kuracaktır. İyi günler dileriz.
