@@ -1,4 +1,4 @@
-# BetterXP-Installer
+# ***BetterXP Installer***
 BetterXP'yi kurmanızı sağlayan bir yazılım.
 __________________________________________________________________________________________________________________________________________________________________
 BetterXP Installer'ı çalıştırmak için yapmanız gerekenler şunlardır:
