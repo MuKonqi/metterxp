@@ -13,11 +13,11 @@ Eğer Fedora tabanlı bir GNU/Linux dağıtımı kullanıyorsanız ```sudo dnf i
 
 Eğer Solus tabanlı bir GNU/Linux dağıtımı kullanıyorsanız ```sudo eopkg it git python3 -y``` komutunu terminale yazmanız gerekir.
 
-3. Şimdi ise terminale şu komutu girin: ```git clone https://github.com/androidprotmmas/BetterXP-Installer.git ; cd BetterXP-Installer ; sudo python3 installer-1.2.py```
+3. Şimdi ise terminale şu komutu girin: ```git clone https://github.com/androidprotmmas/BetterXP-Installer.git ; cd BetterXP-Installer ; sudo python3 installer.py```
 # *El ile çalıştırma:*
 2. Dosyaları 'https://github.com/androidprotmmas/BetterXP-Installer > Code > Download Zip' yoluyla indirin.
 3. Zip dosyasını çıkarın.
 4. Python3 paketini yükleyin.
-5. Zip dosyasını çıkardığınız klasörde şunu yazın: ```sudo python3 installer-1.2.py```
+5. Zip dosyasını çıkardığınız klasördeki "installer.py" dosyasını çalıştırın.
 __________________________________________________________________________________________________________________________________________________________________
 Bundan sonra BetterXP Installer, bilgisayarınıza uygun BetterXP sürümünü kuracaktır. İyi günler dileriz.
