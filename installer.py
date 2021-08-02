@@ -34,6 +34,7 @@ if os.path.isfile('/etc/debian_version'):
             os.system("cd")
             os.system("sudo mv BetterXP /usr/local/bin/")
             os.system("chmod +x BetterXP.desktop")
+            os.system("sudo cp BetterXP.desktop /usr/share/applications")
             try:
                 os.system("sudo mv BetterXP.desktop "+user3)
             except:
@@ -113,6 +114,7 @@ elif os.path.isfile('/etc/fedora-release'):
             os.system("cd")
             os.system("sudo mv BetterXP /usr/local/bin/")
             os.system("chmod +x BetterXP.desktop")
+            os.system("sudo cp BetterXP.desktop /usr/share/applications")
             try:
                 os.system("sudo mv BetterXP.desktop "+user3)
             except:
@@ -193,6 +195,7 @@ elif os.path.isfile('/etc/solus-release'):
             os.system("cd")
             os.system("sudo mv BetterXP /usr/local/bin/")
             os.system("chmod +x BetterXP.desktop")
+            os.system("sudo cp BetterXP.desktop /usr/share/applications")            
             try:
                 os.system("sudo mv BetterXP.desktop "+user3)
             except:
