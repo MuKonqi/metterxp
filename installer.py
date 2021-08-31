@@ -1,7 +1,25 @@
+#!/usr/bin/env python3
+
+#Copyright (C) 2021, Muhammed Abdurrahman
+
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+#İçe aktarma:
 import os
 import time
 #Giriş:
-print("BetterXP Installer'a hoşgeldiniz!")
+print("BetterXP Installer'a hoş geldiniz!")
 #İşletim sistemi kontrolü:
 name=os.name
 if name == "nt":
@@ -9,7 +27,7 @@ if name == "nt":
     print("BetterXP Installer kapatılıyor.")
     time.sleep(3)
     exit()
-#Debian mı değil mi kontrolü:
+#Debian GNU/Linux mu değil mi kontrolü:
 if os.path.isfile('/etc/debian_version'):
     print("Şimdi aşağıda kullandığınız dağıtım ya da kullandığınız dağıtımın taban aldığı dağıtım ve paket yöneticisi gözükecektir. İşlemlerde buna göre yapılacaktır.")
     set_systembase="Dağıtım: Debian"
@@ -18,10 +36,10 @@ if os.path.isfile('/etc/debian_version'):
     print(set_packagemanager)   
     sonuc = input("Bunlar doğru mu?(evet/hayır):")
     if sonuc == "evet":      
-        islem = input("Lütfen BetterXP Installer'da çalıştırmak istediğiniz komutu seçiniz.(kur/kaldır/güncelle/bilgi/çıkış):")
+        islem = input("Lütfen BetterXP Installer'da çalıştırmak istediğiniz komutu seçiniz.(kur/bilgi/çıkış):")
         if islem == "kur":
             user="/home/"
-            user1 = input("Kuruluma başlanması için kullanıcı adınızı girmeniz gerekmektedir:")
+            user1="$USER"
             user2="/Masaüstü/"
             user3=user+user1+user2
             user4="/Desktop/"
@@ -36,34 +54,24 @@ if os.path.isfile('/etc/debian_version'):
             os.system("chmod +x BetterXP.desktop")
             os.system("sudo cp BetterXP.desktop /usr/share/applications")
             try:
-                os.system("sudo mv BetterXP.desktop "+user3)
+                os.system("sudo cp BetterXP.desktop "+user3)
             except:
                 try:
-                    os.system("sudo mv BetterXP.desktop "+user5)
+                    os.system("sudo cp BetterXP.desktop "+user5)
                 except:
                     print("Bazı hatalarla karşılaşıldı, kurulum yarıda kesildi.")
                     print("BetterXP Installer kapatılıyor.")
                     time.sleep(3)
                     exit()
-            print("Az sonra karşınıza çıkacak pencerede kullanıcı adınızı tekrar girmeniz gerekecektir.")
-            os.system("sudo apt install nano -y && sudo nano /usr/local/bin/BetterXP/whoami.txt")
+            os.system("chmod +x betterxp.sh && sudo cp betterxp.sh /usr/bin/betterxp")
+            os.system("sudo apt install nano -y")
+            print("Az sonra karşınıza çıkacak pencerede kullanıcı adınızı girmeniz gerekecektir.")
+            time.sleep(3)
+            os.system("sudo nano /usr/local/bin/BetterXP/whoami.txt")        
             print("BetterXP kuruldu. Umarız BetterXP sizin daha iyi bir deneyim yaşamanızı sağlar.")
             print("BetterXP Installer kapatılıyor.")
             time.sleep(3)
             exit()
-        elif islem == "kaldır":
-            sil = input("Gittiğinize üzüldük, bundan emin misiniz?(evet/hayır):")
-            if sil == "evet":
-                os.system("cd /usr/local/bin && sudo rm -rf BetterXP")
-                print("BetterXP başarıyla sisteminizden kaldırıldı.")
-                time.sleep(3)
-                exit()
-        elif islem == "güncelle":
-            os.system("sudo git clone https://github.com/androidprotmmas/BetterXP_Debian.git")
-            os.system("sudo rm -rf /usr/local/bin/BetterXP/up.py")
-            os.system("sudo mv BetterXP_Debian /usr/local/bin/BetterXP")
-            os.system("sudo cp -r /usr/local/bin/BetterXP/BetterXP_Debian/up.py /usr/local/bin/BetterXP")
-            os.system("sudo python3 /usr/local/bin/BetterXP/up.py")
         elif islem == "bilgi":
             print("BetterXP Installer, BetterXP'yi kurmanızı sağlayan bir araçtır.")
             print("Lisans: GPL 3.0")
@@ -89,7 +97,7 @@ if os.path.isfile('/etc/debian_version'):
         print("Yanlış bir cevap girdiniz. BetterXP Installer kapatılıyor.")
         time.sleep(3)
         exit()
-#Fedora mı değil mi kontrolü:
+#Fedora Linux mu değil mi kontrolü:
 elif os.path.isfile('/etc/fedora-release'):
     print("Şimdi aşağıda kullandığınız dağıtım ya da kullandığınız dağıtımın taban aldığı dağıtım ve paket yöneticisi gözükecektir. İşlemlerde buna göre yapılacaktır.")
     set_systembase="Dağıtım: Fedora"
@@ -98,10 +106,10 @@ elif os.path.isfile('/etc/fedora-release'):
     print(set_packagemanager)   
     sonuc = input("Bunlar doğru mu?(evet/hayır):")
     if sonuc == "evet":      
-        islem = input("Lütfen BetterXP Installer'da çalıştırmak istediğiniz komutu seçiniz.(kur/kaldır/güncelle/bilgi/çıkış):")
+        islem = input("Lütfen BetterXP Installer'da çalıştırmak istediğiniz komutu seçiniz.(kur/bilgi/çıkış):")
         if islem == "kur":
             user="/home/"
-            user1 = input("Kuruluma başlanması için kullanıcı adınızı girmeniz gerekmektedir:")
+            user1="$USER"
             user2="/Masaüstü/"
             user3=user+user1+user2
             user4="/Desktop/"
@@ -116,34 +124,23 @@ elif os.path.isfile('/etc/fedora-release'):
             os.system("chmod +x BetterXP.desktop")
             os.system("sudo cp BetterXP.desktop /usr/share/applications")
             try:
-                os.system("sudo mv BetterXP.desktop "+user3)
+                os.system("sudo cp BetterXP.desktop "+user3)
             except:
                 try:
-                    os.system("sudo mv BetterXP.desktop "+user5)
+                    os.system("sudo cp BetterXP.desktop "+user5)
                 except:
                     print("Bazı hatalarla karşılaşıldı, kurulum yarıda kesildi.")
                     print("BetterXP Installer kapatılıyor.")
                     time.sleep(3)
                     exit()
-            print("Az sonra karşınıza çıkacak pencerede kullanıcı adınızı tekrar girmeniz gerekecektir.")
-            os.system("sudo dnf install nano -y && sudo nano /usr/local/bin/BetterXP/whoami.txt")
+            os.system("sudo dnf install nano -y")
+            print("Az sonra karşınıza çıkacak pencerede kullanıcı adınızı girmeniz gerekecektir.")
+            time.sleep(3)
+            os.system("sudo nano /usr/local/bin/BetterXP/whoami.txt")
             print("BetterXP kuruldu. Umarız BetterXP sizin daha iyi bir deneyim yaşamanızı sağlar.")
             print("BetterXP Installer kapatılıyor.")
             time.sleep(3)
             exit()
-        elif islem == "kaldır":
-            sil = input("Gittiğinize üzüldük, bundan emin misiniz?(evet/hayır):")
-            if sil == "evet":
-                os.system("cd /usr/local/bin && sudo rm -rf BetterXP")
-                print("BetterXP başarıyla sisteminizden kaldırıldı.")
-                time.sleep(3)
-                exit()
-        elif islem == "güncelle":
-            os.system("sudo git clone https://github.com/androidprotmmas/BetterXP_Fedora.git")
-            os.system("sudo rm -rf /usr/local/bin/BetterXP/up.py")
-            os.system("sudo mv BetterXP_Fedora /usr/local/bin/BetterXP")
-            os.system("sudo cp -r /usr/local/bin/BetterXP/BetterXP_Fedora/up.py /usr/local/bin/BetterXP")
-            os.system("sudo python3 /usr/local/bin/BetterXP/up.py")
         elif islem == "bilgi":
             print("BetterXP Installer, BetterXP'yi kurmanızı sağlayan bir araçtır.")
             print("Lisans: GPL 3.0")
@@ -178,10 +175,10 @@ elif os.path.isfile('/etc/solus-release'):
     print(set_packagemanager)   
     sonuc = input("Bunlar doğru mu?(evet/hayır):")
     if sonuc == "evet":      
-        islem = input("Lütfen BetterXP Installer'da çalıştırmak istediğiniz komutu seçiniz.(kur/kaldır/güncelle/bilgi/çıkış):")
+        islem = input("Lütfen BetterXP Installer'da çalıştırmak istediğiniz komutu seçiniz.(kur/bilgi/çıkış):")
         if islem == "kur":
             user="/home/"
-            user1 = input("Kuruluma başlanması için kullanıcı adınızı girmeniz gerekmektedir:")
+            user1="$USER"
             user2="/Masaüstü/"
             user3=user+user1+user2
             user4="/Desktop/"
@@ -195,36 +192,25 @@ elif os.path.isfile('/etc/solus-release'):
             os.system("cd")
             os.system("sudo mv BetterXP /usr/local/bin/")
             os.system("chmod +x BetterXP.desktop")
-            os.system("sudo cp BetterXP.desktop /usr/share/applications")            
+            os.system("sudo cp BetterXP.desktop /usr/share/applications")
             try:
-                os.system("sudo mv BetterXP.desktop "+user3)
+                os.system("sudo cp BetterXP.desktop "+user3)
             except:
                 try:
-                    os.system("sudo mv BetterXP.desktop "+user5)
+                    os.system("sudo cp BetterXP.desktop "+user5)
                 except:
                     print("Bazı hatalarla karşılaşıldı, kurulum yarıda kesildi.")
                     print("BetterXP Installer kapatılıyor.")
                     time.sleep(3)
                     exit()
-            print("Az sonra karşınıza çıkacak pencerede kullanıcı adınızı tekrar girmeniz gerekecektir.")
-            os.system("sudo eopkg it nano -y && sudo nano /usr/local/bin/BetterXP/whoami.txt")
+            os.system("sudo eopkg it nano -y")
+            print("Az sonra karşınıza çıkacak pencerede kullanıcı adınızı girmeniz gerekecektir.")
+            time.sleep(3)
+            os.system("sudo nano /usr/local/bin/BetterXP/whoami.txt")
             print("BetterXP kuruldu. Umarız BetterXP sizin daha iyi bir deneyim yaşamanızı sağlar.")
             print("BetterXP Installer kapatılıyor.")
             time.sleep(3)
             exit()
-        elif islem == "kaldır":
-            sil = input("Gittiğinize üzüldük, bundan emin misiniz?(evet/hayır):")
-            if sil == "evet":
-                os.system("cd /usr/local/bin && sudo rm -rf BetterXP")
-                print("BetterXP başarıyla sisteminizden kaldırıldı.")
-                time.sleep(3)
-                exit()
-        elif islem == "güncelle":
-            os.system("sudo git clone https://github.com/androidprotmmas/BetterXP_Solus.git")
-            os.system("sudo rm -rf /usr/local/bin/BetterXP/up.py")
-            os.system("sudo mv BetterXP_Solus /usr/local/bin/BetterXP")
-            os.system("sudo cp -r /usr/local/bin/BetterXP/BetterXP_Fedora/up.py /usr/local/bin/BetterXP")
-            os.system("sudo python3 /usr/local/bin/BetterXP/up.py")
         elif islem == "bilgi":
             print("BetterXP Installer, BetterXP'yi kurmanızı sağlayan bir araçtır.")
             print("Lisans: GPL 3.0")
