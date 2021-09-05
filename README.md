@@ -2,9 +2,7 @@
 BetterXP'yi kurmanızı sağlayan bir yazılım.
 __________________________________________________________________________________________________________________________________________________________________
 BetterXP Installer'ı çalıştırmak için yapmanız gerekenler şunlardır:
-# *Dosyaların adresi:*
-1. https://github.com/androidprotmmas/BetterXP-Installer adresine gidin.
-# *Terminalden çalıştırma:*
+# *Yükleciyi çalıştırma:*
 2. İlk başta Git ile Python3 paketini yüklemek gerekir. Bunun için:
 
 Eğer Debian tabanlı bir GNU/Linux dağıtımı kullanıyorsanız ```sudo apt install git python3 -y```; 
@@ -14,10 +12,5 @@ Eğer Fedora tabanlı bir GNU/Linux dağıtımı kullanıyorsanız ```sudo dnf i
 Eğer Solus tabanlı bir GNU/Linux dağıtımı kullanıyorsanız ```sudo eopkg it git python3 -y``` komutunu terminale yazmanız gerekir.
 
 3. Şimdi ise terminale şu komutu girin: ```git clone https://github.com/androidprotmmas/BetterXP-Installer.git ; cd BetterXP-Installer ; sudo python3 installer.py```
-# *El ile çalıştırma:*
-2. Dosyaları 'https://github.com/androidprotmmas/BetterXP-Installer > Code > Download Zip' yoluyla indirin.
-3. Zip dosyasını çıkarın.
-4. Python3 paketini yükleyin.
-5. Zip dosyasını çıkardığınız klasördeki "installer.py" dosyasını çalıştırın.
 __________________________________________________________________________________________________________________________________________________________________
 Bundan sonra BetterXP Installer, bilgisayarınıza uygun BetterXP sürümünü kuracaktır. İyi günler dileriz.
