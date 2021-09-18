@@ -39,7 +39,7 @@ if os.path.isfile('/etc/debian_version'):
         islem = input("Lütfen BetterXP Installer'da çalıştırmak istediğiniz komutu seçiniz.(kur/bilgi/çıkış):")
         if islem == "kur":
             user="/home/"
-            user1="$USER"
+            user1=input("Kuruluma başlanması için BetterXP'ı kullanacak kişinin kullanıcı adını girmeniz gerekmektedir: ")
             user2="/Masaüstü/"
             user3=user+user1+user2
             user4="/Desktop/"
@@ -64,16 +64,16 @@ if os.path.isfile('/etc/debian_version'):
                     time.sleep(3)
                     exit()
             os.system("chmod +x betterxp.sh && sudo cp betterxp.sh /usr/bin/betterxp")
-            os.system("sudo apt install nano -y")
-            print("Az sonra karşınıza çıkacak pencerede kullanıcı adınızı girmeniz gerekecektir.")
-            time.sleep(3)
-            os.system("sudo nano /usr/local/bin/BetterXP/whoami.txt")        
+            os.system("cd /usr/local/bin/BetterXP ; sudo touch whoami.txt")
+            myusernameadd=open('/usr/local/bin/BetterXP/whoami.txt', "w")
+            myusernameadd.write(user1)
+            myusernameadd.close()
             print("BetterXP kuruldu. Umarız BetterXP sizin daha iyi bir deneyim yaşamanızı sağlar.")
             print("BetterXP Installer kapatılıyor.")
             time.sleep(3)
             exit()
         elif islem == "bilgi":
-            print("BetterXP Installer, BetterXP'yi kurmanızı sağlayan bir araçtır.")
+            print("BetterXP Installer, BetterXP'ı kurmanızı sağlayan bir araçtır.")
             print("Lisans: GPL 3.0")
             kapat = input('BetterXP Installer "evet" yazdığınız an kapanacaktır:')
             if kapat == "evet":
@@ -109,7 +109,7 @@ elif os.path.isfile('/etc/fedora-release'):
         islem = input("Lütfen BetterXP Installer'da çalıştırmak istediğiniz komutu seçiniz.(kur/bilgi/çıkış):")
         if islem == "kur":
             user="/home/"
-            user1="$USER"
+            user1=input("Kuruluma başlanması için BetterXP'ı kullanacak kişinin kullanıcı adını girmeniz gerekmektedir: ")
             user2="/Masaüstü/"
             user3=user+user1+user2
             user4="/Desktop/"
@@ -134,16 +134,16 @@ elif os.path.isfile('/etc/fedora-release'):
                     time.sleep(3)
                     exit()
             os.system("chmod +x betterxp.sh && sudo cp betterxp.sh /usr/bin/betterxp")
-            os.system("sudo dnf install nano -y")
-            print("Az sonra karşınıza çıkacak pencerede kullanıcı adınızı girmeniz gerekecektir.")
-            time.sleep(3)
-            os.system("sudo nano /usr/local/bin/BetterXP/whoami.txt")
+            os.system("cd /usr/local/bin/BetterXP ; sudo touch whoami.txt")
+            myusernameadd=open('/usr/local/bin/BetterXP/whoami.txt', "w")
+            myusernameadd.write(user1)
+            myusernameadd.close()
             print("BetterXP kuruldu. Umarız BetterXP sizin daha iyi bir deneyim yaşamanızı sağlar.")
             print("BetterXP Installer kapatılıyor.")
             time.sleep(3)
             exit()
         elif islem == "bilgi":
-            print("BetterXP Installer, BetterXP'yi kurmanızı sağlayan bir araçtır.")
+            print("BetterXP Installer, BetterXP'ı kurmanızı sağlayan bir araçtır.")
             print("Lisans: GPL 3.0")
             kapat = input('BetterXP Installer "evet" yazdığınız an kapanacaktır:')
             if kapat == "evet":
@@ -179,7 +179,7 @@ elif os.path.isfile('/etc/solus-release'):
         islem = input("Lütfen BetterXP Installer'da çalıştırmak istediğiniz komutu seçiniz.(kur/bilgi/çıkış):")
         if islem == "kur":
             user="/home/"
-            user1="$USER"
+            user1=input("Kuruluma başlanması için BetterXP'ı kullanacak kişinin kullanıcı adını girmeniz gerekmektedir: ")
             user2="/Masaüstü/"
             user3=user+user1+user2
             user4="/Desktop/"
@@ -205,16 +205,16 @@ elif os.path.isfile('/etc/solus-release'):
                     time.sleep(3)
                     exit()
             os.system("chmod +x betterxp.sh && sudo cp betterxp.sh /usr/bin/betterxp")
-            os.system("sudo eopkg it nano -y")
-            print("Az sonra karşınıza çıkacak pencerede kullanıcı adınızı girmeniz gerekecektir.")
-            time.sleep(3)
-            os.system("sudo nano /usr/local/bin/BetterXP/whoami.txt")
+            os.system("cd /usr/local/bin/BetterXP ; sudo touch whoami.txt")
+            myusernameadd=open('/usr/local/bin/BetterXP/whoami.txt', "w")
+            myusernameadd.write(user1)
+            myusernameadd.close()
             print("BetterXP kuruldu. Umarız BetterXP sizin daha iyi bir deneyim yaşamanızı sağlar.")
             print("BetterXP Installer kapatılıyor.")
             time.sleep(3)
             exit()
         elif islem == "bilgi":
-            print("BetterXP Installer, BetterXP'yi kurmanızı sağlayan bir araçtır.")
+            print("BetterXP Installer, BetterXP'ı kurmanızı sağlayan bir araçtır.")
             print("Lisans: GPL 3.0")
             kapat = input('BetterXP Installer "evet" yazdığınız an kapanacaktır:')
             if kapat == "evet":
@@ -243,7 +243,7 @@ else:
     print("Kullandığınız GNU/Linux veya Linux dağıtımını BetterXP ve BetterXP Installer tam anlamıyla desteklemiyor.")
     other = input("Hangi komutu çalıştırmak istersiniz?(bilgi/çıkış):")
     if other == "bilgi":
-        print("BetterXP Installer, BetterXP'yi kurmanızı sağlayan bir araçtır.")
+        print("BetterXP Installer, BetterXP'ı kurmanızı sağlayan bir araçtır.")
         print("Lisans: GPL 3.0")
         kapat = input('BetterXP Installer "evet" yazdığınız an kapanacaktır:')
         if kapat == "evet":
