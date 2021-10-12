@@ -14,6 +14,8 @@ Eğer Solus tabanlı bir GNU/Linux dağıtımı kullanıyorsanız ```sudo eopkg 
 2. Şimdi ise terminale şu komutu girin: ```git clone https://github.com/androidprotmmas/BetterXP-Installer.git ; cd BetterXP-Installer ; sudo python3 installer.py```
 __________________________________________________________________________________________________________________________________________________________________
 Bundan sonra BetterXP Installer, bilgisayarınıza uygun BetterXP sürümünü kuracaktır. İyi günler dileriz.
+
 __________________________________________________________________________________________________________________________________________________________________
+
 # ⚠️ BetterXP 2.0 (Geliştirme Sürümü)
 BetterXP'ın  yakında yeni çıkacak sürümünü incelemek isterseniz [bu bağlantıya](https://github.com/androidprotmmas/BetterXP-Installer/tree/main/BetterXP) tıklayabilirsiniz.
