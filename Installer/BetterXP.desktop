@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.x
+Name=BetterXP
+Encoding=UTF-8
+Comment=BetterXP! Son kullanıcı için tasarlandı.
+Path=/usr/local/bin/BetterXP
+Exec=sudo python3 /usr/local/bin/BetterXP/BetterXP.py
+Icon=/usr/local/bin/BetterXP/desktop.png
+Terminal=true
+Type=Application
+Categories=System;
