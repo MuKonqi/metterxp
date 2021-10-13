@@ -1,7 +1,8 @@
 
-# **BetterXP 2.0 (Geliştirme Sürümü)**
+# ***BetterXP 2.0 (Geliştirme Sürümü)***
 BetterXP'ın  yakında yeni çıkacak sürümünü incelemek isterseniz [bu bağlantıya](https://github.com/androidprotmmas/BetterXP-Installer/tree/main/BetterXP) tıklayabilirsiniz.
 __________________________________________________________________________________________________________________________________________________________________
+# **BetterXP Kurulumu**
 BetterXP Installer'ı çalıştırmak için yapmanız gerekenler şunlardır:
 # *Yükleciyi çalıştırma:*
 1. İlk başta Git ile Python3 paketini yüklemek gerekir. Bunun için:
