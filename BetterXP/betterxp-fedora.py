@@ -404,7 +404,7 @@ def winesil():
 def systemup():
     try:
         print("\nSistem güncellemesi işlemi başlatılıyor...")
-        os.system("sudo eopkg up -y")
+        os.system("sudo dnf update -y")
         messagebox.showinfo("Bilgilendirme","Sistem güncellemesi işlemi bitmiştir.")
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
