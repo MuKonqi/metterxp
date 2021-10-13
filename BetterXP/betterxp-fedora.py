@@ -19,13 +19,11 @@ from sys import exec_prefix
 from tkinter import *
 from tkinter import messagebox
 import os
-import time
 def reboot():
+    print("\nBilgisayarınız yeniden başlatılıyor...")
     os.system("sudo reboot")
 def programkapat():
-    exit()
-def intro():
-    os.system("sudo python3 /usr/local/bin/BetterXP/BetterXP.py")
+    print("\nBetterXP kapatılıyor...")
     exit()
 def dekurucu():
     yazi2.config(text="Lütfen kurmak istediğiniz masaüstü ortamını seçiniz.")
