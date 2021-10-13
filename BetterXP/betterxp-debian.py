@@ -19,7 +19,6 @@ from sys import exec_prefix
 from tkinter import *
 from tkinter import messagebox
 import os
-import time
 def reboot():
     print("\nBilgisayarınız yeniden başlatılıyor...")
     os.system("sudo reboot")
