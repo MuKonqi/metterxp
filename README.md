@@ -1,8 +1,20 @@
 
-# ***BetterXP 2.0 (Geliştirme Sürümü)***
-BetterXP'ın  yakında yeni çıkacak sürümünü incelemek isterseniz [bu bağlantıya](https://github.com/androidprotmmas/BetterXP-Installer/tree/main/BetterXP) tıklayabilirsiniz.
+# ***BetterXP***
+**Son kullanıcı için tasarlandı.**
+
+BetterXP, program kurma/kaldırma, masaüstü ortamı kurma/kaldırma, sistem güncelleme, çeşitli yapılandırma özelliklerine (GRUB, Terminal, Plank, WINE...), paket yöneticisi kurma vs. özelliklere sahiptir.
+
+Temel: Terminalden kurtulun, Sürüm 2
+
+Yazıldığı dil: Python, Version 3 (Python 3)
+
+Arayüz: Tkinter
+
+Platform desteği: Debian GNU/Linux, Fedora Linux, Solus tabanları
+
+Lisans: GNU General Public License 3
 __________________________________________________________________________________________________________________________________________________________________
-# **BetterXP Kurulumu**
+# ***Kurulum***
 BetterXP'ı yükleyecek **BetterXP Installer**'ı çalıştırmak için yapmanız gerekenler şunlardır:
 1. İlk başta Git ile Python3 paketini yüklemek gerekir. Bunun için:
 
