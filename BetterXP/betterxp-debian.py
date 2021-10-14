@@ -930,7 +930,7 @@ def snapkur():
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()     
 def info():
-    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: androidprotmmas (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0 (Geliştirme Sürümü)")
+    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: MuKonqi (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0 (Kararlı Sürüm)")
     islemsecimbuton1.config(text="İletişim",command=contact)
     islemsecimbuton2.config(text="Yenilikler",command=yenilikler)
     islemsecimbuton3.config(text="Lisans",command=lisans)
@@ -968,9 +968,13 @@ def matrixcopy():
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()
 def yenilikler():
-    yazi2.config(text="\nİlk önce BetterXP'ı tercih ettiğiniz için size teşekkür ederiz.\n\n\nYAKINDA!")
-    islemsecimbuton1.destroy()
-    islemsecimbuton2.destroy()
+    def bilgi():
+        messagebox.showinfo("Bilgilendirme","Bu bir örnek bilgilendirme mesajı!")
+    def hata():
+        messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.\n\nNot: Bu bir örnek hata mesajı!\nBu bir örnek olduğu için program kapatılmayacak.")
+    yazi2.config(text="\nİlk önce BetterXP'ı tercih ettiğiniz için size teşekkür ederiz.\n\n\nBetterXP 2.0 (Kararlı Sürüm) ile olan yenilikler:\nArayüzde köklü değişiklikler yapıldı:\nRenkler\nBilgi Mesajları\nHata Mesajları\nGitHub Repository düzeni değiştirildi.\nŞifre girme yeri değiştirildi ve artık BetterXP ile beraber terminal açılmıyor.\nBetterXP'ın sitesindeki 'Neler Yeni' kısmı aktif hale getirildi.\n'Bu bilgisayarı yeniden adlandır' işlevi geliştirildi.\n'BetterXP'ı Yapılandır' işlevi bazı sorunlardan dolayı kaldırıldı.\nBütün 'Terminali yapılandır' seçeneklerindeki 'Süper kullanıcı' ile 'Süper kullanıcı ile RAM kullanımı' özellikleri kaldırıldı.\n")
+    islemsecimbuton1.config(text="BetterXP'ın yeni bilgi mesajını göster",command=bilgi)
+    islemsecimbuton2.config(text="BetterXP'ın yeni hata mesajını göster",command=hata)
     islemsecimbuton3.destroy()
     islemsecimbuton4.destroy()
     islemsecimbuton5.destroy()
@@ -983,17 +987,13 @@ def yenilikler():
     islemsecimbuton12.destroy()
     islemsecimbuton13.destroy()
 def bxpup():
-    try:
-        os.system("sudo apt install git -y")
-        os.system("sudo git clone https://github.com/androidprotmmas/BetterXP_Debian.git")
-        os.system("sudo rm /usr/local/bin/BetterXP/up.py")
-        os.system("sudo cp -r /usr/local/bin/BetterXP/BetterXP_Debian/up.py /usr/local/bin/BetterXP")
-        os.system("sudo python3 /usr/local/bin/BetterXP/up.py") 
-        messagebox.showinfo("Bilgilendirme","BetterXP başarıyla güncellendi.\n'OK' tuşuna bastığınız an BetterXP kapatılacak.") 
-        exit()
-    except:
-        messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-        exit()
+    os.system("sudo apt install git -y")
+    os.system("cd /usr/local/bin/BetterXP ; sudo git clone https://github.com/MuKonqi/BetterXP.git")
+    os.system("sudo rm /usr/local/bin/BetterXP/betterxp-update.py")
+    os.system("sudo cp /usr/local/bin/BetterXP/BetterXP/BetterXP/betterxp-update.py /usr/local/bin/BetterXP")
+    os.system("sudo python3 /usr/local/bin/BetterXP/betterxp-update.py")
+    messagebox.showinfo("Bilgilendirme","BetterXP başarıyla güncellendi.\n'OK' tuşuna bastığınız an BetterXP kapatılacak.") 
+    programkapat()
 def lisans():
     yazi2.config(text="\nCopyright (C) 2021, Muhammed Abdurrahman\n\nBetterXP is free software: you can redistribute it and/or modify\nit under the terms of the GNU General Public License as published by\nthe Free Software Foundation, either version 3 of the License, or\n(at your option) any later version.\n\nBetterXP is distributed in the hope that it will be useful\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\nGNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License\nalong with BetterXP.  If not, see <https://www.gnu.org/licenses/>.\n")
     islemsecimbuton1.config(text="Lisansın tamamının olduğu bağlantıyı kopyala",command=lisanscopy)
@@ -1156,6 +1156,7 @@ def archkonsol():
     islemsecimbuton13.destroy()
 def archbash1():
     try:
+        os.system("sudo apt install neofetch -y")
         os.system(cdmydir+bashdel)
         os.system("cd /usr/local/bin/BetterXP/ArchTerminal/Orijinal && "+bashcp)
         messagebox.showinfo("Bilgilendirme","İstediğiniz terminal yapılandırma teması uygulandı.")
@@ -1164,6 +1165,7 @@ def archbash1():
         programkapat()
 def archbash2():
     try:
+        os.system("sudo apt install neofetch -y")
         os.system(cdmydir+bashdel)
         os.system("cd /usr/local/bin/BetterXP/ArchTerminal/Ram_Durumu && "+bashcp)
         messagebox.showinfo("Bilgilendirme","İstediğiniz terminal yapılandırma teması uygulandı.")
@@ -1187,6 +1189,7 @@ def debiankonsol():
     islemsecimbuton13.destroy()
 def debianbash1():
     try:
+        os.system("sudo apt install neofetch -y")
         os.system(cdmydir+bashdel)
         os.system("cd /usr/local/bin/BetterXP/DebianTerminal/Orijinal && "+bashcp)
         messagebox.showinfo("Bilgilendirme","İstediğiniz terminal yapılandırma teması uygulandı.")
@@ -1195,6 +1198,7 @@ def debianbash1():
         programkapat()
 def debianbash2():
     try:
+        os.system("sudo apt install neofetch -y")
         os.system(cdmydir+bashdel)
         os.system("cd /usr/local/bin/BetterXP/DebianTerminal/Ram_Durumu && "+bashcp)
         messagebox.showinfo("Bilgilendirme","İstediğiniz terminal yapılandırma teması uygulandı.")
@@ -1218,6 +1222,7 @@ def kalikonsol():
     islemsecimbuton13.destroy()
 def kalibash1():
     try:
+        os.system("sudo apt install neofetch -y")
         os.system(cdmydir+bashdel)
         os.system("cd /usr/local/bin/BetterXP/KaliTerminal/Orijinal && "+bashcp)
         messagebox.showinfo("Bilgilendirme","İstediğiniz terminal yapılandırma teması uygulandı.")
@@ -1226,6 +1231,7 @@ def kalibash1():
         programkapat()
 def kalibash2():
     try:
+        os.system("sudo apt install neofetch -y")
         os.system(cdmydir+bashdel)
         os.system("cd /usr/local/bin/BetterXP/KaliTerminal/Ram_Durumu && "+bashcp)
         messagebox.showinfo("Bilgilendirme","İstediğiniz terminal yapılandırma teması uygulandı.")
