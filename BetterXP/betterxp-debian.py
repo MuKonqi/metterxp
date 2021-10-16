@@ -25,6 +25,10 @@ def reboot():
 def programkapat():
     print("\nBetterXP kapatılıyor...")
     exit()
+def bxpreopen():
+    print("\nBetterXP yeniden başlatılıyor...")
+    pencere.destroy()
+    os.system("/usr/bin/betterxp")
 def dewmkurucu():
     yazi2.config(text="Lütfen kurmak istediğiniz masaüstü ortamını/pencere yöneticisini seçiniz.")
     islemsecimbuton1.config(text="KDE Plasma DE'i kur",command=kdekur)
@@ -39,7 +43,6 @@ def dewmkurucu():
     islemsecimbuton10.config(text="İ3 WM'i kur",command=i3kur)
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def gnomekur():
     try:
         print("\nGNOME DE kurulumu başlatılıyor...")
@@ -154,7 +157,6 @@ def dewmsilici():
     islemsecimbuton10.config(text="İ3 WM'i kaldır",command=i3sil)
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def kdesil():
     try:
         print("\nKDE Plasma DE kaldırılıyor...")
@@ -206,8 +208,8 @@ def lxqtsil():
         islemsecimbuton10.destroy()
         islemsecimbuton11.destroy()
         islemsecimbuton12.destroy()
-        islemsecimbuton13.destroy()
-        buton.destroy()
+        buton1.destroy()
+        buton2.destroy()
         b_metin1.destroy()
         print("\nLXQt DE kaldırılıyor...")
         os.system("sudo apt purge lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt-sudo -y")
@@ -218,9 +220,9 @@ def lxqtsil():
         b_1_lxqt_rm.pack()
         b_2_lxqt_rm.pack()
         b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n")
-        buton1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="BetterXP'ı kapat", command=programkapat)
+        buton_1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="BetterXP'ı kapat", command=programkapat)
         b_metin2.pack()
-        buton1.pack()
+        buton_1.pack()
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()
@@ -291,7 +293,6 @@ def programkurucu():
     islemsecimbuton10.config(text="Audacity'i kur",command=audacitykur)
     islemsecimbuton11.config(text="Wine'ı kur",command=winekur)
     islemsecimbuton12.config(text="PlayOnLinux'u kur",command=playonlinuxkur)
-    islemsecimbuton13.destroy()
 def libreofficekur():
     try:
         print("\nLibreOffice kurulumu başlatılıyor...")
@@ -418,7 +419,6 @@ def programsil():
     islemsecimbuton10.config(text="Audacity'i kaldır",command=audacitysil)
     islemsecimbuton11.config(text="Wine'ı kaldır",command=winesil)
     islemsecimbuton12.config(text="PlayOnLinux'u kaldır",command=playonlinuxsil)
-    islemsecimbuton13.destroy()
 def libreofficesil():
     try:
         print("\nLibreOffice kaldırılıyor...")
@@ -531,25 +531,6 @@ def systemup():
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()   
-def kalitool():
-    try:
-        dosyailkhal=open("/etc/apt/sources.list", "r")
-        dosyailkhaloku=dosyailkhal.read()
-        dosyailkhal.close()
-        with open("/etc/apt/sources.list", "r+") as dosyasonhal:
-            veri = dosyasonhal.read()
-            dosyasonhal.seek(0)
-            dosyasonhal.write("#deb Index of /kali kali-rolling main non-free contrib\n"+veri)
-            dosyasonhal.close()
-        os.system('sudo apt-get -f install acccheck ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 bbqsql bed cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch copy-router-config doona dotdotpwn greenbone-security-assistant hexorbase jsql lynis nmap ohrwurm openvas-cli openvas-manager openvas-scanner oscanner powerfuzzer sfuzz sidguesser siparmyknife sqlmap sqlninja sqlsus thc-ipv6 tnscmd10g unix-privesc-check yersinia aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab websploit wfuzz wpscan xsser zaproxy burpsuite dnschef fiked hamster-sidejack hexinject iaxflood inviteflood ismtp mitmproxy ohrwurm protos-sip rebind responder rtpbreak rtpinsertsound rtpmixsound sctpscan siparmyknife sipp sipvicious sniffjoke sslsplit sslstrip thc-ipv6 voiphopper webscarab wifi-honey wireshark xspy yersinia zaproxy cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal armitage backdoor-factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn linux-exploit-suggester maltego-teeth set shellnoob sqlmap thc-ipv6 yersinia beef-xss binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf volatility xplico dhcpig funkload iaxflood inviteflood ipv6-toolkit mdk3 reaver rtpflood slowhttptest t50 termineter thc-ipv6 thc-ssl-dos acccheck burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy apktool dex2jar python-distorm3 edb-debugger jad javasnoop jd ollydbg smali valgrind yara android-sdk apktool arduino dex2jar sakis3g smali -y && wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/") && sudo apt install aircrack-ng ')
-        dosyafinal=open("/etc/apt/sources.list", "w")
-        dosyafinal.write(dosyailkhaloku)
-        dosyafinal.close()
-        os.system("sudo apt update -y")
-        messagebox.showinfo("Bilgilendirme","Kali araçlarının kurulumu bitmiştir.")
-    except:
-        messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-        programkapat()
 def hatacoz():
     yazi2.config(text="Lütfen yapmak istediğiniz işlemi seçiniz.")
     islemsecimbuton1.config(text="Paket hatalarını düzelt\nNot: Bu işlem paket hatalarını düzeltmek amacıyla paket silebilir ya da kaldırabilir.",command=aptfix)
@@ -564,7 +545,6 @@ def hatacoz():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def dpkgconfigure():
     try:
         os.system("sudo dpkg --configure -a")
@@ -593,7 +573,6 @@ def gnulinuxhk():
     islemsecimbuton10.config(text="Zorin OS",command=zorin)
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def mx():
     yazi2.config(text="MX Linux, Debian GNU/Linux tabanlı ve varsayılan olarak Xfce DE'i kullanan hafif bir dağıtımdır.\nİnternet sitesi: https://mxlinux.org/")
     islemsecimbuton1.config(text="Bağlantıyı kopyala",command=mxcopy)
@@ -608,7 +587,6 @@ def mx():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def mxcopy():
     try:
         pencere.clipboard_append("https://mxlinux.org")
@@ -631,7 +609,6 @@ def manjaro():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def manjarocopy():
     try:
         pencere.clipboard_append("https://manjaro.org")
@@ -654,7 +631,6 @@ def mint():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def mintcopy():
     try:
         pencere.clipboard_append("https://linuxmint.com")
@@ -677,7 +653,6 @@ def ubuntu():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def ubuntucopy():
     try:
         pencere.clipboard_append("https://ubuntu.com")
@@ -700,7 +675,6 @@ def debian():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def debiancopy():
     try:
         pencere.clipboard_append("https://www.debian.org")
@@ -723,7 +697,6 @@ def elementary():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def elementarycopy():
     try:
         pencere.clipboard_append("https://elementary.io")
@@ -746,7 +719,6 @@ def solus():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def soluscopy():
     try:
         pencere.clipboard_append("https://getsol.us")
@@ -769,7 +741,6 @@ def fedora():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def fedoracopy():
     try:
         pencere.clipboard_append("https://getfedora.org")
@@ -792,7 +763,6 @@ def pop():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def popcopy():
     try:
         pencere.clipboard_append("https://pop.system76.com")
@@ -815,7 +785,6 @@ def zorin():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def zorincopy():
     try:
         pencere.clipboard_append("https://zorin.com/os")
@@ -838,7 +807,6 @@ def rootuyg():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def pcmanfmopen():
     try:
         print("\nPCmanFM açılıyor...")
@@ -893,11 +861,11 @@ def nautilusstart():
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()       
-def paketmgr():
-    yazi2.config(text="Hangi paket yöneticisini kurmak istersiniz?")
+def pakettoolmgr():
+    yazi2.config(text="Hangi paket yöneticisini/aracı kurmak istersiniz?")
     islemsecimbuton1.config(text="Snap paket yönetcisini kur",command=snapkur)
     islemsecimbuton2.config(text="Flatpak paket yöneticisini kur",command=flatpakkur)
-    islemsecimbuton3.destroy()
+    islemsecimbuton3.config(text="Kali Linux araçlarını kur",command=kalitool)
     islemsecimbuton4.destroy()
     islemsecimbuton5.destroy()
     islemsecimbuton6.destroy()
@@ -907,7 +875,6 @@ def paketmgr():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy() 
 def flatpakkur():
     try:
         print("\nFlatpak kuruluyor...")
@@ -928,9 +895,28 @@ def snapkur():
         messagebox.showinfo("Bilgilendirme","Snap paket yöneticisi başarıyla kuruldu.")
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-        programkapat()     
+        programkapat() 
+def kalitool():
+    try:
+        dosyailkhal=open("/etc/apt/sources.list", "r")
+        dosyailkhaloku=dosyailkhal.read()
+        dosyailkhal.close()
+        with open("/etc/apt/sources.list", "r+") as dosyasonhal:
+            veri = dosyasonhal.read()
+            dosyasonhal.seek(0)
+            dosyasonhal.write("#deb Index of /kali kali-rolling main non-free contrib\n"+veri)
+            dosyasonhal.close()
+        os.system('sudo apt-get -f install acccheck ace-voip amap automater braa casefile cdpsnarf cisco-torch cookie-cadger copy-router-config dmitry dnmap dnsenum dnsmap dnsrecon dnstracer dnswalk dotdotpwn enum4linux enumiax exploitdb fierce firewalk fragroute fragrouter ghost-phisher golismero goofile lbd maltego-teeth masscan metagoofil miranda nmap p0f parsero recon-ng set smtp-user-enum snmpcheck sslcaudit sslsplit sslstrip sslyze thc-ipv6 theharvester tlssled twofi urlcrazy wireshark wol-e xplico ismtp intrace hping3 bbqsql bed cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch copy-router-config doona dotdotpwn greenbone-security-assistant hexorbase jsql lynis nmap ohrwurm openvas-cli openvas-manager openvas-scanner oscanner powerfuzzer sfuzz sidguesser siparmyknife sqlmap sqlninja sqlsus thc-ipv6 tnscmd10g unix-privesc-check yersinia aircrack-ng asleap bluelog blueranger bluesnarfer bully cowpatty crackle eapmd5pass fern-wifi-cracker ghost-phisher giskismet gqrx kalibrate-rtl killerbee kismet mdk3 mfcuk mfoc mfterm multimon-ng pixiewps reaver redfang spooftooph wifi-honey wifitap wifite apache-users arachni bbqsql blindelephant burpsuite cutycapt davtest deblaze dirb dirbuster fimap funkload grabber jboss-autopwn joomscan jsql maltego-teeth padbuster paros parsero plecost powerfuzzer proxystrike recon-ng skipfish sqlmap sqlninja sqlsus ua-tester uniscan vega w3af webscarab websploit wfuzz wpscan xsser zaproxy burpsuite dnschef fiked hamster-sidejack hexinject iaxflood inviteflood ismtp mitmproxy ohrwurm protos-sip rebind responder rtpbreak rtpinsertsound rtpmixsound sctpscan siparmyknife sipp sipvicious sniffjoke sslsplit sslstrip thc-ipv6 voiphopper webscarab wifi-honey wireshark xspy yersinia zaproxy cryptcat cymothoa dbd dns2tcp http-tunnel httptunnel intersect nishang polenum powersploit pwnat ridenum sbd u3-pwn webshells weevely casefile cutycapt dos2unix dradis keepnote magictree metagoofil nipper-ng pipal armitage backdoor-factory cisco-auditing-tool cisco-global-exploiter cisco-ocs cisco-torch crackle jboss-autopwn linux-exploit-suggester maltego-teeth set shellnoob sqlmap thc-ipv6 yersinia beef-xss binwalk bulk-extractor chntpw cuckoo dc3dd ddrescue dumpzilla extundelete foremost galleta guymager iphone-backup-analyzer p0f pdf-parser pdfid pdgmail peepdf volatility xplico dhcpig funkload iaxflood inviteflood ipv6-toolkit mdk3 reaver rtpflood slowhttptest t50 termineter thc-ipv6 thc-ssl-dos acccheck burpsuite cewl chntpw cisco-auditing-tool cmospwd creddump crunch findmyhash gpp-decrypt hash-identifier hexorbase john johnny keimpx maltego-teeth maskprocessor multiforcer ncrack oclgausscrack pack patator polenum rainbowcrack rcracki-mt rsmangler statsprocessor thc-pptp-bruter truecrack webscarab wordlists zaproxy apktool dex2jar python-distorm3 edb-debugger jad javasnoop jd ollydbg smali valgrind yara android-sdk apktool arduino dex2jar sakis3g smali -y && wget http://www.morningstarsecurity.com/downloads/bing-ip2hosts-0.4.tar.gz && tar -xzvf bing-ip2hosts-0.4.tar.gz && cp bing-ip2hosts-0.4/bing-ip2hosts /usr/local/bin/") && sudo apt install aircrack-ng ')
+        dosyafinal=open("/etc/apt/sources.list", "w")
+        dosyafinal.write(dosyailkhaloku)
+        dosyafinal.close()
+        os.system("sudo apt update -y")
+        messagebox.showinfo("Bilgilendirme","Kali araçlarının kurulumu bitmiştir.")
+    except:
+        messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+        programkapat()    
 def info():
-    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: MuKonqi (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0 (Kararlı Sürüm)")
+    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: MuKonqi (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0.1 (Kararlı Sürüm)")
     islemsecimbuton1.config(text="İletişim",command=contact)
     islemsecimbuton2.config(text="Yenilikler",command=yenilikler)
     islemsecimbuton3.config(text="Lisans",command=lisans)
@@ -943,7 +929,6 @@ def info():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def contact():
     yazi2.config(text="Bize ulaşabilmeniz için Matrix topluluğumuz:\nhttps://matrix.to/#/#betterxp-community:kde.org?via=kde.org")
     islemsecimbuton1.config(text="Matrix topluluğu davet bağlantısını kopyala",command=matrixcopy)
@@ -958,7 +943,6 @@ def contact():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def matrixcopy():
     try:
         pencere.clipboard_append("https://matrix.to/#/#betterxp-community:kde.org?via=kde.org")
@@ -972,7 +956,7 @@ def yenilikler():
         messagebox.showinfo("Bilgilendirme","Bu bir örnek bilgilendirme mesajı!")
     def hata():
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.\n\nNot: Bu bir örnek hata mesajı!\nBu bir örnek olduğu için program kapatılmayacak.")
-    yazi2.config(text="\nİlk önce BetterXP'ı tercih ettiğiniz için size teşekkür ederiz.\n\n\nBetterXP 2.0 (Kararlı Sürüm) ile olan yenilikler:\nArayüzde köklü değişiklikler yapıldı:\nRenkler\nBilgi Mesajları\nHata Mesajları\nGitHub Repository düzeni değiştirildi.\nŞifre girme yeri değiştirildi ve artık BetterXP ile beraber terminal açılmıyor.\nBetterXP'ın sitesindeki 'Neler Yeni' kısmı aktif hale getirildi.\n'Bu bilgisayarı yeniden adlandır' işlevi geliştirildi.\n'BetterXP'ı Yapılandır' işlevi bazı sorunlardan dolayı kaldırıldı.\nBütün 'Terminali yapılandır' seçeneklerindeki 'Süper kullanıcı' ile 'Süper kullanıcı ile RAM kullanımı' özellikleri kaldırıldı.\n")
+    yazi2.config(text="\nİlk önce BetterXP'ı tercih ettiğiniz için size teşekkür ederiz.\n\n\nBetterXP 2.0 (Kararlı Sürüm) ile olan yenilikler:\nArayüzde köklü değişiklikler yapıldı:\nRenkler\nBilgi Mesajları\nHata Mesajları\nGitHub Repository düzeni değiştirildi.\nŞifre girme yeri değiştirildi ve artık BetterXP ile beraber terminal açılmıyor.\nBetterXP'ın sitesindeki 'Neler Yeni' kısmı aktif hale getirildi.\n'Bu bilgisayarı yeniden adlandır' işlevi geliştirildi.\n'BetterXP'ı Yapılandır' işlevi bazı sorunlardan dolayı kaldırıldı.\nBütün 'Terminali yapılandır' seçeneklerindeki 'Süper kullanıcı' ile 'Süper kullanıcı ile RAM kullanımı' özellikleri kaldırıldı.\n\nBetterXP 2.0.1 (Kararlı Sürüm) ile olan yenilikler:\n'BetterXP'ı yeniden aç' butonu eklendi.")
     islemsecimbuton1.config(text="BetterXP'ın yeni bilgi mesajını göster",command=bilgi)
     islemsecimbuton2.config(text="BetterXP'ın yeni hata mesajını göster",command=hata)
     islemsecimbuton3.destroy()
@@ -985,7 +969,6 @@ def yenilikler():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def bxpup():
     os.system("sudo apt install git -y")
     os.system("cd /usr/local/bin/BetterXP ; sudo git clone https://github.com/MuKonqi/BetterXP.git")
@@ -1008,7 +991,6 @@ def lisans():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def lisanscopy():
     try:
         pencere.clipboard_append("https://www.gnu.org/licenses/gpl-3.0.txt")
@@ -1031,7 +1013,6 @@ def bxpwebsite():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def bxpwebsitecopy():
     try:
         pencere.clipboard_append("https://betterxp.ml")
@@ -1054,7 +1035,6 @@ def yazilimayar():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def pcrename():
     try:
         islemsecimbuton1.destroy()
@@ -1069,8 +1049,8 @@ def pcrename():
         islemsecimbuton10.destroy()
         islemsecimbuton11.destroy()
         islemsecimbuton12.destroy()
-        islemsecimbuton13.destroy()
-        buton.destroy()
+        buton1.destroy()
+        buton2.destroy()
         b_metin1.destroy()
         def addpcname():
             get_new_pc_name=new_pc_name.get()
@@ -1085,9 +1065,9 @@ def pcrename():
         b_1_pcrename=Button(pencere,  cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Kaydet",command=addpcname)
         b_1_pcrename.pack()
         b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n")
-        buton1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="BetterXP'ı kapat", command=programkapat)
+        buton_1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="BetterXP'ı kapat", command=programkapat)
         b_metin2.pack()
-        buton1.pack()
+        buton_1.pack()
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()
@@ -1138,7 +1118,6 @@ def konsolayar():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def archkonsol():
     yazi2.config(text="Lütfen aşağıdan bir seçenek seçiniz.")
     islemsecimbuton1.config(text="Orijinal",command=archbash1)
@@ -1153,7 +1132,6 @@ def archkonsol():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def archbash1():
     try:
         os.system("sudo apt install neofetch -y")
@@ -1186,7 +1164,6 @@ def debiankonsol():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def debianbash1():
     try:
         os.system("sudo apt install neofetch -y")
@@ -1219,7 +1196,6 @@ def kalikonsol():
     islemsecimbuton10.destroy()
     islemsecimbuton11.destroy()
     islemsecimbuton12.destroy()
-    islemsecimbuton13.destroy()
 def kalibash1():
     try:
         os.system("sudo apt install neofetch -y")
@@ -1264,7 +1240,8 @@ def islemsecim():
     global islemsecimbuton11
     global islemsecimbuton12
     global islemsecimbuton13
-    global buton
+    global buton1
+    global buton2
     islemsecimbuton1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
     islemsecimbuton1.config(text="Program kur",command=programkurucu)
     islemsecimbuton1.pack()
@@ -1281,34 +1258,34 @@ def islemsecim():
     islemsecimbuton5.config(text="Hata çözücü",command=hatacoz)
     islemsecimbuton5.pack()
     islemsecimbuton6=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
-    islemsecimbuton6.config(text="Kali araçları kurucusu",command=kalitool)
+    islemsecimbuton6.config(text="Sistem güncelleyici",command=systemup)
     islemsecimbuton6.pack()
     islemsecimbuton7=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
-    islemsecimbuton7.config(text="Sistem güncelleyici",command=systemup)
+    islemsecimbuton7.config(text="Yapılandırma",command=yazilimayar)
     islemsecimbuton7.pack()
     islemsecimbuton8=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
-    islemsecimbuton8.config(text="Yapılandırma",command=yazilimayar)
+    islemsecimbuton8.config(text="Paket yöneticisi/araç kurucusu",command=pakettoolmgr)
     islemsecimbuton8.pack()
     islemsecimbuton9=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
-    islemsecimbuton9.config(text="Paket yöneticisi kurucusu",command=paketmgr)
+    islemsecimbuton9.config(text="Dosya yöneticilerini süper kullanıcı haklarıyla açma",command=rootuyg)
     islemsecimbuton9.pack()
     islemsecimbuton10=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
-    islemsecimbuton10.config(text="Dosya yöneticilerini süper kullanıcı haklarıyla açma",command=rootuyg)
+    islemsecimbuton10.config(text="Bazı GNU/Linux dağıtımları hakkında",command=gnulinuxhk)
     islemsecimbuton10.pack()
     islemsecimbuton11=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
-    islemsecimbuton11.config(text="Bazı GNU/Linux dağıtımları hakkında",command=gnulinuxhk)
+    islemsecimbuton11.config(text="Eski paket temizleyicisi",command=temizle)
     islemsecimbuton11.pack()
     islemsecimbuton12=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
-    islemsecimbuton12.config(text="Eski paket temizleyicisi",command=temizle)
+    islemsecimbuton12.config(text="BetterXP hakkında",command=info)
     islemsecimbuton12.pack()
-    islemsecimbuton13=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
-    islemsecimbuton13.config(text="BetterXP hakkında",command=info)
-    islemsecimbuton13.pack()
     b_metin1.config(text="\n")
     b_metin1.pack()
-    buton=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
-    buton.config(text="BetterXP'ı kapat",command=programkapat)
-    buton.pack()
+    buton1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
+    buton1.config(text="BetterXP'ı kapat",command=programkapat)
+    buton1.pack()
+    buton2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3")
+    buton2.config(text="BetterXP'ı yeniden aç",command=bxpreopen)
+    buton2.pack()
 
 myusername=open('/usr/local/bin/BetterXP/whoami.txt')
 whoami=myusername.read()
@@ -1331,6 +1308,7 @@ pencere.config(menu=menu1)
 dosya=Menu(menu1, tearoff=0)
 menu1.add_cascade(label="Dosya",menu=dosya)
 dosya.add_command(label="Çıkış", command=programkapat)
+dosya.add_command(label="Yeniden aç", command=bxpreopen)
 
 metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="junkyard 12 bold")
 metin1.config(text="Merhabalar!\nBetterXP'ı tercih ettiğiniz için teşekkürler.\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almayacağımızı belirtiriz.\nİyi günler dileriz.")
