@@ -769,8 +769,10 @@ def pcrename():
         b_1_pcrename.pack()
         b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n")
         buton_1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="BetterXP'ı kapat", command=programkapat)
+        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="BetterXP'ı yeniden aç", command=bxpreopen)
         b_metin2.pack()
         buton_1.pack()
+        buton_2.pack()
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()
