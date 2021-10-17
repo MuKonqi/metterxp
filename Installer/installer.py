@@ -31,6 +31,7 @@ if name == "nt":
     exit()
 #Debian GNU/Linux mu değil mi kontrolü:
 if os.path.isfile('/etc/debian_version'):
+    print("\nBilgilendirme!\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almıyoruz. Lütfen bu bilgiyi unutmayın!\n")
     print("Şimdi aşağıda kullandığınız dağıtım ya da kullandığınız dağıtımın taban aldığı dağıtım ve paket yöneticisi gözükecektir. İşlemlerde buna göre yapılacaktır.")
     set_systembase="Dağıtım: Debian GNU/Linux tabanlı"
     set_packagemanager="Paket Yöneticisi: DPKG"
@@ -95,6 +96,7 @@ if os.path.isfile('/etc/debian_version'):
         exit()
 #Fedora Linux mu değil mi kontrolü:
 elif os.path.isfile('/etc/fedora-release'):
+    print("\nBilgilendirme!\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almıyoruz. Lütfen bu bilgiyi unutmayın!\n")
     print("Şimdi aşağıda kullandığınız dağıtım ya da kullandığınız dağıtımın taban aldığı dağıtım ve paket yöneticisi gözükecektir. İşlemlerde buna göre yapılacaktır.")
     set_systembase="Dağıtım: Fedora Linux tabanlı"
     set_packagemanager="Paket Yöneticisi: DNF"
@@ -159,6 +161,7 @@ elif os.path.isfile('/etc/fedora-release'):
         exit()
 #Solus mu değil mi kontrolü:
 elif os.path.isfile('/etc/solus-release'):
+    print("\nBilgilendirme!\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almıyoruz. Lütfen bu bilgiyi unutmayın!\n")
     print("Şimdi aşağıda kullandığınız dağıtım ya da kullandığınız dağıtımın taban aldığı dağıtım ve paket yöneticisi gözükecektir. İşlemlerde buna göre yapılacaktır.")
     set_systembase="Dağıtım: Solus tabanlı"
     set_packagemanager="Paket Yöneticisi: EOPKG"
