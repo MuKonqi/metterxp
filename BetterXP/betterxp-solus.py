@@ -27,15 +27,15 @@ def programkapat():
     exit()
 def bxpreopen():
     if os.path.isfile("/etc/debian-version"):
-        print("\nBetterXP yeniden başlatılıyor...\n")
+        print("\nBetterXP yeniden başlatılıyor...")
         pencere.destroy()
         os.system("python3 /usr/local/bin/BetterXP/betterxp-debian.py")
     elif os.path.isfile("/etc/fedora-release"):
-        print("\nBetterXP yeniden başlatılıyor...\n")
+        print("\nBetterXP yeniden başlatılıyor...")
         pencere.destroy()
         os.system("python3 /usr/local/bin/BetterXP/betterxp-fedora.py")
     elif os.path.isfile("/etc/solus-release"):
-        print("\nBetterXP yeniden başlatılıyor...\n")
+        print("\nBetterXP yeniden başlatılıyor...")
         pencere.destroy()
         os.system("python3 /usr/local/bin/BetterXP/betterxp-solus.py")
     else:
@@ -148,14 +148,43 @@ def programkurucu():
     islemsecimbuton1.config(text="Firefox'u kur",command=firefoxkur)
     islemsecimbuton2.config(text="Brave'u kur",command=bravekur)
     islemsecimbuton3.config(text="Plank'ı kur",command=plankkur)
-    islemsecimbuton4.config(text="GParted'i kur",command=gpartedkur)
-    islemsecimbuton5.config(text="GIMP'i kur",command=gimpkur)
-    islemsecimbuton6.config(text="Cups'ı kur",command=cupskur)
+    islemsecimbuton4.config(text="GParted disk bölümü düzenleyecisini kur",command=gpartedkur)
+    islemsecimbuton5.config(text="GIMP görüntü işleme programını kur",command=gimpkur)
+    islemsecimbuton6.config(text="Cups yazıcı yöneticisini kur",command=cupskur)
     islemsecimbuton7.config(text="Terminator'u kur",command=terminatorkur)
     islemsecimbuton8.config(text="Code::Blocks'u kur",command=codeblockskur)
     islemsecimbuton9.config(text="PlayOnLinux'u kur",command=playonlinuxkur)
     islemsecimbuton10.config(text="Wine'ı kur",command=winekur)
     islemsecimbuton11.destroy()
+    buton1.destroy()
+    buton2.destroy()
+    b_metin1.destroy()
+    def paketkur():
+        try:
+            c1_paketkur="sudo eopkg it "
+            get_paketadi=paketadi.get()
+            c2_paketkur=" -y"
+            cf_paketkur=c1_paketkur+get_paketadi+c2_paketkur
+            os.system(cf_paketkur)
+            messagebox.showinfo("Bilgilendirme","Eğer girdiğiniz paket adı hatalı değilse, işlem başarıyla tamamlandı!")
+        except:
+            messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+            programkapat()
+    b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
+    b_metin2.pack()
+    yazi3=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10")
+    yazi3.config(text="Aradığınız program/paket burada yok mu? Eğer böyleyse buraya lütfen kurmak istediğiniz paketi giriniz.")
+    yazi3.pack()
+    paketadi=Entry(pencere)
+    paketadi.pack()
+    b_1_paketkur=Button(pencere,  cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Kur",command=paketkur)
+    b_1_paketkur.pack()
+    b_metin3=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
+    b_metin3.pack()
+    buton_1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="BetterXP'ı kapat", command=programkapat)
+    buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="BetterXP'ı yeniden aç", command=bxpreopen)
+    buton_1.pack()
+    buton_2.pack()
 def firefoxkur():
     try:
         print("\nMozilla Firefox kurulumu başlatılıyor...")
@@ -241,14 +270,43 @@ def programsil():
     islemsecimbuton1.config(text="Firefox'u kaldır",command=firefoxsil)
     islemsecimbuton2.config(text="Brave'u kaldır",command=bravesil)
     islemsecimbuton3.config(text="Plank'ı kaldır",command=planksil)
-    islemsecimbuton4.config(text="GParted'i kaldır",command=gpartedsil)
-    islemsecimbuton5.config(text="GIMP'i kaldır",command=gimpsil)
-    islemsecimbuton6.config(text="Cups'ı kaldır",command=cupssil)
+    islemsecimbuton4.config(text="GParted disk bölümü düzenleyecisini kaldır",command=gpartedsil)
+    islemsecimbuton5.config(text="GIMP görüntü işleme programını kaldır",command=gimpsil)
+    islemsecimbuton6.config(text="Cups yazıcı yöneticisini kaldır",command=cupskur)
     islemsecimbuton7.config(text="Terminator'u kaldır",command=terminatorsil)
     islemsecimbuton8.config(text="Code::Blocks'u kaldır",command=codeblockssil)
     islemsecimbuton9.config(text="PlayOnLinux'u kaldır",command=playonlinuxsil)
     islemsecimbuton10.config(text="Wine'ı kaldır",command=winesil)
     islemsecimbuton11.destroy()
+    buton1.destroy()
+    buton2.destroy()
+    b_metin1.destroy()
+    def paketsil():
+        try:
+            c1_paketsil="sudo eopkg rm "
+            get_paketadi=paketadi.get()
+            c2_paketsil=" -y"
+            cf_paketsil=c1_paketsil+get_paketadi+c2_paketsil
+            os.system(cf_paketsil)
+            messagebox.showinfo("Bilgilendirme","Eğer girdiğiniz paket adı hatalı değilse, işlem başarıyla tamamlandı!")
+        except:
+            messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+            programkapat()
+    b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
+    b_metin2.pack()
+    yazi3=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10")
+    yazi3.config(text="Aradığınız program/paket burada yok mu? Eğer böyleyse buraya lütfen kaldırmak istediğiniz paketi giriniz.")
+    yazi3.pack()
+    paketadi=Entry(pencere)
+    paketadi.pack()
+    b_1_paketsil=Button(pencere,  cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Kaldır",command=paketsil)
+    b_1_paketsil.pack()
+    b_metin3=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
+    b_metin3.pack()
+    buton_1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="BetterXP'ı kapat", command=programkapat)
+    buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="BetterXP'ı yeniden aç", command=bxpreopen)
+    buton_1.pack()
+    buton_2.pack()
 def firefoxsil():
     try:
         print("\nMozilla Firefox kaldırılıyor...")
@@ -641,7 +699,7 @@ def snapkur():
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()   
 def info():
-    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: MuKonqi (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0.2 (Kararlı Sürüm)")
+    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: MuKonqi (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0.3 (Kararlı Sürüm)")
     islemsecimbuton1.config(text="İletişim",command=contact)
     islemsecimbuton2.config(text="Yenilikler",command=yenilikler)
     islemsecimbuton3.config(text="Lisans",command=lisans)
@@ -679,7 +737,7 @@ def yenilikler():
         messagebox.showinfo("Bilgilendirme","Bu bir örnek bilgilendirme mesajı!")
     def hata():
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.\n\nNot: Bu bir örnek hata mesajı!\nBu bir örnek olduğu için program kapatılmayacak.")
-    yazi2.config(text="BetterXP 2.0 (Kararlı Sürüm) ile olan yenilikler:\nArayüzde köklü değişiklikler yapıldı:\nRenkler\nBilgi Mesajları\nHata Mesajları\nGitHub Repository düzeni değiştirildi.\nŞifre girme yeri değiştirildi ve artık BetterXP ile beraber terminal açılmıyor.\nBetterXP'ın sitesindeki 'Neler Yeni' kısmı aktif hale getirildi.\n'Bu bilgisayarı yeniden adlandır' işlevi geliştirildi.\n'BetterXP'ı Yapılandır' işlevi bazı sorunlardan dolayı kaldırıldı.\nBütün 'Terminali yapılandır' seçeneklerindeki 'Süper kullanıcı' ile 'Süper kullanıcı ile RAM kullanımı' özellikleri kaldırıldı.\n\nBetterXP 2.0.1 (Kararlı Sürüm) ile olan yenilikler:\n'BetterXP'ı yeniden aç' butonu eklendi.\n\nBetterXP 2.0.2 (Kararlı Sürüm) ile olan yenilikler:\nUfak iyileştirmeler yapıldı.\nKarşılama ekranı geliştirildi.")
+    yazi2.config(text="BetterXP 2.0 (Kararlı Sürüm) ile olan yenilikler:\nArayüzde köklü değişiklikler yapıldı:\nRenkler\nBilgi Mesajları\nHata Mesajları\nGitHub Repository düzeni değiştirildi.\nŞifre girme yeri değiştirildi ve artık BetterXP ile beraber terminal açılmıyor.\nBetterXP'ın sitesindeki 'Neler Yeni' kısmı aktif hale getirildi.\n'Bu bilgisayarı yeniden adlandır' işlevi geliştirildi.\n'BetterXP'ı Yapılandır' işlevi bazı sorunlardan dolayı kaldırıldı.\nBütün 'Terminali yapılandır' seçeneklerindeki 'Süper kullanıcı' ile 'Süper kullanıcı ile RAM kullanımı' özellikleri kaldırıldı.\n\nBetterXP 2.0.1, 2.0.2, 2.0.3 (Kararlı Sürüm) ile olan yenilikler:\n'BetterXP'ı yeniden aç' butonu eklendi.\nKarşılama ekranı geliştirildi.\nProgram kurma ile kaldırma özelliği geliştirildi.\nHata düzeltmeleri ve iyileştirmeler yapıldı.")
     islemsecimbuton1.config(text="BetterXP'ın yeni bilgi mesajını göster",command=bilgi)
     islemsecimbuton2.config(text="BetterXP'ın yeni hata mesajını göster",command=hata)
     islemsecimbuton3.destroy()
@@ -1018,14 +1076,14 @@ if os.path.isfile("/usr/local/bin/BetterXP/first_start_succesful"):
     dosya.add_command(label="Çıkış", command=programkapat)
     dosya.add_command(label="Yeniden aç", command=bxpreopen)
 
-    metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="junkyard 12 bold")
+    metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="junkyard 11 bold")
     metin1.config(text="Merhabalar!\nSon kullanıcı için tasarlanan BetterXP'ı tercih ettiğiniz için teşekkürler.\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almayacağımızı belirtiriz.\nİyi günler dileriz.")
     metin1.pack()
 
     yazi2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10")
     yazi2.pack()
 
-    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF")
+    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3")
 
     islemsecim()
 else:
@@ -1048,7 +1106,7 @@ else:
     pencere.config(background="#000000")
     pencere.resizable(0, 0) 
 
-    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF")
+    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3")
 
     metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="junkyard 12 bold")
     metin1.config(text="Merhabalar!\nSon kullanıcı için tasarlanan BetterXP'ı tercih ettiğiniz için teşekkürler.\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almayacağımızı belirtiriz.\nİyi günler dileriz.")
