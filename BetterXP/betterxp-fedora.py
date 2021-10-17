@@ -60,7 +60,7 @@ def dekurucu():
 def gnomekur():
     try:
         print("\nGNOME DE kurulumu başlatılıyor...")
-        os.system("sudo dnf install @gnome-desktop")
+        os.system("sudo dnf install @gnome-desktop -y")
         messagebox.showinfo("Bilgilendirme","GNOME DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -69,7 +69,7 @@ def gnomekur():
 def kdekur():
     try:
         print("\nKDE Plasma DE kurulumu başlatılıyor...")
-        os.system("sudo dnf install @kde-desktop")
+        os.system("sudo dnf install @kde-desktop -y")
         messagebox.showinfo("Bilgilendirme","KDE Plasma DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -78,7 +78,7 @@ def kdekur():
 def cinnamonkur():
     try:
         print("\nCinnamon DE kurulumu başlatılıyor...")
-        os.system("sudo dnf install @cinnamon-desktop")
+        os.system("sudo dnf install @cinnamon-desktop -y")
         messagebox.showinfo("Bilgilendirme","Cinnamon DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -96,7 +96,7 @@ def xfcekur():
 def matekur():
     try:
         print("\nMate DE kurulumu başlatılıyor...")
-        os.system("sudo dnf install @mate-desktop")
+        os.system("sudo dnf install @mate-desktop -y")
         messagebox.showinfo("Bilgilendirme","Mate DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -105,7 +105,7 @@ def matekur():
 def ddekur():
     try:
         print("\nDeepin DE kurulumu başlatılıyor...")
-        os.system("sudo dnf install @deepin-desktop")
+        os.system("sudo dnf install @deepin-desktop -y")
         messagebox.showinfo("Bilgilendirme","Deepin DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -114,7 +114,7 @@ def ddekur():
 def pantheonkur():
     try:
         print("\nPantheon DE kurulumu başlatılıyor...")
-        os.system("sudo dnf install @pantheon-desktop")
+        os.system("sudo dnf install @pantheon-desktop -y")
         messagebox.showinfo("Bilgilendirme","Pantheon DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -123,7 +123,7 @@ def pantheonkur():
 def lxdekur():
     try:
         print("\nLXDE kurulumu başlatılıyor...")
-        os.system("sudo dnf install @lxde-desktop")
+        os.system("sudo dnf install @lxde-desktop -y")
         messagebox.showinfo("Bilgilendirme","LXDE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -132,7 +132,7 @@ def lxdekur():
 def lxqtkur():
     try:
         print("\nLXQt DE kurulumu başlatılıyor...")
-        os.system("sudo dnf install @lxqt-desktop")
+        os.system("sudo dnf install @lxqt-desktop -y")
         messagebox.showinfo("Bilgilendirme","LXQt DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -154,7 +154,7 @@ def desilici():
 def gnomesil():
     try:
         print("\nGNOME DE kaldırılıyor...")
-        os.system("sudo dnf remove @gnome-desktop")
+        os.system("sudo dnf remove @gnome-desktop -y")
         messagebox.showinfo("Bilgilendirme","GNOME DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -163,7 +163,7 @@ def gnomesil():
 def kdesil():
     try:
         print("\nKDE Plasma DE kaldırılıyor...")
-        os.system("sudo dnf remove @kde-desktop")
+        os.system("sudo dnf remove @kde-desktop -y")
         messagebox.showinfo("Bilgilendirme","KDE Plasma DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -172,7 +172,7 @@ def kdesil():
 def cinnamonsil():
     try:
         print("\nCinnamon DE kaldırılıyor...")
-        os.system("sudo dnf remove @cinnamon-desktop")
+        os.system("sudo dnf remove @cinnamon-desktop -y")
         messagebox.showinfo("Bilgilendirme","Cinnamon DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -181,7 +181,7 @@ def cinnamonsil():
 def xfcesil():
     try:
         print("\nXfce DE kaldırılıyor...")
-        os.system("sudo dnf install @xfce-desktop")
+        os.system("sudo dnf install @xfce-desktop -y")
         messagebox.showinfo("Bilgilendirme","Xfce DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -190,7 +190,7 @@ def xfcesil():
 def matesil():
     try:
         print("\nMate DE kaldırılıyor...")
-        os.system("sudo dnf remove @mate-desktop")
+        os.system("sudo dnf remove @mate-desktop -y")
         messagebox.showinfo("Bilgilendirme","Mate DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -199,7 +199,7 @@ def matesil():
 def ddesil():
     try:
         print("\nDeepin DE kaldırılıyor...")
-        os.system("sudo dnf install @deepin-desktop")
+        os.system("sudo dnf install @deepin-desktop -y")
         messagebox.showinfo("Bilgilendirme","Deepin DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -208,7 +208,7 @@ def ddesil():
 def pantheonsil():
     try:
         print("\nPantheon DE kaldırılıyor...")
-        os.system("sudo dnf remove @pantheon-desktop")
+        os.system("sudo dnf remove @pantheon-desktop -y")
         messagebox.showinfo("Bilgilendirme","Pantheon DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -217,7 +217,7 @@ def pantheonsil():
 def lxdesil():
     try:
         print("\nLXDE kaldırılıyor...")
-        os.system("sudo dnf remove @lxde-desktop")
+        os.system("sudo dnf remove @lxde-desktop -y")
         messagebox.showinfo("Bilgilendirme","LXDE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
@@ -226,7 +226,7 @@ def lxdesil():
 def lxqtsil():
     try:
         print("\nLXQt DE kaldırılıyor...")
-        os.system("sudo dnf remove @lxqt-desktop")
+        os.system("sudo dnf remove @lxqt-desktop -y")
         messagebox.showinfo("Bilgilendirme","LXQt DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
         reboot()
     except:
