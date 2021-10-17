@@ -27,15 +27,15 @@ def programkapat():
     exit()
 def bxpreopen():
     if os.path.isfile("/etc/debian-version"):
-        print("\nBetterXP yeniden başlatılıyor...\n")
+        print("\nBetterXP yeniden başlatılıyor...")
         pencere.destroy()
         os.system("python3 /usr/local/bin/BetterXP/betterxp-debian.py")
     elif os.path.isfile("/etc/fedora-release"):
-        print("\nBetterXP yeniden başlatılıyor...\n")
+        print("\nBetterXP yeniden başlatılıyor...")
         pencere.destroy()
         os.system("python3 /usr/local/bin/BetterXP/betterxp-fedora.py")
     elif os.path.isfile("/etc/solus-release"):
-        print("\nBetterXP yeniden başlatılıyor...\n")
+        print("\nBetterXP yeniden başlatılıyor...")
         pencere.destroy()
         os.system("python3 /usr/local/bin/BetterXP/betterxp-solus.py")
     else:
@@ -302,14 +302,43 @@ def programkurucu():
     islemsecimbuton2.config(text="Chromium'u kur",command=chromiumkur)
     islemsecimbuton3.config(text="VLC oynatıcısını kur",command=vlckur)
     islemsecimbuton4.config(text="LibreOffice ofis programını kur",command=libreofficekur)
-    islemsecimbuton5.config(text="OBS Studio ekran kaydedicisini kur",command=obskur)
-    islemsecimbuton6.config(text="CUPS yazıcı yöneticisini kur",command=cupskur)
-    islemsecimbuton7.config(text="Plank'ı kur",command=plankkur)
-    islemsecimbuton8.config(text="GParted disk bölümü düzenleyicisini kur",command=gpartedkur)
-    islemsecimbuton9.config(text="GIMP görüntü işleme programını  kur",command=gimpkur)
-    islemsecimbuton10.config(text="Audacity'i kur",command=audacitykur)
-    islemsecimbuton11.config(text="Wine'ı kur",command=winekur)
-    islemsecimbuton12.config(text="PlayOnLinux'u kur",command=playonlinuxkur)
+    islemsecimbuton5.config(text="CUPS yazıcı yöneticisini kur",command=cupskur)
+    islemsecimbuton6.config(text="Plank'ı kur",command=plankkur)
+    islemsecimbuton7.config(text="GParted disk bölümü düzenleyicisini kur",command=gpartedkur)
+    islemsecimbuton8.config(text="GIMP görüntü işleme programını  kur",command=gimpkur)
+    islemsecimbuton9.config(text="Wine'ı kur",command=winekur)
+    islemsecimbuton10.config(text="PlayOnLinux'u kur",command=playonlinuxkur)
+    islemsecimbuton11.destroy()
+    islemsecimbuton12.destroy()
+    buton1.destroy()
+    buton2.destroy()
+    b_metin1.destroy()
+    def paketkur():
+        try:
+            c1_paketkur="sudo apt install "
+            get_paketadi=paketadi.get()
+            c2_paketkur=" -y"
+            cf_paketkur=c1_paketkur+get_paketadi+c2_paketkur
+            os.system(cf_paketkur)
+            messagebox.showinfo("Bilgilendirme","Eğer girdiğiniz paket adı hatalı değilse, işlem başarıyla tamamlandı!")
+        except:
+            messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+            programkapat()
+    b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
+    b_metin2.pack()
+    yazi3=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10")
+    yazi3.config(text="Aradığınız program/paket burada yok mu? Eğer böyleyse buraya lütfen kurmak istediğiniz paketi giriniz.")
+    yazi3.pack()
+    paketadi=Entry(pencere)
+    paketadi.pack()
+    b_1_paketkur=Button(pencere,  cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Kur",command=paketkur)
+    b_1_paketkur.pack()
+    b_metin3=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
+    b_metin3.pack()
+    buton_1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="BetterXP'ı kapat", command=programkapat)
+    buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="BetterXP'ı yeniden aç", command=bxpreopen)
+    buton_1.pack()
+    buton_2.pack()
 def libreofficekur():
     try:
         print("\nLibreOffice kurulumu başlatılıyor...")
@@ -346,14 +375,6 @@ def cupskur():
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat() 
-def obskur():
-    try:
-        print("\nOBS Studio kurulumu başlatılıyor...")
-        os.system("sudo apt install obs-studio -y")
-        messagebox.showinfo("Bilgilendirme","OBS Stuido ekran kaydedici başarıyla kuruldu.")
-    except:
-        messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-        programkapat()  
 def vlckur():
     try:
         print("\nVLC kurulumu başlatılıyor...")
@@ -395,25 +416,6 @@ def chromiumkur():
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()
-def audacitykur():
-    try:
-        print("\nAudacity kurulumu başlatılıyor...")
-        os.system("sudo apt install audacity -y")
-        messagebox.showinfo("Bilgilendirme","Audacity başarıyla kuruldu.")
-    except:
-        messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-        programkapat()
-def kodikur():
-    try:
-        print("\nKODI kurulumu başlatılıyor...")
-        os.system("sudo apt-get install software-properties-common -y")
-        os.system("sudo add-apt-repository ppa:team-xbmc/ppa -y")
-        os.system("sudo apt update -y")
-        os.system("sudo apt install kodi -y")
-        messagebox.showinfo("Bilgilendirme","KODI başarıyla kuruldu.")
-    except:
-        messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-        programkapat()
 def gpartedkur():
     try:
         print("\nGParted kurulumu başlatılıyor...")
@@ -428,14 +430,43 @@ def programsil():
     islemsecimbuton2.config(text="Chromium'u kaldır",command=chromiumsil)
     islemsecimbuton3.config(text="VLC oynatıcısını kaldır",command=vlcsil)
     islemsecimbuton4.config(text="LibreOffice ofis programını kaldır",command=libreofficesil)
-    islemsecimbuton5.config(text="OBS Studio ekran kaydedicisini kaldır",command=obssil)
-    islemsecimbuton6.config(text="CUPS yazıcı yöneticisini kaldır",command=cupssil)
-    islemsecimbuton7.config(text="Plank'ı kaldır",command=planksil)
-    islemsecimbuton8.config(text="GParted disk bölümü düzenleyicisini kaldır",command=gpartedsil)
-    islemsecimbuton9.config(text="GIMP görüntü işleme programını kaldır",command=gimpsil)
-    islemsecimbuton10.config(text="Audacity'i kaldır",command=audacitysil)
-    islemsecimbuton11.config(text="Wine'ı kaldır",command=winesil)
-    islemsecimbuton12.config(text="PlayOnLinux'u kaldır",command=playonlinuxsil)
+    islemsecimbuton5.config(text="CUPS yazıcı yöneticisini kaldır",command=cupssil)
+    islemsecimbuton6.config(text="Plank'ı kaldır",command=planksil)
+    islemsecimbuton7.config(text="GParted disk bölümü düzenleyicisini kaldır",command=gpartedsil)
+    islemsecimbuton8.config(text="GIMP görüntü işleme programını kaldır",command=gimpsil)
+    islemsecimbuton9.config(text="Wine'ı kaldır",command=winesil)
+    islemsecimbuton10.config(text="PlayOnLinux'u kaldır",command=playonlinuxsil)
+    islemsecimbuton11.destroy()
+    islemsecimbuton12.destroy()
+    buton1.destroy()
+    buton2.destroy()
+    b_metin1.destroy()
+    def paketsil():
+        try:
+            c1_paketsil="sudo apt purge "
+            get_paketadi=paketadi.get()
+            c2_paketsil="* -y"
+            cf_paketsil=c1_paketsil+get_paketadi+c2_paketsil
+            os.system(cf_paketsil)
+            messagebox.showinfo("Bilgilendirme","Eğer girdiğiniz paket adı hatalı değilse, işlem başarıyla tamamlandı!")
+        except:
+            messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+            programkapat()
+    b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
+    b_metin2.pack()
+    yazi3=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10")
+    yazi3.config(text="Aradığınız program/paket burada yok mu? Eğer böyleyse buraya lütfen kaldırmak istediğiniz paketi giriniz.")
+    yazi3.pack()
+    paketadi=Entry(pencere)
+    paketadi.pack()
+    b_1_paketsil=Button(pencere,  cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Kaldır",command=paketsil)
+    b_1_paketsil.pack()
+    b_metin3=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
+    b_metin3.pack()
+    buton_1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="BetterXP'ı kapat", command=programkapat)
+    buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="BetterXP'ı yeniden aç", command=bxpreopen)
+    buton_1.pack()
+    buton_2.pack()
 def libreofficesil():
     try:
         print("\nLibreOffice kaldırılıyor...")
@@ -465,14 +496,6 @@ def cupssil():
         print("\nCups kaldırılıyor...")
         os.system("sudo apt purge cups* -y")
         messagebox.showinfo("Bilgilendirme","Cups yazıcı yöneticisi başarıyla kaldırıldı.")
-    except:
-        messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-        programkapat() 
-def obssil():
-    try:
-        print("\nOBS Studio kaldırılıyor...")
-        os.system("sudo apt purge obs-studio* -y")
-        messagebox.showinfo("Bilgilendirme","OBS Stuido ekran kaydedici başarıyla kaldırıldı.")
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()  
@@ -513,14 +536,6 @@ def chromiumsil():
         print("\nChromium kaldırılıyor...")
         os.system("sudo apt purge chromium-browser* -y")
         messagebox.showinfo("Bilgilendirme","Chromium internet tarayıcısı başarıyla kaldırıldı.")
-    except:
-        messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-        programkapat()
-def audacitysil():
-    try:
-        print("\nAudacity kaldırılıyor...")
-        os.system("sudo apt purge audacity* -y")
-        messagebox.showinfo("Bilgilendirme","Audacity başarıyla kaldırıldı.")
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()
@@ -933,7 +948,7 @@ def kalitool():
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()    
 def info():
-    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: MuKonqi (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0.2 (Kararlı Sürüm)")
+    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: MuKonqi (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0.3 (Kararlı Sürüm)")
     islemsecimbuton1.config(text="İletişim",command=contact)
     islemsecimbuton2.config(text="Yenilikler",command=yenilikler)
     islemsecimbuton3.config(text="Lisans",command=lisans)
@@ -973,7 +988,7 @@ def yenilikler():
         messagebox.showinfo("Bilgilendirme","Bu bir örnek bilgilendirme mesajı!")
     def hata():
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.\n\nNot: Bu bir örnek hata mesajı!\nBu bir örnek olduğu için program kapatılmayacak.")
-    yazi2.config(text="BetterXP 2.0 (Kararlı Sürüm) ile olan yenilikler:\nArayüzde köklü değişiklikler yapıldı:\nRenkler\nBilgi Mesajları\nHata Mesajları\nGitHub Repository düzeni değiştirildi.\nŞifre girme yeri değiştirildi ve artık BetterXP ile beraber terminal açılmıyor.\nBetterXP'ın sitesindeki 'Neler Yeni' kısmı aktif hale getirildi.\n'Bu bilgisayarı yeniden adlandır' işlevi geliştirildi.\n'BetterXP'ı Yapılandır' işlevi bazı sorunlardan dolayı kaldırıldı.\nBütün 'Terminali yapılandır' seçeneklerindeki 'Süper kullanıcı' ile 'Süper kullanıcı ile RAM kullanımı' özellikleri kaldırıldı.\n\nBetterXP 2.0.1 (Kararlı Sürüm) ile olan yenilikler:\n'BetterXP'ı yeniden aç' butonu eklendi.\n\nBetterXP 2.0.2 (Kararlı Sürüm) ile olan yenilikler:\nUfak iyileştirmeler yapıldı.\nKarşılama ekranı geliştirildi.")
+    yazi2.config(text="BetterXP 2.0 (Kararlı Sürüm) ile olan yenilikler:\nArayüzde köklü değişiklikler yapıldı:\nRenkler\nBilgi Mesajları\nHata Mesajları\nGitHub Repository düzeni değiştirildi.\nŞifre girme yeri değiştirildi ve artık BetterXP ile beraber terminal açılmıyor.\nBetterXP'ın sitesindeki 'Neler Yeni' kısmı aktif hale getirildi.\n'Bu bilgisayarı yeniden adlandır' işlevi geliştirildi.\n'BetterXP'ı Yapılandır' işlevi bazı sorunlardan dolayı kaldırıldı.\nBütün 'Terminali yapılandır' seçeneklerindeki 'Süper kullanıcı' ile 'Süper kullanıcı ile RAM kullanımı' özellikleri kaldırıldı.\n\nBetterXP 2.0.1, 2.0.2, 2.0.3 (Kararlı Sürüm) ile olan yenilikler:\n'BetterXP'ı yeniden aç' butonu eklendi.\nKarşılama ekranı geliştirildi.\nProgram kurma ile kaldırma özelliği geliştirildi.\nHata düzeltmeleri ve iyileştirmeler yapıldı.")
     islemsecimbuton1.config(text="BetterXP'ın yeni bilgi mesajını göster",command=bilgi)
     islemsecimbuton2.config(text="BetterXP'ın yeni hata mesajını göster",command=hata)
     islemsecimbuton3.destroy()
@@ -1328,14 +1343,14 @@ if os.path.isfile("/usr/local/bin/BetterXP/first_start_succesful"):
     dosya.add_command(label="Çıkış", command=programkapat)
     dosya.add_command(label="Yeniden aç", command=bxpreopen)
 
-    metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="junkyard 12 bold")
+    metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="junkyard 11 bold")
     metin1.config(text="Merhabalar!\nSon kullanıcı için tasarlanan BetterXP'ı tercih ettiğiniz için teşekkürler.\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almayacağımızı belirtiriz.\nİyi günler dileriz.")
     metin1.pack()
 
     yazi2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10")
     yazi2.pack()
 
-    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF")
+    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3")
 
     islemsecim()
 else:
@@ -1358,7 +1373,7 @@ else:
     pencere.config(background="#000000")
     pencere.resizable(0, 0) 
 
-    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF")
+    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3")
 
     metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="junkyard 12 bold")
     metin1.config(text="Merhabalar!\nSon kullanıcı için tasarlanan BetterXP'ı tercih ettiğiniz için teşekkürler.\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almayacağımızı belirtiriz.\nİyi günler dileriz.")
