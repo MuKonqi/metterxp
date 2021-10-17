@@ -26,9 +26,24 @@ def programkapat():
     print("\nBetterXP kapatılıyor...")
     exit()
 def bxpreopen():
-    print("\nBetterXP yeniden başlatılıyor...")
-    pencere.destroy()
-    os.system("/usr/bin/betterxp")
+    if os.path.isfile("/etc/debian-version"):
+        print("\nBetterXP yeniden başlatılıyor...\n")
+        pencere.destroy()
+        os.system("python3 /usr/local/bin/BetterXP/betterxp-debian.py")
+    elif os.path.isfile("/etc/fedora-release"):
+        print("\nBetterXP yeniden başlatılıyor...\n")
+        pencere.destroy()
+        os.system("python3 /usr/local/bin/BetterXP/betterxp-fedora.py")
+    elif os.path.isfile("/etc/solus-release"):
+        print("\nBetterXP yeniden başlatılıyor...\n")
+        pencere.destroy()
+        os.system("python3 /usr/local/bin/BetterXP/betterxp-solus.py")
+    else:
+        if os.name == "nt":
+            messagebox.showerror("Bilgilendirme","BetterXP, NT çekirdeğini kullanan işletim sistemlerinde (Windows, ReactOS) çalışmaz.\nLütfen 'OK' tuşuna basıp programı kapatın.")
+            programkapat()
+        messagebox.showerror("Bilgilendirme","Kullandığınız dağıtımı BetterXP desteklemiyor.\nLütfen 'OK' tuşuna basıp programı kapatın.")
+        programkapat()
 def dewmkurucu():
     yazi2.config(text="Lütfen kurmak istediğiniz masaüstü ortamını/pencere yöneticisini seçiniz.")
     islemsecimbuton1.config(text="KDE Plasma DE'i kur",command=kdekur)
@@ -918,7 +933,7 @@ def kalitool():
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()    
 def info():
-    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: MuKonqi (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0.1 (Kararlı Sürüm)")
+    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: MuKonqi (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0.2 (Kararlı Sürüm)")
     islemsecimbuton1.config(text="İletişim",command=contact)
     islemsecimbuton2.config(text="Yenilikler",command=yenilikler)
     islemsecimbuton3.config(text="Lisans",command=lisans)
@@ -958,7 +973,7 @@ def yenilikler():
         messagebox.showinfo("Bilgilendirme","Bu bir örnek bilgilendirme mesajı!")
     def hata():
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.\n\nNot: Bu bir örnek hata mesajı!\nBu bir örnek olduğu için program kapatılmayacak.")
-    yazi2.config(text="\nİlk önce BetterXP'ı tercih ettiğiniz için size teşekkür ederiz.\n\n\nBetterXP 2.0 (Kararlı Sürüm) ile olan yenilikler:\nArayüzde köklü değişiklikler yapıldı:\nRenkler\nBilgi Mesajları\nHata Mesajları\nGitHub Repository düzeni değiştirildi.\nŞifre girme yeri değiştirildi ve artık BetterXP ile beraber terminal açılmıyor.\nBetterXP'ın sitesindeki 'Neler Yeni' kısmı aktif hale getirildi.\n'Bu bilgisayarı yeniden adlandır' işlevi geliştirildi.\n'BetterXP'ı Yapılandır' işlevi bazı sorunlardan dolayı kaldırıldı.\nBütün 'Terminali yapılandır' seçeneklerindeki 'Süper kullanıcı' ile 'Süper kullanıcı ile RAM kullanımı' özellikleri kaldırıldı.\n\nBetterXP 2.0.1 (Kararlı Sürüm) ile olan yenilikler:\n'BetterXP'ı yeniden aç' butonu eklendi.")
+    yazi2.config(text="BetterXP 2.0 (Kararlı Sürüm) ile olan yenilikler:\nArayüzde köklü değişiklikler yapıldı:\nRenkler\nBilgi Mesajları\nHata Mesajları\nGitHub Repository düzeni değiştirildi.\nŞifre girme yeri değiştirildi ve artık BetterXP ile beraber terminal açılmıyor.\nBetterXP'ın sitesindeki 'Neler Yeni' kısmı aktif hale getirildi.\n'Bu bilgisayarı yeniden adlandır' işlevi geliştirildi.\n'BetterXP'ı Yapılandır' işlevi bazı sorunlardan dolayı kaldırıldı.\nBütün 'Terminali yapılandır' seçeneklerindeki 'Süper kullanıcı' ile 'Süper kullanıcı ile RAM kullanımı' özellikleri kaldırıldı.\n\nBetterXP 2.0.1 (Kararlı Sürüm) ile olan yenilikler:\n'BetterXP'ı yeniden aç' butonu eklendi.\n\nBetterXP 2.0.2 (Kararlı Sürüm) ile olan yenilikler:\nUfak iyileştirmeler yapıldı.\nKarşılama ekranı geliştirildi.")
     islemsecimbuton1.config(text="BetterXP'ın yeni bilgi mesajını göster",command=bilgi)
     islemsecimbuton2.config(text="BetterXP'ın yeni hata mesajını göster",command=hata)
     islemsecimbuton3.destroy()
@@ -1228,8 +1243,6 @@ def temizle():
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()
 def islemsecim():
-    metin2.destroy() 
-    devam_buton.destroy()
     yazi2.config(text="Lütfen yapmak istediğiniz işlemi aşağıdaki listeden seçiniz.")
     global islemsecimbuton1
     global islemsecimbuton2
@@ -1302,33 +1315,64 @@ rm="rm -rf "
 bashdel=rm+bash
 bashcp="cp .bashrc "+mydir
 
-pencere=Tk()
-pencere.title("BetterXP")
-pencere.config(background="#000000")
-pencere.resizable(0, 0)
+if os.path.isfile("/usr/local/bin/BetterXP/first_start_succesful"):
+    pencere=Tk()
+    pencere.title("BetterXP")
+    pencere.config(background="#000000")
+    pencere.resizable(0, 0) 
 
-menu1=Menu(pencere)
-pencere.config(menu=menu1)
-dosya=Menu(menu1, tearoff=0)
-menu1.add_cascade(label="Dosya",menu=dosya)
-dosya.add_command(label="Çıkış", command=programkapat)
-dosya.add_command(label="Yeniden aç", command=bxpreopen)
+    menu1=Menu(pencere)
+    pencere.config(menu=menu1)
+    dosya=Menu(menu1, tearoff=0)
+    menu1.add_cascade(label="Dosya",menu=dosya)
+    dosya.add_command(label="Çıkış", command=programkapat)
+    dosya.add_command(label="Yeniden aç", command=bxpreopen)
 
-metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="junkyard 12 bold")
-metin1.config(text="Merhabalar!\nBetterXP'ı tercih ettiğiniz için teşekkürler.\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almayacağımızı belirtiriz.\nİyi günler dileriz.")
-metin1.pack()
+    metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="junkyard 12 bold")
+    metin1.config(text="Merhabalar!\nSon kullanıcı için tasarlanan BetterXP'ı tercih ettiğiniz için teşekkürler.\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almayacağımızı belirtiriz.\nİyi günler dileriz.")
+    metin1.pack()
 
-metin2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 11 bold")
-metin2.config(text="Son kullanıcıya daha iyi bir deneyim sağlamak için tasarlanan BetterXP'a hoş geldiniz!\nLütfen programı kullanmak için devam ediniz.")
-metin2.pack()
+    yazi2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10")
+    yazi2.pack()
 
-devam_buton=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="5")
-devam_buton.config(font="arial 10 bold", text="Devam et!",command=islemsecim)
-devam_buton.pack()
+    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF")
 
-yazi2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10")
-yazi2.pack() 
+    islemsecim()
+else:
+    def exitfirststart():
+        os.system("cd /usr/local/bin/BetterXP ; sudo touch first_start_succesful")
+        pencere.title("BetterXP")
+        metin2.destroy()
+        w_buton.destroy()
+        menu1=Menu(pencere)
+        pencere.config(menu=menu1)
+        dosya=Menu(menu1, tearoff=0)
+        menu1.add_cascade(label="Dosya",menu=dosya)
+        dosya.add_command(label="Çıkış", command=programkapat)
+        dosya.add_command(label="Yeniden aç", command=bxpreopen)
+        metin1.config(text="Merhabalar!\nSon kullanıcı için tasarlanan BetterXP'ı tercih ettiğiniz için teşekkürler.\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almayacağımızı belirtiriz.\nİyi günler dileriz.")
+        islemsecim()
 
-b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF")
+    pencere=Tk()
+    pencere.title("BetterXP'a Hoş Geldiniz")
+    pencere.config(background="#000000")
+    pencere.resizable(0, 0) 
+
+    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF")
+
+    metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="junkyard 12 bold")
+    metin1.config(text="Merhabalar!\nSon kullanıcı için tasarlanan BetterXP'ı tercih ettiğiniz için teşekkürler.\nBaşınıza gelebilecek herhangi bir durumda sorumluluk almayacağımızı belirtiriz.\nİyi günler dileriz.")
+    metin1.pack()
+
+    metin2=Label(pencere, background="#000000", foreground="#FF0000", font="arial 11 bold")
+    metin2.config(text="Görünüşe göre BetterXP'ı ilk defa çalıştırıyorsunuz.\nO zaman size BetterXP'ın sahip olduğu özelliklerin bazılarını anlatalım.\nİşte BetterXP'ın sahip olduğu özelliklerin bazıları:\nÖzgür ve açık kaynaklı\nProgram kurma/kaldırma özelliği\nMasaüstü ortamı kurma/kaldırma özelliği\nSistemi güncelleme özelliği\nÇeşitli yapılandırma özellikleri (GRUB, Terminal, Plank, Wine...)\nPaket yöneticisi kurma özelliği")
+    metin2.pack()
+
+    w_buton=Button(pencere, cursor="hand2", activebackground="#00FFFF", activeforeground="#000000", foreground="#000000", background="#FFFFFF", borderwidth="5")
+    w_buton.config(font="arial 10 bold", text="Hadi, BetterXP'ı kullanmaya başlayalım!",command=exitfirststart)
+    w_buton.pack()
+
+    yazi2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10")
+    yazi2.pack()
 
 mainloop()
