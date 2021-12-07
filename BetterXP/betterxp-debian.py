@@ -26,18 +26,10 @@ def programkapat():
     print("\nBetterXP kapatılıyor...")
     exit()
 def bxpreopen():
-    if os.path.isfile("/etc/debian-version"):
+    if os.path.isfile("/etc/debian_version"):
         print("\nBetterXP yeniden başlatılıyor...")
         pencere.destroy()
         os.system("python3 /usr/local/bin/BetterXP/betterxp-debian.py")
-    elif os.path.isfile("/etc/fedora-release"):
-        print("\nBetterXP yeniden başlatılıyor...")
-        pencere.destroy()
-        os.system("python3 /usr/local/bin/BetterXP/betterxp-fedora.py")
-    elif os.path.isfile("/etc/solus-release"):
-        print("\nBetterXP yeniden başlatılıyor...")
-        pencere.destroy()
-        os.system("python3 /usr/local/bin/BetterXP/betterxp-solus.py")
     else:
         if os.name == "nt":
             messagebox.showerror("Bilgilendirme","BetterXP, NT çekirdeğini kullanan işletim sistemlerinde (Windows, ReactOS) çalışmaz.\nLütfen 'OK' tuşuna basıp programı kapatın.")
@@ -948,7 +940,7 @@ def kalitool():
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
         programkapat()    
 def info():
-    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: MuKonqi (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0.3 (Kararlı Sürüm)")
+    yazi2.config(text="BetterXP, son kullanıcı için tasarlanmış, özgür bir yazılım ürünüdür.\nBetterXP, GNU General Public License, Version 3.0 (GPL 3) altında lisanslanmıştır.\nYapımcı: MuKonqi (Muhammed Abdurrahman)\nTemel: Terminalden kurtulun 2.0 (Kararlı Sürüm)\nSürüm: 2.0.3-2 (Kararlı Sürüm)")
     islemsecimbuton1.config(text="İletişim",command=contact)
     islemsecimbuton2.config(text="Yenilikler",command=yenilikler)
     islemsecimbuton3.config(text="Lisans",command=lisans)
