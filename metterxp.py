@@ -56,9 +56,9 @@ def main_gui():
         messagebox.showinfo("Bilgilendirme","Sistem güncellemesi varsa başarıyla tamamlandı.")
     def yapilandir():
         print("\nYazılımları yapılandır modülü açılıyor...")
-        os.system("pkexec python3 /usr/local/bin/metterxp/yapilandir.py")
+        os.system("pkexec python3 /usr/local/bin/metterxp/modules/yapilandir.py")
     def fmkok():
-        print("\nDosya yöneticilerini kök haklarıyla açma modülğ açılıyor...")
+        print("\nDosya yöneticilerini kök haklarıyla açma modülü açılıyor...")
         os.system("pkexec python3 /usr/local/bin/metterxp/modules/fmkok.py")
     def distro():
         print("\nBazı GNU/Linux dağıtımları hakkında modülü açılıyor...")
