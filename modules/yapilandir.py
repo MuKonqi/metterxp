@@ -35,12 +35,8 @@ def bash():
         pencere2.config(background="#000000")
         pencere2.resizable(0, 0)
         def main():
-            if os.path.isfile("/usr/local/bin/metterxp/myusername.txt"):
-                myusername=open('/usr/local/bin/metterxp/myusername.txt')
-                str_my_user_name=myusername.read()
-            else:
-                get_my_user_name=my_user_name.get()
-                str_my_user_name=str(get_my_user_name)
+            get_my_user_name=my_user_name.get()
+            str_my_user_name=str(get_my_user_name)
             if os.path.isfile("/usr/local/bin/metterxp/.bashrc.bak"):
                 pass
             else:
@@ -48,7 +44,6 @@ def bash():
                 os.system(cmd2)                
             my_user_name.destroy()
             b_1_bash.destroy()
-            b_2_bash.destroy()
             b_metin3.destroy()
             buton_1.destroy()
             yazi2.config(text=".bashrc dosyasında nasıl yapılandırmalar yapmak istersiniz?\nNot: Yapılandırma seçeneklerinde, seçeneklere tıklanma sırası önemlidir.\nGeçerli kullanıcı adınız: "+str_my_user_name)
@@ -166,33 +161,6 @@ def bash():
                 bashbuton1.pack()
                 bashbuton2=Button(pencere3, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text=".bashrc dosyasındaki tüm değişiklikleri geri al", command=ilkhalbash)
                 bashbuton2.pack()
-                if os.path.isfile("/usr/local/bin/metterxp/myusername.txt"):
-                    def sifirlamyusername():
-                        def kaydetusername():
-                            get_my_user_name1=my_user_name1.get()
-                            add_my_user_name1=open('/usr/local/bin/metterxp/myusername.txt', "w")
-                            add_my_user_name1.write(get_my_user_name1)
-                            add_my_user_name1.close()
-                            messagebox.showinfo("Bilgilendirme","Kullanıcı adınız başarıyla kaydedildi, uygulanmak için pencere 'OK' tuşuna bastığınızda kapatılacak.")
-                            pen_kapat()
-                        pencere4=Tk()
-                        pencere4.title("Geçerli kullanıcı adımı değiştir | MetterXP")
-                        pencere4.config(background="#000000")
-                        pencere4.resizable(0, 0)
-                        yazi4=Label(pencere4, background="#000000", foreground="#FFFFFF", font="arial 10 bold", text="Geçerli olmasını istediğiniz yeni kullanıcı adını giriniz.")
-                        yazi4.pack()
-                        bashb_metin5=Label(pencere4, background="#000000", foreground="#FFFFFF", font="arial 2", text="\n")
-                        bashb_metin5.pack()
-                        my_user_name1=Entry(pencere4)
-                        my_user_name1.pack()
-                        b_3_bash=Button(pencere4, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Onayla ve kaydet ",command=kaydetusername)
-                        b_3_bash.pack()
-                        bashb_metin5=Label(pencere4, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
-                        bashb_metin5.pack()
-                        bashbuton_2=Button(pencere4, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Pencereyi kapat\nMenüye dön", command=penkapat)
-                        bashbuton_2.pack()
-                    bashbuton3=Button(pencere3, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Geçerli kullanıcı adımı değiştir", command=sifirlamyusername)
-                    bashbuton3.pack()
                 bashb_metin4=Label(pencere3, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
                 bashb_metin4.pack()
                 bashbuton_2=Button(pencere3, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Pencereyi kapat\nMenüye dön", command=pen_kapat)
@@ -205,27 +173,15 @@ def bash():
             bashb_metin2.pack()
             bashbuton_1=Button(pencere2, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Pencereyi kapat\nMenüye dön", command=penkapat)
             bashbuton_1.pack()
-        def kaydetusername():
-            os.system("cd /usr/local/bin/metterxp/ ; sudo touch myusername.txt")
-            get_my_user_name=my_user_name.get()
-            add_my_user_name=open('/usr/local/bin/metterxp/myusername.txt', "w")
-            add_my_user_name.write(get_my_user_name)
-            add_my_user_name.close()
-            messagebox.showinfo("Bilgilendirme","Kullanıcı adınız başarıyla kaydedildi.")
-            main()
-        if os.path.isfile("/usr/local/bin/metterxp/myusername.txt"):
-            main()
-        else:
-            yazi2=Label(pencere2, background="#000000", foreground="#FFFFFF", font="arial 10 bold", text="Aşağıya kullanıcı adınızı giriniz.")            
+
+        yazi2=Label(pencere2, background="#000000", foreground="#FFFFFF", font="arial 10 bold", text="Aşağıya kullanıcı adınızı giriniz (bu bilgi kesinlikle kaydedilmeyecektir).")            
         yazi2.pack()
         b_metin2=Label(pencere2, background="#000000", foreground="#FFFFFF", font="arial 2", text="\n")
         b_metin2.pack()
         my_user_name=Entry(pencere2)
         my_user_name.pack()
-        b_1_bash=Button(pencere2,  cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Sadece onayla",command=main)
+        b_1_bash=Button(pencere2,  cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Onayla",command=main)
         b_1_bash.pack()
-        b_2_bash=Button(pencere2,  cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Onayla ve kaydet ",command=kaydetusername)
-        b_2_bash.pack()
         b_metin3=Label(pencere2, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
         b_metin3.pack()
         buton_1=Button(pencere2, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Pencereyi kapat\nMenüye dön", command=penkapat)
