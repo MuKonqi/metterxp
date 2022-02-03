@@ -66,10 +66,10 @@ def main_gui():
             messagebox.showinfo("Bilgilendirme","Önbellek ve gereksiz paketler başarıyla temizlendi.")            
     def mxphakkinda():
         print("\nMetterXP hakkında modülü açılıyor...")
-        os.system("python3 /usr/local/bin/metterxp/hakkinda.py")
+        os.system("python3 /usr/local/bin/metterxp/modules/hakkinda.py")
     def mxpguncelle():
         print("\nMetterXP'ı güncelle modülü açılıyor...")
-        os.system("python3 /usr/local/bin/metterxp/yukselt.py")
+        os.system("python3 /usr/local/bin/metterxp//modules/yukselt.py")
     def islemsecim():
         yazi1.config(text="Lütfen yapmak istediğiniz işlemi aşağıdaki listeden seçiniz.")
         b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
@@ -116,50 +116,6 @@ def main_gui():
         b_metin3.pack()
         mxpkapat_buton=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="MetterXP'ı kapat",command=mxpkapat)
         mxpkapat_buton.pack()
-        
-    if os.path.isfile("/usr/local/bin/metterxp/firststartsuccesful"):
-        pencere=Tk()
-        pencere.title("MetterXP")
-        pencere.config(background="#000000")
-        pencere.resizable(0, 0)
-        
-        menu1=Menu(pencere)
-        pencere.config(menu=menu1)
-        dosya=Menu(menu1, tearoff=0)
-        menu1.add_cascade(label="Dosya",menu=dosya)
-        dosya.add_command(label="Çıkış", command=mxpkapat)
-        
-        yazi1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10 bold")
-        yazi1.pack()
-        
-        islemsecim()
-    else:
-        def exitfirststart():
-            # os.system("cd /usr/local/bin/metterxp ; sudo touch firststartsuccesful")
-            pencere.title("MetterXP")
-            metin1.destroy()
-            h_buton.destroy()
-            menu1=Menu(pencere)
-            pencere.config(menu=menu1)
-            dosya=Menu(menu1, tearoff=0)
-            menu1.add_cascade(label="Dosya",menu=dosya)
-            dosya.add_command(label="Çıkış", command=mxpkapat)
-            islemsecim()
-        
-        pencere=Tk()
-        pencere.title("MetterXP'a hoşgeldiniz! | MetterXP")
-        pencere.config(background="#000000")
-        pencere.resizable(0, 0) 
-        
-        metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 12 bold italic", text="\nİlk defa MetterXP programını açtığınız tespit edildi.\n\n\nMetterXP araç kutusunda bulunan bazı özellikler:\nProgram kurma/yeniden kurma/kaldırma\nProgram/paket arama\nMasaüstü ortamı/pencere yöneticisi kurma/yeniden kurma/kaldımar\nPaket yöneticisi kurma/yeniden kurma\nSistemi güncelleme\nÇeşitli yapılandırmalar (.bashrc, GRUB, Cups, Plank, Wine ve bilgisayar adı)\nVe dahası...\n\nBilinen hatalar: Program kur/yeniden/kur/kaldır ile program arama özelliklerindeki çıktılarda bulunan anlamsız semboller\n\n\nMetterXP, yürüteceği herhangi bir işlem için garanti vermemektedir (bakınız GPLv3).\n")
-        metin1.pack()
-        
-        yazi1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10 bold")
-        yazi1.pack()
-        
-        h_buton=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="5")
-        h_buton.config(font="arial 11", text="Ana Menü",command=exitfirststart)
-        h_buton.pack()
     
     mainloop()
 
