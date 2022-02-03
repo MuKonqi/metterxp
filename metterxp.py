@@ -69,7 +69,7 @@ def main_gui():
         os.system("python3 /usr/local/bin/metterxp/modules/hakkinda.py")
     def mxpguncelle():
         print("\nMetterXP'ı güncelle modülü açılıyor...")
-        os.system("python3 /usr/local/bin/metterxp//modules/yukselt.py")
+        os.system("pkexec python3 /usr/local/bin/metterxp//modules/yukselt.py")
     def islemsecim():
         yazi1.config(text="Lütfen yapmak istediğiniz işlemi aşağıdaki listeden seçiniz.")
         b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
@@ -121,12 +121,6 @@ def main_gui():
 
 
 def main_cli():
-    if os.path.isfile("/usr/local/bin/MetterXP/firststartsuccesful"):
-        print("MetterXP'a hoş geldiniz!")
-    else:
-        print("\nUyarı: Görünüşe göre daha önce MetterXP'ı hiç açmamışsınız. Bu yüzden MetterXP, varsayılan grafik arayüz modunda başlatılıyor...")
-        main_gui()
-        exit()
     if "yardım" in args or "-y" in args or "-h" in args:
         print("\nMetterXP, program kur/yeniden kur/kaldır, masaüstü ortamı/pencere yöneticisi kur/yeniden kur/kaldır, sistem güncelleme, çeşitli yapılandırma özelliklerine (GRUB, Terminal, Plank, WINE...), paket yöneticisi kurma vs. özelliklere sahip olan bir araç kutusudur.")
         print("İşte bütün kullanımlar:")
