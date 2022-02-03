@@ -26,5 +26,6 @@ os.system("cd /usr/local/bin/metterxp ; sudo git clone https://github.com/MuKonq
 os.system("sudo mv /usr/local/bin/metterxp/metterxp/metterxp.py /usr/bin/metterxp")
 os.system("sudo mv /usr/local/bin/metterxp/metterxp/python3.policy /usr/share/polkit-1/actions")
 os.system("sudo mv /usr/local/bin/metterxp/metterxp/metterxp.desktop /usr/share/applications")
-os.system("cd /usr/local/bin/metterxp ; mkdir modules ; sudo mv /usr/local/bin/metterxp/modules/* /usr/local/bin/metterxp ; sudo /usr/local/bin/metterxp/metterxp/icon.png /usr/local/bin/metterxp ; sudo /usr/local/bin/metterxp/metterxp/LICENSE /usr/local/bin/metterxp")
+os.system("sudo mkdir /usr/local/bin/metterxp/modules ; sudo mv /usr/local/bin/metterxp/metterxp/modules/* /usr/local/bin/metterxp/modules ; sudo mv /usr/local/bin/metterxp/metterxp/icon.png /usr/local/bin/metterxp ; sudo mv /usr/local/bin/metterxp/metterxp/LICENSE /usr/local/bin/metterxp")
+os.system("cd /usr/local/bin/metterxp ; sudo rm -rf metterxp")
 exit()
