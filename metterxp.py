@@ -26,6 +26,17 @@ solus="/etc/solus-release"
 args=sys.argv[1:]
 
 def main_gui():
+    pencere=Tk()
+    pencere.title("MetterXP")
+    pencere.config(background="#000000")
+    pencere.resizable(0, 0)
+
+    menu1=Menu(pencere)
+    pencere.config(menu=menu1)
+    dosya=Menu(menu1, tearoff=0)
+    menu1.add_cascade(label="Dosya",menu=dosya)
+    dosya.add_command(label="Çıkış", command=mxpkapat)
+
     def mxpkapat():
         print("\nMetterXP kapatılıyor...")
         exit()
@@ -116,7 +127,7 @@ def main_gui():
         b_metin3.pack()
         mxpkapat_buton=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="MetterXP'ı kapat",command=mxpkapat)
         mxpkapat_buton.pack()
-    
+        
     mainloop()
 
 
