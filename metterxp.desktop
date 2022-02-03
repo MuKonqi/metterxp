@@ -1,0 +1,12 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.x
+Name=MetterXP
+Encoding=UTF-8
+Comment=Maksimum ve daha iyi deneyim için tasarlandı.
+Path=/usr/local/bin/metterxp
+Exec=metterxp
+Icon=/usr/local/bin/BetterXP/icon.png
+Terminal=false
+Type=Application
+Categories=System;
