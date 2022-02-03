@@ -26,6 +26,10 @@ solus="/etc/solus-release"
 args=sys.argv[1:]
 
 def main_gui():
+    def mxpkapat():
+        print("\nMetterXP kapatılıyor...")
+        exit()
+        
     pencere=Tk()
     pencere.title("MetterXP")
     pencere.config(background="#000000")
@@ -36,10 +40,6 @@ def main_gui():
     dosya=Menu(menu1, tearoff=0)
     menu1.add_cascade(label="Dosya",menu=dosya)
     dosya.add_command(label="Çıkış", command=mxpkapat)
-
-    def mxpkapat():
-        print("\nMetterXP kapatılıyor...")
-        exit()
         
     def prkurkaldır():
         print("\nProgram kur/yeniden kur/kaldır modülü açılıyor...")
