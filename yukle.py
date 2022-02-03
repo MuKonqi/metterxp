@@ -31,8 +31,9 @@ def main():
     os.system("sudo mv python3.policy /usr/share/polkit-1/actions")
     os.system("chmod +x metterxp.py && sudo mv metterxp.py /usr/bin/metterxp")
     if os.path.isfile(solus):
-        os.system("cd /usr ; mkdir local ; cd local ; mkdir bin")
-    os.system("sudo cd /usr/local/bin ; mkdir metterxp ; cd metterxp ; mkdir modules")
+        os.system("cd /usr ; sudo mkdir local ; cd local ; sudo mkdir bin")
+    os.system("sudo mkdir /usr/local/bin/metterxp")
+    os.system("sudo mkdir /usr/local/bin/metterxp/modules")
     os.system("sudo mv modules/* /usr/local/bin/metterxp/modules")
     os.system("sudo mv icon.png /usr/local/bin/metterxp")
     os.system("sudo mv LICENSE /usr/local/bin/metterxp")     
