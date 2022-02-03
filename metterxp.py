@@ -80,60 +80,59 @@ def main_gui():
         os.system("python3 /usr/local/bin/metterxp/modules/hakkinda.py")
     def mxpguncelle():
         print("\nMetterXP'ı güncelle modülü açılıyor...")
-        os.system("pkexec python3 /usr/local/bin/metterxp//modules/yukselt.py")
-    def islemsecim():
-        yazi1.config(text="Lütfen yapmak istediğiniz işlemi aşağıdaki listeden seçiniz.")
-        b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
-        b_metin1.pack()
-        islemsecimbuton1=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Program kur/yeniden kur/kaldır", command=prkurkaldır)
-        islemsecimbuton1.pack()
-        islemsecimbuton2=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Program/paket arama", command=prara)
-        islemsecimbuton2.pack()
-        islemsecimbuton3=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Masaüstü ortamı/pencere yöneticisi\nkur/yeniden kur/kaldır",command=dewmkurkaldır)
-        islemsecimbuton3.pack()
-        islemsecimbuton4=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Sistemi güncelle",command=sistemiguncelle)
-        islemsecimbuton4.pack()
-        islemsecimbuton5=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Yazılımları yapılandır",command=yapilandir)
-        islemsecimbuton5.pack()
-        islemsecimbuton6=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Bazı dosya yöneticilerini kök haklarıyla aç",command=fmkok)
-        islemsecimbuton6.pack()
-        islemsecimbuton7=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Bazı GNU/Linux dağıtımları hakkında",command=distro)
-        islemsecimbuton7.pack()
-        islemsecimbuton8=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Paket yöneticisi kur/yeniden kur",command=pmkur)
-        islemsecimbuton8.pack()
-        if os.path.isfile(solus):
-            islemsecimbuton9=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Önbelleği temizle",command=onbellekpkttemizle)
-        else:
-            islemsecimbuton9=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Önbelleği ve gereksiz paketleri temizle",command=onbellekpkttemizle)
+        os.system("pkexec python3 /usr/local/bin/metterxp/modules/yukselt.py")
+        messagebox.showinfo("Bilgilendirme","MetterXP başarıyla güncellendi! 'OK' tuşuna bastığınızda program kapatılacak.")
+        mxpkapat()
+
+    yazi1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10 bold", text="Lütfen yapmak istediğiniz işlemi aşağıdaki listeden seçiniz.")
+    yazi1.pack()
+    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
+    b_metin1.pack()
+    islemsecimbuton1=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Program kur/yeniden kur/kaldır", command=prkurkaldır)
+    islemsecimbuton1.pack()
+    islemsecimbuton2=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Program/paket arama", command=prara)
+    islemsecimbuton2.pack()
+    islemsecimbuton3=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Masaüstü ortamı/pencere yöneticisi\nkur/yeniden kur/kaldır",command=dewmkurkaldır)
+    islemsecimbuton3.pack()
+    islemsecimbuton4=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Sistemi güncelle",command=sistemiguncelle)
+    islemsecimbuton4.pack()
+    islemsecimbuton5=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Yazılımları yapılandır",command=yapilandir)
+    islemsecimbuton5.pack()
+    islemsecimbuton6=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Bazı dosya yöneticilerini kök haklarıyla aç",command=fmkok)
+    islemsecimbuton6.pack()
+    islemsecimbuton7=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Bazı GNU/Linux dağıtımları hakkında",command=distro)
+    islemsecimbuton7.pack()
+    islemsecimbuton8=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Paket yöneticisi kur/yeniden kur",command=pmkur)
+    islemsecimbuton8.pack()
+    if os.path.isfile(solus):
+        islemsecimbuton9=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Önbelleği temizle",command=onbellekpkttemizle)
+    else:
+        islemsecimbuton9=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Önbelleği ve gereksiz paketleri temizle",command=onbellekpkttemizle)
         islemsecimbuton9.pack()
-        if os.path.isfile(debian):
-            def kaliarackur():
-                pass
-            def hatacoz():
-                print("\nProgram/paket hatalarını çöz modülü açılıyor...")
-                os.system("pkexec python3 /usr/local/bin/metterxp/modules/hatacoz.py")
-                messagebox.showinfo("Bilgilendirme","Program/paket hataları çözüldü.")
-            islemsecimbuton10=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Kali Linux araçlarını kur",command=kaliarackur)
-            islemsecimbuton10.pack()
-            islemsecimbuton11=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Program/paket hatalarını çöz",command=hatacoz)
-            islemsecimbuton11.pack()            
-        b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
-        b_metin2.pack()
-        mxp_hakkinda=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="MetterXP hakkında",command=mxphakkinda)
-        mxp_hakkinda.pack()
-        mxp_yukselt=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="MetterXP'ı güncelle",command=mxpguncelle)
-        mxp_yukselt.pack()
-        b_metin3=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
-        b_metin3.pack()
-        mxpkapat_buton=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="MetterXP'ı kapat",command=mxpkapat)
-        mxpkapat_buton.pack()
+    if os.path.isfile(debian):
+        def hatacoz():
+            print("\nProgram/paket hatalarını çöz modülü açılıyor...")
+            os.system("pkexec python3 /usr/local/bin/metterxp/modules/hatacoz.py")
+            messagebox.showinfo("Bilgilendirme","Program/paket hataları çözüldü.")
+        islemsecimbuton10=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Program/paket hatalarını çöz",command=hatacoz)
+        islemsecimbuton10.pack()            
+    b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
+    b_metin2.pack()
+    mxp_hakkinda=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="MetterXP hakkında",command=mxphakkinda)
+    mxp_hakkinda.pack()
+    mxp_yukselt=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="MetterXP'ı güncelle",command=mxpguncelle)
+    mxp_yukselt.pack()
+    b_metin3=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
+    b_metin3.pack()
+    mxpkapat_buton=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="MetterXP'ı kapat",command=mxpkapat)
+    mxpkapat_buton.pack()
         
     mainloop()
 
 
 def main_cli():
     if "yardım" in args or "-y" in args or "-h" in args:
-        print("\nMetterXP, program kur/yeniden kur/kaldır, masaüstü ortamı/pencere yöneticisi kur/yeniden kur/kaldır, sistem güncelleme, çeşitli yapılandırma özelliklerine (GRUB, Terminal, Plank, WINE...), paket yöneticisi kurma vs. özelliklere sahip olan bir araç kutusudur.")
+        print("\nMetterXP; program kur/yeniden kur/kaldır, masaüstü ortamı/pencere yöneticisi kur/yeniden kur/kaldır, sistem güncelleme, çeşitli yapılandırma özelliklerine (GRUB, Terminal, Plank, WINE...), paket yöneticisi kurma vs. özelliklere sahip olan bir araç kutusudur.")
         print("İşte bütün kullanımlar:")
         print("yardım/-y/-h                   Yardım ekranını (burayı) göster")
         print("prkurkaldır                    Program kur/yeniden kur/kaldır")
@@ -151,7 +150,7 @@ def main_cli():
         else:
             print("önbellekpakettemizle           Önbelleği ve gereksiz paketleri temizle")
         if os.path.isfile(debian):
-            print("kaliaraçkur                    Kali Linux araçlarını kur\nhataçözücü                     Hata çözücü\n")
+            print("hataçözücü                     Hata çözücü")
         sys.exit()
     elif "prkurkaldır" in args:
         print("\nProgram kur/yeniden kur/kaldır modülü açılıyor...")
@@ -208,10 +207,6 @@ def main_cli():
         if "hataçözücü" in args:
             print("\nHata çözme modülü açılıyor...")
             os.system("pkexec python3 /usr/local/bin/metterxp/modules/hatacoz.py")
-            sys.exit()
-        elif "kaliaraçkur" in args:
-            print("\nKali Linux araçlarını kur modülü açılıyor...")
-            os.system("pkexec python3 /usr/local/bin/metterxp/modules/kaliarackur.py")
             sys.exit()
     else:
         main_gui()
