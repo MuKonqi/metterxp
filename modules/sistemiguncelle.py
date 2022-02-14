@@ -22,6 +22,6 @@ elif os.path.isfile(fedora):
     exit()
 elif os.path.isfile(solus):
     print("\nSistem güncellemesi işlemi başlatılıyor...\n")
-    os.system("sudo eopkg update -y")
+    os.system("sudo eopkg up -y")
     print("\nSistem güncellemesi varsa başarıyla tamamlandı.")
     exit()
