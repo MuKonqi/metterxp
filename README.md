@@ -9,3 +9,6 @@
 ### Bunu yazdıktan sonra ```git clone https://github.com/MuKonqi/metterxp.git ; cd MetterXP ; sudo python3 yukle.py``` yazınız.
 
 ## MetterXP'ın internet sitesine ulaşmak için [buraya tıklayabilirsiniz](https://mukonqi.github.io/metterxp).
+
+## Kredi
+Terminalden kurtulun 2.0 (ilham ve bazı özellikler)
