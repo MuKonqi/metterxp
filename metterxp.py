@@ -80,7 +80,7 @@ def main_gui():
         os.system("python3 /usr/local/bin/metterxp/modules/hakkinda.py")
     def mxpguncelle():
         print("\nMetterXP'ı güncelle modülü açılıyor...")
-        os.system("pkexec python3 /usr/local/bin/metterxp/modules/yukselt.py")
+        os.system("pkexec python3 /usr/local/bin/metterxp/modules/yukselt.py --yukseltiyukselt")
         messagebox.showinfo("Bilgilendirme","MetterXP başarıyla güncellendi! 'OK' tuşuna bastığınızda program kapatılacak.")
         mxpkapat()
 
