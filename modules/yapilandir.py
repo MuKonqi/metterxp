@@ -19,7 +19,10 @@ def kapat():
 def reopen():
     print("\nModül yeniden başlatılıyor...")
     pencere.destroy()
-    os.system("sudo python3 /usr/local/bin/metterxp/modules/yapilandir.py")
+    os.system(" python3 /usr/local/bin/metterxp/modules/yapilandir.py")
+def reboot():
+    print("\nBilgisayarınız yeniden başlatılıyor...")
+    os.system(" reboot")
 
 pencere=Tk()
 pencere.title("Yazılımları yapılandır | MetterXP")
@@ -40,7 +43,7 @@ def bash():
             if os.path.isfile("/usr/local/bin/metterxp/.bashrc.bak"):
                 pass
             else:
-                cmd2="sudo touch /usr/local/bin/metterxp/.bashrc.bak ; sudo cp /home/"+str_my_user_name+"/.bashrc /usr/local/bin/MetterXP/.bashrc.bak"
+                cmd2=" touch /usr/local/bin/metterxp/.bashrc.bak ;  cp /home/"+str_my_user_name+"/.bashrc /usr/local/bin/MetterXP/.bashrc.bak"
                 os.system(cmd2)                
             my_user_name.destroy()
             b_1_bash.destroy()
@@ -48,80 +51,80 @@ def bash():
             buton_1.destroy()
             yazi2.config(text=".bashrc dosyasında nasıl yapılandırmalar yapmak istersiniz?\nNot: Yapılandırma seçeneklerinde, seçeneklere tıklanma sırası önemlidir.\nGeçerli kullanıcı adınız: "+str_my_user_name)
             def renksiz():
-                cmd1="sudo touch /home/"+str_my_user_name+"/.bashrc.bak ; sudo cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
+                cmd1=" touch /home/"+str_my_user_name+"/.bashrc.bak ;  cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
                 os.system(cmd1)
-                cmd_0="sudo echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
+                cmd_0=" echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_0)
-                cmd_2="sudo echo 'echo Merhabalar "+str_my_user_name+"!' >> /home/"+str_my_user_name+"/.bashrc"
+                cmd_2=" echo 'echo Merhabalar "+str_my_user_name+"!' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_2)
                 messagebox.showinfo("Bilgilendirme","Yapılandırma başarıyla tamamlandı.")
             def renkli():
-                cmd1="sudo touch /home/"+str_my_user_name+"/.bashrc.bak ; sudo cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
+                cmd1=" touch /home/"+str_my_user_name+"/.bashrc.bak ;  cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
                 os.system(cmd1)
-                cmd_0="sudo echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
+                cmd_0=" echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_0)
                 print("\nLolcat kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt install lolcat -y")
+                    os.system(" apt install lolcat -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install lolcat -y")
+                    os.system(" dnf install lolcat -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install lolcat -y")
-                cmd_1="sudo echo 'echo Merhabalar "+str_my_user_name+"! | lolcat' >> /home/"+str_my_user_name+"/.bashrc"
+                    os.system(" eopkg install lolcat -y")
+                cmd_1=" echo 'echo Merhabalar "+str_my_user_name+"! | lolcat' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_1)
                 messagebox.showinfo("Bilgilendirme","Yapılandırma başarıyla tamamlandı.")
             def neofetch():
-                cmd1="sudo touch /home/"+str_my_user_name+"/.bashrc.bak ; sudo cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
+                cmd1=" touch /home/"+str_my_user_name+"/.bashrc.bak ;  cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
                 os.system(cmd1)
-                cmd_0="sudo echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
+                cmd_0=" echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_0)
                 print("\nNeofetch kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt install neofetch -y")
+                    os.system(" apt install neofetch -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install neofetch -y")
+                    os.system(" dnf install neofetch -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install neofetch -y")
-                cmd_3="sudo echo 'neofetch' >> /home/"+str_my_user_name+"/.bashrc"
+                    os.system(" eopkg install neofetch -y")
+                cmd_3=" echo 'neofetch' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_3)
                 messagebox.showinfo("Bilgilendirme","Yapılandırma başarıyla tamamlandı.")
             def neofetchrenkli():
-                cmd1="sudo touch /home/"+str_my_user_name+"/.bashrc.bak ; sudo cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
+                cmd1=" touch /home/"+str_my_user_name+"/.bashrc.bak ;  cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
                 os.system(cmd1)
-                cmd_0="sudo echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
+                cmd_0=" echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_0)
                 print("\nNeofetch ile lolcat kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt install neofetch lolcat -y")
+                    os.system(" apt install neofetch lolcat -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install neofetch lolcat -y")
+                    os.system(" dnf install neofetch lolcat -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install neofetch lolcat -y")
-                cmd_4="sudo echo 'neofetch | lolcat' >> /home/"+str_my_user_name+"/.bashrc"
+                    os.system(" eopkg install neofetch lolcat -y")
+                cmd_4=" echo 'neofetch | lolcat' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_4)
                 messagebox.showinfo("Bilgilendirme","Yapılandırma başarıyla tamamlandı.")
             def ram():
-                cmd1="sudo touch /home/"+str_my_user_name+"/.bashrc.bak ; sudo cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
+                cmd1=" touch /home/"+str_my_user_name+"/.bashrc.bak ;  cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
                 os.system(cmd1)
-                cmd_0="sudo echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
+                cmd_0=" echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_0)
-                cmd_5="sudo echo 'free -m' >> /home/"+str_my_user_name+"/.bashrc"
+                cmd_5=" echo 'free -m' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_5)
                 messagebox.showinfo("Bilgilendirme","Yapılandırma başarıyla tamamlandı.")
             def ramrenkli():
-                cmd1="sudo touch /home/"+str_my_user_name+"/.bashrc.bak ; sudo cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
+                cmd1=" touch /home/"+str_my_user_name+"/.bashrc.bak ;  cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
                 os.system(cmd1)
-                cmd_0="sudo echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
+                cmd_0=" echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_0)
-                cmd_5="sudo echo 'free -m | lolcat' >> /home/"+str_my_user_name+"/.bashrc"
+                cmd_5=" echo 'free -m | lolcat' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_5)
                 messagebox.showinfo("Bilgilendirme","Yapılandırma başarıyla tamamlandı.")             
             def kok():
-                cmd1="sudo touch /home/"+str_my_user_name+"/.bashrc.bak ; sudo cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
+                cmd1=" touch /home/"+str_my_user_name+"/.bashrc.bak ;  cp /home/"+str_my_user_name+"/.bashrc /home/"+str_my_user_name+"/.bashrc.bak"
                 os.system(cmd1)
-                cmd_0="sudo echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
+                cmd_0=" echo '   ' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_0)
-                cmd_6="sudo echo 'sudo su' >> /home/"+str_my_user_name+"/.bashrc"
+                cmd_6=" echo ' su' >> /home/"+str_my_user_name+"/.bashrc"
                 os.system(cmd_6)
                 messagebox.showinfo("Bilgilendirme","Yapılandırma başarıyla tamamlandı.")
             bashbuton1=Button(pencere2, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Kullanıcı adımı renksiz bir şekilde ekle", command=renksiz)
@@ -150,11 +153,11 @@ def bash():
                 bashb_metin3=Label(pencere3, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
                 bashb_metin3.pack()
                 def gerialbash():
-                    _cmd1="sudo cp /home/"+str_my_user_name+"/.bashrc.bak /home/"+str_my_user_name+"/.bashrc"
+                    _cmd1=" cp /home/"+str_my_user_name+"/.bashrc.bak /home/"+str_my_user_name+"/.bashrc"
                     os.system(_cmd1)
                     messagebox.showinfo("Bilgilendirme","Geri alma başarılı.")
                 def ilkhalbash():
-                    _cmd2="sudo cp /usr/local/bin/metterxp/.bashrc.bak /home/"+str_my_user_name+"/.bashrc"
+                    _cmd2=" cp /usr/local/bin/metterxp/.bashrc.bak /home/"+str_my_user_name+"/.bashrc"
                     os.system(_cmd2)
                     messagebox.showinfo("Bilgilendirme","Geri alma başarılı.")
                 bashbuton1=Button(pencere3, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text=".bashrc dosyasındaki son değişikliği geri al", command=gerialbash)
@@ -193,13 +196,13 @@ def grub():
     try:
         print("\nGrub Customizer kuruluyor...")
         if os.path.isfile(debian):
-            os.system("sudo apt install grub-customizer -y")
+            os.system(" apt install grub-customizer -y")
         elif os.path.isfile(fedora):
-            os.system("sudo dnf install grub-customizer -y")
+            os.system(" dnf install grub-customizer -y")
         elif os.path.isfile(solus):
-            os.system("sudo eopkg install grub-customizer -y")
+            os.system(" eopkg install grub-customizer -y")
         print("\nGrub Customizer açılıyor...")
-        os.system("sudo grub-customizer")
+        os.system(" grub-customizer")
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
         kapat()
@@ -222,7 +225,7 @@ def plank():
 def wine():
     try:
         messagebox.showwarning("Uyarı","Bu işlem için daha önceden Wine'ı kurmuş olmanız gerekmektedir.")
-        os.system("sudo winecfg")
+        os.system(" winecfg")
         messagebox.showinfo("Bilgilendirme","Wine için yaptığınız yapılandırma işlemi bitirilmiştir.")
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")

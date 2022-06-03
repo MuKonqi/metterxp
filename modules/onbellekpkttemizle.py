@@ -12,16 +12,16 @@ solus="/etc/solus-release"
 
 if os.path.isfile(debian):
     print("\nÖnbelleği ve gereksiz paketları temizleme işlemi başlatılıyor...\n")
-    os.system("sudo apt autoremove -y")
+    os.system(" apt autoremove -y")
     print("\nÖnbellek ve gereksiz paketler başarıyla temizlendi.")
     exit()
 elif os.path.isfile(fedora):
     print("\nÖnbelleği ve gereksiz paketları temizleme işlemi başlatılıyor...\n")
-    os.system("sudo dnf autoremove -y && sudo dnf clean all")
+    os.system(" dnf autoremove -y &&  dnf clean all")
     print("\nÖnbellek ve gereksiz paketler başarıyla temizlendi.")
     exit()
 elif os.path.isfile(solus):
     print("\nÖnbelleği temizleme işlemi başlatılıyor...\n")
-    os.system("sudo eopkg dc -y")
+    os.system(" eopkg dc -y")
     print("\nÖnbellek başarıyla temizlendi.")
     exit()

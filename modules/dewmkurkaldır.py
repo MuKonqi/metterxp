@@ -20,11 +20,11 @@ def kapat():
 def reopen():
     print("\nModül yeniden başlatılıyor...")
     pencere.destroy()
-    os.system("sudo python3 /usr/local/bin/metterxp/modules/dewmkurkaldır.py")
+    os.system(" python3 /usr/local/bin/metterxp/modules/dewmkurkaldır.py")
 
 def reboot():
     print("\nBilgisayarınız yeniden başlatılıyor...")
-    os.system("sudo reboot")
+    os.system(" reboot")
 
 
 if os.path.isfile(debian):
@@ -37,30 +37,30 @@ if os.path.isfile(debian):
         def kur():
             try:
                 print("\nKDE Plasma DE kurulumu başlatılıyor...")
-                os.system("sudo apt install kde-plasma-desktop -y")
+                os.system(" apt install kde-plasma-desktop -y")
                 messagebox.showinfo("Bilgilendirme","KDE Plasma DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nKDE Plasma DE yeniden kuruluyor...")
-                os.system("sudo apt reinstall kde-plasma-desktop -y")
+                os.system(" apt reinstall kde-plasma-desktop -y")
                 messagebox.showinfo("Bilgilendirme","KDE Plasma DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nKDE Plasma DE kaldırılıyor...")
-                os.system("sudo apt purge kde-plasma-desktop* -y")
+                os.system(" apt purge kde-plasma-desktop* -y")
                 messagebox.showinfo("Bilgilendirme","KDE Plasma DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="KDE Plasma DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -78,30 +78,30 @@ if os.path.isfile(debian):
         def kur():
             try:
                 print("\nGNOME DE kurulumu başlatılıyor...")
-                os.system("sudo apt install gnome gnome-shell -y")
+                os.system(" apt install gnome gnome-shell -y")
                 messagebox.showinfo("Bilgilendirme","GNOME DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nGNOME DE yeniden kuruluyor...")
-                os.system("sudo apt reinstall gnome gnome-shell -y")
+                os.system(" apt reinstall gnome gnome-shell -y")
                 messagebox.showinfo("Bilgilendirme","GNOME DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nGNOME DE kaldırılıyor...")
-                os.system("sudo apt purge gnome* -y")
+                os.system(" apt purge gnome* -y")
                 messagebox.showinfo("Bilgilendirme","GNOME DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="GNOME DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -119,30 +119,30 @@ if os.path.isfile(debian):
         def kur():
             try:
                 print("\nCinnamon DE kurulumu başlatılıyor...")
-                os.system("sudo apt install cinnamon -y")
+                os.system(" apt install cinnamon -y")
                 messagebox.showinfo("Bilgilendirme","Cinnamon DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nCinnamon DE yeniden kuruluyor...")
-                os.system("sudo apt reinstall cinnamon -y")
+                os.system(" apt reinstall cinnamon -y")
                 messagebox.showinfo("Bilgilendirme","Cinnamon DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nCinnamon DE kaldırılıyor...")
-                os.system("sudo apt purge cinnamon* -y")
+                os.system(" apt purge cinnamon* -y")
                 messagebox.showinfo("Bilgilendirme","Cinnamon DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Cinnamon DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -160,30 +160,30 @@ if os.path.isfile(debian):
         def kur():
             try:
                 print("\nMate DE kurulumu başlatılıyor...")
-                os.system("sudo apt install mate-desktop-enviroment mate-desktop-enviroment-core mate-desktop-enviroment-extra -y")
+                os.system(" apt install mate-desktop-enviroment mate-desktop-enviroment-core mate-desktop-enviroment-extra -y")
                 messagebox.showinfo("Bilgilendirme","Mate DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nMate DE yeniden kuruluyor...")
-                os.system("sudo apt reinstall mate-desktop-enviroment mate-desktop-enviroment-core mate-desktop-enviroment-extra -y")
+                os.system(" apt reinstall mate-desktop-enviroment mate-desktop-enviroment-core mate-desktop-enviroment-extra -y")
                 messagebox.showinfo("Bilgilendirme","Mate DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nMate DE kaldırılıyor...")
-                os.system("sudo apt purge mate-desktop-enviroment* -y")
+                os.system(" apt purge mate-desktop-enviroment* -y")
                 messagebox.showinfo("Bilgilendirme","Mate DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Mate DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -201,30 +201,30 @@ if os.path.isfile(debian):
         def kur():
             try:
                 print("\nXfce DE kurulumu başlatılıyor...")
-                os.system("sudo apt install xfce4 -y")
+                os.system(" apt install xfce4 -y")
                 messagebox.showinfo("Bilgilendirme","Xfce DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nXfce DE yeniden kuruluyor...")
-                os.system("sudo apt reinstall xfce4 -y")
+                os.system(" apt reinstall xfce4 -y")
                 messagebox.showinfo("Bilgilendirme","Xfce DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nXfce DE kaldırılıyor...")
-                os.system("sudo apt purge xfce4* -y")
+                os.system(" apt purge xfce4* -y")
                 messagebox.showinfo("Bilgilendirme","Xfce DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Xfce DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -242,33 +242,33 @@ if os.path.isfile(debian):
         def kur():
             try:
                 print("\nDeepin DE kurulumu başlatılıyor...")
-                os.system("sudo apt install software-properties-common -y")
-                os.system("sudo add-apt-repository ppa:ubuntudde-dev/stable -y")
-                os.system("sudo apt update -y")
-                os.system("sudo apt install dde -y")
+                os.system(" apt install software-properties-common -y")
+                os.system(" add-apt-repository ppa:ubuntudde-dev/stable -y")
+                os.system(" apt update -y")
+                os.system(" apt install dde -y")
                 messagebox.showinfo("Bilgilendirme","Deepin DE kurulum işlemi tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nDeepin DE yeniden kuruluyor...")
-                os.system("sudo apt reinstall dde -y")
+                os.system(" apt reinstall dde -y")
                 messagebox.showinfo("Bilgilendirme","Deepin DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nDeepin DE kaldırılıyor...")
-                os.system("sudo apt purge dde* -y")
+                os.system(" apt purge dde* -y")
                 messagebox.showinfo("Bilgilendirme","Deepin DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Deepin DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -287,30 +287,30 @@ if os.path.isfile(debian):
         def kur():
             try:
                 print("\nLXDE kurulumu başlatılıyor...")
-                os.system("sudo apt install lxde -y")
+                os.system(" apt install lxde -y")
                 messagebox.showinfo("Bilgilendirme","LXDE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nLXDE yeniden kuruluyor...")
-                os.system("sudo apt reinstall lxde -y")
+                os.system(" apt reinstall lxde -y")
                 messagebox.showinfo("Bilgilendirme","LXDE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nLXDE kaldırılıyor...")
-                os.system("sudo apt purge lxde* -y")
+                os.system(" apt purge lxde* -y")
                 messagebox.showinfo("Bilgilendirme","LXDE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="LXDE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -328,34 +328,34 @@ if os.path.isfile(debian):
         def kur():
             try:
                 print("\nLXQt DE kurulumu başlatılıyor...")
-                os.system("sudo apt install openbox pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt-sudo -y")
+                os.system(" apt install openbox pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt- -y")
                 messagebox.showinfo("Bilgilendirme","LXQt DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\LXQt DE yeniden kuruluyor...")
-                os.system("sudo apt reinstall openbox pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt-sudo -y")
+                os.system(" apt reinstall openbox pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt- -y")
                 messagebox.showinfo("Bilgilendirme","LXQt DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             def openboxsil():
                 try:
                     print("\nOpenBox WM kaldırılıyor...")
-                    os.system("sudo apt purge openbox* -y")
+                    os.system(" apt purge openbox* -y")
                     messagebox.showinfo("Bilgilendirme","LXQt DE'in kullandığı OpenBox WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                     reboot()
                 except:
                     messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                    programkapat()
+                    kapat()
             try:
                 print("\nLXQt DE OpenBox WM hariç kaldırılıyor...")
-                os.system("sudo apt purge pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt-sudo -y")
+                os.system(" apt purge pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt- -y")
                 yazi1.config(text="LXQt DE'in kullandığı OpenBox WM hariç her şey kaldırıldı.")
                 islemsecimbuton1.config(text="LXQt DE'in kullandığı OpenBox WM'ı kaldırma\nHemen bilgisayarı yeniden başlat", command=reboot)
                 islemsecimbuton2.config(text="LXQt DE'in kullandığı OpenBox WM'i kaldır\nOpenBox WM'i kaldırılınca bilgisayarı yeniden başlat", command=openboxsil)
@@ -369,7 +369,7 @@ if os.path.isfile(debian):
                 islemsecimbuton10.destroy()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="LXQt DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -387,30 +387,30 @@ if os.path.isfile(debian):
         def kur():
             try:
                 print("\nOpenBox WM kurulumu başlatılıyor...")
-                os.system("sudo apt install openbox -y")
+                os.system(" apt install openbox -y")
                 messagebox.showinfo("Bilgilendirme","OpenBox WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nOpenBox WM yeniden kuruluyor...")
-                os.system("sudo apt reinstall openbox -y")
+                os.system(" apt reinstall openbox -y")
                 messagebox.showinfo("Bilgilendirme","OpenBox WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nOpenBox WM kaldırılıyor...")
-                os.system("sudo apt purge openbox* -y")
+                os.system(" apt purge openbox* -y")
                 messagebox.showinfo("Bilgilendirme","OpenBox WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="OpenBox WM için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -428,30 +428,30 @@ if os.path.isfile(debian):
         def kur():
             try:
                 print("\nİ3 WM kurulumu başlatılıyor...")
-                os.system("sudo apt install i3 -y")
+                os.system(" apt install i3 -y")
                 messagebox.showinfo("Bilgilendirme","İ3 WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nİ3 WM yeniden kuruluyor...")
-                os.system("sudo apt reinstall i3 -y")
+                os.system(" apt reinstall i3 -y")
                 messagebox.showinfo("Bilgilendirme","İ3 WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nİ3 WM kaldırılıyor...")
-                os.system("sudo apt purge i3* -y")
+                os.system(" apt purge i3* -y")
                 messagebox.showinfo("Bilgilendirme","İ3 WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="İ3 WM için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -509,30 +509,30 @@ elif os.path.isfile(fedora):
         def kur():
             try:
                 print("\nKDE Plasma DE kurulumu başlatılıyor...")
-                os.system("sudo dnf install @kde-desktop -y")
+                os.system(" dnf install @kde-desktop -y")
                 messagebox.showinfo("Bilgilendirme","KDE Plasma DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nKDE Plasma DE yeniden kuruluyor...")
-                os.system("sudo dnf reinstall @kde-desktop -y")
+                os.system(" dnf reinstall @kde-desktop -y")
                 messagebox.showinfo("Bilgilendirme","KDE Plasma DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nKDE Plasma DE kaldırılıyor...")
-                os.system("sudo dnf remove @kde-desktop -y")
+                os.system(" dnf remove @kde-desktop -y")
                 messagebox.showinfo("Bilgilendirme","KDE Plasma DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="KDE Plasma DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -551,30 +551,30 @@ elif os.path.isfile(fedora):
         def kur():
             try:
                 print("\nGNOME DE kurulumu başlatılıyor...")
-                os.system("sudo dnf install @gnome-desktop -y")
+                os.system(" dnf install @gnome-desktop -y")
                 messagebox.showinfo("Bilgilendirme","GNOME DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nGNOME DE yeniden kuruluyor...")
-                os.system("sudo dnf reinstall @gnome-desktop -y")
+                os.system(" dnf reinstall @gnome-desktop -y")
                 messagebox.showinfo("Bilgilendirme","GNOME DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nGNOME DE kaldırılıyor...")
-                os.system("sudo dnf remove @gnome-desktop -y")
+                os.system(" dnf remove @gnome-desktop -y")
                 messagebox.showinfo("Bilgilendirme","GNOME DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="GNOME DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -593,30 +593,30 @@ elif os.path.isfile(fedora):
         def kur():
             try:
                 print("\nCinnamon DE kurulumu başlatılıyor...")
-                os.system("sudo dnf install @cinnamon-desktop -y")
+                os.system(" dnf install @cinnamon-desktop -y")
                 messagebox.showinfo("Bilgilendirme","Cinnamon DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nCinnamon DE yeniden kuruluyor...")
-                os.system("sudo dnf reinstall @cinnamon-desktop -y")
+                os.system(" dnf reinstall @cinnamon-desktop -y")
                 messagebox.showinfo("Bilgilendirme","Cinnamon DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nCinnamon DE kaldırılıyor...")
-                os.system("sudo dnf remove @cinnamon-desktop -y")
+                os.system(" dnf remove @cinnamon-desktop -y")
                 messagebox.showinfo("Bilgilendirme","Cinnamon DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Cinnamon DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -635,30 +635,30 @@ elif os.path.isfile(fedora):
         def kur():
             try:
                 print("\nMate DE kurulumu başlatılıyor...")
-                os.system("sudo dnf install @mate-desktop")
+                os.system(" dnf install @mate-desktop")
                 messagebox.showinfo("Bilgilendirme","Mate DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nMate DE yeniden kuruluyor...")
-                os.system("sudo dnf reinstall @mate-desktop")
+                os.system(" dnf reinstall @mate-desktop")
                 messagebox.showinfo("Bilgilendirme","Mate DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nMate DE kaldırılıyor...")
-                os.system("sudo dnf remove @mate-desktop -y")
+                os.system(" dnf remove @mate-desktop -y")
                 messagebox.showinfo("Bilgilendirme","Mate DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Mate DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -677,30 +677,30 @@ elif os.path.isfile(fedora):
         def kur():
             try:
                 print("\nXfce DE kurulumu başlatılıyor...")
-                os.system("sudo dnf install @xfce-desktop -y")
+                os.system(" dnf install @xfce-desktop -y")
                 messagebox.showinfo("Bilgilendirme","Xfce DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nXfce DE yeniden kuruluyor...")
-                os.system("sudo dnf reinstall @xfce-desktop -y")
+                os.system(" dnf reinstall @xfce-desktop -y")
                 messagebox.showinfo("Bilgilendirme","Xfce DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nXfce DE kaldırılıyor...")
-                os.system("sudo dnf remove @xfce-desktop -y")
+                os.system(" dnf remove @xfce-desktop -y")
                 messagebox.showinfo("Bilgilendirme","Xfce DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Xfce DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -719,30 +719,30 @@ elif os.path.isfile(fedora):
         def kur():
             try:
                 print("\nDeepin DE kurulumu başlatılıyor...")
-                os.system("sudo dnf install @deepin-desktop")
+                os.system(" dnf install @deepin-desktop")
                 messagebox.showinfo("Bilgilendirme","Deepin DE kurulum işlemi tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nDeepin DE yeniden kuruluyor...")
-                os.system("sudo dnf reinstall @deepin-desktop -y")
+                os.system(" dnf reinstall @deepin-desktop -y")
                 messagebox.showinfo("Bilgilendirme","Deepin DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nDeepin DE kaldırılıyor...")
-                os.system("sudo dnf remove @deepin-desktop -y")
+                os.system(" dnf remove @deepin-desktop -y")
                 messagebox.showinfo("Bilgilendirme","Deepin DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Deepin DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -761,30 +761,30 @@ elif os.path.isfile(fedora):
         def kur():
             try:
                 print("\nPantheon DE kurulumu başlatılıyor...")
-                os.system("sudo dnf group install 'pantheon desktop' -y")
+                os.system(" dnf group install 'pantheon desktop' -y")
                 messagebox.showinfo("Bilgilendirme","Pantheon DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nPantheon DE yeniden kuruluyor...")
-                os.system("sudo dnf group reinstall 'pantheon desktop' -y")
+                os.system(" dnf group reinstall 'pantheon desktop' -y")
                 messagebox.showinfo("Bilgilendirme","Pantheon DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nPantheon DE kaldırılıyor...")
-                os.system("sudo dnf group remove 'pantheon desktop' -y")
+                os.system(" dnf group remove 'pantheon desktop' -y")
                 messagebox.showinfo("Bilgilendirme","Pantheon DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Pantheon DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -803,30 +803,30 @@ elif os.path.isfile(fedora):
         def kur():
             try:
                 print("\nLXDE kurulumu başlatılıyor...")
-                os.system("sudo dnf install @lxde-desktop -y")
+                os.system(" dnf install @lxde-desktop -y")
                 messagebox.showinfo("Bilgilendirme","LXDE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nLXDE yeniden kuruluyor...")
-                os.system("sudo dnf reinstall @lxde-desktop -y")
+                os.system(" dnf reinstall @lxde-desktop -y")
                 messagebox.showinfo("Bilgilendirme","LXDE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nLXDE kaldırılıyor...")
-                os.system("sudo dnf remove @lxde-desktop -y")
+                os.system(" dnf remove @lxde-desktop -y")
                 messagebox.showinfo("Bilgilendirme","LXDE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="LXDE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -845,30 +845,30 @@ elif os.path.isfile(fedora):
         def kur():
             try:
                 print("\nLXQt DE kurulumu başlatılıyor...")
-                os.system("sudo dnf install @lxqt-desktop -y")
+                os.system(" dnf install @lxqt-desktop -y")
                 messagebox.showinfo("Bilgilendirme","LXQt DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\LXQt DE yeniden kuruluyor...")
-                os.system("sudo dnf reinstall @lxqt-desktop -y")
+                os.system(" dnf reinstall @lxqt-desktop -y")
                 messagebox.showinfo("Bilgilendirme","LXQt DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nLXQt DE kaldırılıyor...")
-                os.system("sudo dnf remove @lxqt-desktop")
+                os.system(" dnf remove @lxqt-desktop")
                 messagebox.showinfo("Bilgilendirme","LXQt DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="LXQt DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -887,30 +887,30 @@ elif os.path.isfile(fedora):
         def kur():
             try:
                 print("\nOpenBox WM kurulumu başlatılıyor...")
-                os.system("sudo dnf install openbox obconf -y")
+                os.system(" dnf install openbox obconf -y")
                 messagebox.showinfo("Bilgilendirme","OpenBox WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nOpenBox WM yeniden kuruluyor...")
-                os.system("sudo dnf reinstall openbox obconf -y")
+                os.system(" dnf reinstall openbox obconf -y")
                 messagebox.showinfo("Bilgilendirme","OpenBox WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nOpenBox WM kaldırılıyor...")
-                os.system("sudo dnf remove openbox obconf -y")
+                os.system(" dnf remove openbox obconf -y")
                 messagebox.showinfo("Bilgilendirme","OpenBox WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="OpenBox WM için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -929,30 +929,30 @@ elif os.path.isfile(fedora):
         def kur():
             try:
                 print("\nİ3 WM kurulumu başlatılıyor...")
-                os.system("sudo dnf install i3 i3status i3lock dmenu -y")
+                os.system(" dnf install i3 i3status i3lock dmenu -y")
                 messagebox.showinfo("Bilgilendirme","İ3 WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nİ3 WM yeniden kuruluyor...")
-                os.system("sudo dnf reinstall i3 i3status i3lock dmenu -y")
+                os.system(" dnf reinstall i3 i3status i3lock dmenu -y")
                 messagebox.showinfo("Bilgilendirme","İ3 WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nİ3 WM kaldırılıyor...")
-                os.system("sudo dnf remove i3 i3status i3lock dmenu -y")
+                os.system(" dnf remove i3 i3status i3lock dmenu -y")
                 messagebox.showinfo("Bilgilendirme","İ3 WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="İ3 WM için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -1014,30 +1014,30 @@ elif os.path.isfile(solus):
         def kur():
             try:
                 print("\nKDE Plasma DE kurulumu başlatılıyor...")
-                os.system("sudo eopkg it -c desktop.kde -y")
+                os.system(" eopkg it -c desktop.kde -y")
                 messagebox.showinfo("Bilgilendirme","KDE Plasma DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nKDE Plasma DE yeniden kuruluyor...")
-                os.system("sudo eopkg it -c desktop.kde --rei -y")
+                os.system(" eopkg it -c desktop.kde --rei -y")
                 messagebox.showinfo("Bilgilendirme","KDE Plasma DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nKDE Plasma DE kaldırılıyor...")
-                os.system("sudo eopkg rm -c desktop.kde -y")
+                os.system(" eopkg rm -c desktop.kde -y")
                 messagebox.showinfo("Bilgilendirme","KDE Plasma DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="KDE Plasma DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -1051,30 +1051,30 @@ elif os.path.isfile(solus):
         def kur():
             try:
                 print("\nGNOME DE kurulumu başlatılıyor...")
-                os.system("sudo eopkg it -c desktop.gnome -y")
+                os.system(" eopkg it -c desktop.gnome -y")
                 messagebox.showinfo("Bilgilendirme","GNOME DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nGNOME DE yeniden kuruluyor...")
-                os.system("sudo eopkg it -c desktop.gnome --rei -y")
+                os.system(" eopkg it -c desktop.gnome --rei -y")
                 messagebox.showinfo("Bilgilendirme","GNOME DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nGNOME DE kaldırılıyor...")
-                os.system("sudo eopkg rm -c desktop.gnome -y")
+                os.system(" eopkg rm -c desktop.gnome -y")
                 messagebox.showinfo("Bilgilendirme","GNOME DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="GNOME DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -1088,30 +1088,30 @@ elif os.path.isfile(solus):
         def kur():
             try:
                 print("\nBudgie DE kurulumu başlatılıyor...")
-                os.system("sudo eopkg it -c desktop.budgie -y")
+                os.system(" eopkg it -c desktop.budgie -y")
                 messagebox.showinfo("Bilgilendirme","Budgie DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nBudgie DE yeniden kuruluyor...")
-                os.system("sudo eopkg it -c desktop.budgie --rei -y")
+                os.system(" eopkg it -c desktop.budgie --rei -y")
                 messagebox.showinfo("Bilgilendirme","Budgie DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nBudgie DE kaldırılıyor...")
-                os.system("sudo eopkg rm -c desktop.budgie -y")
+                os.system(" eopkg rm -c desktop.budgie -y")
                 messagebox.showinfo("Bilgilendirme","Budgie DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Budgie DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -1125,30 +1125,30 @@ elif os.path.isfile(solus):
         def kur():
             try:
                 print("\nMate DE kurulumu başlatılıyor...")
-                os.system("sudo eopkg it -c desktop.mate -y")
+                os.system(" eopkg it -c desktop.mate -y")
                 messagebox.showinfo("Bilgilendirme","Mate DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nMate DE yeniden kuruluyor...")
-                os.system("sudo eopkg it -c desktop.mate --rei -y")
+                os.system(" eopkg it -c desktop.mate --rei -y")
                 messagebox.showinfo("Bilgilendirme","Mate DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nMate DE kaldırılıyor...")
-                os.system("sudo eopkg rm -c desktop.mate -y")
+                os.system(" eopkg rm -c desktop.mate -y")
                 messagebox.showinfo("Bilgilendirme","Mate DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Mate DE için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -1162,30 +1162,30 @@ elif os.path.isfile(solus):
         def kur():
             try:
                 print("\nOpenBox WM kurulumu başlatılıyor...")
-                os.system("sudo eopkg it openbox obconf -y")
+                os.system(" eopkg it openbox obconf -y")
                 messagebox.showinfo("Bilgilendirme","OpenBox WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nOpenBox WM yeniden kuruluyor...")
-                os.system("sudo eopkg it openbox obconf --rei -y")
+                os.system(" eopkg it openbox obconf --rei -y")
                 messagebox.showinfo("Bilgilendirme","OpenBox WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nOpenBox WM kaldırılıyor...")
-                os.system("sudo eopkg rm openbox obconf -y")
+                os.system(" eopkg rm openbox obconf -y")
                 messagebox.showinfo("Bilgilendirme","OpenBox WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="OpenBox WM için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -1199,30 +1199,30 @@ elif os.path.isfile(solus):
         def kur():
             try:
                 print("\nİ3 WM kurulumu başlatılıyor...")
-                os.system("sudo eopkg it i3 -y")
+                os.system(" eopkg it i3 -y")
                 messagebox.showinfo("Bilgilendirme","İ3 WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nİ3 WM yeniden kuruluyor...")
-                os.system("sudo eopkg it i3 --rei -y")
+                os.system(" eopkg it i3 --rei -y")
                 messagebox.showinfo("Bilgilendirme","İ3 WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nİ3 WM kaldırılıyor...")
-                os.system("sudo eopkg rm i3 -y")
+                os.system(" eopkg rm i3 -y")
                 messagebox.showinfo("Bilgilendirme","İ3 WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="İ3 WM için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)

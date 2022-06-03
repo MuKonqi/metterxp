@@ -18,23 +18,23 @@ def kapat():
 def reopen():
     print("\nModül yeniden başlatılıyor...")
     pencere.destroy()
-    os.system("sudo python3 /usr/local/bin/metterxp/modules/pmkur.py")
+    os.system(" python3 /usr/local/bin/metterxp/modules/pmkur.py")
     
 def reboot():
     print("Bilgisiyarınız yeniden başlatılıyor...")
-    os.system("sudo reboot now")
+    os.system(" reboot now")
 
 def flatpak():
     def kur():
         if os.path.isfile(debian):
             print("\nFlatpak kuruluyor...")
-            os.system("sudo apt install flatpak -y")
+            os.system(" apt install flatpak -y")
         elif os.path.isfile(fedora):
             print("\nFlatpak kuruluyor...")
-            os.system("sudo dnf install flatpak -y")
+            os.system(" dnf install flatpak -y")
         elif os.path.isfile(solus):
             print("\nFlatpak kuruluyor...")
-            os.system("sudo eopkg install flatpak -y")
+            os.system(" eopkg install flatpak -y")
         print("\nFlatpak'a Flathub deposu ekleniyor...")
         os.system("flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo")
         messagebox.showinfo("Bilgilendirme","Flatpak başarıyla kuruldu, değişikliklerin tamamlanması için 'OK' tuşuna bastığınızda bilgisiyarınız yeniden başlatılacak.")    
@@ -42,13 +42,13 @@ def flatpak():
     def rekur():
         if os.path.isfile(debian):
             print("\nFlatpak yeniden kuruluyor...")
-            os.system("sudo apt reinstall flatpak -y")
+            os.system(" apt reinstall flatpak -y")
         elif os.path.isfile(fedora):
             print("\nFlatpak yeniden kuruluyor...")
-            os.system("sudo dnf reinstall flatpak -y")
+            os.system(" dnf reinstall flatpak -y")
         elif os.path.isfile(solus):
             print("\nFlatpak yeniden kuruluyor...")
-            os.system("sudo eopkg install flatpak --rei -y")
+            os.system(" eopkg install flatpak --rei -y")
         print("\nFlatpak'a Flathub deposu ekleniyor...")
         os.system("flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo")
         messagebox.showinfo("Bilgilendirme","Flatpak başarıyla yeniden kuruldu, değişikliklerin tamamlanması için 'OK' tuşuna bastığınızda bilgisiyarınız yeniden başlatılacak.")    
@@ -61,9 +61,9 @@ def flatpak():
     if os.path.isfile(debian):
         def oldubuntukur():
             print("Flatpak kuruluyor...")
-            os.system("sudo add-apt-repository ppa:flatpak/stable")
-            os.system("sudo apt update")
-            os.system("sudo apt install flatpak")
+            os.system(" add-apt-repository ppa:flatpak/stable")
+            os.system(" apt update")
+            os.system(" apt install flatpak")
             print("\nFlatpak'a Flathub deposu ekleniyor...")
             os.system("flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo")
             messagebox.showinfo("Bilgilendirme","Flatpak başarıyla kuruldu, değişikliklerin tamamlanması için 'OK' tuşuna bastığınızda bilgisiyarınız yeniden başlatılacak.")    
@@ -87,25 +87,25 @@ def snap():
     def kur():
         if os.path.isfile(debian):
             print("\nSnap kuruluyor...")
-            os.system("sudo apt install snapd -y")
+            os.system(" apt install snapd -y")
         elif os.path.isfile(fedora):
             print("\nSnap kuruluyor...")
-            os.system("sudo dnf install snapd -y")
+            os.system(" dnf install snapd -y")
         elif os.path.isfile(solus):
             print("\nSnap kuruluyor...")
-            os.system("sudo eopkg install snapd -y")
+            os.system(" eopkg install snapd -y")
         messagebox.showinfo("Bilgilendirme","Snap başarıyla kuruldu, değişikliklerin tamamlanması için 'OK' tuşuna bastığınızda bilgisiyarınız yeniden başlatılacak.")    
         reboot() 
     def rekur():
         if os.path.isfile(debian):
             print("\nSnap yeniden kuruluyor...")
-            os.system("sudo apt reinstall snapd -y")
+            os.system(" apt reinstall snapd -y")
         elif os.path.isfile(fedora):
             print("\nSnap yeniden kuruluyor...")
-            os.system("sudo dnf reinstall snapd -y")
+            os.system(" dnf reinstall snapd -y")
         elif os.path.isfile(solus):
             print("\nSnap yeniden kuruluyor...")
-            os.system("sudo eopkg install snapd --rei -y")
+            os.system(" eopkg install snapd --rei -y")
         messagebox.showinfo("Bilgilendirme","Snap başarıyla yeniden kuruldu, değişikliklerin tamamlanması için 'OK' tuşuna bastığınızda bilgisiyarınız yeniden başlatılacak.")    
         reboot() 
     yazi1.config(text="Snap için ne yapmak istiyorsunuz?")

@@ -12,16 +12,16 @@ solus="/etc/solus-release"
 
 if os.path.isfile(debian):
     print("\nSistem güncellemesi işlemi başlatılıyor...\n")
-    os.system("sudo apt upgrade -y")
+    os.system(" apt upgrade -y")
     print("\nSistem güncellemesi varsa başarıyla tamamlandı.")
     exit()
 elif os.path.isfile(fedora):
     print("\nSistem güncellemesi işlemi başlatılıyor...\n")
-    os.system("sudo dnf update -y")
+    os.system(" dnf update -y")
     print("\nSistem güncellemesi varsa başarıyla tamamlandı.")
     exit()
 elif os.path.isfile(solus):
     print("\nSistem güncellemesi işlemi başlatılıyor...\n")
-    os.system("sudo eopkg up -y")
+    os.system(" eopkg up -y")
     print("\nSistem güncellemesi varsa başarıyla tamamlandı.")
     exit()

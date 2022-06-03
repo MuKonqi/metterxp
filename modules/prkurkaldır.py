@@ -21,7 +21,7 @@ def kapat():
 def reopen():
     print("\nModül yeniden başlatılıyor...")
     pencere.destroy()
-    os.system("sudo python3 /usr/local/bin/metterxp/modules/prkurkaldır.py")
+    os.system(" python3 /usr/local/bin/metterxp/modules/prkurkaldır.py")
 
 pencere=Tk()
 pencere.title("Program kur/yeniden kur/kaldır | MetterXP")
@@ -52,41 +52,41 @@ def main():
             try:
                 print("\nMozilla Firefox kurulumu başlatılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt install firefox -y")
+                    os.system(" apt install firefox -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install firefox -y")
+                    os.system(" dnf install firefox -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install firefox -y")
+                    os.system(" eopkg install firefox -y")
                 messagebox.showinfo("Bilgilendirme","Mozilla Firefox başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nMozilla Firefox yeniden kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt reinstall firefox -y")
+                    os.system(" apt reinstall firefox -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf reinstall firefox -y")
+                    os.system(" dnf reinstall firefox -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install firefox -y --rei")
+                    os.system(" eopkg install firefox -y --rei")
                 messagebox.showinfo("Bilgilendirme","Mozilla Firefox yeniden başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nMozilla Firefox kaldırılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt purge firefox* -y")
+                    os.system(" apt purge firefox* -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf remove firefox -y")
+                    os.system(" dnf remove firefox -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg remove firefox -y --purge")
+                    os.system(" eopkg remove firefox -y --purge")
                 messagebox.showinfo("Bilgilendirme","Mozilla Firefox başarıyla kaldırıldı.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Mozilla Firefox internet tarayıcısı için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -105,48 +105,48 @@ def main():
             try:
                 print("\Brave kurulumu başlatılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt install apt-transport-https curl")
-                    os.system("sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg")
-                    os.system('echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list')
-                    os.system("sudo apt update")
-                    os.system("sudo apt install brave-browser")
+                    os.system(" apt install apt-transport-https curl")
+                    os.system(" curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg")
+                    os.system('echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"| tee /etc/apt/sources.list.d/brave-browser-release.list')
+                    os.system(" apt update")
+                    os.system(" apt install brave-browser")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install dnf-plugins-core")
-                    os.system("sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64")
-                    os.system('sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc')
-                    os.system("sudo dnf install brave-browser")                
+                    os.system(" dnf install dnf-plugins-core")
+                    os.system(" dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64")
+                    os.system(' rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc')
+                    os.system(" dnf install brave-browser")                
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install brave -y")
+                    os.system(" eopkg install brave -y")
                 messagebox.showinfo("Bilgilendirme","Brave başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nBrave yeniden kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt reinstall brave-browser -y")
+                    os.system(" apt reinstall brave-browser -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf reinstall brave-browser -y")
+                    os.system(" dnf reinstall brave-browser -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install brave -y --rei")
+                    os.system(" eopkg install brave -y --rei")
                 messagebox.showinfo("Bilgilendirme","Brave yeniden başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\Brave kaldırılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt purge brave-browser* -y")
+                    os.system(" apt purge brave-browser* -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf remove brave-browser -y")
+                    os.system(" dnf remove brave-browser -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg remove brave -y --purge")
+                    os.system(" eopkg remove brave -y --purge")
                 messagebox.showinfo("Bilgilendirme","Brave başarıyla kaldırıldı.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Brave internet tarayıcısı için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -165,41 +165,41 @@ def main():
             try:
                 print("\nVLC kurulumu başlatılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt install vlc -y")
+                    os.system(" apt install vlc -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install vlc -y")
+                    os.system(" dnf install vlc -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install vlc -y")
+                    os.system(" eopkg install vlc -y")
                 messagebox.showinfo("Bilgilendirme","VLC başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nVLC yeniden kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt reinstall vlc -y")
+                    os.system(" apt reinstall vlc -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf reinstall vlc -y")
+                    os.system(" dnf reinstall vlc -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install vlc -y --rei")
+                    os.system(" eopkg install vlc -y --rei")
                 messagebox.showinfo("Bilgilendirme","VLC yeniden başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nVLC kaldırılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt purge vlc* -y")
+                    os.system(" apt purge vlc* -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf remove vlc -y")
+                    os.system(" dnf remove vlc -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg remove vlc -y --purge")
+                    os.system(" eopkg remove vlc -y --purge")
                 messagebox.showinfo("Bilgilendirme","VLC başarıyla kaldırıldı.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="VLC medya oynatıcısı için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -218,43 +218,43 @@ def main():
             try:
                 print("\nLibreOffice kurulumu başlatılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo add-apt-repository ppa:libreoffice/ppa")
-                    os.system("sudo apt update")
-                    os.system("sudo apt install libreoffice libreoffice-l10n-tr libreoffice-help-tr -y")
+                    os.system(" add-apt-repository ppa:libreoffice/ppa")
+                    os.system(" apt update")
+                    os.system(" apt install libreoffice libreoffice-l10n-tr libreoffice-help-tr -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install libreoffice -y")
+                    os.system(" dnf install libreoffice -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install libreoffice -y")
+                    os.system(" eopkg install libreoffice -y")
                 messagebox.showinfo("Bilgilendirme","LibreOffice başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nLibreOffice yeniden kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt reinstall libreoffice libreoffice-l10n-tr libreoffice-help-tr -y")
+                    os.system(" apt reinstall libreoffice libreoffice-l10n-tr libreoffice-help-tr -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf reinstall libreoffice -y")
+                    os.system(" dnf reinstall libreoffice -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install libreoffice -y --rei")
+                    os.system(" eopkg install libreoffice -y --rei")
                 messagebox.showinfo("Bilgilendirme","LibreOffice yeniden başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nLibreOffice kaldırılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt purge libreoffice libreoffice-l10n-tr libreoffice-help-tr -y")
+                    os.system(" apt purge libreoffice libreoffice-l10n-tr libreoffice-help-tr -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf remove libreoffice -y")
+                    os.system(" dnf remove libreoffice -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg remove libreoffice -y --purge")
+                    os.system(" eopkg remove libreoffice -y --purge")
                 messagebox.showinfo("Bilgilendirme","LibreOffice başarıyla kaldırıldı.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="LibreOffice ofis programı için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -273,41 +273,41 @@ def main():
             try:
                 print("\nCups kurulumu başlatılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt install cups -y")
+                    os.system(" apt install cups -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install cups -y")
+                    os.system(" dnf install cups -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install cups -y")
+                    os.system(" eopkg install cups -y")
                 messagebox.showinfo("Bilgilendirme","Cups başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nCups yeniden kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt reinstall cups -y")
+                    os.system(" apt reinstall cups -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf reinstall cups -y")
+                    os.system(" dnf reinstall cups -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install cups -y --rei")
+                    os.system(" eopkg install cups -y --rei")
                 messagebox.showinfo("Bilgilendirme","Cups yeniden başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nCups kaldırılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt purge cups* -y")
+                    os.system(" apt purge cups* -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf remove cups -y")
+                    os.system(" dnf remove cups -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg remove cups -y --purge")
+                    os.system(" eopkg remove cups -y --purge")
                 messagebox.showinfo("Bilgilendirme","Cups başarıyla kaldırıldı.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Cups yazıcı yöneticisi için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -326,41 +326,41 @@ def main():
             try:
                 print("\nGParted kurulumu başlatılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt install gparted -y")
+                    os.system(" apt install gparted -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install gparted -y")
+                    os.system(" dnf install gparted -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install gparted -y")
+                    os.system(" eopkg install gparted -y")
                 messagebox.showinfo("Bilgilendirme","GParted başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nGParted yeniden kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt reinstall gparted -y")
+                    os.system(" apt reinstall gparted -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf reinstall gparted -y")
+                    os.system(" dnf reinstall gparted -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install gparted -y --rei")
+                    os.system(" eopkg install gparted -y --rei")
                 messagebox.showinfo("Bilgilendirme","GParted yeniden başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nGParted kaldırılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt purge gparted* -y")
+                    os.system(" apt purge gparted* -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf remove gparted -y")
+                    os.system(" dnf remove gparted -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg remove gparted -y --purge")
+                    os.system(" eopkg remove gparted -y --purge")
                 messagebox.showinfo("Bilgilendirme","GParted başarıyla kaldırıldı.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="GParted disk bölümü düzenleyicisi için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -379,41 +379,41 @@ def main():
             try:
                 print("\nGIMP kurulumu başlatılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt install gimp -y")
+                    os.system(" apt install gimp -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install gimp -y")
+                    os.system(" dnf install gimp -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install gimp -y")
+                    os.system(" eopkg install gimp -y")
                 messagebox.showinfo("Bilgilendirme","GIMP başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nGIMP yeniden kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt reinstall gimp -y")
+                    os.system(" apt reinstall gimp -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf reinstall gimp -y")
+                    os.system(" dnf reinstall gimp -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install gimp -y --rei")
+                    os.system(" eopkg install gimp -y --rei")
                 messagebox.showinfo("Bilgilendirme","GIMP yeniden başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nGIMP kaldırılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt purge gimp* -y")
+                    os.system(" apt purge gimp* -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf remove gimp -y")
+                    os.system(" dnf remove gimp -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg remove gimp -y --purge")
+                    os.system(" eopkg remove gimp -y --purge")
                 messagebox.showinfo("Bilgilendirme","GIMP başarıyla kaldırıldı.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="GIMP resim editörü için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -432,42 +432,42 @@ def main():
             try:
                 print("\nWine kurulumu başlatılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo dpkg --add-architecture i386")
-                    os.system("sudo apt install wine-stable -y")
+                    os.system(" dpkg --add-architecture i386")
+                    os.system(" apt install wine-stable -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install wine -y")
+                    os.system(" dnf install wine -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install wine -y")
+                    os.system(" eopkg install wine -y")
                 messagebox.showinfo("Bilgilendirme","Wine başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nWine yeniden kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt reinstall wine-stable -y")
+                    os.system(" apt reinstall wine-stable -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf reinstall wine -y")
+                    os.system(" dnf reinstall wine -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install wine -y --rei")
+                    os.system(" eopkg install wine -y --rei")
                 messagebox.showinfo("Bilgilendirme","Wine yeniden başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nWine kaldırılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt purge wine-stable* -y")
+                    os.system(" apt purge wine-stable* -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf remove wine -y")
+                    os.system(" dnf remove wine -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg remove wine -y --purge")
+                    os.system(" eopkg remove wine -y --purge")
                 messagebox.showinfo("Bilgilendirme","Wine başarıyla kaldırıldı.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Wine için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -486,41 +486,41 @@ def main():
             try:
                 print("\nPlank kurulumu başlatılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt install plank -y")
+                    os.system(" apt install plank -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf install plank -y")
+                    os.system(" dnf install plank -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install plank -y")
+                    os.system(" eopkg install plank -y")
                 messagebox.showinfo("Bilgilendirme","Plank başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def rekur():
             try:
                 print("\nPlank yeniden kuruluyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt reinstall plank -y")
+                    os.system(" apt reinstall plank -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf reinstall plank -y")
+                    os.system(" dnf reinstall plank -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg install plank -y --rei")
+                    os.system(" eopkg install plank -y --rei")
                 messagebox.showinfo("Bilgilendirme","Plank yeniden başarıyla kuruldu.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         def sil():
             try:
                 print("\nPlank kaldırılıyor...")
                 if os.path.isfile(debian):
-                    os.system("sudo apt purge plank* -y")
+                    os.system(" apt purge plank* -y")
                 elif os.path.isfile(fedora):
-                    os.system("sudo dnf remove Plank -y")
+                    os.system(" dnf remove Plank -y")
                 elif os.path.isfile(solus):
-                    os.system("sudo eopkg remove plank -y --purge")
+                    os.system(" eopkg remove plank -y --purge")
                 messagebox.showinfo("Bilgilendirme","Plank başarıyla kaldırıldı.")
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         yazi1.config(text="Plank için ne yapmak istiyorsunuz?")
         islemsecimbuton1.config(text="Kur", command=kur)
         islemsecimbuton2.config(text="Yeniden kur", command=rekur)
@@ -570,7 +570,7 @@ def other():
     def paketkur():
         if os.path.isfile(debian):
             try:
-                c1_paketkur="sudo apt install "
+                c1_paketkur=" apt install "
                 get_paketadi=paketadi.get()
                 c2_paketkur=" -y"
                 cf_paketkur=c1_paketkur+get_paketadi+c2_paketkur
@@ -594,10 +594,10 @@ def other():
                 buton_6.pack()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         elif os.path.isfile(fedora):
             try:
-                c1_paketkur="sudo dnf install "
+                c1_paketkur=" dnf install "
                 get_paketadi=paketadi.get()
                 c2_paketkur=" -y"
                 cf_paketkur=c1_paketkur+get_paketadi+c2_paketkur
@@ -621,10 +621,10 @@ def other():
                 buton_6.pack()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         elif os.path.isfile(solus):
             try:
-                c1_paketkur="sudo eopkg install "
+                c1_paketkur=" eopkg install "
                 get_paketadi=paketadi.get()
                 c2_paketkur=" -y"
                 cf_paketkur=c1_paketkur+get_paketadi+c2_paketkur
@@ -648,11 +648,11 @@ def other():
                 buton_6.pack()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
     def paketrekur():
         if os.path.isfile(debian):
             try:
-                c1_paketrekur="sudo apt reinstall "
+                c1_paketrekur=" apt reinstall "
                 get_paketadi=paketadi.get()
                 c2_paketrekur=" -y"
                 cf_paketrekur=c1_paketrekur+get_paketadi+c2_paketrekur
@@ -676,10 +676,10 @@ def other():
                 buton_6.pack()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         elif os.path.isfile(fedora):
             try:
-                c1_paketrekur="sudo dnf reinstall "
+                c1_paketrekur=" dnf reinstall "
                 get_paketadi=paketadi.get()
                 c2_paketrekur=" -y"
                 cf_paketrekur=c1_paketrekur+get_paketadi+c2_paketrekur
@@ -703,10 +703,10 @@ def other():
                 buton_6.pack()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         elif os.path.isfile(solus):
             try:
-                c1_paketrekur="sudo eopkg install "
+                c1_paketrekur=" eopkg install "
                 get_paketadi=paketadi.get()
                 c2_paketrekur=" -y --rei"
                 cf_paketrekur=c1_paketrekur+get_paketadi+c2_paketrekur
@@ -730,11 +730,11 @@ def other():
                 buton_6.pack()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()        
+                kapat()        
     def paketsil():
         if os.path.isfile(debian):
             try:
-                c1_paketsil="sudo apt purge "
+                c1_paketsil=" apt purge "
                 get_paketadi=paketadi.get()
                 c2_paketsil="* -y"
                 cf_paketsil=c1_paketsil+get_paketadi+c2_paketsil
@@ -758,10 +758,10 @@ def other():
                 buton_6.pack()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         elif os.path.isfile(fedora):
             try:
-                c1_paketsil="sudo dnf remove "
+                c1_paketsil=" dnf remove "
                 get_paketadi=paketadi.get()
                 c2_paketsil=" -y"
                 cf_paketsil=c1_paketsil+get_paketadi+c2_paketsil
@@ -785,10 +785,10 @@ def other():
                 buton_6.pack()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
         elif os.path.isfile(solus):
             try:
-                c1_paketsil="sudo eopkg remove "
+                c1_paketsil=" eopkg remove "
                 get_paketadi=paketadi.get()
                 c2_paketsil=" -y"
                 cf_paketsil=c1_paketsil+get_paketadi+c2_paketsil
@@ -812,7 +812,7 @@ def other():
                 buton_6.pack()
             except:
                 messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-                programkapat()
+                kapat()
     yazi2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10 bold", text="Lütfen kaldırmak ya da kurmak istediğiniz programın/paketin adını giriniz.\nNot: Paket adını doğru girmeniz gerekmektedir!")
     yazi2.pack()
     b_metin4=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")

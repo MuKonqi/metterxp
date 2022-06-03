@@ -18,7 +18,7 @@ def kapat():
 def reopen():
     print("\nModül yeniden başlatılıyor...")
     pencere.destroy()
-    os.system("sudo python3 /usr/local/bin/metterxp/modules/gnupluslinux.py")
+    os.system(" python3 /usr/local/bin/metterxp/modules/gnupluslinux.py")
 
 pencere=Tk()
 pencere.title("Dosya yöneticilerini kök haklarıyla aç | MetterXP")
@@ -27,31 +27,31 @@ pencere.resizable(0, 0)
 
 def nautilus():
     try:
-        os.system("sudo nautilus")
+        os.system(" nautilus")
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
         kapat()
 def nemo():
     try:
-        os.system("sudo nemo")
+        os.system(" nemo")
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
         kapat()
 def caja():
     try:
-        os.system("sudo caja")
+        os.system(" caja")
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
         kapat()
 def thunar():
     try:
-        os.system("sudo thunar")
+        os.system(" thunar")
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
         kapat()
 def pcmanfmqt():
     try:
-        os.system("sudo pcmanfm-qt")
+        os.system(" pcmanfm-qt")
     except:
         messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
         kapat()

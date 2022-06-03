@@ -4,28 +4,34 @@
 
 # This file part of MetterXP.
 
-from tkinter import *
-from tkinter import messagebox
 import os
+import sys
 
 debian="/etc/debian_version"
 fedora="/etc/fedora-release"
 solus="/etc/solus-release"
+args=sys.argv[1:]
 
-if os.path.isfile(debian):
-    os.system("sudo apt install git -y")
-elif os.path.isfile(fedora):
-    os.system("sudo dnf install git -y")
-elif os.path.isfile(solus):
-    os.system("sudo eopkg install git -y")
-os.system("cd /usr/bin/ ; sudo rm metterxp")
-os.system("cd /usr/share/polkit-1/actions ; sudo rm python3.policy")
-os.system("cd /usr/share/applications ; sudo rm metterxp.desktop")
-os.system("cd /usr/local/bin/metterxp ; sudo rm -rf modules ; sudo rm icon.png ; sudo rm LICENSE")
-os.system("cd /usr/local/bin/metterxp ; sudo git clone https://github.com/MuKonqi/metterxp ; cd metterxp ; sudo chmod +x *")
-os.system("sudo mv /usr/local/bin/metterxp/metterxp/metterxp.py /usr/bin/metterxp")
-os.system("sudo mv /usr/local/bin/metterxp/metterxp/python3.policy /usr/share/polkit-1/actions")
-os.system("sudo mv /usr/local/bin/metterxp/metterxp/metterxp.desktop /usr/share/applications")
-os.system("sudo mkdir /usr/local/bin/metterxp/modules ; sudo mv /usr/local/bin/metterxp/metterxp/modules/* /usr/local/bin/metterxp/modules ; sudo mv /usr/local/bin/metterxp/metterxp/icon.png /usr/local/bin/metterxp ; sudo mv /usr/local/bin/metterxp/metterxp/LICENSE /usr/local/bin/metterxp")
-os.system("cd /usr/local/bin/metterxp ; sudo rm -rf metterxp")
+if "--yukseltiyukselt" in args:
+    if os.path.isfile(debian):
+        os.system(" apt install git -y")
+    elif os.path.isfile(fedora):
+        os.system(" dnf install git -y")
+    elif os.path.isfile(solus):
+        os.system(" eopkg install git -y")    
+    os.system("cd /usr/local/bin/metterxp ;  git clone https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
+    os.system("cd /usr/local/bin/metterxp/modules ;  rm yukselt.py")
+    os.system(" mv /usr/local/bin/metterxp/metterxp/modules/yukselt.py /usr/local/bin/metterxp/modules/yukselt.py")
+    os.system(" python3 /usr/local/bin/metterxp/modules/yukselt.py")
+    exit()
+
+os.system("cd /usr/bin/ ;  rm metterxp")
+os.system("cd /usr/share/polkit-1/actions ;  rm python3.policy")
+os.system("cd /usr/share/applications ;  rm metterxp.desktop")
+os.system("cd /usr/local/bin/metterxp ;  rm -rf modules ;  rm icon.png ;  rm LICENSE")
+os.system(" mv /usr/local/bin/metterxp/metterxp/metterxp.py /usr/bin/metterxp")
+os.system(" mv /usr/local/bin/metterxp/metterxp/python3.policy /usr/share/polkit-1/actions/")
+os.system(" mv /usr/local/bin/metterxp/metterxp/metterxp.desktop /usr/share/applications")
+os.system(" mkdir /usr/local/bin/metterxp/modules ;  mv /usr/local/bin/metterxp/metterxp/modules/* /usr/local/bin/metterxp/modules ;  mv /usr/local/bin/metterxp/metterxp/icon.png /usr/local/bin/metterxp ;  mv /usr/local/bin/metterxp/metterxp/LICENSE /usr/local/bin/metterxp")
+os.system("cd /usr/local/bin/metterxp ;  rm -rf metterxp")
 exit()

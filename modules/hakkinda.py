@@ -33,11 +33,17 @@ def temel():
     os.system("xdg-open https://github.com/MuKonqi/betterxp/tree/betterxp")
 def surum():
     pencere2=Toplevel()
-    pencere2.title("MetterXP 1.0-2 hakkında | MetterXP")
+    pencere2.title("MetterXP 1.0-3 hakkında | MetterXP")
     pencere2.config(background="#000000")
     pencere2.resizable(0, 0)
 
-    yazi3=Label(pencere2, background="#000000", foreground="#FFFFFF", font="arial 12 bold italic", text="Yenilikler:\nHata düzeltmeleri.\n\nBazı özellikler:\nProgram kurma/yeniden kurma/kaldırma\nProgram/paket arama\nMasaüstü ortamı/pencere yöneticisi kurma/yeniden kurma/kaldımar\nPaket yöneticisi kurma/yeniden kurma\nSistemi güncelleme\nÇeşitli yapılandırmalar (.bashrc, GRUB, Cups, Plank, Wine ve bilgisayar adı)\nVe dahası...\n\nBilinen hatalar: Program kur/yeniden/kur/kaldır ile program arama özelliklerindeki çıktılarda bulunan anlamsız semboller\n\n\nMetterXP, yürüteceği herhangi bir işlem için garanti vermemektedir (bakınız GPLv3).\nÖnceki sürüm: Yok\n1.0-1")
+    yazi3=Label(pencere2, background="#000000", foreground="#FFFFFF", font="arial 12 bold italic", text=
+"Yenilikler:\nHata düzeltmeleri: Gereksiz yerlerde 'sudo' kaldırıldı.\n\nBazı özellikler:"
+"\nProgram kurma/yeniden kurma/kaldırma\nProgram/paket arama\nMasaüstü ortamı/pencere yöneticisi kurma/yeniden kurma/kaldıma"
+"\nPaket yöneticisi kurma/yeniden kurma\nSistemi güncelleme\nÇeşitli yapılandırmalar (.bashrc, GRUB, Cups, Plank, Wine ve bilgisayar adı)"
+"\nVe dahası...\n\nBilinen hatalar: Program kur/yeniden/kur/kaldır ile program arama özelliklerindeki çıktılarda bulunan anlamsız semboller"
+"\n\n\nMetterXP, yürüteceği herhangi bir işlem için garanti vermemektedir (bakınız GPLv3).\nÖnceki sürüm: Yok\n1.0-2"
+"\n\n\nMetterXP için şunlar gereklidir:\nPython3, Tkinter, Python3-tkinter, Git, Pkexec, sudo/su/doas")
     yazi3.pack()
 
 b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 7")
@@ -54,7 +60,7 @@ buton4=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#
 buton4.pack()
 buton5=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="Temel: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=temel)
 buton5.pack()
-buton6=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="Sürüm: 1.0-2", command=surum)
+buton6=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="Sürüm: 1.0-3", command=surum)
 buton6.pack()
 
 b_metin4=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")

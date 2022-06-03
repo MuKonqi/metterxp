@@ -7,6 +7,6 @@
 import os
 
 print("\nProgram/paket hataları çözülüyor...")
-os.system("sudo apt-get install -f && sudo dpkg --configure -a")
+os.system(" apt-get install -f &&  dpkg --configure -a")
 print("\nProgram/paket hataları çözüldü.")
 exit()
