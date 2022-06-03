@@ -21,7 +21,7 @@ if "--yukseltiyukselt" in args:
         os.system(" eopkg install git -y")    
     os.system("cd /usr/local/bin/metterxp ;  git clone https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
     os.system("cd /usr/local/bin/metterxp/modules ;  rm yukselt.py")
-    os.system(" mv /usr/local/bin/metterxp/metterxp/modules/yukselt.py /usr/local/bin/metterxp/modules/yukselt.py")
+    os.system(" mv /usr/local/bin/metterxp/metterxp/modules/yukselt.py /usr/local/bin/metterxp/modules")
     os.system(" python3 /usr/local/bin/metterxp/modules/yukselt.py")
     exit()
 
