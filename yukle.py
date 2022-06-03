@@ -21,22 +21,22 @@ import os
 # Yükleyici kısım:
 def main():
     if os.path.isfile(debian):
-        os.system("sudo apt install python3 python3-tk")
+        os.system(" apt install python3 python3-tk")
     elif os.path.isfile(fedora):
-        os.system("sudo dnf install python3-tkinter")
+        os.system(" dnf install python3-tkinter")
     elif os.path.isfile(solus):
-        os.system("sudo eopkg it python3-tkinter")
+        os.system(" eopkg it python3-tkinter")
     os.system("chmod +x metterxp.desktop")
-    os.system("sudo mv metterxp.desktop /usr/share/applications")
-    os.system("sudo mv python3.policy /usr/share/polkit-1/actions")
-    os.system("chmod +x metterxp.py && sudo mv metterxp.py /usr/bin/metterxp")
+    os.system(" mv metterxp.desktop /usr/share/applications")
+    os.system(" mv python3.policy /usr/share/polkit-1/actions")
+    os.system("chmod +x metterxp.py &&  mv metterxp.py /usr/bin/metterxp")
     if os.path.isfile(solus):
-        os.system("cd /usr ; sudo mkdir local ; cd local ; sudo mkdir bin")
-    os.system("sudo mkdir /usr/local/bin/metterxp")
-    os.system("sudo mkdir /usr/local/bin/metterxp/modules")
-    os.system("sudo mv modules/* /usr/local/bin/metterxp/modules")
-    os.system("sudo mv icon.png /usr/local/bin/metterxp")
-    os.system("sudo mv LICENSE /usr/local/bin/metterxp")     
+        os.system("cd /usr ;  mkdir local ; cd local ;  mkdir bin")
+    os.system(" mkdir /usr/local/bin/metterxp")
+    os.system(" mkdir /usr/local/bin/metterxp/modules")
+    os.system(" mv modules/* /usr/local/bin/metterxp/modules")
+    os.system(" mv icon.png /usr/local/bin/metterxp")
+    os.system(" mv LICENSE /usr/local/bin/metterxp")     
     if os.path.isfile("/usr/share/applications/metterxp.desktop") or os.path.isfile("/usr/share/polkit-1/actions/python3.policy") or os.path.isfile("/usr/bin/metterxp") or os.path.isdir("/usr/local/bin/metterxp"):
         print("\nKurulum tamamlandı, umarız MetterXP amacına uygun şekilde size yardımcı olur.\nMetterXP yükleyicisi kapatılıyor...")
         exit()
