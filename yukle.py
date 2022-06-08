@@ -60,7 +60,8 @@ if os.name == "nt":
     print("Hata!\nMetterXP NT çekirdeğini kullanan işletim sistemlerinde çalışmaz.\nLütfen şu üç GNU/Linux dağıtımından birini temel alan bir GNU/Linux dağıtımıyla programı açmayı deneyiniz:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP yükleyicisi kapatılıyor...")
     exit()
 elif platform == "darwin":
-    os.system("./unsupported.app/Contents/MacOS/applet")
+    print("Hata!\nMetterXP MacOS işletim sisteminde çalışmaz.\nLütfen şu üç GNU/Linux dağıtımından birini temel alan bir GNU/Linux dağıtımıyla programı açmayı deneyiniz:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP yükleyicisi kapatılıyor...")
+    exit()
 elif os.path.isfile(debian):
     entry()
 elif os.path.isfile(fedora):
