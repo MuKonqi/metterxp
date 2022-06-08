@@ -19,6 +19,7 @@ from tkinter import *
 from tkinter import messagebox
 import os
 import sys
+from sys import platform
 
 debian="/etc/debian_version"
 fedora="/etc/fedora-release"
@@ -214,11 +215,8 @@ def main_cli():
 if os.name == "nt":
     print("MetterXP'a hoş geldiniz!\nMetterXP, NT çekirdeğini kullanan işletim sistemlerinde çalışmaz.\nLütfen şu üç GNU/Linux dağıtımından birini temel alan bir GNU/Linux dağıtımıyla programı açmayı deneyiniz:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP kapatılıyor...")
     exit()
-elif os.name == "posix":
-    if os.system("which osascript") == 0:
-        os.system("./unsupported.app/Contents/MacOS/applet")
-    else:
-        pass
+elif platform == "darwin":
+    os.system("./unsupported.app/Contents/MacOS/applet")
 elif os.path.isfile(debian):
     main_cli()
 elif os.path.isfile(fedora):
@@ -226,5 +224,5 @@ elif os.path.isfile(fedora):
 elif os.path.isfile(solus):
     main_cli()
 else:
-    print("MetterXP'a hoş geldiniz!\nKullandığınız işletim sistemini/dağıtımı MetterXP tam anlamıyla desteklemiyor.\nLütfen şu üç GNU/Linux dağıtımından birini temel alan bir GNU/Linux dağıtımıyla programı açmayı deneyiniz:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP kapatılıyor...")
+    print("MetterXP'a hoş geldiniz!\nKullandığınız dağıtımı MetterXP tam anlamıyla desteklemiyor.\nLütfen şu üç GNU/Linux dağıtımından birini temel alan bir GNU/Linux dağıtımıyla programı açmayı deneyiniz:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP kapatılıyor...")
     exit()
