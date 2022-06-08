@@ -17,6 +17,7 @@
 
 # Gerekli modülleri içe aktarma:
 import os
+from sys import platform
 
 # Yükleyici kısım:
 def main():
@@ -58,6 +59,8 @@ solus="/etc/solus-release"
 if os.name == "nt":
     print("Hata!\nMetterXP NT çekirdeğini kullanan işletim sistemlerinde çalışmaz.\nLütfen şu üç GNU/Linux dağıtımından birini temel alan bir GNU/Linux dağıtımıyla programı açmayı deneyiniz:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP yükleyicisi kapatılıyor...")
     exit()
+elif platform == "darwin":
+    os.system("./unsupported.app/Contents/MacOS/applet")
 elif os.path.isfile(debian):
     entry()
 elif os.path.isfile(fedora):
@@ -65,5 +68,5 @@ elif os.path.isfile(fedora):
 elif os.path.isfile(solus):
     entry()
 else:
-    print("Hata!\nKullandığınız işletim sistemini/dağıtımı MetterXP tam anlamıyla desteklemiyor.\nLütfen şu üç GNU/Linux dağıtımından birini temel alan bir GNU/Linux dağıtımıyla programı açmayı deneyiniz:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP yükleyicisi kapatılıyor...")
+    print("Hata!\nKullandığınız dağıtımı MetterXP tam anlamıyla desteklemiyor.\nLütfen şu üç GNU/Linux dağıtımından birini temel alan bir GNU/Linux dağıtımıyla programı açmayı deneyiniz:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP yükleyicisi kapatılıyor...")
     exit()
