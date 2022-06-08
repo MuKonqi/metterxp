@@ -214,6 +214,11 @@ def main_cli():
 if os.name == "nt":
     print("MetterXP'a hoş geldiniz!\nMetterXP, NT çekirdeğini kullanan işletim sistemlerinde çalışmaz.\nLütfen şu üç GNU/Linux dağıtımından birini temel alan bir GNU/Linux dağıtımıyla programı açmayı deneyiniz:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP kapatılıyor...")
     exit()
+elif os.name == "posix":
+    if os.system("which osascript") == 0:
+        os.system("./unsupported.app/Contents/MacOS/applet")
+    else:
+        pass
 elif os.path.isfile(debian):
     main_cli()
 elif os.path.isfile(fedora):
