@@ -28,7 +28,7 @@ if "--yukseltiyukselt" in args:
 os.system("cd /usr/bin/ ;  rm metterxp")
 os.system("cd /usr/share/polkit-1/actions ;  rm python3.policy")
 os.system("cd /usr/share/applications ;  rm metterxp.desktop")
-os.system("cd /usr/local/bin/metterxp ;  rm -rf modules ;  rm icon.png ;  rm LICENSE")
+os.system("cd /usr/local/bin/metterxp ;  rm -rf modules ; rm -rf unsupported.app ; rm icon.png ;  rm LICENSE")
 os.system(" mv /usr/local/bin/metterxp/metterxp/metterxp.py /usr/bin/metterxp")
 os.system(" mv /usr/local/bin/metterxp/metterxp/python3.policy /usr/share/polkit-1/actions/")
 os.system(" mv /usr/local/bin/metterxp/metterxp/metterxp.desktop /usr/share/applications")
