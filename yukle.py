@@ -19,6 +19,9 @@
 import os
 from sys import platform
 
+if not os.getuid() == 0:
+    exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nMetterXP yükleyicisi kapatılıyor...")
+
 # Yükleyici kısım:
 def main():
     if os.path.isfile(debian):

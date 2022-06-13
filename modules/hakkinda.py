@@ -33,12 +33,12 @@ def temel():
     os.system("xdg-open https://github.com/MuKonqi/betterxp/tree/betterxp")
 def surum():
     pencere2=Toplevel()
-    pencere2.title("MetterXP 1.1-1 hakkında | MetterXP")
+    pencere2.title("MetterXP 1.2-1 hakkında | MetterXP")
     pencere2.config(background="#000000")
     pencere2.resizable(0, 0)
 
     yazi3=Label(pencere2, background="#000000", foreground="#FFFFFF", font="arial 12 bold italic", text=
-"Yenilikler:\n'MacOS desteklenmiyor uyarısı' eklendi.\n\nBazı özellikler:"
+"Yenilikler:\n'Sadece kök kullanıcı bu modülü çalıştırabilir!' eklendi.\n\nBazı özellikler:"
 "\nProgram kurma/yeniden kurma/kaldırma\nProgram/paket arama\nMasaüstü ortamı/pencere yöneticisi kurma/yeniden kurma/kaldıma"
 "\nPaket yöneticisi kurma/yeniden kurma\nSistemi güncelleme\nÇeşitli yapılandırmalar (.bashrc, GRUB, Cups, Plank, Wine ve bilgisayar adı)"
 "\nVe dahası...\n\nBilinen hatalar: Program kur/yeniden/kur/kaldır ile program arama özelliklerindeki çıktılarda bulunan anlamsız semboller"
@@ -60,7 +60,7 @@ buton4=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#
 buton4.pack()
 buton5=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="Temel: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=temel)
 buton5.pack()
-buton6=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="Sürüm: 1.1-1", command=surum)
+buton6=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="Sürüm: 1.2-1", command=surum)
 buton6.pack()
 
 b_metin4=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")

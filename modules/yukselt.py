@@ -6,11 +6,16 @@
 
 import os
 import sys
+from tkinter import messagebox
 
 debian="/etc/debian_version"
 fedora="/etc/fedora-release"
 solus="/etc/solus-release"
 args=sys.argv[1:]
+
+if not os.getuid() == 0:
+    messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
+    exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
 
 if "--yukseltiyukselt" in args:
     if os.path.isfile(debian):

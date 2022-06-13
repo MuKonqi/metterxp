@@ -5,10 +5,15 @@
 # This file part of MetterXP.
 
 import os
+from tkinter import messagebox
 
 debian="/etc/debian_version"
 fedora="/etc/fedora-release"
 solus="/etc/solus-release"
+
+if not os.getuid() == 0:
+    messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
+    exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
 
 if os.path.isfile(debian):
     print("\nÖnbelleği ve gereksiz paketları temizleme işlemi başlatılıyor...\n")

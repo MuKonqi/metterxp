@@ -12,6 +12,10 @@ debian="/etc/debian_version"
 fedora="/etc/fedora-release"
 solus="/etc/solus-release"
 
+if not os.getuid() == 0:
+    messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
+    exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
+
 def kapat():
     print("\nModül kapatılıyor...")
     exit()
