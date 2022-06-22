@@ -1,0 +1,41 @@
+h1, #id02 {
+    color:white;
+}
+h2, #id01 {
+    color:aqua
+}
+p, a, h3, h4, h5, h6, text, ul, ol, #id00{
+    color:lightgreen
+}
+body {
+    background: black;
+    margin-top: 40px;
+    padding: 20px;
+}
+header img {
+    height: 40px;
+    margin-left: 20px;
+}
+header {
+    background-color: darkgray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+main {
+    color: white;
+}
+header * {
+    display: inline;
+}
+header li {
+    margin: 10px;
+}
+header h3, header a{
+    text-decoration: none;
+    color: black;
+}
