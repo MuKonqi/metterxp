@@ -16,7 +16,7 @@ title: Son Bloglar ve Yeni Sürümler
         <h2>{{ tag[0] }}</h2>
         <ul>
             {% for post in tag[1] %}
-            <a href="/metterxp/{{ post.url }}">{{ post.title }}</a>
+            <a href="/metterxp{{ post.url }}">{{ post.title }}</a>
             {% endfor %}
         </ul>
     {% endfor %}
