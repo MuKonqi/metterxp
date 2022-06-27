@@ -2,7 +2,7 @@
 layout: page
 title: Kurulum
 ---
-## Kurulum
+# Kurulum
 Öncelikle bilgisayarınızda kurulumun başlaması için şunların olması gerekmektedir: Git, Python3, sudo/su/doas (genellikle sudo kullanılır)<br />
 Eğer Debian GNU/Linux kullanıyorsanız 'sudo apt install git python3 -y',<br />
 Eğer Fedora Linux kullanıyorsanız 'sudo dnf install git python3 -y',<br />
