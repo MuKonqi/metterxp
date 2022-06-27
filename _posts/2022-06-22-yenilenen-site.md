@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title: Yenilenen Site
 tag: Blog
 ---
