@@ -39,7 +39,7 @@ if "--updateupdater" in args:
 os.system("cd /usr/bin/ ;  rm metterxp-beta")
 os.system("cd /usr/share/polkit-1/actions ;  rm python3.policy")
 os.system("cd /usr/share/applications ;  rm metterxp-beta.desktop")
-os.system("cd /usr/local/bin/metterxp-beta/ ;  rm -rf modules ; rm -rf unsupported.app ; rm icon.png ;  rm LICENSE")
+os.system("cd /usr/local/bin/metterxp-beta/ ;  rm -rf modules ; rm -rf unsupported.app ; rm icon.png ;  rm LICENSE.txt")
 os.system(" mv /usr/local/bin/metterxp-beta/metterxp/app/metterxp.py /usr/bin/metterxp-beta")
 os.system(" mv /usr/local/bin/metterxp-beta/metterxp/app/python3.policy /usr/share/polkit-1/actions/")
 os.system(" mv /usr/local/bin/metterxp-beta/metterxp/app/metterxp-beta.desktop /usr/share/applications")
