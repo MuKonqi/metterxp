@@ -19,7 +19,6 @@ from tkinter import *
 from tkinter import messagebox
 import os
 
-
 lang_tr="/usr/local/bin/metterxp-beta/settings/lang/tr.txt"
 lang_en="/usr/local/bin/metterxp-beta/settings/lang/en.txt"
 
@@ -134,15 +133,7 @@ def cr_dir():
         pass
     else:
         os.system("cd /usr/local/bin/metterxp-beta/settings ; mkdir theme")
-    if os.path.isdir("/usr/local/bin/metterxp-beta/settings/lang"):
-        pass
-    else:
-        os.system("cd /usr/local/bin/metterxp-beta/settings ; mkdir lang")
 if os.path.isdir("/usr/local/bin/metterxp-beta/settings/theme"):
-    pass
-else:
-    cr_dir()
-if os.path.isdir("/usr/local/bin/metterxp-beta/settings/lang"):
     pass
 else:
     cr_dir()
@@ -583,6 +574,7 @@ def main():
     module_exit_buton.pack()        
     mainloop()
 def langset():
+    os.system("cd /usr/local/bin/metterxp-beta/settings ; mkdir lang")
     def langtr():
         print("Seçilen dil setnıyor...")
         os.system("cd /usr/local/bin/metterxp-beta/settings/lang ; rm * ; touch tr.txt")
@@ -608,7 +600,7 @@ def langset():
     button2=Button(lwindow, text="Türkçe (Turkish)", command=langtr, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
     button2.pack()
     mainloop()
-if not os.path.isdir("/usr/local/bin/metterxp-beta/settings/lang/"):
-    langset()
-else:
+if os.path.isdir("/usr/local/bin/metterxp-beta/settings/lang/"):
     main()
+else:
+    langset()
