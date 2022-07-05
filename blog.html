@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Son Bloglar ve Yeni Sürümler
+title: Son Bloglar
 ---
 <!DOCTYPE html>
 <html lang="tr">
@@ -11,7 +11,7 @@ title: Son Bloglar ve Yeni Sürümler
 </head>
 <body>
     {% for tag in site.tags %}
-        <h1>{{ tag[0] }}</h1>
+        <h2>{{ tag[0] }}</h2>
         <ul>
             {% for post in tag[1] %}
             <a href="/metterxp{{ post.url }}">{{ post.title }}</a>
