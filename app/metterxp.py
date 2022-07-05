@@ -51,7 +51,7 @@ def mxp_settings():
     os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")
     exit()
 def mxp_update():
-    os.system("python3 /usr/local/bin/metterxp-beta/modules/mxp_update.py")
+    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_update.py")
 
 def app_it_rm():
     subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/app_it_rm.py", shell=TRUE)
