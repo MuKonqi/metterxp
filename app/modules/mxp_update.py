@@ -47,8 +47,8 @@ os.system(" chmod +x /usr/local/bin/metterxp-beta/metterxp/app/unsupported.app/*
 os.system(" chmod +x /usr/local/bin/metterxp-beta/metterxp/app/modules/* ; mkdir /usr/local/bin/metterxp-beta/modules ; mv /usr/local/bin/metterxp-beta/metterxp/app/modules/* /usr/local/bin/metterxp-beta/modules ;  mv /usr/local/bin/metterxp-beta/metterxp/app/icon.png /usr/local/bin/metterxp-beta/ ;  mv /usr/local/bin/metterxp-beta/metterxp/app/LICENSE.txt /usr/local/bin/metterxp-beta/")
 os.system("cd /usr/local/bin/metterxp-beta/ ;  rm -rf metterxp")
 if os.path.isfile(lang_en):
-    messagebox.showinfo("Good New","Succesful! Updated MetterXP to a newer version. Starting the updated MetterXP...")
+    messagebox.showinfo("Good New","Succesful! Updated MetterXP to a newer version. MetterXP is shutting down for updates to apply...")
 elif os.path.isfile(lang_tr):
-    messagebox.showinfo("İyi Haber","Başarılı! MetterXP daha yeni bir sürüme güncellendi. Güncellenmiş MetterXP başlatılıyor...")
+    messagebox.showinfo("İyi Haber","Başarılı! MetterXP daha yeni bir sürüme güncellendi. MetterXP, güncellemelerin uygulanması için kapatılıyor...")
 os.system("python3 /usr/bin/metterxp-beta")
 exit()

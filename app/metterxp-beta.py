@@ -173,6 +173,9 @@ def main_gui():
     def update():
         window.destroy()
         mxp_update()
+    def settings():
+        window.destroy()
+        mxp_settings()
     window=Tk()
     window.title("MetterXP 2.0-0 Beta")
     window.config(background=bg)
@@ -200,7 +203,7 @@ def main_gui():
             button10.pack()           
         space2=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_info_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="About MetterXP",command=mxp_info)
-        mxp_settings_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP settings",command=mxp_settings)
+        mxp_settings_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP settings",command=settings)
         mxp_update_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Update MetterXP",command=update)
         space3=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_exit_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Close MetterXP",command=mxp_exit)
@@ -226,7 +229,7 @@ def main_gui():
             button10.pack()           
         space2=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_info_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP hakkında",command=mxp_info)
-        mxp_settings_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP ayarları",command=mxp_settings)
+        mxp_settings_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP ayarları",command=settings)
         mxp_update_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP'ı güncelle",command=update)
         space3=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_exit_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP'ı kapat",command=mxp_exit)
