@@ -8,52 +8,145 @@ from tkinter import *
 from tkinter import messagebox
 import os
 
-debian="/etc/debian_version"
-fedora="/etc/fedora-release"
-solus="/etc/solus-release"
+lang_tr="/usr/local/bin/metterxp-beta/settings/lang/tr.txt"
+lang_en="/usr/local/bin/metterxp-beta/settings/lang/en.txt"
 
-def kapat():
-    print("\nModül kapatılıyor...")
+def module_exit():
+    print("\nModül kapatılıyor...\nClosing this module...")
     exit()
 
-pencere=Tk()
-pencere.title("MetterXP Hakkında | MetterXP")
-pencere.config(background="#000000")
-pencere.resizable(0, 0)
+bg=""
+fg=""
+button_bg=""
+button_fg=""
+a_button_bg=""
+a_button_fg=""
+if os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/0.txt"):
+    bg="#000000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#000000"
+    a_button_bg="#03035B"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/1.txt"):
+    bg="#000000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#000000"
+    a_button_bg="#000000"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/2.txt"):
+    bg="#FFFFFF"
+    fg="#000000"
+    button_bg="#000000"
+    button_fg="#FFFFFF"
+    a_button_bg="#FFFFFF"
+    a_button_fg="#000000"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/3.txt"):
+    bg="#808080"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#808080"
+    a_button_bg="#808080"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/4.txt"):
+    bg="#FF0000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#FF0000"
+    a_button_bg="#FF0000"
+    a_button_fg="#FFFFFF"     
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/5.txt"):
+    bg="#FFA500"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#FFA500"
+    a_button_bg="#FFA500"
+    a_button_fg="#FFFFFF" 
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/6.txt"):
+    bg="#008000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#008000"
+    a_button_bg="#008000"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/7.txt"):
+    bg="#0000FF"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#0000FF"
+    a_button_bg="#0000FF"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/8.txt"):
+    bg="#000080"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#000080"
+    a_button_bg="#000080"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/9.txt"):
+    bg="#800080"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#800080"
+    a_button_bg="#800080"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/10.txt"):
+    bg="#FFC0CB"
+    fg="#000000"
+    button_bg="#000000"
+    button_fg="#FFC0CB"
+    a_button_bg="#FFC0CB"
+    a_button_fg="#000000"
+else:
+    if os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/en.txt"):
+        messagebox.showwarning("Warning","Can't found theme config. Iy fou click 'OK' MetterXP settings will open.")
+    elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/tr.txt"):
+        messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
+    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")
+    exit()
 
 def metterxp():
-    os.system("xdg-open https://mukonqi.github.io/metterxp")
+    os.system("xdg-open https://mukonqi.github.io/metterxp/ana-sayfa.html")
 def foss():
     os.system("xdg-open https://www.gnu.org/philosophy/free-sw.tr.html")
-def yapimci():
+def developer():
     os.system("xdg-open https://mukonqi.github.io")
-def lisans():
+def license():
     os.system("xdg-open https://www.gnu.org/licenses/gpl-3.0-standalone.html")
-def temel():
+def base():
     os.system("xdg-open https://github.com/MuKonqi/metterxp/tree/betterxp")
-def surum():
-    os.system("xdg-open https://mukonqi.github.io/metterxp/")
+def release():
+    if os.path.isfile(lang_en):
+        os.system("xdg-open https://mukonqi.github.io/metterxp/whats-new.html")
+    elif os.path.isfile(lang_tr):
+        os.system("xdg-open https://mukonqi.github.io/metterxp/yenilikler.html")
 
-b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 7")
-b_metin1.pack()
-buton1=Button(pencere, font="arial 15 bold italic", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="MetterXP\nMaksimum ve daha iyi deneyim için tasarlandı.", command=metterxp)
-buton1.pack()
-b_metin3=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 1")
-b_metin3.pack()    
-buton2=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="Yapılış şekli: Özgür ve Açık Kaynaklı Yazılım (FOSS)", command=foss)
-buton2.pack()
-buton3=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="Yapımcı: Muhammed Abdurrahman", command=yapimci)
-buton3.pack()
-buton4=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="Lisans: GNU General Public License, Version 3.0 (GPLv3)", command=lisans)
-buton4.pack()
-buton5=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="Temel: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=temel)
-buton5.pack()
-buton6=Button(pencere, font="arial 12 bold", cursor="hand2", activeforeground="#0099FF", activebackground="#000000", background="#000000", foreground="#FFFFFF", text="Sürüm: 1.2-1", command=surum)
-buton6.pack()
-
-b_metin4=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-b_metin4.pack()
-buton_1=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Ana menüye dön\nModülü kapat", command=kapat)
-buton_1.pack()
-
+if os.path.isfile(lang_en):
+    pass
+elif os.path.isfile(lang_tr):
+    window=Tk()
+    window.title("MetterXP hakkında | MetterXP")
+    window.config(background=bg)
+    window.resizable(0, 0)
+    space1=Label(window, background=bg, foreground=fg, text="\n", font="arial 7") 
+    button1=Button(window, font="arial 15 bold italic", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="MetterXP\nMaksimum ve daha iyi deneyim için tasarlandı.", command=metterxp)
+    space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
+    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Yapılış şekli: Özgür ve Açık Kaynaklı Yazılım (FOSS)", command=foss)
+    button3=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Yapımcı: Muhammed Abdurrahman", command=developer)
+    button4=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Lisans: GNU General Public License, Version 3.0 (GPLv3)", command=license)
+    button5=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Temel: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=base)
+    button6=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Sürüm: 1.2-1", command=release)
+    space3=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
+    button_1=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, text="Ana menüye dön\nModülü kapat", command=module_exit)
+space1.pack()
+button1.pack()
+space2.pack()
+button2.pack()
+button3.pack()
+button4.pack()
+button5.pack()
+button6.pack()
+space3.pack()
+button_1.pack()
 mainloop()
