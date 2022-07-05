@@ -116,14 +116,27 @@ def license():
     os.system("xdg-open https://www.gnu.org/licenses/gpl-3.0-standalone.html")
 def base():
     os.system("xdg-open https://github.com/MuKonqi/metterxp/tree/betterxp")
-def release():
+def version():
     if os.path.isfile(lang_en):
         os.system("xdg-open https://mukonqi.github.io/metterxp/whats-new.html")
     elif os.path.isfile(lang_tr):
         os.system("xdg-open https://mukonqi.github.io/metterxp/yenilikler.html")
 
 if os.path.isfile(lang_en):
-    pass
+    window=Tk()
+    window.title("About MetterXP | MetterXP")
+    window.config(background=bg)
+    window.resizable(0, 0)
+    space1=Label(window, background=bg, foreground=fg, text="\n", font="arial 7") 
+    button1=Button(window, font="arial 15 bold italic", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="MetterXP\nDesigned for maximum and betterxp experience.", command=metterxp)
+    space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
+    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Version: 2.0-0 Beta", command=version)
+    button3=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Base: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=base)
+    button4=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="License: GNU General Public License, Version 3.0 (GPLv3)", command=license)
+    button5=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="License type: Free and Open Source Software (FOSS)", command=foss)
+    button6=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Developer: Muhammed Abdurrahman", command=developer)
+    space3=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
+    button_1=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, text="Ana menüye dön\nModülü kapat", command=module_exit)
 elif os.path.isfile(lang_tr):
     window=Tk()
     window.title("MetterXP hakkında | MetterXP")
@@ -132,11 +145,11 @@ elif os.path.isfile(lang_tr):
     space1=Label(window, background=bg, foreground=fg, text="\n", font="arial 7") 
     button1=Button(window, font="arial 15 bold italic", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="MetterXP\nMaksimum ve daha iyi deneyim için tasarlandı.", command=metterxp)
     space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
-    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Yapılış şekli: Özgür ve Açık Kaynaklı Yazılım (FOSS)", command=foss)
-    button3=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Yapımcı: Muhammed Abdurrahman", command=developer)
+    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Sürüm: 2.0-0 Beta", command=version)
+    button3=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Temel: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=base)
     button4=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Lisans: GNU General Public License, Version 3.0 (GPLv3)", command=license)
-    button5=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Temel: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=base)
-    button6=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Sürüm: 1.2-1", command=release)
+    button5=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Lisans türü: Özgür ve Açık Kaynaklı Yazılım (FOSS)", command=foss)
+    button6=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Geliştirici: Muhammed Abdurrahman", command=developer)
     space3=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
     button_1=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, text="Ana menüye dön\nModülü kapat", command=module_exit)
 space1.pack()

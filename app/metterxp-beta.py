@@ -167,6 +167,10 @@ else:
 
 
 def main_gui():
+    window=Tk()
+    window.title("MetterXP 2.0-0 Beta")
+    window.config(background=bg)
+    window.resizable(0, 0)
     def mxp_exit():
         print("\nMetterXP kapatılıyor...\nClosing MetterXP...")
         exit()
@@ -176,10 +180,6 @@ def main_gui():
     def settings():
         window.destroy()
         mxp_settings()
-    window=Tk()
-    window.title("MetterXP 2.0-0 Beta")
-    window.config(background=bg)
-    window.resizable(0, 0)
 
     if os.path.isfile(lang_en):
         menu1=Menu(window)
