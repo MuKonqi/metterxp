@@ -124,9 +124,9 @@ def main_install():
         else:
             os.system("mkdir "+mainappfolder)
     os.system("mkdir "+mainappfolder+appname)
-    os.system("cd app ; cp * "+mainappfolder+appname)
+    os.system("cd app ; cp -r * "+mainappfolder+appname)
     os.system("mkdir "+mainappfolder+appname+"/apiutaller")
-    os.system("rm -rf app ; cp * "+mainappfolder+appname+"/apiutaller")
+    os.system("cp -r * "+mainappfolder+appname+"/apiutaller")
     if os.path.isdir(mainappfolder+appname):
         if lang == "en":
             exit("Successful! You have this program "+appname+" at the moment. Thank you for choosing us!")
