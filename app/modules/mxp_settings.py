@@ -575,16 +575,16 @@ def main():
     mainloop()
 def langset():
     os.system("cd /usr/local/bin/metterxp-beta/settings ; mkdir lang")
-    def langtr():
-        print("Seçilen dil setnıyor...")
-        os.system("cd /usr/local/bin/metterxp-beta/settings/lang ; rm * ; touch tr.txt")
-        messagebox.showinfo("Bilgilendirme","İstenilen dil uygulandı! 'OK' tuşuna bastığınızda MetterXP ayarları açılacak.")
-        lwindow.destroy()
-        main()
     def langen():
         print("Setting choosed language...")
         os.system("cd /usr/local/bin/metterxp-beta/settings/lang ; rm * ; touch en.txt")
-        messagebox.showinfo("Bilgilendirme","English language applied! If you click 'OK', MetterXP settings will open.")
+        messagebox.showinfo("Information","English language applied! If you click 'OK', MetterXP settings will open.")
+        lwindow.destroy()
+        main()
+    def langtr():
+        print("Seçilen dil ayarlanıyor...")
+        os.system("cd /usr/local/bin/metterxp-beta/settings/lang ; rm * ; touch tr.txt")
+        messagebox.showinfo("Bilgilendirme","İstenilen dil uygulandı! 'OK' tuşuna bastığınızda MetterXP ayarları açılacak.")
         lwindow.destroy()
         main()
     lwindow=Tk()

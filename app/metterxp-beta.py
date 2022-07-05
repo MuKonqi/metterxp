@@ -48,10 +48,10 @@ if not os.path.isdir("/usr/local/bin/metterxp-beta/settings/lang/"):
 def mxp_info():
     subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/mxp_info.py", shell=TRUE)
 def mxp_settings():
-    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py --updateupdater")
+    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")
     exit()
 def mxp_update():
-    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_update.py")
+    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_update.py --updateupdater")
 
 def app_it_rm():
     subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/app_it_rm.py", shell=TRUE)
