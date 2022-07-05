@@ -50,5 +50,4 @@ if os.path.isfile(lang_en):
     messagebox.showinfo("Good New","Succesful! Updated MetterXP to a newer version. MetterXP is shutting down for updates to apply...")
 elif os.path.isfile(lang_tr):
     messagebox.showinfo("İyi Haber","Başarılı! MetterXP daha yeni bir sürüme güncellendi. MetterXP, güncellemelerin uygulanması için kapatılıyor...")
-os.system("python3 /usr/bin/metterxp-beta")
 exit()
