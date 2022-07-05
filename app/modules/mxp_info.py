@@ -136,7 +136,7 @@ if os.path.isfile(lang_en):
     button5=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="License type: Free and Open Source Software (FOSS)", command=foss)
     button6=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Developer: Muhammed Abdurrahman", command=developer)
     space3=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
-    button_1=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, text="Ana menüye dön\nModülü kapat", command=module_exit)
+    button_1=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, text="Close this module\nBack to main menu", command=module_exit)
 elif os.path.isfile(lang_tr):
     window=Tk()
     window.title("MetterXP hakkında | MetterXP")
@@ -151,7 +151,7 @@ elif os.path.isfile(lang_tr):
     button5=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Lisans türü: Özgür ve Açık Kaynaklı Yazılım (FOSS)", command=foss)
     button6=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Geliştirici: Muhammed Abdurrahman", command=developer)
     space3=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
-    button_1=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, text="Ana menüye dön\nModülü kapat", command=module_exit)
+    button_1=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, text="Modülü kapat\nAna menüye dön", command=module_exit)
 space1.pack()
 button1.pack()
 space2.pack()
