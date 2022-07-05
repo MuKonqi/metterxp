@@ -30,21 +30,9 @@ def yapimci():
 def lisans():
     os.system("xdg-open https://www.gnu.org/licenses/gpl-3.0-standalone.html")
 def temel():
-    os.system("xdg-open https://github.com/MuKonqi/betterxp/tree/betterxp")
+    os.system("xdg-open https://github.com/MuKonqi/metterxp/tree/betterxp")
 def surum():
-    pencere2=Toplevel()
-    pencere2.title("MetterXP 1.2-1 hakkında | MetterXP")
-    pencere2.config(background="#000000")
-    pencere2.resizable(0, 0)
-
-    yazi3=Label(pencere2, background="#000000", foreground="#FFFFFF", font="arial 12 bold italic", text=
-"Yenilikler:\n'Sadece kök kullanıcı bu modülü çalıştırabilir!' eklendi.\n\nBazı özellikler:"
-"\nProgram kurma/yeniden kurma/kaldırma\nProgram/paket arama\nMasaüstü ortamı/pencere yöneticisi kurma/yeniden kurma/kaldıma"
-"\nPaket yöneticisi kurma/yeniden kurma\nSistemi güncelleme\nÇeşitli yapılandırmalar (.bashrc, GRUB, Cups, Plank, Wine ve bilgisayar adı)"
-"\nVe dahası...\n\nBilinen hatalar: Program kur/yeniden/kur/kaldır ile program arama özelliklerindeki çıktılarda bulunan anlamsız semboller"
-"\n\n\nMetterXP, yürüteceği herhangi bir işlem için garanti vermemektedir (bakınız GPLv3).\nÖnceki sürüm: 1.1-1"
-"\n\n\nMetterXP için şunlar gereklidir:\nPython3, Tkinter, Python3-tkinter, Git, Pkexec, sudo/su/doas")
-    yazi3.pack()
+    os.system("xdg-open https://mukonqi.github.io/metterxp/")
 
 b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 7")
 b_metin1.pack()

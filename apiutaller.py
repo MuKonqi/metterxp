@@ -40,7 +40,7 @@ from sys import platform
 ## Warning! You must use "" when you don't use any.
 appname="metterxp-beta" # Don't forget to change this!
 appfolder="/usr/bin/" # Don't forget to change this!
-appfile="metterxp.py" # Don't forget to change this!
+appfile="metterxp-beta.py" # Don't forget to change this!
 policyfile="python3.policy" # Options: policy file and any
 appdesktopfile="metterxp-beta.desktop" # Options: desktop file and any
 mainappfolder="/usr/local/bin/" # Don't forget to change this!
