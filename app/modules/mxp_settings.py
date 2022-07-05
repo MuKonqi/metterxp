@@ -139,12 +139,11 @@ else:
     cr_dir()
 
 def main():
-    def module_exit():
-        print("\nModül kapatılıyor...")
-        exit()
     def preview():
-        messagebox.showinfo("Bilgilendirme","Evet, bunun açılmasını sen sağladın.")
-        
+        if os.path.isfile(lang_en):
+            messagebox.showinfo("Information","I am definitely the best information window. :)")
+        elif os.path.isfile(lang_tr):
+            messagebox.showinfo("Bilgilendirme","Ben kesinlikle en iyi bilgi penceresiyim. :)")
 
     def theme0():
         def theme0_set():
