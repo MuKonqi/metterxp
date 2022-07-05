@@ -578,7 +578,7 @@ def langset():
     def langtr():
         print("Seçilen dil setnıyor...")
         os.system("cd /usr/local/bin/metterxp-beta/settings/lang ; rm * ; touch tr.txt")
-        messagebox.showinfo("Bilgilendirme","İstenilen dil uygulandı! 'OK' tuşuna bastığınızda MetterXP setrı açılacak.")
+        messagebox.showinfo("Bilgilendirme","İstenilen dil uygulandı! 'OK' tuşuna bastığınızda MetterXP ayarları açılacak.")
         lwindow.destroy()
         main()
     def langen():
