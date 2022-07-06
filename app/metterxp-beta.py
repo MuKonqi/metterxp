@@ -62,7 +62,7 @@ def de_wm_it_rm():
 def system_up():
     subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/system_up.py", shell=TRUE)
 def app_configre():
-    subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/app_configre.py", shell=TRUE)
+    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/app_configre.py", shell=TRUE)
 def root_apps():
     subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/root_apps.py", shell=TRUE)
 def distros():
