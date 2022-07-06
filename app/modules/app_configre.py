@@ -501,7 +501,7 @@ elif os.path.isfile(lang_tr):
     button4=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Wine'ı yapılandır", command=wine)
     button5=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Bu bilgisayarın adını değiştir", command=pcrename)
     space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
-    button_1=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nBack to main menu", command=module_exit)
+    button_1=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
 text1.pack()
 space1.pack()
 button1.pack()
