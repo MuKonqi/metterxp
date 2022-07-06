@@ -22,9 +22,9 @@ if not os.getuid() == 0:
         exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
         
 if os.path.isfile(lang_en):
-    messagebox.showinfo("Information","When you press the 'OK' button then the process will start. Please do NOT close MetterXP during the process.")
+    messagebox.showinfo("Information","When you press the 'OK' button then the process will start. Please don't close MetterXP during the process.")
 elif os.path.isfile(lang_tr):
-    messagebox.showinfo("Bilgilendirme","'OK' düğmesine bastığınızda işlem başlayacaktır. Lütfen işlem sırasında MetterXP'i kapatMAyın.")
+    messagebox.showinfo("Bilgilendirme","'OK' düğmesine bastığınızda işlem başlayacaktır. Lütfen işlem sırasında MetterXP'ı kapatmayın.")
 
 if os.path.isfile(debian):
     os.system(" apt autoremove -y")
