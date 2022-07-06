@@ -14,110 +14,199 @@ debian="/etc/debian_version"
 fedora="/etc/fedora-release"
 solus="/etc/solus-release"
 
-def kapat():
-    print("\nModül kapatılıyor...")
+debian="/etc/debian_version"
+fedora="/etc/fedora-release"
+solus="/etc/solus-release"
+lang_tr="/usr/local/bin/metterxp-beta/settings/lang/tr.txt"
+lang_en="/usr/local/bin/metterxp-beta/settings/lang/en.txt"
+
+
+def module_exit():
+    print("\nModül kapatılıyor...\nClosing this module...")
     exit()
 
-def paketara():
-    if os.path.isfile(debian):
-        try:
-            c1_paketara="apt search "
-            get_paketadi=paketadi.get()
-            cf_paketara=c1_paketara+get_paketadi
-            run_cf_paketara = subprocess.Popen(cf_paketara, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, universal_newlines=True)
-            (out, err) = run_cf_paketara.communicate()
-            pencere_2=Toplevel()
-            pencere_2.title("Program/Paket Arama Sonuçları | MetterXP")
-            pencere_2.config(background="#000000")
-            pencere_2.resizable(0, 0)
-            kaydirma=Scrollbar(pencere_2)
-            kaydirma.pack(side=RIGHT,fill=Y)
-            yazi2=Label(pencere_2, background="#000000", foreground="#FFFFFF", font="arial 11 bold", text="\nBilgilendirme: İstediğiniz program/paket arandı.\n\nNot: Aşağıdaki komut çıktısını değiştirmeniz herhangi bir şey değiştirmez.\n")
-            yazi2.pack()
-            yazi3=Text(pencere_2, yscrollcommand=kaydirma.set)
-            yazi3.pack()
-            yazi3.insert(END, out)
-            kaydirma.config(command=yazi3.yview)
-            b_metin3=Label(pencere_2, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-            b_metin3.pack()
-            buton_2=Button(pencere_2, font="arial 11", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Pencereyi kapat", command=pencere_2.destroy)
-            buton_2.pack()
-        except:
-            messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-            kapat()
-    if os.path.isfile(fedora):
-        try:
-            c1_paketara="dnf search "
-            get_paketadi=paketadi.get()
-            cf_paketara=c1_paketara+get_paketadi
-            run_cf_paketara = subprocess.Popen(cf_paketara, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, universal_newlines=True)
-            (out, err) = run_cf_paketara.communicate()
-            pencere_2=Toplevel()
-            pencere_2.title("Program/Paket Arama Sonuçları | MetterXP")
-            pencere_2.config(background="#000000")
-            pencere_2.resizable(0, 0)
-            kaydirma=Scrollbar(pencere_2)
-            kaydirma.pack(side=RIGHT,fill=Y)
-            yazi2=Label(pencere_2, background="#000000", foreground="#FFFFFF", font="arial 11 bold", text="\nBilgilendirme: İstediğiniz program/paket arandı.\n\nNot: Aşağıdaki komut çıktısını değiştirmeniz herhangi bir şey değiştirmez.\n")
-            yazi2.pack()
-            yazi3=Text(pencere_2, yscrollcommand=kaydirma.set)
-            yazi3.pack()
-            yazi3.insert(END, out)
-            kaydirma.config(command=yazi3.yview)
-            b_metin3=Label(pencere_2, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-            b_metin3.pack()
-            buton_2=Button(pencere_2, font="arial 11", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Pencereyi kapat", command=pencere_2.destroy)
-            buton_2.pack()
-        except:
-            messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-            kapat()
-    if os.path.isfile(solus):
-        try:
-            c1_paketara="eopkg search "
-            get_paketadi=paketadi.get()
-            cf_paketara=c1_paketara+get_paketadi
-            run_cf_paketara = subprocess.Popen(cf_paketara, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, universal_newlines=True)
-            (out, err) = run_cf_paketara.communicate()
-            pencere_2=Toplevel()
-            pencere_2.title("Program/Paket Arama Sonuçları | MetterXP")
-            pencere_2.config(background="#000000")
-            pencere_2.resizable(0, 0)
-            kaydirma=Scrollbar(pencere_2)
-            kaydirma.pack(side=RIGHT,fill=Y)
-            yazi2=Label(pencere_2, background="#000000", foreground="#FFFFFF", font="arial 11 bold", text="\nBilgilendirme: İstediğiniz program/paket arandı.\n\nNot: Aşağıdaki komut çıktısını değiştirmeniz herhangi bir şey değiştirmez.\n")
-            yazi2.pack()
-            yazi3=Text(pencere_2, yscrollcommand=kaydirma.set)
-            yazi3.pack()
-            yazi3.insert(END, out)
-            kaydirma.config(command=yazi3.yview)
-            b_metin3=Label(pencere_2, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-            b_metin3.pack()
-            buton_2=Button(pencere_2, font="arial 11", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Pencereyi kapat", command=pencere_2.destroy)
-            buton_2.pack()
-        except:
-            messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için modül kapatılacak.")
-            kapat()
-            
-pencere=Tk()
-pencere.title("Program arama | MetterXP")
-pencere.config(background="#000000")
-pencere.resizable(0, 0)
+if os.getuid() == 0:
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Only normal user can run this module!")
+        exit("Only normal user can run this module!\nClosing this module...")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Sadece normal kullanıcı bu modülü çalıştırabilir!")
+        exit("\nSadece normal kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
+    
 
-yazi1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10 bold", text="Lütfen aratmak istediğiniz programın/paketin adını giriniz.")
-yazi1.pack()
-b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-b_metin1.pack()
-paketadi=Entry(pencere)
-paketadi.pack()
-b_paketara=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Ara",command=paketara)
-b_paketara.pack()
-b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 1")
-b_metin2.pack()
-yazi2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 9 bold", text="Bilgilendirme: Açılacak komut çıktısında bazı hatalar (anlamsız harfler, sayılar vb.) olabilir.\nLütfen bunu dikkate almayınız.")
-yazi2.pack()
-b_metin3=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-b_metin3.pack()
-buton_1=Button(pencere, font="arial 10", cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Ana menüye dön\nModülü kapat", command=kapat)
-buton_1.pack()
+bg=""
+fg=""
+button_bg=""
+button_fg=""
+a_button_bg=""
+a_button_fg=""
+if os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/0.txt"):
+    bg="#000000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#000000"
+    a_button_bg="#03035B"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/1.txt"):
+    bg="#000000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#000000"
+    a_button_bg="#000000"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/2.txt"):
+    bg="#FFFFFF"
+    fg="#000000"
+    button_bg="#000000"
+    button_fg="#FFFFFF"
+    a_button_bg="#FFFFFF"
+    a_button_fg="#000000"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/3.txt"):
+    bg="#808080"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#808080"
+    a_button_bg="#808080"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/4.txt"):
+    bg="#FF0000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#FF0000"
+    a_button_bg="#FF0000"
+    a_button_fg="#FFFFFF"     
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/5.txt"):
+    bg="#FFA500"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#FFA500"
+    a_button_bg="#FFA500"
+    a_button_fg="#FFFFFF" 
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/6.txt"):
+    bg="#008000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#008000"
+    a_button_bg="#008000"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/7.txt"):
+    bg="#0000FF"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#0000FF"
+    a_button_bg="#0000FF"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/8.txt"):
+    bg="#000080"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#000080"
+    a_button_bg="#000080"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/9.txt"):
+    bg="#800080"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#800080"
+    a_button_bg="#800080"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/10.txt"):
+    bg="#FFC0CB"
+    fg="#000000"
+    button_bg="#000000"
+    button_fg="#FFC0CB"
+    a_button_bg="#FFC0CB"
+    a_button_fg="#000000"
+else:
+    if os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/en.txt"):
+        messagebox.showwarning("Warning","Can't found theme config. Iy fou click 'OK' MetterXP settings will open.")
+    elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/tr.txt"):
+        messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
+    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")
+    exit()
+
+
+window=Tk()
+if os.path.isfile(lang_en):
+    window.title("Search application/package | MetterXP")
+elif os.path.isfile(lang_tr):
+    window.title("Program/paket ara | MetterXP")
+window.config(background=bg)
+window.resizable(0, 0)
+
+def packagesearch():
+    if os.path.isfile(debian):
+        c1_package=" apt search "
+        get_packagename=packagename.get()
+        cf_package=c1_package+get_packagename
+        run_cf_package = subprocess.Popen(cf_package, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        (out, err) = run_cf_package.communicate()
+    elif os.path.isfile(fedora):
+        c1_package=" dnf search "
+        get_packagename=packagename.get()
+        cf_package=c1_package+get_packagename
+        run_cf_package = subprocess.Popen(cf_package, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        (out, err) = run_cf_package.communicate()
+    elif os.path.isfile(solus):
+        c1_package=" eopkg search "
+        get_packagename=packagename.get()
+        cf_package=c1_package+get_packagename
+        run_cf_package = subprocess.Popen(cf_package, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        (out, err) = run_cf_package.communicate()
+    if os.path.isfile(lang_en):
+        window_2=Toplevel()
+        window_2.title("Output | MetterXP")
+        window_2.config(background=bg)
+        window_2.resizable(0, 0)
+        scroll=Scrollbar(window_2)
+        text3=Label(window_2, background=bg, foreground=fg, font="arial 12", text="\nInformation: If the package name you entered is correct, the process has been completed successfully!\n\nNote: Changing the output of the command below will not change anything.\n")
+        text4=Text(window_2, yscrollcommand=scroll.set)
+        text4.insert(END, out)
+        scroll.config(command=text4.yview)
+        space4=Label(window_2, background=bg, foreground=fg, text="\n", font="arial 3")
+        button_2=Button(window_2, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close window", command=window_2.destroy)
+    elif os.path.isfile(lang_tr):
+        window_2=Toplevel()
+        window_2.title("Çıktı | MetterXP")
+        window_2.config(background=bg)
+        window_2.resizable(0, 0)
+        scroll=Scrollbar(window_2)
+        text3=Label(window_2, background=fg, foreground=bg, font="arial 12", text="\nBilgilendirme: Eğer girdiğiniz paket adı hatalı değilse işlem başarıyla tamamlandı!\n\nNot: Aşağıdaki komut çıktısını değiştirmeniz herhangi bir şey değiştirmez.\n")
+        text4=Text(window_2, yscrollcommand=scroll.set)
+        text4.insert(END, out)
+        scroll.config(command=text4.yview)
+        space4=Label(window_2, background=bg, foreground=fg, text="\n", font="arial 3")
+        button_2=Button(window_2, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Pencereyi kapat", command=window_2.destroy)
+    scroll.pack(side=RIGHT,fill=Y)
+    text3.pack()
+    text4.pack()
+    space4.pack()
+    button_2.pack()
+if os.path.isfile(lang_en):
+    text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Please enter the name of the program/package you want to search.\nNote: You must enter the package name correctly!")
+    space1=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
+    packagename=Entry(window)
+    b_packagesearch=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, borderwidth="3", background=button_bg, text="Search",command=packagesearch)
+    space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
+    text2=Label(window, background=bg, foreground=fg, font="arial 9 bold", text="Information: There may be some errors (meaningless letters, numbers, etc.) in the command output to be opened.\nPlease ignore this.")
+    space3=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
+    exit_button_1=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+elif os.path.isfile(lang_tr):
+    text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Lütfen aratmak istediğiniz programın/paketin adını giriniz.\nNot: Paket adını doğru girmeniz gerekmektedir!")
+    space1=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
+    packagename=Entry(window)
+    b_packagesearch=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, borderwidth="3", background=button_bg, text="Ara",command=packagesearch)
+    space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
+    text2=Label(window, background=bg, foreground=fg, font="arial 9 bold", text="Bilgilendirme: Açılacak komut çıktısında bazı hatalar (anlamsız harfler, sayılar vb.) olabilir.\nLütfen bunu dikkate almayınız.")
+    space3=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
+    exit_button_1=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+text1.pack()
+space1.pack()
+packagename.pack()
+b_packagesearch.pack()
+space2.pack()
+text2.pack()
+space3.pack()
+exit_button_1.pack()
 
 mainloop()
