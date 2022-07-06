@@ -34,7 +34,7 @@ args=sys.argv[1:]
 
 if not os.path.isdir("/usr/local/bin/metterxp-beta/settings/lang/"):
     def lang_open():
-        messagebox.showerror("Warning","Can't found language setting. If you click 'OK' and enter your true password, language settings will open. ")
+        messagebox.showerror("Warning","Can't found language setting. When you click 'OK' and enter your true password, language settings will open. ")
         os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")
         exit()
     if os.path.isfile(debian):
@@ -159,7 +159,7 @@ elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/10.txt"):
     a_button_fg="#000000"
 else:
     if os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/en.txt"):
-        messagebox.showwarning("Warning","Can't found theme config. Iy fou click 'OK' MetterXP settings will open.")
+        messagebox.showwarning("Warning","Can't found theme config. When you click 'OK' MetterXP settings will open.")
     elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/tr.txt"):
         messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
     os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")

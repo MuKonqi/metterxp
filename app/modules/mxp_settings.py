@@ -139,7 +139,7 @@ def main():
             window2.destroy()
             os.system("cd /usr/local/bin/metterxp-beta/settings/theme ; rm * ; touch 0.txt")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Bilgilendirme","Theme applied! If you are click 'OK', MetterXP will be closed to apply the changes.")
+                messagebox.showinfo("Bilgilendirme","Theme is applied! When you are click 'OK', MetterXP will be closed to apply the changes.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
             window.destroy()        
@@ -171,7 +171,7 @@ def main():
             window2.destroy()
             os.system("cd /usr/local/bin/metterxp-beta/settings/theme ; rm * ; touch 1.txt")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Theme applied! If you click 'OK', MetterXP will be closed to apply the changes.")
+                messagebox.showinfo("Information","Theme is applied! When you click 'OK', MetterXP will be closed to apply the changes.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
             window.destroy()        
@@ -228,7 +228,7 @@ def main():
             window2.destroy()
             os.system("cd /usr/local/bin/metterxp-beta/settings/theme ; rm * ; touch 3.txt")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Theme applied! If you click 'OK', MetterXP will be closed to apply the changes.")
+                messagebox.showinfo("Information","Theme is applied! When you click 'OK', MetterXP will be closed to apply the changes.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
             window.destroy()        
@@ -260,7 +260,7 @@ def main():
             window2.destroy()
             os.system("cd /usr/local/bin/metterxp-beta/settings/theme ; rm * ; touch 4.txt")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Theme applied! If you click 'OK', MetterXP will be closed to apply the changes.")
+                messagebox.showinfo("Information","Theme is applied! When you click 'OK', MetterXP will be closed to apply the changes.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
             window.destroy()        
@@ -292,7 +292,7 @@ def main():
             window2.destroy()
             os.system("cd /usr/local/bin/metterxp-beta/settings/theme ; rm * ; touch 5.txt")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Theme applied! If you click 'OK', MetterXP will be closed to apply the changes.")
+                messagebox.showinfo("Information","Theme is applied! When you click 'OK', MetterXP will be closed to apply the changes.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
             window.destroy()        
@@ -324,7 +324,7 @@ def main():
             window2.destroy()
             os.system("cd /usr/local/bin/metterxp-beta/settings/theme ; rm * ; touch 6.txt")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Theme applied! If you click 'OK', MetterXP will be closed to apply the changes.")
+                messagebox.showinfo("Information","Theme is applied! When you click 'OK', MetterXP will be closed to apply the changes.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
             window.destroy()        
@@ -356,7 +356,7 @@ def main():
             window2.destroy()
             os.system("cd /usr/local/bin/metterxp-beta/settings/theme ; rm * ; touch 7.txt")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Theme applied! If you click 'OK', MetterXP will be closed to apply the changes.")
+                messagebox.showinfo("Information","Theme is applied! When you click 'OK', MetterXP will be closed to apply the changes.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
             window.destroy()        
@@ -388,7 +388,7 @@ def main():
             window2.destroy()
             os.system("cd /usr/local/bin/metterxp-beta/settings/theme ; rm * ; touch 8.txt")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Theme applied! If you click 'OK', MetterXP will be closed to apply the changes.")
+                messagebox.showinfo("Information","Theme is applied! When you click 'OK', MetterXP will be closed to apply the changes.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
             window.destroy()        
@@ -420,7 +420,7 @@ def main():
             window2.destroy()
             os.system("cd /usr/local/bin/metterxp-beta/settings/theme ; rm * ; touch 9.txt")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Theme applied! If you click 'OK', MetterXP will be closed to apply the changes.")
+                messagebox.showinfo("Information","Theme is applied! When you click 'OK', MetterXP will be closed to apply the changes.")
             elif os.path.isfle(lang_tr):
                 messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
             window.destroy()        
@@ -452,7 +452,7 @@ def main():
             window2.destroy()
             os.system("cd /usr/local/bin/metterxp-beta/settings/theme ; rm * ; touch 10.txt")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Theme applied! If you click 'OK', MetterXP will be closed to apply the changes.")
+                messagebox.showinfo("Information","Theme is applied! When you click 'OK', MetterXP will be closed to apply the changes.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
             window.destroy()        
@@ -488,7 +488,7 @@ def main():
     def langen():
         print("Setting choosed language...")
         os.system("cd /usr/local/bin/metterxp-beta/settings/lang ; rm * ; touch en.txt")
-        messagebox.showinfo("Information","English language is applied. If you click 'OK', MetterXP will be close.")
+        messagebox.showinfo("Information","English language is is applied. When you click 'OK', MetterXP will be close.")
         module_exit()
     if os.path.isfile(lang_en):
         window=Tk()
@@ -566,7 +566,7 @@ def langset():
     def langen():
         print("Setting choosed language...")
         os.system("cd /usr/local/bin/metterxp-beta/settings/lang ; rm * ; touch en.txt")
-        messagebox.showinfo("Information","English language applied! If you click 'OK', MetterXP settings will open.")
+        messagebox.showinfo("Information","English language is applied! When you click 'OK', MetterXP settings will open.")
         lwindow.destroy()
         main()
     def langtr():

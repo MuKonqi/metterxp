@@ -119,7 +119,7 @@ elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/10.txt"):
     a_button_fg="#000000"
 else:
     if os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/en.txt"):
-        messagebox.showwarning("Warning","Can't found theme config. Iy fou click 'OK' MetterXP settings will open.")
+        messagebox.showwarning("Warning","Can't found theme config. When you click 'OK' MetterXP settings will open.")
     elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/tr.txt"):
         messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
     os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")
@@ -159,7 +159,7 @@ def packagesearch():
         window_2.config(background=bg)
         window_2.resizable(0, 0)
         scroll=Scrollbar(window_2)
-        text3=Label(window_2, background=bg, foreground=fg, font="arial 12", text="\nInformation: If the package name you entered is correct, the process has been completed successfully!\n\nNote: Changing the output of the command below will not change anything.\n")
+        text3=Label(window_2, background=bg, foreground=fg, font="arial 12", text="\nInformation: When the package name you entered is correct, the process has been completed successfully!\n\nNote: Changing the output of the command below will not change anything.\n")
         text4=Text(window_2, yscrollcommand=scroll.set)
         text4.insert(END, out)
         scroll.config(command=text4.yview)
