@@ -2,18 +2,18 @@
 
 # Copyright (C) 2021, 2022 Muhammed Abdurrahman
 
-# metterxp is free software: you can redistribute it and/or modify
+# MetterXP is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 
-# metterxp is distributed in the hope that it will be useful,
+# MetterXP is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with metterxp.  If not, see <https://www.gnu.org/licenses/>.
+# along with MetterXP.  If not, see <https://www.gnu.org/licenses/>.
 
 from tkinter import *
 from tkinter import messagebox
@@ -60,7 +60,7 @@ def app_search():
 def de_wm_it_rm():
     subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/de_wm_it_rm.py", shell=TRUE)
 def system_up():
-    subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/system_up.py", shell=TRUE)
+    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/system_up.py", shell=TRUE)
 def app_configre():
     subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/app_configre.py", shell=TRUE)
 def root_apps():
@@ -70,9 +70,9 @@ def distros():
 def pm_it():
     subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/pm_it.py", shell=TRUE)
 def clean_cache_app():
-    subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/clean_cache_app.py", shell=TRUE)
+    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/clean_cache_app.py", shell=TRUE)
 def fixer():
-    subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/fixer.py", shell=TRUE)
+    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/fixer.py", shell=TRUE)
 
 bg=""
 fg=""
@@ -347,8 +347,8 @@ def main_cli():
     
 
 if os.name == "nt":
-    print("MetterXP'a hoş geldiniz!\nMetterXP NT çekirdeğini kullanan işletim sistemlerinde çalışmaz.\nLütfen şu üç GNU/Linux dağıtımından birini temel alan bir GNU/Linux dağıtımıyla programı açmayı deneyiniz:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP kapatılıyor...")
-    mxp_exit()
+    print("Welcome to MetterXP!\nMetterXP will not work on operating systems using the NT kernel.\nPlease try to open the program with a GNU/Linux distribution based on one of these three GNU/Linux distributions:\nDebian GNU/Linux, Fedora Linux, Solus\n\nClosing MetterXP ...")
+    exit()
 elif platform == "darwin":
     os.system("./unsupported.app/Contents/MacOS/applet")
 elif os.path.isfile(debian):
@@ -358,5 +358,5 @@ elif os.path.isfile(fedora):
 elif os.path.isfile(solus):
     main_cli()
 else:
-    print("MetterXP'a hoş geldiniz!\nKullandığınız dağıtımı MetterXP tam anlamıyla desteklemiyor.\nLütfen şu üç GNU/Linux dağıtımından birini temel alan bir GNU/Linux dağıtımıyla programı açmayı deneyiniz:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP kapatılıyor...")
+    print("Welcome to MetterXP!\nThe distribution you are using does not fully support MetterXP.\nPlease try to open the program with a GNU/Linux distribution based on one of these three GNU/Linux distributions:\nDebian GNU/Linux, Fedora Linux, Solus\nClosing MetterXP...")
     exit()
