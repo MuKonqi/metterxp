@@ -182,7 +182,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install firefox -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Mozilla Firefox is installed.")
+                messagebox.showinfo("Information","Succcesful! Mozilla Firefox was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Mozilla Firefox başarıyla kuruldu.")
         def reit():
@@ -193,7 +193,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install firefox -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Mozilla Firefox is reinstalled.")
+                messagebox.showinfo("Information","Succcesful! Mozilla Firefox was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Mozilla Firefox başarıyla yeniden kuruldu.")
         def rm():
@@ -204,7 +204,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove firefox -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Mozilla Firefox is uninstalled.")
+                messagebox.showinfo("Information","Succcesful! Mozilla Firefox was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Mozilla Firefox başarıyla kaldırıldı.")
         button4.destroy()
@@ -244,7 +244,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install brave -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succesful! Brave is installed.")
+                messagebox.showinfo("Information","Succesful! Brave was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Brave başarıyla kuruldu.")
         def reit():
@@ -255,7 +255,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install brave -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succesful! Brave is reinstalled.")
+                messagebox.showinfo("Information","Succesful! Brave was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Brave başarıyla yeniden kuruldu.")
         def rm():
@@ -266,7 +266,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove brave -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succesful! Brave ris uninstalled.")
+                messagebox.showinfo("Information","Succesful! Brave rwas uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Brave başarıyla kaldırıldı.")
         button4.destroy()
@@ -298,7 +298,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install vlc -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! VLC is installed.")
+                messagebox.showinfo("Information","Succcesful! VLC was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","VLC başarıyla kuruldu.")
         def reit():
@@ -309,7 +309,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install vlc -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! VLC is reinstalled.")
+                messagebox.showinfo("Information","Succcesful! VLC was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","VLC başarıyla yeniden kuruldu.")
         def rm():
@@ -320,7 +320,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove vlc -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! VLC is uninstalled.")
+                messagebox.showinfo("Information","Succcesful! VLC was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","VLC başarıyla kaldırıldı.")
         button4.destroy()
@@ -355,7 +355,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install libreoffice -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! LibreOffice is installed.")
+                messagebox.showinfo("Information","Succcesful! LibreOffice was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","LibreOffice başarıyla kuruldu.")
         def reit():
@@ -366,7 +366,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install libtreoffice -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! LibreOffice is reinstalled.")
+                messagebox.showinfo("Information","Succcesful! LibreOffice was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","LibreOffice başarıyla yeniden kuruldu.")
         def rm():
@@ -377,7 +377,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove libreoffice -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! LibreOffice is uninstalled.")
+                messagebox.showinfo("Information","Succcesful! LibreOffice was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","LibreOffice başarıyla kaldırıldı.")
         button4.destroy()
@@ -410,7 +410,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install cups -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Cups is installed.")
+                messagebox.showinfo("Information","Succcesful! Cups was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Cups başarıyla kuruldu.")
         def reit():
@@ -421,7 +421,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install cups -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Cups is reinstalled.")
+                messagebox.showinfo("Information","Succcesful! Cups was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Cups başarıyla yeniden kuruldu.")
         def rm():
@@ -432,7 +432,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove cups -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Cups is uninstalled.")
+                messagebox.showinfo("Information","Succcesful! Cups was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Cups başarıyla kaldırıldı.")
         button4.destroy()
@@ -465,7 +465,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install gparted -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GParted is installed.")
+                messagebox.showinfo("Information","Succcesful! GParted was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GParted başarıyla kuruldu.")
         def reit():
@@ -476,7 +476,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install gparted -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GParted is reinstalled.")
+                messagebox.showinfo("Information","Succcesful! GParted was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GParted başarıyla yeniden kuruldu.")
         def rm():
@@ -487,7 +487,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove gparted -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GParted is uninstalled.")
+                messagebox.showinfo("Information","Succcesful! GParted was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GParted başarıyla kaldırıldı.")
         button4.destroy()
@@ -520,7 +520,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install gimp -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GIMP is installed.")
+                messagebox.showinfo("Information","Succcesful! GIMP was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GIMP başarıyla kuruldu.")
         def reit():
@@ -531,7 +531,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install gimp -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GIMP is reinstalled.")
+                messagebox.showinfo("Information","Succcesful! GIMP was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GIMP başarıyla yeniden kuruldu.")
         def rm():
@@ -542,7 +542,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove gimp -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GIMP is uninstalled.")
+                messagebox.showinfo("Information","Succcesful! GIMP was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GIMP başarıyla kaldırıldı.")
         button4.destroy()
@@ -576,7 +576,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install wine -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Wine is installed.")
+                messagebox.showinfo("Information","Succcesful! Wine was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Wine başarıyla kuruldu.")
         def reit():
@@ -587,7 +587,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install wine -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Wine is reinstalled.")
+                messagebox.showinfo("Information","Succcesful! Wine was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Wine başarıyla yeniden kuruldu.")
         def rm():
@@ -598,7 +598,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove wine -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Wine is uninstalled.")
+                messagebox.showinfo("Information","Succcesful! Wine was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Wine başarıyla kaldırıldı.")
         button4.destroy()
@@ -631,7 +631,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install plank -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Plank is installed.")
+                messagebox.showinfo("Information","Succcesful! Plank was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Plank başarıyla kuruldu.")
         def reit():
@@ -642,7 +642,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install plank -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Plank is reinstalled.")
+                messagebox.showinfo("Information","Succcesful! Plank was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Plank başarıyla yeniden kuruldu.")
         def rm():
@@ -653,7 +653,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove plank -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Plank is uninstalled.")
+                messagebox.showinfo("Information","Succcesful! Plank was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Plank başarıyla kaldırıldı.")
         button4.destroy()

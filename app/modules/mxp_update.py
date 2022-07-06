@@ -6,6 +6,7 @@
 
 import os
 import sys
+from tkinter import *
 from tkinter import messagebox
 
 debian="/etc/debian_version"
@@ -24,6 +25,10 @@ if not os.getuid() == 0:
         exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
 
 if "--updateupdater" in args:
+    if os.path.isfile(lang_en):
+        messagebox.showinfo("Information","When you press the 'OK' button then the process will start. Please do NOT close MetterXP during the process.")
+    elif os.path.isfile(lang_tr):
+        messagebox.showinfo("Bilgilendirme","'OK' düğmesine bastığınızda işlem başlayacaktır. Lütfen işlem sırasında MetterXP'i kapatMAyın.")
     if os.path.isfile(debian):
         os.system(" apt install git -y")
     elif os.path.isfile(fedora):
