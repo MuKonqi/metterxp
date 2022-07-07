@@ -25,7 +25,7 @@ def module_exit():
 def reopen():
     print("\nModül yeniden başlatılıyor...\nRestarting this module")
     window.destroy()
-    os.system(" python3 /usr/local/bin/metterxp-beta/modules/app_it_rm.py")
+    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/app_configre.py")
 def reboot():
     print("Bilgisayarınız yeniden başlatılıyor...\nRestarting your PC...")
 

@@ -168,7 +168,7 @@ else:
 
 def main_gui():
     window=Tk()
-    window.title("MetterXP 2.0-0 Beta")
+    window.title("MetterXP Beta")
     window.config(background=bg)
     window.resizable(0, 0)
     def mxp_exit():

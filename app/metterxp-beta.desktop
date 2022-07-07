@@ -1,7 +1,7 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Version=2.0-0
-Name=MetterXP-beta
+Version=2.0-x Beta
+Name=MetterXP Beta
 Encoding=UTF-8
 Comment=Designed for maximum and better experience.
 Path=/usr/local/bin/metterxp-beta

@@ -38,12 +38,14 @@ from sys import platform
 # VARIABLES !!!!!
 ## Don't forget to change and control them!
 ## Warning! You must use "" when you don't use any.
-appname="metterxp-beta" # Don't forget to change this!
+appname="MetterXP Beta" # Don't forget to change this!
 appfolder="/usr/bin/" # Don't forget to change this!
-appfile="metterxp-beta.py" # Don't forget to change this!
+appfilenew="metterxp-beta.py" # Don't forget to change this!
+appfileold="metterxp-beta" # Don't forget to change this!
 policyfile="python3.policy" # Options: policy file and any
 appdesktopfile="metterxp-beta.desktop" # Options: desktop file and any
 mainappfolder="/usr/local/bin/" # Don't forget to change this!
+mainappfoldername="metterxp-beta" # Don't forget to change this!
 licensename="GPLv3" # Don't forget to change this!
 appdev="MuKonqi" # Don't forget to change this!
 debian_apt_support="true" # Options: true and false
@@ -65,7 +67,7 @@ python3_pip3_dependencies=any # Options: "dependencies" and any
 
 
 # apiutaller
-apiutaller="v1.1"
+apiutaller="v1.2"
 
 
 
@@ -81,8 +83,8 @@ def main_install():
         pass
     else:
         os.system("mkdir "+appfolder)
-    os.system("cd app ; chmod +x "+appfile+" ; mv "+appfile+" "+appname+" ; cp "+appname+" "+appfolder)
-    if os.path.isfile(appfolder+appname):
+    os.system("cd app ; chmod +x "+appfileold+" ; mv "+appfileold+" "+appfilenew+" ; cp "+appfilenew+" "+appfolder)
+    if os.path.isfile(appfolder+appfilenew):
         pass
     else:
         if lang == "en":
@@ -123,11 +125,11 @@ def main_install():
             os.system("mkdir /usr/local ; mkdir /usr/local/bin/")
         else:
             os.system("mkdir "+mainappfolder)
-    os.system("mkdir "+mainappfolder+appname)
-    os.system("cd app ; cp -r * "+mainappfolder+appname)
-    os.system("mkdir "+mainappfolder+appname+"/apiutaller")
-    os.system("cp -r * "+mainappfolder+appname+"/apiutaller")
-    if os.path.isdir(mainappfolder+appname):
+    os.system("mkdir "+mainappfolder+mainappfoldername)
+    os.system("cd app ; cp -r * "+mainappfolder+mainappfoldername)
+    os.system("mkdir "+mainappfolder+mainappfoldername+"/apiutaller")
+    os.system("cp -r * "+mainappfolder+mainappfoldername+"/apiutaller")
+    if os.path.isdir(mainappfolder+mainappfoldername):
         if lang == "en":
             exit("Successful! You have this program "+appname+" at the moment. Thank you for choosing us!")
         if lang == "tr":
@@ -229,8 +231,8 @@ def control_and_install():
 
 
 def main_uninstall():
-    os.system("cd "+appfolder+" ; rm "+appname)
-    if os.path.isfile(appfolder+appname):
+    os.system("cd "+appfolder+" ; rm "+appfilenew)
+    if os.path.isfile(appfolder+appfilenew):
         if lang == "en":
             exit("Error! This step is first. Closing apiutaller...")
         if lang == "tr":
@@ -250,8 +252,8 @@ def main_uninstall():
         if lang == "tr":
             exit("Hata! Bu adım üçüncü. apiutaller kapatılıyor...")
 
-    os.system("cd "+mainappfolder+" ; rm -rf "+appname)
-    if os.path.isdir(mainappfolder+appname):
+    os.system("cd "+mainappfolder+" ; rm -rf "+mainappfoldername)
+    if os.path.isdir(mainappfolder+mainappfoldername):
         if lang == "en":
             exit("Error! This step is last. Closing apiutaller...")
         if lang == "tr":
@@ -269,7 +271,7 @@ def info():
         print("Welcome to apiutaller "+apiutaller+"!\napiutaller is under the GPLv3 license.\nDeveloper of apiutaller is MuKonqi (Muhammed Abdurrahman).")
         ioa=input("What do you want to do at the moment?\nOptions: install (for "+appname+"), uninstall (for "+appname+"), exit\nAnswer: ")
     if lang == "tr":
-        print("apiutaller programına hoşgeldiniz!\napiutaller GPLv3 lisansı altındadır.\napiutaller programının geliştiricisi MuKonqi (Muhammed Abdurrahman) idir.")
+        print("apiutaller "+apiutaller+" programına hoşgeldiniz!\napiutaller GPLv3 lisansı altındadır.\napiutaller programının geliştiricisi MuKonqi (Muhammed Abdurrahman) idir.")
         ioa=input("Şuan ne yapmak istersiniz?\nSeçenekler: kur ("+appname+" için), sil ("+appname+" için), çıkış\nCevap: ")
     if ioa == "install" or ioa == "kur":
         control_and_install()
