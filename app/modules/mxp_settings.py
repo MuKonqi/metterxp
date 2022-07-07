@@ -203,13 +203,20 @@ def main():
             window2.destroy()
             os.system("cd /usr/local/bin/metterxp-beta/settings/theme ; rm * ; touch 2.txt")
             if os.path.isfile(lang_en):
-                pass
+                messagebox.showinfo("Information","Theme applied! When you click 'OK', MetterXP will be closed to apply the changes.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
             window.destroy()        
             module_exit()
         if os.path.isfile(lang_en):
-            pass
+            window2=Tk()
+            window2.title("White theme preview | MetterXP ")
+            window2.config(background="#FFFFFF")
+            window2.resizable(0, 0)
+            preview_text=Label(window2, background="#FFFFFF", foreground="#000000", text="I'm here to preview!")
+            preview_buton=Button(window2, background="#000000", foreground="#FFFFFF", activebackground="#FFFFFF", activeforeground="#000000", font="arial 10", cursor="hand2", borderwidth="3", text="Click", command=preview)
+            space01=Label(window2, background="#FFFFFF", foreground="#000000", font="arial 3", text="\n")
+            button01=Button(window2, background="#000000", foreground="#FFFFFF", activebackground="#FFFFFF", activeforeground="#000000", font="arial 10", cursor="hand2", borderwidth="3", text="Apply white theme", command=theme2_set)
         if os.path.isfile(lang_tr):
             window2=Tk()
             window2.title("Beyaz tema önizleme | MetterXP ")
