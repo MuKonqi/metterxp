@@ -68,7 +68,7 @@ def root_apps():
 def distros():
     subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/distros.py", shell=TRUE)
 def pm_it():
-    subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/pm_it.py", shell=TRUE)
+    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/pm_it.py", shell=TRUE)
 def clean_cache_app():
     subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/clean_cache_app.py", shell=TRUE)
 def fixer():
@@ -194,7 +194,7 @@ def main_gui():
         button3=Button(window, text="Install/reinstall/uninstall\ndesktop manager/window manager", command=de_wm_it_rm, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button4=Button(window, text="Update system", command=system_up, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button5=Button(window, text="Configre softwares", command=app_configre, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button6=Button(window, text="Open applications and run special command\nwith root user", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
+        button6=Button(window, text="Open applications with root user", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button7=Button(window, text="About some GNU/Linux ditros", command=distros, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button8=Button(window, text="Install/reinstall package manager", command=pm_it, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button9=Button(window, text="Clean cache and/or unnecessary packages", command=clean_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
@@ -220,7 +220,7 @@ def main_gui():
         button3=Button(window, text="Masaüstü ortamı/pencere yöneticisi\nkurma/yeniden kurma/kaldırma", command=de_wm_it_rm, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button4=Button(window, text="Sistemi güncelleme", command=system_up, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button5=Button(window, text="Programları yapılandırma", command=app_configre, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button6=Button(window, text="Programları ve özel komutları\nkök kullanıcı haklarıyla açma", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
+        button6=Button(window, text="Programları kök kullanıcı haklarıyla açma", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button7=Button(window, text="Bazı GNU/Linux dağıtımları hakkında", command=distros, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button8=Button(window, text="Paket yöneticisi kurma/yeniden kurma", command=pm_it, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button9=Button(window, text="Önbelleği ve/veya gereksiz paketleri temizle", command=clean_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
@@ -264,7 +264,7 @@ def main_cli():
             print("dewmkurkaldır                  Masaüstü ortamı/window yöneticisi kur/yeniden kur/kaldır")
             print("sistemigüncelle                Sistemi güncelle")
             print("yapılandır                     Yazılımları yapılandır")
-            print("kök                            Programları ve özel komutları kök kullanıcı haklarıyla açma")
+            print("kök                            Programları kök kullanıcı haklarıyla açma")
             print("dağıtımlar                     Bazı GNU/Linux dağıtımları hakkında")
             print("pmkur                          Paket yöneticisi kur/yeniden kur")
             print("hakkında                       MetterXP hakkında")
@@ -275,7 +275,7 @@ def main_cli():
             else:
                 print("önbellekpakettemizle           Önbelleği ve gereksiz paketleri temizle")
             if os.path.isfile(debian):
-                print("hataçözücü                     Hata çözücü")
+                print("hataçözücü                     Paket hatalarını çöz")
         elif os.path.isfile(lang_en):
             print("\nMetterXP; program install/reinstall/uninstall, desktop environment/window manager install/reinstall/uninstall, system update, various configuration features (GRUB, Terminal, Plank, WINE...), package manager install/reinstall etc. It is a toolbox with features.")
             print("Here are al the uses:")
@@ -285,7 +285,7 @@ def main_cli():
             print("dewmitrm                       Install/reinstall/uninstall desktop environment/window manager")
             print("systemup                       Update system")
             print("configre                       Configre softwares")
-            print("root                           Open applications and run special commands with root user")
+            print("root                           Open applications with root user")
             print("distros                        About some GNU/Linux distros")
             print("pmit                           Install/reinstall package manager")
             print("info                           About MetterXP")
@@ -296,7 +296,7 @@ def main_cli():
             else:
                 print("cleancache                     Clear cache and unnecessary packages")
             if os.path.isfile(debian):
-                print("fixerrs                     Error fixer")
+                print("fixerr                         Fix package errors")
         exit()
     elif "prkurkaldır" in args or "appitrm" in args:
         app_it_rm()

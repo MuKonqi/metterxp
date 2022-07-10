@@ -28,6 +28,7 @@ def reopen():
     os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/app_configre.py")
 def reboot():
     print("Bilgisayarınız yeniden başlatılıyor...\nRestarting your PC...")
+    os.system("reboot now")
 
 if not os.getuid() == 0:
     if os.path.isfile(lang_en):
