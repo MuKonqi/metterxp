@@ -7,6 +7,7 @@
 from tkinter import *
 from tkinter import messagebox
 import os
+import subprocess
 
 debian="/etc/debian_version"
 fedora="/etc/fedora-release"
@@ -133,17 +134,17 @@ window.config(background=bg)
 window.resizable(0, 0)
 
 def nautilus():
-    os.system(" nautilus")
+    subprocess.Popen("nautilus", shell=True)
 def nemo():
-    os.system(" nemo")
+    subprocess.Popen("nemo", shell=True)
 def caja():
-    os.system(" caja")
+    subprocess.Popen("caja", shell=True)
 def thunar():
-    os.system(" thunar")
+    subprocess.Popen("thunar", shell=True)
 def pcmanfmqt():
-    os.system(" pcmanfm-qt")
+    subprocess.Popen("pcmanfm-qt", shell=True)
 def custom():
-    os.system(appname.get())
+    subprocess.Popen(appname.get(), shell=True)
 
 if os.path.isfile(lang_en):
     text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Which app would you like to open with root rights?")
@@ -154,7 +155,7 @@ if os.path.isfile(lang_en):
     button4=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Thunar file manager\n(Comes with Xfce desktop environment)", command=thunar)
     button5=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="PCmanFM-Qt file manager\n(Comes with LXQt desktop environment)", command=pcmanfmqt)
     space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
-    text2=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="When you enter a program with a graphical interface below, it will open with root rights.\nFor example: metterxp, firefox, konsole")
+    text2=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="When you enter a program with a graphical interface below, it will open with root rights.\nFor example: konsole, gedit")
     space3=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
     appname=Entry(window)
     button6=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Start the application I named", command=custom)
@@ -169,7 +170,7 @@ elif os.path.isfile(lang_tr):
     button4=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Thunar dosya yöneticisi\n(Xfce masaüstü ortamıyla gelir)", command=thunar)
     button5=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="PCmanFM-Qt dosya yöneticisi\n(LXQt masaüstü ortamıyla gelir)", command=pcmanfmqt)
     space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")    
-    text2=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Aşağıya grafik arayüze sahip bir program girdiğinizde, o kök haklarıyla açılacaktır.\nÖrneğin: metterxp, firefox, konsole")
+    text2=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Aşağıya grafik arayüze sahip bir program girdiğinizde, o kök haklarıyla açılacaktır.\nÖrneğin: konsole, gedit")
     space3=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")    
     appname=Entry(window)
     button6=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Adını yazdığım uygulamayı başlat", command=custom)
