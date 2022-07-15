@@ -8,9 +8,6 @@ from tkinter import *
 from tkinter import messagebox
 import os
 
-debian="/etc/debian_version"
-fedora="/etc/fedora-release"
-solus="/etc/solus-release"
 
 debian="/etc/debian_version"
 fedora="/etc/fedora-release"

@@ -58,7 +58,7 @@ def app_it_rm():
 def app_search():
     subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/app_search.py", shell=TRUE)
 def de_wm_it_rm():
-    subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/de_wm_it_rm.py", shell=TRUE)
+    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/de_wm_it_rm.py", shell=TRUE)
 def system_up():
     subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/system_up.py", shell=TRUE)
 def app_configre():

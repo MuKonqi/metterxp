@@ -12,1260 +12,1086 @@ import os
 debian="/etc/debian_version"
 fedora="/etc/fedora-release"
 solus="/etc/solus-release"
+lang_tr="/usr/local/bin/metterxp-beta/settings/lang/tr.txt"
+lang_en="/usr/local/bin/metterxp-beta/settings/lang/en.txt"
+
+
+def module_exit():
+    print("\nModül kapatılıyor...\nClosing this module...")
+    exit()
+def reopen():
+    print("\nModül yeniden başlatılıyor...\nRestarting this module")
+    window.destroy()
+    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/de_wm_it_rm.py")
+def reboot():
+    print("Bilgisayarınız yeniden başlatılıyor...\nRestarting your PC...")
+    os.system("reboot now")
 
 if not os.getuid() == 0:
-    messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
-    exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Only root can run this module!")
+        exit("Only root can run this module!\nClosing this module...")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
+        exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
+    
 
-def kapat():
-    print("Modül kapatılıyor...")
+bg=""
+fg=""
+button_bg=""
+button_fg=""
+a_button_bg=""
+a_button_fg=""
+if os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/0.txt"):
+    bg="#000000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#000000"
+    a_button_bg="#03035B"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/1.txt"):
+    bg="#000000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#000000"
+    a_button_bg="#000000"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/2.txt"):
+    bg="#FFFFFF"
+    fg="#000000"
+    button_bg="#000000"
+    button_fg="#FFFFFF"
+    a_button_bg="#FFFFFF"
+    a_button_fg="#000000"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/3.txt"):
+    bg="#808080"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#808080"
+    a_button_bg="#808080"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/4.txt"):
+    bg="#FF0000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#FF0000"
+    a_button_bg="#FF0000"
+    a_button_fg="#FFFFFF"     
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/5.txt"):
+    bg="#FFA500"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#FFA500"
+    a_button_bg="#FFA500"
+    a_button_fg="#FFFFFF" 
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/6.txt"):
+    bg="#008000"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#008000"
+    a_button_bg="#008000"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/7.txt"):
+    bg="#0000FF"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#0000FF"
+    a_button_bg="#0000FF"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/8.txt"):
+    bg="#000080"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#000080"
+    a_button_bg="#000080"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/9.txt"):
+    bg="#800080"
+    fg="#FFFFFF"
+    button_bg="#FFFFFF"
+    button_fg="#800080"
+    a_button_bg="#800080"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/10.txt"):
+    bg="#FFC0CB"
+    fg="#000000"
+    button_bg="#000000"
+    button_fg="#FFC0CB"
+    a_button_bg="#FFC0CB"
+    a_button_fg="#000000"
+else:
+    if os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/en.txt"):
+        messagebox.showwarning("Warning","Can't found theme config. When you click 'OK' MetterXP settings will open.")
+    elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/tr.txt"):
+        messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
+    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")
     exit()
-    
-def reopen():
-    print("\nModül yeniden başlatılıyor...")
-    pencere.destroy()
-    os.system(" python3 /usr/local/bin/metterxp/modules/dewmkurkaldır.py")
-
-def reboot():
-    print("\nBilgisayarınız yeniden başlatılıyor...")
-    os.system(" reboot")
 
 
-if os.path.isfile(debian):
-    pencere=Tk()
-    pencere.title("Masaüstü ortamı/pencere yöneticisi kur/yeniden kur/kaldır | MetterXP")
-    pencere.config(background="#000000")
-    pencere.resizable(0, 0)
-    
+window=Tk()
+if os.path.isfile(lang_en):
+    window.title("Instal/reinstall/uninstall desktop environment/window manager | MetterXP")
+elif os.path.isfile(lang_tr):
+    window.title("Masaüstü ortamı/pencere yöneticisi kur/yeniden kur/kaldır | MetterXP")
+window.config(background=bg)
+window.resizable(0, 0)
+
+
+if os.path.isfile(debian) or os.path.isfile(fedora):
     def kde():
-        def kur():
-            try:
-                print("\nKDE Plasma DE kurulumu başlatılıyor...")
+        button_1.destroy()
+        def install():
+            if os.path.isfile(debian):
                 os.system(" apt install kde-plasma-desktop -y")
-                messagebox.showinfo("Bilgilendirme","KDE Plasma DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nKDE Plasma DE yeniden kuruluyor...")
+            elif os.path.isfile(fedora):
+                os.system(" dnf install @kde-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","KDE Plasma DE installation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","KDE Plasma DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def reinstall():
+            if os.path.isfile(debian):
                 os.system(" apt reinstall kde-plasma-desktop -y")
-                messagebox.showinfo("Bilgilendirme","KDE Plasma DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nKDE Plasma DE kaldırılıyor...")
+            elif os.path.isfile(fedora):
+                os.system(" dnf reinstall @kde-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","KDE Plasma DE reinstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","KDE Plasma DE yeniden kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def uninstall():
+            if os.path.isfile(debian):
                 os.system(" apt purge kde-plasma-desktop* -y")
-                messagebox.showinfo("Bilgilendirme","KDE Plasma DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="KDE Plasma DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
+            elif os.path.isfile(fedora):
+                os.system(" dnf remove @kde-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","KDE Plasma DE uninstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","KDE Plasma DE kaldırılması tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for KDE Plasma DE?")
+            button1.config(text="Install", command=install)
+            button2.config(text="Reinstall", command=reinstall)
+            button3.config(text="Uninstall", command=uninstall)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="KDE Plasma DE için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=install)
+            button2.config(text="Yeniden kur", command=reinstall)
+            button3.config(text="Kaldır", command=uninstall)
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        if os.path.isfile(fedora):
+            button11.destroy()
+        if os.path.isfile(lang_en):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_2.pack()
+        button_3.pack()
     def gnome():
-        def kur():
-            try:
-                print("\nGNOME DE kurulumu başlatılıyor...")
+        button_1.destroy()
+        def install():
+            if os.path.isfile(debian):
                 os.system(" apt install gnome gnome-shell -y")
-                messagebox.showinfo("Bilgilendirme","GNOME DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nGNOME DE yeniden kuruluyor...")
+            elif os.path.isfile(fedora):
+                os.system(" dnf install @gnome-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","GNOME DE installation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","GNOME DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def reinstall():
+            if os.path.isfile(debian):
                 os.system(" apt reinstall gnome gnome-shell -y")
-                messagebox.showinfo("Bilgilendirme","GNOME DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nGNOME DE kaldırılıyor...")
+            elif os.path.isfile(fedora):
+                os.system(" dnf reinstall @gnome-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","GNOME DE reinstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","GNOME DE yeniden kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def uninstall():
+            if os.path.isfile(debian):
                 os.system(" apt purge gnome* -y")
-                messagebox.showinfo("Bilgilendirme","GNOME DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="GNOME DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
+            elif os.path.isfile(fedora):
+                os.system(" dnf remove @gnome-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","GNOME DE uninstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","GNOME DE kaldırılması tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for GNOME DE?")
+            button1.config(text="Install", command=install)
+            button2.config(text="Reinstall", command=reinstall)
+            button3.config(text="Uninstall", command=uninstall)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="GNOME DE için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=install)
+            button2.config(text="Yeniden kur", command=reinstall)
+            button3.config(text="Kaldır", command=uninstall)
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        if os.path.isfile(fedora):
+            button11.destroy()
+        if os.path.isfile(lang_en):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_2.pack()
+        button_3.pack()
     def cinnamon():
-        def kur():
-            try:
-                print("\nCinnamon DE kurulumu başlatılıyor...")
+        button_1.destroy()
+        def install():
+            if os.path.isfile(debian):
                 os.system(" apt install cinnamon -y")
-                messagebox.showinfo("Bilgilendirme","Cinnamon DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nCinnamon DE yeniden kuruluyor...")
+            elif os.path.isfile(fedora):
+                os.system(" dnf install @cinnamon-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Cinnamon DE installation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Cinnamon DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def reinstall():
+            if os.path.isfile(debian):
                 os.system(" apt reinstall cinnamon -y")
-                messagebox.showinfo("Bilgilendirme","Cinnamon DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nCinnamon DE kaldırılıyor...")
+            elif os.path.isfile(fedora):
+                os.system(" dnf reinstall @cinnamon-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Cinnamon DE reinstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Cinnamon DE yeniden kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def uninstall():
+            if os.path.isfile(debian):
                 os.system(" apt purge cinnamon* -y")
-                messagebox.showinfo("Bilgilendirme","Cinnamon DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="Cinnamon DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
+            elif os.path.isfile(fedora):
+                os.system(" dnf remove @cinnamon-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Cinnamon DE uninstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Cinnamon DE kaldırılması tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for Cinnamon DE?")
+            button1.config(text="Install", command=install)
+            button2.config(text="Reinstall", command=reinstall)
+            button3.config(text="Uninstall", command=uninstall)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="Cinnamon DE için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=install)
+            button2.config(text="Yeniden kur", command=reinstall)
+            button3.config(text="Kaldır", command=uninstall)
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        if os.path.isfile(fedora):
+            button11.destroy()
+        if os.path.isfile(lang_en):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_2.pack()
+        button_3.pack()
     def mate():
-        def kur():
-            try:
-                print("\nMate DE kurulumu başlatılıyor...")
-                os.system(" apt install mate-desktop-enviroment mate-desktop-enviroment-core mate-desktop-enviroment-extra -y")
-                messagebox.showinfo("Bilgilendirme","Mate DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nMate DE yeniden kuruluyor...")
-                os.system(" apt reinstall mate-desktop-enviroment mate-desktop-enviroment-core mate-desktop-enviroment-extra -y")
-                messagebox.showinfo("Bilgilendirme","Mate DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nMate DE kaldırılıyor...")
-                os.system(" apt purge mate-desktop-enviroment* -y")
-                messagebox.showinfo("Bilgilendirme","Mate DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="Mate DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
+        button_1.destroy()
+        def install():
+            if os.path.isfile(debian):
+                os.system(" apt install mate-desktop-environment mate-desktop-environment-core mate-desktop-environment-extra -y")
+            elif os.path.isfile(fedora):
+                os.system(" dnf install @mate-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Mate DE installation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Mate DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def reinstall():
+            if os.path.isfile(debian):
+                os.system(" apt reinstall mate-desktop-environment mate-desktop-environment-core mate-desktop-environment-extra -y")
+            elif os.path.isfile(fedora):
+                os.system(" dnf reinstall @mate-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Mate DE reinstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Mate DE yeniden kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def uninstall():
+            if os.path.isfile(debian):
+                os.system(" apt purge mate-plasma-desktop* -y")
+            elif os.path.isfile(fedora):
+                os.system(" dnf remove @mate-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Mate DE uninstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Mate DE kaldırılması tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for Mate DE?")
+            button1.config(text="Install", command=install)
+            button2.config(text="Reinstall", command=reinstall)
+            button3.config(text="Uninstall", command=uninstall)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="Mate DE için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=install)
+            button2.config(text="Yeniden kur", command=reinstall)
+            button3.config(text="Kaldır", command=uninstall)
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        if os.path.isfile(fedora):
+            button11.destroy()
+        if os.path.isfile(lang_en):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_2.pack()
+        button_3.pack()
     def xfce():
-        def kur():
-            try:
-                print("\nXfce DE kurulumu başlatılıyor...")
+        button_1.destroy()
+        def install():
+            if os.path.isfile(debian):
                 os.system(" apt install xfce4 -y")
-                messagebox.showinfo("Bilgilendirme","Xfce DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nXfce DE yeniden kuruluyor...")
+            elif os.path.isfile(fedora):
+                os.system(" dnf install @xfce-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Xfce DE installation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Xfce DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def reinstall():
+            if os.path.isfile(debian):
                 os.system(" apt reinstall xfce4 -y")
-                messagebox.showinfo("Bilgilendirme","Xfce DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nXfce DE kaldırılıyor...")
+            elif os.path.isfile(fedora):
+                os.system(" dnf reinstall @xfce4-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Xfce DE reinstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Xfce DE yeniden kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def uninstall():
+            if os.path.isfile(debian):
                 os.system(" apt purge xfce4* -y")
-                messagebox.showinfo("Bilgilendirme","Xfce DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="Xfce DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
+            elif os.path.isfile(fedora):
+                os.system(" dnf remove @xfce-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Xfce DE uninstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Xfce DE kaldırılması tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for Xfce DE?")
+            button1.config(text="Install", command=install)
+            button2.config(text="Reinstall", command=reinstall)
+            button3.config(text="Uninstall", command=uninstall)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="Xfce DE için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=install)
+            button2.config(text="Yeniden kur", command=reinstall)
+            button3.config(text="Kaldır", command=uninstall)
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        if os.path.isfile(fedora):
+            button11.destroy()
+        if os.path.isfile(lang_en):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_2.pack()
+        button_3.pack()
     def deepin():
-        def kur():
-            try:
-                print("\nDeepin DE kurulumu başlatılıyor...")
+        button_1.destroy()
+        def install():
+            if os.path.isfile(debian):
                 os.system(" apt install software-properties-common -y")
                 os.system(" add-apt-repository ppa:ubuntudde-dev/stable -y")
                 os.system(" apt update -y")
                 os.system(" apt install dde -y")
-                messagebox.showinfo("Bilgilendirme","Deepin DE kurulum işlemi tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nDeepin DE yeniden kuruluyor...")
+            elif os.path.isfile(fedora):
+                os.system(" dnf install @deepin-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Deepin DE installation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Deepin DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def reinstall():
+            if os.path.isfile(debian):
                 os.system(" apt reinstall dde -y")
-                messagebox.showinfo("Bilgilendirme","Deepin DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nDeepin DE kaldırılıyor...")
-                os.system(" apt purge dde* -y")
-                messagebox.showinfo("Bilgilendirme","Deepin DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="Deepin DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        yazi2.config(text="Not: Deepin DE'i kurma işlemi tamamen stabil değildir.\nDE = Desktop Enviroment = Masaüstü Ortamı\nWM = Window Manager = Pencere Yöneticisi")
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def lxde():
-        def kur():
-            try:
-                print("\nLXDE kurulumu başlatılıyor...")
-                os.system(" apt install lxde -y")
-                messagebox.showinfo("Bilgilendirme","LXDE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nLXDE yeniden kuruluyor...")
-                os.system(" apt reinstall lxde -y")
-                messagebox.showinfo("Bilgilendirme","LXDE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nLXDE kaldırılıyor...")
-                os.system(" apt purge lxde* -y")
-                messagebox.showinfo("Bilgilendirme","LXDE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="LXDE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def lxqt():
-        def kur():
-            try:
-                print("\nLXQt DE kurulumu başlatılıyor...")
-                os.system(" apt install openbox pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt- -y")
-                messagebox.showinfo("Bilgilendirme","LXQt DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\LXQt DE yeniden kuruluyor...")
-                os.system(" apt reinstall openbox pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt- -y")
-                messagebox.showinfo("Bilgilendirme","LXQt DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            def openboxsil():
-                try:
-                    print("\nOpenBox WM kaldırılıyor...")
-                    os.system(" apt purge openbox* -y")
-                    messagebox.showinfo("Bilgilendirme","LXQt DE'in kullandığı OpenBox WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                    reboot()
-                except:
-                    messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                    kapat()
-            try:
-                print("\nLXQt DE OpenBox WM hariç kaldırılıyor...")
-                os.system(" apt purge pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt- -y")
-                yazi1.config(text="LXQt DE'in kullandığı OpenBox WM hariç her şey kaldırıldı.")
-                islemsecimbuton1.config(text="LXQt DE'in kullandığı OpenBox WM'ı kaldırma\nHemen bilgisayarı yeniden başlat", command=reboot)
-                islemsecimbuton2.config(text="LXQt DE'in kullandığı OpenBox WM'i kaldır\nOpenBox WM'i kaldırılınca bilgisayarı yeniden başlat", command=openboxsil)
-                islemsecimbuton3.destroy()
-                islemsecimbuton4.destroy()
-                islemsecimbuton5.destroy()
-                islemsecimbuton6.destroy()
-                islemsecimbuton7.destroy()
-                islemsecimbuton8.destroy()
-                islemsecimbuton9.destroy()
-                islemsecimbuton10.destroy()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="LXQt DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def openbox():
-        def kur():
-            try:
-                print("\nOpenBox WM kurulumu başlatılıyor...")
-                os.system(" apt install openbox -y")
-                messagebox.showinfo("Bilgilendirme","OpenBox WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nOpenBox WM yeniden kuruluyor...")
-                os.system(" apt reinstall openbox -y")
-                messagebox.showinfo("Bilgilendirme","OpenBox WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nOpenBox WM kaldırılıyor...")
-                os.system(" apt purge openbox* -y")
-                messagebox.showinfo("Bilgilendirme","OpenBox WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="OpenBox WM için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def i3():
-        def kur():
-            try:
-                print("\nİ3 WM kurulumu başlatılıyor...")
-                os.system(" apt install i3 -y")
-                messagebox.showinfo("Bilgilendirme","İ3 WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nİ3 WM yeniden kuruluyor...")
-                os.system(" apt reinstall i3 -y")
-                messagebox.showinfo("Bilgilendirme","İ3 WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nİ3 WM kaldırılıyor...")
-                os.system(" apt purge i3* -y")
-                messagebox.showinfo("Bilgilendirme","İ3 WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="İ3 WM için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    yazi1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10 bold", text="Hangi masaüstü ortamını/pencere yöneticisi kurmak ya da kaldırmak istiyorsunuz?")
-    yazi1.pack()
-    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-    b_metin1.pack()
-    islemsecimbuton1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="KDE Plasma DE",command=kde)
-    islemsecimbuton1.pack()
-    islemsecimbuton2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="GNOME DE",command=gnome)
-    islemsecimbuton2.pack()
-    islemsecimbuton3=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Cinnamon DE",command=cinnamon)
-    islemsecimbuton3.pack()
-    islemsecimbuton4=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Mate DE",command=mate)
-    islemsecimbuton4.pack()
-    islemsecimbuton5=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Xfce DE",command=xfce)
-    islemsecimbuton5.pack()
-    islemsecimbuton6=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Deepin DE",command=deepin)
-    islemsecimbuton6.pack()
-    islemsecimbuton7=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="LXDE",command=lxde)
-    islemsecimbuton7.pack()
-    islemsecimbuton8=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="LXQt DE",command=lxqt)
-    islemsecimbuton8.pack()
-    islemsecimbuton9=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="OpenBox WM",command=openbox)
-    islemsecimbuton9.pack()
-    islemsecimbuton10=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="İ3 WM",command=i3)
-    islemsecimbuton10.pack()
-    b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 1")
-    b_metin2.pack()
-    yazi2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 9 bold", text="DE = Desktop Enviroment = Masaüstü Ortamı\nWM = Window Manager = Pencere Yöneticisi")
-    yazi2.pack()
-    b_metin3=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-    b_metin3.pack()
-    buton_1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü kapat\nAna menüye dön", command=kapat)
-    buton_1.pack()
-    
-    
-elif os.path.isfile(fedora):
-    pencere=Tk()
-    pencere.title("Masaüstü ortamı/pencere yöneticisi kur/kaldır | MetterXP")
-    pencere.config(background="#000000")
-    pencere.resizable(0, 0)
-    
-    def kde():
-        def kur():
-            try:
-                print("\nKDE Plasma DE kurulumu başlatılıyor...")
-                os.system(" dnf install @kde-desktop -y")
-                messagebox.showinfo("Bilgilendirme","KDE Plasma DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nKDE Plasma DE yeniden kuruluyor...")
-                os.system(" dnf reinstall @kde-desktop -y")
-                messagebox.showinfo("Bilgilendirme","KDE Plasma DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nKDE Plasma DE kaldırılıyor...")
-                os.system(" dnf remove @kde-desktop -y")
-                messagebox.showinfo("Bilgilendirme","KDE Plasma DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="KDE Plasma DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        islemsecimbuton11.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def gnome():
-        def kur():
-            try:
-                print("\nGNOME DE kurulumu başlatılıyor...")
-                os.system(" dnf install @gnome-desktop -y")
-                messagebox.showinfo("Bilgilendirme","GNOME DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nGNOME DE yeniden kuruluyor...")
-                os.system(" dnf reinstall @gnome-desktop -y")
-                messagebox.showinfo("Bilgilendirme","GNOME DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nGNOME DE kaldırılıyor...")
-                os.system(" dnf remove @gnome-desktop -y")
-                messagebox.showinfo("Bilgilendirme","GNOME DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="GNOME DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        islemsecimbuton11.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def cinnamon():
-        def kur():
-            try:
-                print("\nCinnamon DE kurulumu başlatılıyor...")
-                os.system(" dnf install @cinnamon-desktop -y")
-                messagebox.showinfo("Bilgilendirme","Cinnamon DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nCinnamon DE yeniden kuruluyor...")
-                os.system(" dnf reinstall @cinnamon-desktop -y")
-                messagebox.showinfo("Bilgilendirme","Cinnamon DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nCinnamon DE kaldırılıyor...")
-                os.system(" dnf remove @cinnamon-desktop -y")
-                messagebox.showinfo("Bilgilendirme","Cinnamon DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="Cinnamon DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        islemsecimbuton11.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def mate():
-        def kur():
-            try:
-                print("\nMate DE kurulumu başlatılıyor...")
-                os.system(" dnf install @mate-desktop")
-                messagebox.showinfo("Bilgilendirme","Mate DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nMate DE yeniden kuruluyor...")
-                os.system(" dnf reinstall @mate-desktop")
-                messagebox.showinfo("Bilgilendirme","Mate DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nMate DE kaldırılıyor...")
-                os.system(" dnf remove @mate-desktop -y")
-                messagebox.showinfo("Bilgilendirme","Mate DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="Mate DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        islemsecimbuton11.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def xfce():
-        def kur():
-            try:
-                print("\nXfce DE kurulumu başlatılıyor...")
-                os.system(" dnf install @xfce-desktop -y")
-                messagebox.showinfo("Bilgilendirme","Xfce DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nXfce DE yeniden kuruluyor...")
-                os.system(" dnf reinstall @xfce-desktop -y")
-                messagebox.showinfo("Bilgilendirme","Xfce DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nXfce DE kaldırılıyor...")
-                os.system(" dnf remove @xfce-desktop -y")
-                messagebox.showinfo("Bilgilendirme","Xfce DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="Xfce DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        islemsecimbuton11.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def deepin():
-        def kur():
-            try:
-                print("\nDeepin DE kurulumu başlatılıyor...")
-                os.system(" dnf install @deepin-desktop")
-                messagebox.showinfo("Bilgilendirme","Deepin DE kurulum işlemi tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nDeepin DE yeniden kuruluyor...")
+            elif os.path.isfile(fedora):
                 os.system(" dnf reinstall @deepin-desktop -y")
-                messagebox.showinfo("Bilgilendirme","Deepin DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nDeepin DE kaldırılıyor...")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Deepin DE reinstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Deepin DE yeniden kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def uninstall():
+            if os.path.isfile(debian):
+                os.system(" apt purge dde* -y")
+            elif os.path.isfile(fedora):
                 os.system(" dnf remove @deepin-desktop -y")
-                messagebox.showinfo("Bilgilendirme","Deepin DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="Deepin DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        islemsecimbuton11.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def pantheon():
-        def kur():
-            try:
-                print("\nPantheon DE kurulumu başlatılıyor...")
-                os.system(" dnf group install 'pantheon desktop' -y")
-                messagebox.showinfo("Bilgilendirme","Pantheon DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nPantheon DE yeniden kuruluyor...")
-                os.system(" dnf group reinstall 'pantheon desktop' -y")
-                messagebox.showinfo("Bilgilendirme","Pantheon DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nPantheon DE kaldırılıyor...")
-                os.system(" dnf group remove 'pantheon desktop' -y")
-                messagebox.showinfo("Bilgilendirme","Pantheon DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="Pantheon DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        islemsecimbuton11.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Deepin DE uninstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Deepin DE kaldırılması tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for Deepin DE?")
+            button1.config(text="Install", command=install)
+            button2.config(text="Reinstall", command=reinstall)
+            button3.config(text="Uninstall", command=uninstall)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="Deepin DE için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=install)
+            button2.config(text="Yeniden kur", command=reinstall)
+            button3.config(text="Kaldır", command=uninstall)
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        if os.path.isfile(fedora):
+            button11.destroy()
+        if os.path.isfile(lang_en):
+            if os.path.isfile(debian):
+                text2.config(text="Note: The process of installing Deepin DE is not completely stable.\n\nDE = Desktop Enviroment = Desktop Environment\nWM = Window Manager = Window Manager")
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            if os.path.isfile(debian):
+                text2.config(text="Not: Deepin DE'i kurma işlemi tamamen stabil değildir.\n\nDE = Desktop Enviroment = Masaüstü Ortamı\nWM = Window Manager = Pencere Yöneticisi")
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_2.pack()
+        button_3.pack()
     def lxde():
-        def kur():
-            try:
-                print("\nLXDE kurulumu başlatılıyor...")
+        button_1.destroy()
+        def install():
+            if os.path.isfile(debian):
+                os.system(" apt install lxde -y")
+            elif os.path.isfile(fedora):
                 os.system(" dnf install @lxde-desktop -y")
-                messagebox.showinfo("Bilgilendirme","LXDE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nLXDE yeniden kuruluyor...")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","LXDE installation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","LXDE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def reinstall():
+            if os.path.isfile(debian):
+                os.system(" apt reinstall lxde -y")
+            elif os.path.isfile(fedora):
                 os.system(" dnf reinstall @lxde-desktop -y")
-                messagebox.showinfo("Bilgilendirme","LXDE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nLXDE kaldırılıyor...")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","LXDE reinstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","LXDE yeniden kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def uninstall():
+            if os.path.isfile(debian):
+                os.system(" apt purge lxde* -y")
+            elif os.path.isfile(fedora):
                 os.system(" dnf remove @lxde-desktop -y")
-                messagebox.showinfo("Bilgilendirme","LXDE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="LXDE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        islemsecimbuton11.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","LXDE uninstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","LXDE kaldırılması tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for LXDE?")
+            button1.config(text="Install", command=install)
+            button2.config(text="Reinstall", command=reinstall)
+            button3.config(text="Uninstall", command=uninstall)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="LXDE için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=install)
+            button2.config(text="Yeniden kur", command=reinstall)
+            button3.config(text="Kaldır", command=uninstall)
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        if os.path.isfile(fedora):
+            button11.destroy()
+        if os.path.isfile(lang_en):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_2.pack()
+        button_3.pack()
     def lxqt():
-        def kur():
-            try:
-                print("\nLXQt DE kurulumu başlatılıyor...")
-                os.system(" dnf install @lxqt-desktop -y")
-                messagebox.showinfo("Bilgilendirme","LXQt DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+        button_1.destroy()
+        def install():
+            if os.path.isfile(debian):
+                os.system(" apt install openbox pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session -y")
+            elif os.path.isfile(fedora):
+                os.system(" dnf install @kde-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","KDE Plasma DE installation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","KDE Plasma DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def reinstall():
+            if os.path.isfile(debian):
+                os.system(" apt reinstall openbox pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session -y")
+            elif os.path.isfile(fedora):
+                os.system(" dnf reinstall @kde-desktop -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","KDE Plasma DE reinstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","KDE Plasma DE yeniden kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def uninstall():
+            if os.path.isfile(fedora):
+                def openboxuninstall():
+                    os.system(" apt purge openbox* -y")
+                    if os.path.isfile(lang_en):
+                        messagebox.showinfo("Information","The OpenBox WM used by LXQt DE has been uninstalled.\nYour computer will reboot as soon as you click the 'OK' button to apply the changes.")
+                    elif os.path.isfile(lang_tr):
+                        messagebox.showinfo("Bilgilendirme","LXQt DE'in kullandığı OpenBox WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+                    reboot()
+                os.system(" apt purge pcmanfm-qt lxqt-admin lxqt-common lxqt-config lxqt-globalkeys lxqt-notificationd lxqt-panel lxqt-policykit lxqt-powermanagement lxqt-qtplugin lxqt-runner lxqt-session lxqt- -y")
+                if os.path.isfile(lang_en):
+                    text1.config(text="Everything has been removed except the OpenBox WM that LXQt DE uses.")
+                    button1.config(text="Not uninstall OpenBox WM used by LXQt DE\nRestart computer immediately", command=reboot)
+                    button2.config(text="Uninstall OpenBox WM used by LXQt DE\nRestart computer when OpenBox WM is uninstalled", command=openboxuninstall)
+                elif os.path.isfile(lang_tr):
+                    text1.config(text="LXQt DE'in kullandığı OpenBox WM hariç her şey kaldırıldı.")
+                    button1.config(text="LXQt DE'in kullandığı OpenBox WM'ı kaldırma\nHemen bilgisayarı yeniden başlat", command=reboot)
+                    button2.config(text="LXQt DE'in kullandığı OpenBox WM'i kaldır\nOpenBox WM'i kaldırılınca bilgisayarı yeniden başlat", command=openboxuninstall)
+                button3.destroy()
+            elif os.path.isfile(fedora):
+                os.system(" dnf remove @lxqt-desktop -y")
+                if os.path.isfile(lang_en):
+                    messagebox.showinfo("Information","LXQt DE uninstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+                elif os.path.isfile(lang_tr):
+                    messagebox.showinfo("Bilgilendirme","LXQt kaldırılması tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
                 reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\LXQt DE yeniden kuruluyor...")
-                os.system(" dnf reinstall @lxqt-desktop -y")
-                messagebox.showinfo("Bilgilendirme","LXQt DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nLXQt DE kaldırılıyor...")
-                os.system(" dnf remove @lxqt-desktop")
-                messagebox.showinfo("Bilgilendirme","LXQt DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="LXQt DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        islemsecimbuton11.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for LXQt DE?")
+            button1.config(text="Install", command=install)
+            button2.config(text="Reinstall", command=reinstall)
+            button3.config(text="Uninstall", command=uninstall)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="LXQt DE için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=install)
+            button2.config(text="Yeniden kur", command=reinstall)
+            button3.config(text="Kaldır", command=uninstall)
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        if os.path.isfile(fedora):
+            button11.destroy()
+        if os.path.isfile(lang_en):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_2.pack()
+        button_3.pack()
     def openbox():
-        def kur():
-            try:
-                print("\nOpenBox WM kurulumu başlatılıyor...")
+        button_1.destroy()
+        def install():
+            if os.path.isfile(debian):
+                os.system(" apt install openbox -y")
+            elif os.path.isfile(fedora):
                 os.system(" dnf install openbox obconf -y")
-                messagebox.showinfo("Bilgilendirme","OpenBox WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nOpenBox WM yeniden kuruluyor...")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","OpenBox WM installation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","OpenBox WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def reinstall():
+            if os.path.isfile(debian):
+                os.system(" apt reinstall openbox -y")
+            elif os.path.isfile(fedora):
                 os.system(" dnf reinstall openbox obconf -y")
-                messagebox.showinfo("Bilgilendirme","OpenBox WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nOpenBox WM kaldırılıyor...")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","OpenBox WM reinstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","OpenBox WM yeniden kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def uninstall():
+            if os.path.isfile(debian):
+                os.system(" apt purge openbox -y")
+            elif os.path.isfile(fedora):
                 os.system(" dnf remove openbox obconf -y")
-                messagebox.showinfo("Bilgilendirme","OpenBox WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="OpenBox WM için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        islemsecimbuton11.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","OpenBox WM uninstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","OpenBox WM kaldırılması tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for OpenBox WM?")
+            button1.config(text="Install", command=install)
+            button2.config(text="Reinstall", command=reinstall)
+            button3.config(text="Uninstall", command=uninstall)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="OpenBox WM için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=install)
+            button2.config(text="Yeniden kur", command=reinstall)
+            button3.config(text="Kaldır", command=uninstall)
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        if os.path.isfile(fedora):
+            button11.destroy()
+        if os.path.isfile(lang_en):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_2.pack()
+        button_3.pack()
     def i3():
-        def kur():
-            try:
-                print("\nİ3 WM kurulumu başlatılıyor...")
+        button_1.destroy()
+        def install():
+            if os.path.isfile(debian):
+                os.system(" apt install i3 -y")
+            elif os.path.isfile(fedora):
                 os.system(" dnf install i3 i3status i3lock dmenu -y")
-                messagebox.showinfo("Bilgilendirme","İ3 WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nİ3 WM yeniden kuruluyor...")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","i3 WM installation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","i3 WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def reinstall():
+            if os.path.isfile(debian):
+                os.system(" apt reinstall i3 -y")
+            elif os.path.isfile(fedora):
                 os.system(" dnf reinstall i3 i3status i3lock dmenu -y")
-                messagebox.showinfo("Bilgilendirme","İ3 WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nİ3 WM kaldırılıyor...")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","i3 WM reinstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","i3 WM yeniden kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def uninstall():
+            if os.path.isfile(debian):
+                os.system(" apt purge i3* -y")
+            elif os.path.isfile(fedora):
                 os.system(" dnf remove i3 i3status i3lock dmenu -y")
-                messagebox.showinfo("Bilgilendirme","İ3 WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="İ3 WM için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        islemsecimbuton7.destroy()
-        islemsecimbuton8.destroy()
-        islemsecimbuton9.destroy()
-        islemsecimbuton10.destroy()
-        islemsecimbuton11.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-            
-    yazi1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10 bold", text="Hangi masaüstü ortamını/pencere yöneticisi kurmak ya da kaldırmak istiyorsunuz?")
-    yazi1.pack()
-    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-    b_metin1.pack()
-    islemsecimbuton1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="KDE Plasma DE",command=kde)
-    islemsecimbuton1.pack()
-    islemsecimbuton2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="GNOME DE",command=gnome)
-    islemsecimbuton2.pack()
-    islemsecimbuton3=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Cinnamon DE",command=cinnamon)
-    islemsecimbuton3.pack()
-    islemsecimbuton4=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Mate DE",command=mate)
-    islemsecimbuton4.pack()
-    islemsecimbuton5=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Xfce DE",command=xfce)
-    islemsecimbuton5.pack()
-    islemsecimbuton6=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Deepin DE",command=deepin)
-    islemsecimbuton6.pack()
-    islemsecimbuton7=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Pantheon DE",command=pantheon)
-    islemsecimbuton7.pack()    
-    islemsecimbuton8=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="LXDE",command=lxde)
-    islemsecimbuton8.pack()
-    islemsecimbuton9=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="LXQt DE",command=lxqt)
-    islemsecimbuton9.pack()
-    islemsecimbuton10=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="OpenBox WM",command=openbox)
-    islemsecimbuton10.pack()
-    islemsecimbuton11=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="İ3 WM",command=i3)
-    islemsecimbuton11.pack()
-    b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 1")
-    b_metin2.pack()
-    yazi2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 9 bold", text="DE = Desktop Enviroment = Masaüstü Ortamı\nWM = Window Manager = Pencere Yöneticisi")
-    yazi2.pack()
-    b_metin3=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-    b_metin3.pack()
-    buton_1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü kapat\nAna menüye dön", command=kapat)
-    buton_1.pack()
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","i3 WM uninstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","i3 WM kaldırılması tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for i3 WM?")
+            button1.config(text="Install", command=install)
+            button2.config(text="Reinstall", command=reinstall)
+            button3.config(text="Uninstall", command=uninstall)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="i3 WM için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=install)
+            button2.config(text="Yeniden kur", command=reinstall)
+            button3.config(text="Kaldır", command=uninstall)
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        if os.path.isfile(fedora):
+            button11.destroy()
+        if os.path.isfile(lang_en):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_2.pack()
+        button_3.pack()
+    def pantheon():
+        button_1.destroy()
+        def install():
+            os.system(" dnf group install 'pantheon desktop' -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Pantheon DE installation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Pantheon DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def reinstall():
+            os.system(" dnf group reinstall 'pantheon desktop' -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Pantheon DE reinstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Pantheon DE yeniden kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        def uninstall():
+            os.system(" dnf group remove 'pantheon desktop' -y")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Pantheon DE uninstallation is complete.\nYour computer will restart as soon as you click the 'OK' button to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","Pantheon DE kaldırılması tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+            reboot()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for Pantheon DE?")
+            button1.config(text="Install", command=install)
+            button2.config(text="Reinstall", command=reinstall)
+            button3.config(text="Uninstall", command=uninstall)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="Pantheon DE için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=install)
+            button2.config(text="Yeniden kur", command=reinstall)
+            button3.config(text="Kaldır", command=uninstall)
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        if os.path.isfile(fedora):
+            button11.destroy()
+        if os.path.isfile(lang_en):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+            button_3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_2.pack()
+        button_3.pack()
+    if os.path.isfile(lang_en):
+        text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Which desktop environment/window manager do you want to install or reinstall or uninstall?")
+    elif os.path.isfile(lang_tr):    
+        text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Hangi masaüstü ortamını/pencere yöneticisi kurmak ya da yeniden kurmak ya da kaldırmak istiyorsunuz?")
+    text1.pack()
+    space1=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
+    space1.pack()
+    button1=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="KDE Plasma DE",command=kde)
+    button1.pack()
+    button2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="GNOME DE",command=gnome)
+    button2.pack()
+    button3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Cinnamon DE",command=cinnamon)
+    button3.pack()
+    button4=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Mate DE",command=mate)
+    button4.pack()
+    button5=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Xfce DE",command=xfce)
+    button5.pack()
+    button6=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Deepin DE",command=deepin)
+    button6.pack()
+    button7=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="LXDE",command=lxde)
+    button7.pack()
+    button8=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="LXQt DE",command=lxqt)
+    button8.pack()
+    button9=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="OpenBox WM",command=openbox)
+    button9.pack()
+    button10=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="i3 WM",command=i3)
+    button10.pack()
+    if os.path.isfile(fedora):
+        button11=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Pantheon DE",command=pantheon)
+        button11.pack()
+    space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
+    space2.pack()
+    text2=Label(window, background=bg, foreground=fg, font="arial 9 bold", text="DE = Desktop Enviroment = Masaüstü Ortamı\nWM = Window Manager = Pencere Yöneticisi")
+    text2.pack()
+    space3=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
+    space3.pack()
+    if os.path.isfile(lang_en):
+        button_1=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close this module\nBack to main menu", command=module_exit)
+    elif os.path.isfile(lang_tr):
+        button_1=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+    button_1.pack()
     
     
 elif os.path.isfile(solus):
-    pencere=Tk()
-    pencere.title("Masaüstü ortamı/pencere yöneticisi kur/kaldır | MetterXP")
-    pencere.config(background="#000000")
-    pencere.resizable(0, 0)
-    
-    def kde():
-        def kur():
-            try:
-                print("\nKDE Plasma DE kurulumu başlatılıyor...")
-                os.system(" eopkg it -c desktop.kde -y")
-                messagebox.showinfo("Bilgilendirme","KDE Plasma DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nKDE Plasma DE yeniden kuruluyor...")
-                os.system(" eopkg it -c desktop.kde --rei -y")
-                messagebox.showinfo("Bilgilendirme","KDE Plasma DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nKDE Plasma DE kaldırılıyor...")
-                os.system(" eopkg rm -c desktop.kde -y")
-                messagebox.showinfo("Bilgilendirme","KDE Plasma DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="KDE Plasma DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def gnome():
-        def kur():
-            try:
-                print("\nGNOME DE kurulumu başlatılıyor...")
-                os.system(" eopkg it -c desktop.gnome -y")
-                messagebox.showinfo("Bilgilendirme","GNOME DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nGNOME DE yeniden kuruluyor...")
-                os.system(" eopkg it -c desktop.gnome --rei -y")
-                messagebox.showinfo("Bilgilendirme","GNOME DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nGNOME DE kaldırılıyor...")
-                os.system(" eopkg rm -c desktop.gnome -y")
-                messagebox.showinfo("Bilgilendirme","GNOME DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="GNOME DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def budgie():
-        def kur():
-            try:
-                print("\nBudgie DE kurulumu başlatılıyor...")
-                os.system(" eopkg it -c desktop.budgie -y")
-                messagebox.showinfo("Bilgilendirme","Budgie DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nBudgie DE yeniden kuruluyor...")
-                os.system(" eopkg it -c desktop.budgie --rei -y")
-                messagebox.showinfo("Bilgilendirme","Budgie DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nBudgie DE kaldırılıyor...")
-                os.system(" eopkg rm -c desktop.budgie -y")
-                messagebox.showinfo("Bilgilendirme","Budgie DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="Budgie DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def mate():
-        def kur():
-            try:
-                print("\nMate DE kurulumu başlatılıyor...")
-                os.system(" eopkg it -c desktop.mate -y")
-                messagebox.showinfo("Bilgilendirme","Mate DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nMate DE yeniden kuruluyor...")
-                os.system(" eopkg it -c desktop.mate --rei -y")
-                messagebox.showinfo("Bilgilendirme","Mate DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nMate DE kaldırılıyor...")
-                os.system(" eopkg rm -c desktop.mate -y")
-                messagebox.showinfo("Bilgilendirme","Mate DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="Mate DE için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()    
-    def openbox():
-        def kur():
-            try:
-                print("\nOpenBox WM kurulumu başlatılıyor...")
-                os.system(" eopkg it openbox obconf -y")
-                messagebox.showinfo("Bilgilendirme","OpenBox WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nOpenBox WM yeniden kuruluyor...")
-                os.system(" eopkg it openbox obconf --rei -y")
-                messagebox.showinfo("Bilgilendirme","OpenBox WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nOpenBox WM kaldırılıyor...")
-                os.system(" eopkg rm openbox obconf -y")
-                messagebox.showinfo("Bilgilendirme","OpenBox WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="OpenBox WM için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-    def i3():
-        def kur():
-            try:
-                print("\nİ3 WM kurulumu başlatılıyor...")
-                os.system(" eopkg it i3 -y")
-                messagebox.showinfo("Bilgilendirme","İ3 WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def rekur():
-            try:
-                print("\nİ3 WM yeniden kuruluyor...")
-                os.system(" eopkg it i3 --rei -y")
-                messagebox.showinfo("Bilgilendirme","İ3 WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        def sil():
-            try:
-                print("\nİ3 WM kaldırılıyor...")
-                os.system(" eopkg rm i3 -y")
-                messagebox.showinfo("Bilgilendirme","İ3 WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' butonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
-                reboot()
-            except:
-                messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
-                kapat()
-        yazi1.config(text="İ3 WM için ne yapmak istiyorsunuz?")
-        islemsecimbuton1.config(text="Kur", command=kur)
-        islemsecimbuton2.config(text="Yeniden kur", command=rekur)
-        islemsecimbuton3.config(text="Kaldır", command=sil)
-        islemsecimbuton4.destroy()
-        islemsecimbuton5.destroy()
-        islemsecimbuton6.destroy()
-        buton_2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
-        buton_2.pack()
-            
-    yazi1=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 10 bold", text="Hangi masaüstü ortamını/pencere yöneticisi kurmak ya da kaldırmak istiyorsunuz?")
-    yazi1.pack()
-    b_metin1=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-    b_metin1.pack()
-    islemsecimbuton1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="KDE Plasma DE",command=kde)
-    islemsecimbuton1.pack()
-    islemsecimbuton2=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="GNOME DE",command=gnome)
-    islemsecimbuton2.pack()
-    islemsecimbuton3=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Budgie DE",command=budgie)
-    islemsecimbuton3.pack()
-    islemsecimbuton4=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="Mate DE",command=mate)
-    islemsecimbuton4.pack()
-    islemsecimbuton5=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="İ3 WM",command=i3)
-    islemsecimbuton5.pack()
-    islemsecimbuton6=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", foreground="#000000", background="#FFFFFF", borderwidth="3", text="OpenBox WM",command=openbox)
-    islemsecimbuton6.pack()
-    b_metin2=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 1")
-    b_metin2.pack()
-    yazi2=Label(pencere, background="#000000", foreground="#FFFFFF", font="arial 9 bold", text="DE = Desktop Enviroment = Masaüstü Ortamı\nWM = Window Manager = Pencere Yöneticisi")
-    yazi2.pack()
-    b_metin3=Label(pencere, background="#000000", foreground="#FFFFFF", text="\n", font="arial 3")
-    b_metin3.pack()
-    buton_1=Button(pencere, cursor="hand2", activebackground="#03035B", activeforeground="#FFFFFF", background="#FFFFFF", foreground="#000000", borderwidth="3", text="Modülü kapat\nAna menüye dön", command=kapat)
-    buton_1.pack() 
-       
-       
-else:
-    print("Kullandığınız işletim sistemi/dağıtımı MetterXP desteklenmemektedir.")
-    exit()
-    
+    messagebox.showerror("The 'Install/reinstall/uninstall desktop environment/window manager' feature of MetterXP is not yet supported for Solus distribution.")
+    module_exit()
+    # def kde():
+    #     def install():
+    #         try:
+    #             print("\nKDE Plasma DE kurulumu başlatılıyor...")
+    #             os.system(" eopkg it -c desktop.kde -y")
+    #             messagebox.showinfo("Bilgilendirme","KDE Plasma DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def reinstall():
+    #         try:
+    #             print("\nKDE Plasma DE yeniden kuruluyor...")
+    #             os.system(" eopkg it -c desktop.kde --rei -y")
+    #             messagebox.showinfo("Bilgilendirme","KDE Plasma DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def uninstall():
+    #         try:
+    #             print("\nKDE Plasma DE kaldırılıyor...")
+    #             os.system(" eopkg rm -c desktop.kde -y")
+    #             messagebox.showinfo("Bilgilendirme","KDE Plasma DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     text1.config(text="KDE Plasma DE için ne yapmak istiyorsunuz?")
+    #     button1.config(text="Kur", command=install)
+    #     button2.config(text="Yeniden kur", command=reinstall)
+    #     button3.config(text="Kaldır", command=uninstall)
+    #     button4.destroy()
+    #     button5.destroy()
+    #     button6.destroy()
+    #     button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+    #     button_2.pack()
+    # def gnome():
+    #     def install():
+    #         try:
+    #             print("\nGNOME DE kurulumu başlatılıyor...")
+    #             os.system(" eopkg it -c desktop.gnome -y")
+    #             messagebox.showinfo("Bilgilendirme","GNOME DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def reinstall():
+    #         try:
+    #             print("\nGNOME DE yeniden kuruluyor...")
+    #             os.system(" eopkg it -c desktop.gnome --rei -y")
+    #             messagebox.showinfo("Bilgilendirme","GNOME DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def uninstall():
+    #         try:
+    #             print("\nGNOME DE kaldırılıyor...")
+    #             os.system(" eopkg rm -c desktop.gnome -y")
+    #             messagebox.showinfo("Bilgilendirme","GNOME DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     text1.config(text="GNOME DE için ne yapmak istiyorsunuz?")
+    #     button1.config(text="Kur", command=install)
+    #     button2.config(text="Yeniden kur", command=reinstall)
+    #     button3.config(text="Kaldır", command=uninstall)
+    #     button4.destroy()
+    #     button5.destroy()
+    #     button6.destroy()
+    #     button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+    #     button_2.pack()
+    # def budgie():
+    #     def install():
+    #         try:
+    #             print("\nBudgie DE kurulumu başlatılıyor...")
+    #             os.system(" eopkg it -c desktop.budgie -y")
+    #             messagebox.showinfo("Bilgilendirme","Budgie DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def reinstall():
+    #         try:
+    #             print("\nBudgie DE yeniden kuruluyor...")
+    #             os.system(" eopkg it -c desktop.budgie --rei -y")
+    #             messagebox.showinfo("Bilgilendirme","Budgie DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def uninstall():
+    #         try:
+    #             print("\nBudgie DE kaldırılıyor...")
+    #             os.system(" eopkg rm -c desktop.budgie -y")
+    #             messagebox.showinfo("Bilgilendirme","Budgie DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     text1.config(text="Budgie DE için ne yapmak istiyorsunuz?")
+    #     button1.config(text="Kur", command=install)
+    #     button2.config(text="Yeniden kur", command=reinstall)
+    #     button3.config(text="Kaldır", command=uninstall)
+    #     button4.destroy()
+    #     button5.destroy()
+    #     button6.destroy()
+    #     button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+    #     button_2.pack()
+    # def mate():
+    #     def install():
+    #         try:
+    #             print("\nMate DE kurulumu başlatılıyor...")
+    #             os.system(" eopkg it -c desktop.mate -y")
+    #             messagebox.showinfo("Bilgilendirme","Mate DE kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def reinstall():
+    #         try:
+    #             print("\nMate DE yeniden kuruluyor...")
+    #             os.system(" eopkg it -c desktop.mate --rei -y")
+    #             messagebox.showinfo("Bilgilendirme","Mate DE yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def uninstall():
+    #         try:
+    #             print("\nMate DE kaldırılıyor...")
+    #             os.system(" eopkg rm -c desktop.mate -y")
+    #             messagebox.showinfo("Bilgilendirme","Mate DE kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     text1.config(text="Mate DE için ne yapmak istiyorsunuz?")
+    #     button1.config(text="Kur", command=install)
+    #     button2.config(text="Yeniden kur", command=reinstall)
+    #     button3.config(text="Kaldır", command=uninstall)
+    #     button4.destroy()
+    #     button5.destroy()
+    #     button6.destroy()
+    #     button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+    #     button_2.pack()    
+    # def openbox():
+    #     def install():
+    #         try:
+    #             print("\nOpenBox WM kurulumu başlatılıyor...")
+    #             os.system(" eopkg it openbox obconf -y")
+    #             messagebox.showinfo("Bilgilendirme","OpenBox WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def reinstall():
+    #         try:
+    #             print("\nOpenBox WM yeniden kuruluyor...")
+    #             os.system(" eopkg it openbox obconf --rei -y")
+    #             messagebox.showinfo("Bilgilendirme","OpenBox WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def uninstall():
+    #         try:
+    #             print("\nOpenBox WM kaldırılıyor...")
+    #             os.system(" eopkg rm openbox obconf -y")
+    #             messagebox.showinfo("Bilgilendirme","OpenBox WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     text1.config(text="OpenBox WM için ne yapmak istiyorsunuz?")
+    #     button1.config(text="Kur", command=install)
+    #     button2.config(text="Yeniden kur", command=reinstall)
+    #     button3.config(text="Kaldır", command=uninstall)
+    #     button4.destroy()
+    #     button5.destroy()
+    #     button6.destroy()
+    #     button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+    #     button_2.pack()
+    # def i3():
+    #     def install():
+    #         try:
+    #             print("\nİ3 WM kurulumu başlatılıyor...")
+    #             os.system(" eopkg it i3 -y")
+    #             messagebox.showinfo("Bilgilendirme","İ3 WM kurulumu tamamlandı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def reinstall():
+    #         try:
+    #             print("\nİ3 WM yeniden kuruluyor...")
+    #             os.system(" eopkg it i3 --rei -y")
+    #             messagebox.showinfo("Bilgilendirme","İ3 WM yeniden kuruldu.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     def uninstall():
+    #         try:
+    #             print("\nİ3 WM kaldırılıyor...")
+    #             os.system(" eopkg rm i3 -y")
+    #             messagebox.showinfo("Bilgilendirme","İ3 WM kaldırıldı.\nDeğişiklikleri uygulamak için 'OK' buttonuna bastığınız an bilgisayarınız yeniden başlatılacak.")
+    #             reboot()
+    #         except:
+    #             messagebox.showerror("Hata","Bazı hata(lar) oluştu!\n'OK' tuşuna basınca tekrar denemeniz için program kapatılacak.")
+    #             module_exit()
+    #     text1.config(text="İ3 WM için ne yapmak istiyorsunuz?")
+    #     button1.config(text="Kur", command=install)
+    #     button2.config(text="Yeniden kur", command=reinstall)
+    #     button3.config(text="Kaldır", command=uninstall)
+    #     button4.destroy()
+    #     button5.destroy()
+    #     button6.destroy()
+    #     button_2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+    #     button_2.pack()
+    # text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Hangi masaüstü ortamını/pencere yöneticisi kurmak ya da kaldırmak istiyorsunuz?")
+    # text1.pack()
+    # space1=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
+    # space1.pack()
+    # button1=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="KDE Plasma DE",command=kde)
+    # button1.pack()
+    # button2=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="GNOME DE",command=gnome)
+    # button2.pack()
+    # button3=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Budgie DE",command=budgie)
+    # button3.pack()
+    # button4=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Mate DE",command=mate)
+    # button4.pack()
+    # button5=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="İ3 WM",command=i3)
+    # button5.pack()
+    # button6=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="OpenBox WM",command=openbox)
+    # button6.pack()
+    # space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
+    # space2.pack()
+    # text2=Label(window, background=bg, foreground=fg, font="arial 9 bold", text="DE = Desktop Enviroment = Masaüstü Ortamı\nWM = Window Manager = Pencere Yöneticisi")
+    # text2.pack()
+    # space3=Label(window, background=bg, foreground=fg, text="\n", font="arial 3")
+    # space3.pack()
+    # button_1=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü kapat\nAna menüye dön", command=module_exit)
+    # button_1.pack() 
 
 mainloop()
