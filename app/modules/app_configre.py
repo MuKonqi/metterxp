@@ -124,7 +124,7 @@ else:
         messagebox.showwarning("Warning","Can't found theme config. When you click 'OK' MetterXP settings will open.")
     elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/tr.txt"):
         messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
-    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")
+    os.system("pkexec /usr/bin/metterxp-beta mxp_options")
     exit()
 
 

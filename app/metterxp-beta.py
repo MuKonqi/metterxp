@@ -32,47 +32,51 @@ lang_en="/usr/local/bin/metterxp-beta/settings/lang/en.txt"
 args=sys.argv[1:]
 
 
-if not os.path.isdir("/usr/local/bin/metterxp-beta/settings/lang/"):
-    def lang_open():
-        messagebox.showerror("Warning","Can't found language setting. When you click 'OK' and enter your true password, language settings will open. ")
-        os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")
-        exit()
-    if os.path.isfile(debian):
-        lang_open()
-    elif os.path.isfile(fedora):
-        lang_open()
-    elif os.path.isfile(solus):
-        lang_open()
-
-
 def mxp_info():
     subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/mxp_info.py", shell=TRUE)
-def mxp_settings():
-    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")
-    exit()
 def mxp_update():
-    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_update.py --updateupdater")
+    os.system("pkexec /usr/bin/metterxp-beta mxp_update")
+    exit()
+def mxp_uninstall():
+    os.system("pkexec /usr/bin/metterxp-beta mxp_uninstall")
+    exit()
+def mxp_options():
+    os.system("pkexec /usr/bin/metterxp-beta mxp_options")
+    exit()
 
 def app_it_rm():
-    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/app_it_rm.py", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp-beta app_it_rm", shell=TRUE)
 def app_search():
     subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/app_search.py", shell=TRUE)
 def de_wm_it_rm():
-    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/de_wm_it_rm.py", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp-beta de_wm_it_rm", shell=TRUE)
 def system_up():
-    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/system_up.py", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp-beta system_up", shell=TRUE)
 def app_configre():
-    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/app_configre.py", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp-beta app_configre", shell=TRUE)
 def root_apps():
-    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/root_apps.py", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp-beta root_apps", shell=TRUE)
 def distros():
     subprocess.Popen("python3 /usr/local/bin/metterxp-beta/modules/distros.py", shell=TRUE)
 def pm_it():
-    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/pm_it.py", shell=TRUE)
-def clean_cache_app():
-    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/clean_cache_app.py", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp-beta pm_it", shell=TRUE)
+def clear_cache_app():
+    subprocess.Popen("pkexec /usr/bin/metterxp-beta clear_cache_app", shell=TRUE)
 def fixer():
-    subprocess.Popen("pkexec python3 /usr/local/bin/metterxp-beta/modules/fixer.py", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp-beta fixer", shell=TRUE)
+
+if not "mxp_options" in args:
+    if not os.path.isdir("/usr/local/bin/metterxp-beta/settings/lang/"):
+        def lang_open():
+            messagebox.showerror("Warning","Can't found language setting. When you click 'OK' and enter your true password, language settings will open. ")
+            mxp_options()
+            exit()
+        if os.path.isfile(debian):
+            lang_open()
+        elif os.path.isfile(fedora):
+            lang_open()
+        elif os.path.isfile(solus):
+            lang_open()
 
 bg=""
 fg=""
@@ -114,14 +118,14 @@ elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/4.txt"):
     button_bg="#FFFFFF"
     button_fg="#FF0000"
     a_button_bg="#FF0000"
-    a_button_fg="#FFFFFF"     
+    a_button_fg="#FFFFFF"
 elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/5.txt"):
     bg="#FFA500"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#FFA500"
     a_button_bg="#FFA500"
-    a_button_fg="#FFFFFF" 
+    a_button_fg="#FFFFFF"
 elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/6.txt"):
     bg="#008000"
     fg="#FFFFFF"
@@ -162,7 +166,7 @@ else:
         messagebox.showwarning("Warning","Can't found theme config. When you click 'OK' MetterXP settings will open.")
     elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/tr.txt"):
         messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
-    os.system("pkexec python3 /usr/local/bin/metterxp-beta/modules/mxp_settings.py")
+    os.system("python3 /usr/local/bin/metterxp-beta/modules/mxp_m_optionspy")
     exit()
 
 
@@ -174,12 +178,15 @@ def main_gui():
     def mxp_exit():
         print("\nMetterXP kapatılıyor...\nClosing MetterXP...")
         exit()
+    def options():
+        window.destroy()
+        mxp_options()
     def update():
         window.destroy()
         mxp_update()
-    def settings():
+    def uninstall():
         window.destroy()
-        mxp_settings()
+        mxp_uninstall()
 
     if os.path.isfile(lang_en):
         menu1=Menu(window)
@@ -187,6 +194,13 @@ def main_gui():
         file=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="File",menu=file)
         file.add_command(label="Quit", command=mxp_exit)
+        m_options=Menu(menu1, tearoff=0)
+        menu1.add_cascade(label="MetterXP",menu=m_options)
+        m_options.add_command(label="About MetterXP",command=mxp_info)
+        m_options.add_command(label="MetterXP options",command=options)
+        m_options.add_command(label="Update MetterXP",command=update)
+        m_options.add_command(label="Uninstall MetterXP",command=uninstall)
+
         text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Please select the action you want to take.")
         space1=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         button1=Button(window, text="Install/reinstal/uninstall application", command=app_it_rm, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
@@ -197,14 +211,13 @@ def main_gui():
         button6=Button(window, text="Open applications with root user", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button7=Button(window, text="About some GNU/Linux ditros", command=distros, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button8=Button(window, text="Install/reinstall package manager", command=pm_it, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button9=Button(window, text="Clean cache and/or unnecessary packages", command=clean_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
+        button9=Button(window, text="Clean cache and/or unnecessary packages", command=clear_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
         if os.path.isfile(debian):
             button10=Button(window, text="Fix package errors", command=fixer, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
-            button10.pack()           
+            button10.pack()
         space2=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_info_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="About MetterXP",command=mxp_info)
-        mxp_settings_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP settings",command=settings)
-        mxp_update_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Update MetterXP",command=update)
+        mxp_options_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP options",command=options)
         space3=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_exit_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Close MetterXP",command=mxp_exit)
     elif os.path.isfile(lang_tr):
@@ -213,6 +226,13 @@ def main_gui():
         file=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="Dosya",menu=file)
         file.add_command(label="Çıkış", command=mxp_exit)
+        m_options=Menu(menu1, tearoff=0)
+        menu1.add_cascade(label="MetterXP",menu=m_options)
+        m_options.add_command(label="MetterXP hakkında",command=mxp_info)
+        m_options.add_command(label="MetterXP seçenekleri",command=options)
+        m_options.add_command(label="MetterXP'ı güncelle",command=update)
+        m_options.add_command(label="MetterXP'ı kaldır",command=uninstall)
+
         text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Lütfen yapmak istediğiniz işlemi seçiniz.")
         space1=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         button1=Button(window, text="Program kurma/yeniden kurma/kaldırma", command=app_it_rm, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
@@ -223,14 +243,13 @@ def main_gui():
         button6=Button(window, text="Programları kök kullanıcı haklarıyla açma", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button7=Button(window, text="Bazı GNU/Linux dağıtımları hakkında", command=distros, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button8=Button(window, text="Paket yöneticisi kurma/yeniden kurma", command=pm_it, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button9=Button(window, text="Önbelleği ve/veya gereksiz paketleri temizle", command=clean_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
+        button9=Button(window, text="Önbelleği ve/veya gereksiz paketleri temizle", command=clear_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
         if os.path.isfile(debian):
             button10=Button(window, text="Paket hatalarını çöz", command=fixer, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
-            button10.pack()           
+            button10.pack()
         space2=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_info_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP hakkında",command=mxp_info)
-        mxp_settings_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP ayarları",command=settings)
-        mxp_update_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP'ı güncelle",command=update)
+        mxp_options_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP seçenekleri",command=options)
         space3=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_exit_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP'ı kapat",command=mxp_exit)
     text1.pack()
@@ -246,8 +265,7 @@ def main_gui():
     button9.pack()
     space2.pack()
     mxp_info_button.pack()
-    mxp_settings_button.pack()
-    mxp_update_button.pack()
+    mxp_options_button.pack()
     space3.pack()
     mxp_exit_button.pack()
     mainloop()
@@ -270,6 +288,7 @@ def main_cli():
             print("hakkında                       MetterXP hakkında")
             print("ayarlar                        MetterXP ayarlar")
             print("güncelle                       MetterXP'ı güncelle")
+            print("kaldır                         MetterXP'ı kaldır")
             if os.path.isfile(solus):
                 print("önbellektemizle                Önbelleği temizle")
             else:
@@ -291,10 +310,11 @@ def main_cli():
             print("info                           About MetterXP")
             print("settings                       MetterXP settings")
             print("update                         Update MetterXP")
+            print("uninstall                      Uninstall MetterXP")
             if os.path.isfile(solus):
-                print("cleancache                     Clean cache")
+                print("clearcache                     Clean cache")
             else:
-                print("cleancache                     Clear cache and unnecessary packages")
+                print("clearcache                     Clear cache and unnecessary packages")
             if os.path.isfile(debian):
                 print("fixerr                         Fix package errors")
         exit()
@@ -325,17 +345,53 @@ def main_cli():
         mxp_info()
         exit()
     elif "ayarlar" in args or "settings" in args:
-        mxp_settings()
+        mxp_options()
         exit()
     elif "güncelle" in args or "update" in args:
         mxp_update()
         exit()
-    if os.path.isfile(solus):    
-        if "önbellektemizle" in args or "cleancache" in args:
-            clean_cache_app()
+    elif "kaldır" in args or "uninstall" in args:
+        mxp_uninstall()
+        exit()
+    elif "app_configre" in args:
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/app_configre.py")
+        exit()
+    elif "app_it_rm" in args:
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/app_it_rm.py")
+        exit()
+    elif "clear_cache_app" in args:
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/clear_cache_app.py")
+        exit()
+    elif "de_wm_it_rm" in args:
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/de_wm_it_rm.py")
+        exit()
+    elif "fixer" in args:
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/fixer.py")
+        exit()
+    elif "mxp_options" in args:
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/mxp_m_optionspy")
+        exit()
+    elif "mxp_uninstall" in args:
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/mxp_uninstall.py")
+        exit()
+    elif "mxp_update" in args:
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/mxp_update.py --updateupdater")
+        exit()
+    elif "pm_it" in args:
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/pm_it.py")
+        exit()
+    elif "root_apps" in args:
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/root_apps.py")
+        exit()
+    elif "system_up" in args:
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/system_up.py")
+        exit()
+    if os.path.isfile(solus):
+        if "önbellektemizle" in args or "clearcache" in args:
+            clear_cache_app()
             exit()
     else:
-        if "önbellekpakettemizle" in args or "cleanpackagecache" in args:
+        if "önbellekpakettemizle" in args or "clearpackagecache" in args:
             fixer()
             exit()
     if os.path.isfile(debian):
@@ -344,7 +400,7 @@ def main_cli():
             exit()
     else:
         main_gui()
-    
+
 
 if os.name == "nt":
     print("Welcome to MetterXP!\nMetterXP will not work on operating systems using the NT kernel.\nPlease try to open the program with a GNU/Linux distribution based on one of these three GNU/Linux distributions:\nDebian GNU/Linux, Fedora Linux, Solus\n\nClosing MetterXP ...")

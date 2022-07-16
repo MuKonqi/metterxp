@@ -128,6 +128,15 @@ else:
     cr_dir()
 
 def main():
+    def mxp_uninstall():
+        window.destroy()
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/mxp_uninstall.py")
+        exit()
+    def mxp_update():
+        window.destroy()
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/mxp_update.py")
+        exit()
+
     def preview():
         if os.path.isfile(lang_en):
             messagebox.showinfo("Information","I am definitely the best information window. :)")
@@ -499,7 +508,7 @@ def main():
         module_exit()
     if os.path.isfile(lang_en):
         window=Tk()
-        window.title("MetterXP settings | MetterXP")
+        window.title("MetterXP options | MetterXP")
         window.config(background=bg)
         window.resizable(0, 0)
         text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Please select the theme you want to action on.")
@@ -521,10 +530,13 @@ def main():
         button12=Button(window, text="Türkçe (Turkish)", command=langtr, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button13=Button(window, text="English (İngilizce)", command=langen, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")
         space4=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
-        module_exit_buton=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Modülü kapat",command=module_exit)
+        button14=Button(window, text="Update MetterXP", command=mxp_update, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")
+        button15=Button(window, text="Uninstall MetterXP", command=mxp_uninstall, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font =",arial 10", cursor="hand2", borderwidth="3")
+        space5=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
+        module_exit_buton=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Close this module\nand exit",command=module_exit)
     elif os.path.isfile(lang_tr):
         window=Tk()
-        window.title("MetterXP ayarları | MetterXP")
+        window.title("MetterXP seçenekleri | MetterXP")
         window.config(background=bg)
         window.resizable(0, 0)
         text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Lütfen üzerinde işlem yapmak istediğiniz temayı seçin.")
@@ -546,7 +558,10 @@ def main():
         button12=Button(window, text="English (İngilizce)", command=langen, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")
         button13=Button(window, text="Türkçe (Turkish)", command=langtr, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         space4=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
-        module_exit_buton=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Modülü kapat",command=module_exit)
+        button14=Button(window, text="MetterXP'ı güncelle", command=mxp_update, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")        
+        button15=Button(window, text="MetterXP'i kaldır", command=mxp_uninstall, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")        
+        space5=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
+        module_exit_buton=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Çık ve\nmodülü kapat",command=module_exit)
     text1.pack()
     space1.pack()
     button1.pack()
@@ -566,6 +581,9 @@ def main():
     button12.pack()
     button13.pack()
     space4.pack()
+    button14.pack()
+    button15.pack()
+    space5.pack()
     module_exit_buton.pack()        
     mainloop()
 def langset():

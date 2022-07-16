@@ -40,9 +40,9 @@ from sys import platform
 ## Warning! You must use "" when you don't use any.
 appname="MetterXP Beta" # Don't forget to change this!
 appfolder="/usr/bin/" # Don't forget to change this!
-appfilenew="metterxp-beta.py" # Don't forget to change this!
-appfileold="metterxp-beta" # Don't forget to change this!
-policyfile="python3.policy" # Options: policy file and any
+appfilenew="metterxp-beta" # Don't forget to change this!
+appfileold="metterxp-beta.py" # Don't forget to change this!
+policyfile="io.github.mukonqi.metterxp.policy" # Options: policy file and any
 appdesktopfile="metterxp-beta.desktop" # Options: desktop file and any
 mainappfolder="/usr/local/bin/" # Don't forget to change this!
 mainappfoldername="metterxp-beta" # Don't forget to change this!
@@ -67,7 +67,7 @@ python3_pip3_dependencies=any # Options: "dependencies" and any
 
 
 # apiutaller
-apiutaller="v1.2"
+apiutaller="v1.2.1"
 
 
 
@@ -131,7 +131,7 @@ def main_install():
     os.system("cp -r * "+mainappfolder+mainappfoldername+"/apiutaller")
     if os.path.isdir(mainappfolder+mainappfoldername):
         if lang == "en":
-            exit("Successful! You have this program "+appname+" at the moment. Thank you for choosing us!")
+            exit("Successful! You have "+appname+" at the moment. Thank you for choosing us!")
         if lang == "tr":
             exit("Başarılı! Siz artık "+appname+" programına sahipsiniz. Bizi seçtiğiniz için teşekkürler!")        
     else:
