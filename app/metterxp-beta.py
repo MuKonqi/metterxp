@@ -22,6 +22,8 @@ import subprocess
 import os
 import sys
 from sys import platform
+import getpass
+username=getpass.getuser()
 
 
 debian="/etc/debian_version"
@@ -172,9 +174,10 @@ else:
 
 def main_gui():
     window=Tk()
-    window.title("MetterXP Beta")
     window.config(background=bg)
     window.resizable(0, 0)
+    window.geometry("418x418")
+
     def mxp_exit():
         print("\nMetterXP kapatılıyor...\nClosing MetterXP...")
         exit()
@@ -189,6 +192,7 @@ def main_gui():
         mxp_uninstall()
 
     if os.path.isfile(lang_en):
+        window.title("Hello "+username+"! • MetterXP")
         menu1=Menu(window)
         window.config(menu=menu1)
         file=Menu(menu1, tearoff=0)
@@ -221,6 +225,7 @@ def main_gui():
         space3=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_exit_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Close MetterXP",command=mxp_exit)
     elif os.path.isfile(lang_tr):
+        window.title("Merhabalar "+username+"! • MetterXP")
         menu1=Menu(window)
         window.config(menu=menu1)
         file=Menu(menu1, tearoff=0)
