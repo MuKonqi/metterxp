@@ -26,6 +26,18 @@ if os.path.isfile(lang_en):
 elif os.path.isfile(lang_tr):
     messagebox.showinfo("Bilgilendirme","'OK' düğmesine bastığınızda işlem başlayacaktır. Lütfen işlem sırasında MetterXP'ı kapatmayın.")
 
+if not os.path.isdir("/usr/local/bin/metterxp-beta/settings/lang/"):
+    def lang_open():
+        messagebox.showerror("Warning","Can't found language setting. When you click 'OK' and enter your true password, language settings will open. ")
+        os.system("pkexec /usr/bin/metterxp-beta mxp_options")
+        exit()
+    if os.path.isfile(debian):
+        lang_open()
+    elif os.path.isfile(fedora):
+        lang_open()
+    elif os.path.isfile(solus):
+        lang_open()
+
 os.system("apt-get install -f &&  dpkg --configure -a")
 if os.path.isfile(lang_en):
     messagebox.showinfo("Information","Succesful! Fixed applicaton/package errors.")

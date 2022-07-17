@@ -121,9 +121,9 @@ else:
 
 def uninstall():
     os.system("cd /usr/bin ; rm metterxp-beta")
-    os.system("cd /usr/share/polkit-1/actions/io.github.mukonqi.metterxp.policy")
+    os.system("cd /usr/share/polkit-1/actions/ ; rm io.github.mukonqi.metterxp.policy")
     os.system("cd /usr/share/applications ; rm metterxp-beta.desktop")
-    os.system("cd /usr/local/bin/metterxp-beta/ ; rm -rf *")
+    os.system("cd /usr/local/bin/ ; rm -rf metterxp-beta")
     if os.path.isfile(lang_en):
         messagebox.showinfo("Information","Succesful! MetterXP is uninstalled. We would appreciate it if you would let us know the reason for your removal.")
     elif os.path.isfile(lang_tr):

@@ -8,12 +8,27 @@ from tkinter import *
 from tkinter import messagebox
 import os
 
+debian="/etc/debian_version"
+fedora="/etc/fedora-release"
+solus="/etc/solus-release"
 lang_tr="/usr/local/bin/metterxp-beta/settings/lang/tr.txt"
 lang_en="/usr/local/bin/metterxp-beta/settings/lang/en.txt"
 
 def module_exit():
     print("\nModül kapatılıyor...\nClosing this module...")
     exit()
+
+if not os.path.isdir("/usr/local/bin/metterxp-beta/settings/lang/"):
+    def lang_open():
+        messagebox.showerror("Warning","Can't found language setting. When you click 'OK' and enter your true password, language settings will open. ")
+        os.system("pkexec /usr/bin/metterxp-beta mxp_options")
+        exit()
+    if os.path.isfile(debian):
+        lang_open()
+    elif os.path.isfile(fedora):
+        lang_open()
+    elif os.path.isfile(solus):
+        lang_open()
 
 bg=""
 fg=""
@@ -55,14 +70,14 @@ elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/4.txt"):
     button_bg="#FFFFFF"
     button_fg="#FF0000"
     a_button_bg="#FF0000"
-    a_button_fg="#FFFFFF"     
+    a_button_fg="#FFFFFF"
 elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/5.txt"):
     bg="#FFA500"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#FFA500"
     a_button_bg="#FFA500"
-    a_button_fg="#FFFFFF" 
+    a_button_fg="#FFFFFF"
 elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/6.txt"):
     bg="#008000"
     fg="#FFFFFF"
@@ -99,12 +114,19 @@ elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/10.txt"):
     a_button_bg="#FFC0CB"
     a_button_fg="#000000"
 else:
-    if os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/en.txt"):
-        messagebox.showwarning("Warning","Can't found theme config. When you click 'OK' MetterXP settings will open.")
-    elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/tr.txt"):
-        messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
-    os.system("pkexec /usr/bin/metterxp-beta mxp_options")
-    exit()
+    def theme_open():
+        if os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/en.txt"):
+            messagebox.showwarning("Warning","Can't found theme config. When you click 'OK' MetterXP settings will open.")
+        elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/tr.txt"):
+            messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
+        os.system("pkexec /usr/bin/metterxp-beta mxp_options")
+        exit()
+    if os.path.isfile(debian):
+        theme_open()
+    elif os.path.isfile(fedora):
+        theme_open()
+    elif os.path.isfile(solus):
+        theme_open()
 
 def metterxp():
     os.system("xdg-open https://mukonqi.github.io/metterxp/ana-sayfa.html")

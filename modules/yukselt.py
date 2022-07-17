@@ -6,7 +6,6 @@
 
 import os
 import sys
-from tkinter import messagebox
 
 debian="/etc/debian_version"
 fedora="/etc/fedora-release"

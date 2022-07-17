@@ -66,8 +66,8 @@ python3_pip3_dependencies=any # Options: "dependencies" and any
 
 
 
-# apiutaller
-apiutaller="v1.2.1"
+# Below is the version of apiutaller.
+apiutaller="v1.3"
 
 
 
@@ -83,7 +83,7 @@ def main_install():
         pass
     else:
         os.system("mkdir "+appfolder)
-    os.system("cd app ; chmod +x "+appfileold+" ; mv "+appfileold+" "+appfilenew+" ; cp "+appfilenew+" "+appfolder)
+    os.system("cd app ; chmod +x "+appfileold+" ; cp "+appfileold+" "+appfolder+appfilenew)
     if os.path.isfile(appfolder+appfilenew):
         pass
     else:
@@ -127,8 +127,9 @@ def main_install():
             os.system("mkdir "+mainappfolder)
     os.system("mkdir "+mainappfolder+mainappfoldername)
     os.system("cd app ; cp -r * "+mainappfolder+mainappfoldername)
+    os.system("cd "+mainappfolder+mainappfoldername+" ; rm "+policyfile+" "+appdesktopfile+" "+appfileold)
     os.system("mkdir "+mainappfolder+mainappfoldername+"/apiutaller")
-    os.system("cp -r * "+mainappfolder+mainappfoldername+"/apiutaller")
+    os.system("cp apiutaller.py "+mainappfolder+mainappfoldername+"/apiutaller")
     if os.path.isdir(mainappfolder+mainappfoldername):
         if lang == "en":
             exit("Successful! You have "+appname+" at the moment. Thank you for choosing us!")

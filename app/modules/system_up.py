@@ -21,6 +21,18 @@ if not os.getuid() == 0 :
         messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
         exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
 
+if not os.path.isdir("/usr/local/bin/metterxp-beta/settings/lang/"):
+    def lang_open():
+        messagebox.showerror("Warning","Can't found language setting. When you click 'OK' and enter your true password, language settings will open. ")
+        os.system("pkexec /usr/bin/metterxp-beta mxp_options")
+        exit()
+    if os.path.isfile(debian):
+        lang_open()
+    elif os.path.isfile(fedora):
+        lang_open()
+    elif os.path.isfile(solus):
+        lang_open()
+
 if os.path.isfile(lang_en):
     messagebox.showinfo("Information","When you press the 'OK' button then the process will start. Please don't close MetterXP during the process.")
 elif os.path.isfile(lang_tr):

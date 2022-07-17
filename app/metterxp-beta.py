@@ -164,12 +164,20 @@ elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/theme/10.txt"):
     a_button_bg="#FFC0CB"
     a_button_fg="#000000"
 else:
-    if os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/en.txt"):
-        messagebox.showwarning("Warning","Can't found theme config. When you click 'OK' MetterXP settings will open.")
-    elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/tr.txt"):
-        messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
-    os.system("python3 /usr/local/bin/metterxp-beta/modules/mxp_m_optionspy")
-    exit()
+    if not "mxp_options" in args:
+        def theme_open():
+            if os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/en.txt"):
+                messagebox.showwarning("Warning","Can't found theme config. When you click 'OK' MetterXP settings will open.")
+            elif os.path.isfile("/usr/local/bin/metterxp-beta/settings/lang/tr.txt"):
+                messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
+            mxp_options()
+            exit()
+        if os.path.isfile(debian):
+            theme_open()
+        elif os.path.isfile(fedora):
+            theme_open()
+        elif os.path.isfile(solus):
+            theme_open()
 
 
 def main_gui():
@@ -374,7 +382,7 @@ def main_cli():
         os.system("python3 /usr/local/bin/metterxp-beta/modules/fixer.py")
         exit()
     elif "mxp_options" in args:
-        os.system("python3 /usr/local/bin/metterxp-beta/modules/mxp_m_optionspy")
+        os.system("python3 /usr/local/bin/metterxp-beta/modules/mxp_options.py")
         exit()
     elif "mxp_uninstall" in args:
         os.system("python3 /usr/local/bin/metterxp-beta/modules/mxp_uninstall.py")
