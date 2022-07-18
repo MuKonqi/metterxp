@@ -55,12 +55,14 @@ if "--updateupdater" in args:
 
 if os.path.isfile("/usr/local/bin/metterxp/python3.policy"):
     os.system("cd /usr/local/bin/metterxp ; rm python3.policy")
+if not os.path.isdir("/usr/local/bin/metterxp/apiutaller"):
+    os.system("cd /usr/local/bin/metterxp/ ; mkdir apiutaller")
 os.system("cd /usr/bin/ ;  rm metterxp")
 os.system("cd /usr/share/polkit-1/actions ;  rm io.github.mukonqi.metterxp.policy")
 os.system("cd /usr/share/applications ;  rm metterxp.desktop")
 os.system("cd /usr/local/bin/metterxp/ ;  rm -rf modules ; rm -rf unsupported.app ; rm icon.png ;  rm LICENSE.txt")
 os.system(" chmod +x /usr/local/bin/metterxp/metterxp/app/metterxp.py ; mv /usr/local/bin/metterxp/metterxp/app/metterxp.py /usr/bin/metterxp")
-os.system(" chmod +x /usr/local/bin/metterxp/metterxp/apiutaller.py ; mv /usr/local/bin/metterxp/metterxp/apiutaller.py /usr/local/bin/metterxp")
+os.system(" chmod +x /usr/local/bin/metterxp/metterxp/apiutaller.py ; mv /usr/local/bin/metterxp/metterxp/apiutaller.py /usr/local/bin/metterxp/apiutaller")
 os.system(" chmod +x /usr/local/bin/metterxp/metterxp/app/io.github.mukonqi.metterxp.policy ; mv /usr/local/bin/metterxp/metterxp/app/io.github.mukonqi.metterxp.policy /usr/share/polkit-1/actions/")
 os.system(" chmod +x /usr/local/bin/metterxp/metterxp/app/metterxp.desktop ; mv /usr/local/bin/metterxp/metterxp/app/metterxp.desktop /usr/share/applications")
 os.system(" chmod +x /usr/local/bin/metterxp/metterxp/app/unsupported.app/* ;  mv /usr/local/bin/metterxp/metterxp/app/unsupported.app /usr/local/bin/metterxp/")
