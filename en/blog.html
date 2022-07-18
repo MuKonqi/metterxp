@@ -1,0 +1,22 @@
+---
+layout: page-en
+title: Latest Blogs
+---
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/metterxp/assets/style.css">
+    <title>{{ page.title }} | MetterXP</title>
+</head>
+<body>
+    {% for tag in site.tags %}
+        <h1 id="id01">{{ tag[0] }}</h1>
+        <ul>
+            {% for post in tag[1] %}
+            <a href="/metterxp{{ post.url }}">{{ post.title }}</a>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+</html>
