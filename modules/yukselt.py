@@ -20,6 +20,6 @@ elif os.path.isfile(solus):
     os.system(" eopkg install git -y")    
 os.system("cd /usr/local/bin/metterxp ;  git clone https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
 os.system("cd /usr/local/bin/metterxp/modules ; rm yukselt.py")
-os.system(" cp /usr/local/bin/metterxp/metterxp/modules/mxp_update.py /usr/local/bin/metterxp/modules/")
+os.system(" cp /usr/local/bin/metterxp/metterxp/app/modules/mxp_update.py /usr/local/bin/metterxp/modules/")
 os.system(" python3 /usr/local/bin/metterxp/modules/mxp_update.py")
 exit()
