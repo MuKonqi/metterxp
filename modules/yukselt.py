@@ -12,15 +12,16 @@ fedora="/etc/fedora-release"
 solus="/etc/solus-release"
 args=sys.argv[1:]
 
-if os.path.isfile(debian):
-    os.system(" apt install git -y")
-elif os.path.isfile(fedora):
-    os.system(" dnf install git -y")
-elif os.path.isfile(solus):
-    os.system(" eopkg install git -y")    
-os.system("cd /usr/local/bin/metterxp ;  git clone https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
-os.system("cd /usr/local/bin/metterxp/modules ; rm yukselt.py")
-os.system(" cp /usr/local/bin/metterxp/metterxp/app/modules/mxp_update.py /usr/local/bin/metterxp/modules/")
-os.system(" cd /usr/local/bin/metterxp/ ; rm -rf metterxp")
-os.system(" python3 /usr/local/bin/metterxp/modules/mxp_update.py")
+os.system("cd /usr/bin/ ;  rm metterxp")
+os.system("cd /usr/share/polkit-1/actions ;  rm io.github.mukonqi.metterxp.policy")
+os.system("cd /usr/share/applications ;  rm metterxp.desktop")
+os.system("cd /usr/local/bin/metterxp/ ;  rm -rf modules ; rm -rf unsupported.app ; rm icon.png ;  rm LICENSE.txt")
+os.system(" chmod +x /usr/local/bin/metterxp/metterxp/app/metterxp.py ; mv /usr/local/bin/metterxp/metterxp/app/metterxp.py /usr/bin/metterxp")
+os.system(" chmod +x /usr/local/bin/metterxp/metterxp/apiutaller.py ; mv /usr/local/bin/metterxp/metterxp/apiutaller.py /usr/local/bin/metterxp")
+os.system(" chmod +x /usr/local/bin/metterxp/metterxp/app/io.github.mukonqi.metterxp.policy ; mv /usr/local/bin/metterxp/metterxp/app/io.github.mukonqi.metterxp.policy /usr/share/polkit-1/actions/")
+os.system(" chmod +x /usr/local/bin/metterxp/metterxp/app/metterxp.desktop ; mv /usr/local/bin/metterxp/metterxp/app/metterxp.desktop /usr/share/applications")
+os.system(" chmod +x /usr/local/bin/metterxp/metterxp/app/unsupported.app/* ;  mv /usr/local/bin/metterxp/metterxp/app/unsupported.app /usr/local/bin/metterxp/")
+os.system(" chmod +x /usr/local/bin/metterxp/metterxp/app/modules/* ; mkdir /usr/local/bin/metterxp/modules ; mv /usr/local/bin/metterxp/metterxp/app/modules/* /usr/local/bin/metterxp/modules ;  mv /usr/local/bin/metterxp/metterxp/app/icon.png /usr/local/bin/metterxp/ ;  mv /usr/local/bin/metterxp/metterxp/app/LICENSE.txt /usr/local/bin/metterxp/")
+os.system("cd /usr/local/bin/metterxp/ ;  rm -rf metterxp")
+os.system("cd /usr/local/bin/metterxp/modules/ ; rm yukselt.py")
 exit()
