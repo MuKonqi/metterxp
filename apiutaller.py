@@ -38,44 +38,46 @@ from sys import platform
 # VARIABLES !!!!!
 ## Don't forget to change and control them!
 ## Warning! You must use "" when you don't use any.
-appname="MetterXP" # Don't forget to change this!
-appfolder="/usr/bin/" # Don't forget to change this!
-appfilenew="metterxp" # Don't forget to change this!
-appfileold="metterxp.py" # Don't forget to change this!
+appname="MetterXP" # Don't forget to change this! This is necessary for apiutaller.
+appfolder="/usr/bin/" # Don't forget to change this! This is necessary for apiutaller.
+appfileold="metterxp.py" # Don't forget to change this! This is necessary for apiutaller.
+appfilenew="metterxp" # Don't forget to change this! This is necessary for apiutaller.
 policyfile="io.github.mukonqi.metterxp.policy" # Options: policy file and any
 appdesktopfile="metterxp.desktop" # Options: desktop file and any
-mainappfolder="/usr/local/bin/" # Don't forget to change this!
-mainappfoldername="metterxp" # Don't forget to change this!
-licensename="GPLv3" # Don't forget to change this!
-appdev="MuKonqi (Muhammed Abdurrahman)" # Don't forget to change this!
+mainappfolder="/usr/local/bin/" # Options: Your way for your main app folder or any
+mainappfoldername="metterxp" # Options your main app folder for icon, modules etc. or any
+licensename="GPLv3" # Don't forget to change this! This is necessary for apiutaller.
+appdev="MuKonqi" # Don't forget to change this! This is necessary for apiutaller.
 debian_apt_support="true" # Options: true and false
-debian_apt_dependencies="git python3 python3-tk" # Options: "dependencies" and any
+debian_apt_dependencies="git python3 python3-tkinter" # Options: "dependencies" and any
 fedora_dnf_support="true" # Options: true and false
-fedora_dnf_dependencies="git python3 python3-tkinter" # Options: "dependencies" and any
+fedora_dnf_dependencies="git python3 python3-tk" # Options: "dependencies" and any
+arch_pacman_support="false" # Options: true and false
+arch_pacman_dependencies=any # Options: "dependencies" and any
 opensuse_yum_support="false" # Options: true and false
 opensuse_yum_dependencies=any # Options: "dependencies" and any
 solus_eopkg_support="true" # Options: true and false
-solus_eopkg_dependencies="git python3 python3-tkinter" # Options: "dependencies" and any
+solus_eopkg_dependencies="git python3 python3-tk" # Options: "dependencies" and any
 void_xbps_support="false" # Options: true and false
 void_xbps_dependencies=any # Options: "dependencies" and any
 pisi_pisi_support="false" # Options: true and false
 pisi_pisi_dependencies=any # Options: "dependencies" and any
-other_gnulinux_support="false" # Options: true and false
+other_gnulinux_support="true" # Options: true and false
 python_pip_dependencies=any # Options: "dependencies" and any
 python3_pip3_dependencies=any # Options: "dependencies" and any
 
 
 
 # Below is the version of apiutaller.
-apiutaller="v1.3"
+apiutaller="v1.4"
 
 
 
 def main_install():
     if python_pip_dependencies != any:
-            os.system("pip install "+python_pip_dependencies)
+        os.system("pip install "+python_pip_dependencies)
     elif python3_pip3_dependencies != any:
-            os.system("pip3 install "+python3_pip3_dependencies)
+        os.system("pip3 install "+python3_pip3_dependencies)
 
     os.system("chmod +x *")
 
@@ -85,61 +87,79 @@ def main_install():
         os.system("mkdir "+appfolder)
     os.system("cd app ; chmod +x "+appfileold+" ; cp "+appfileold+" "+appfolder+appfilenew)
     if os.path.isfile(appfolder+appfilenew):
-        pass
+        if policyfile == any and appdesktopfile == any and mainappfolder == any and mainappfoldername == any:
+            if lang == "en":
+                exit("Successful! You have "+appname+" at the moment. Thank you for choosing us!")
+            if lang == "tr":
+                exit("Başarılı! Siz artık "+appname+" programına sahipsiniz. Bizi seçtiğiniz için teşekkürler!")        
     else:
         if lang == "en":
             exit("Error! This step is first. Closing apiutaller...")
         if lang == "tr":
             exit("Hata! Bu adım birinci. apitaller kapatılıyor...")        
 
-    if os.path.isdir("/usr/share/polkit-1/actions"):
-        pass
-    else:
-        os.system("mkdir /usr/share/polkit-1/actions")
-    os.system("cd app ; chmod +x "+policyfile+" ; cp "+policyfile+" /usr/share/polkit-1/actions/")
-    if os.path.isfile("/usr/share/polkit-1/actions/"+policyfile):
-        pass
-    else:
-        if lang == "en":
-            exit("Error! This step is second. Closing apiutaller...")
-        if lang == "tr":
-            exit("Hata! Bu adım ikinci. apitaller kapatılıyor...")
-    
-    if os.path.isdir("/usr/share/applications"):
-        pass
-    else:
-        os.system("mkdir /usr/share/applications")
-    os.system("cd app ; cp "+appdesktopfile+" /usr/share/applications")
-    if os.path.isfile("/usr/share/applications/"+appdesktopfile):
-        pass
-    else:
-        if lang == "en":
-            exit("Error! This step is third. Closing apiutaller...")
-        if lang == "tr":
-            exit("Hata! Bu adım üçüncü. apitaller kapatılıyor...")
-    
-    if os.path.isdir(mainappfolder):
-        pass
-    else:
-        if mainappfolder == "/usr/local/bin":
-            os.system("mkdir /usr/local ; mkdir /usr/local/bin/")
+    if policyfile != any:
+        if os.path.isdir("/usr/share/polkit-1/actions"):
+            pass
         else:
-            os.system("mkdir "+mainappfolder)
-    os.system("mkdir "+mainappfolder+mainappfoldername)
-    os.system("cd app ; cp -r * "+mainappfolder+mainappfoldername)
-    os.system("cd "+mainappfolder+mainappfoldername+" ; rm "+policyfile+" "+appdesktopfile+" "+appfileold)
-    os.system("mkdir "+mainappfolder+mainappfoldername+"/apiutaller")
-    os.system("cp apiutaller.py "+mainappfolder+mainappfoldername+"/apiutaller")
-    if os.path.isdir(mainappfolder+mainappfoldername):
-        if lang == "en":
-            exit("Successful! You have "+appname+" at the moment. Thank you for choosing us!")
-        if lang == "tr":
-            exit("Başarılı! Siz artık "+appname+" programına sahipsiniz. Bizi seçtiğiniz için teşekkürler!")        
-    else:
-        if lang == "en":
-            exit("Error! This step is last. Closing apiutaller...")
-        if lang == "tr":
-            exit("Hata! Bu adım sonuncu. apitaller kapatılıyor...")            
+            os.system("mkdir /usr/share/polkit-1/actions")
+        os.system("cd app ; chmod +x "+policyfile+" ; cp "+policyfile+" /usr/share/polkit-1/actions/")
+        if os.path.isfile("/usr/share/polkit-1/actions/"+policyfile):
+            if appdesktopfile == any and mainappfolder == any and mainappfoldername == any:
+                if lang == "en":
+                    exit("Successful! You have "+appname+" at the moment. Thank you for choosing us!")
+                if lang == "tr":
+                    exit("Başarılı! Siz artık "+appname+" programına sahipsiniz. Bizi seçtiğiniz için teşekkürler!")        
+        else:
+            if lang == "en":
+                exit("Error! This step is second. Closing apiutaller...")
+            if lang == "tr":
+                exit("Hata! Bu adım ikinci. apitaller kapatılıyor...")
+    if appdesktopfile != any:
+        if os.path.isdir("/usr/share/applications"):
+            pass
+        else:
+            os.system("mkdir /usr/share/applications")
+        os.system("cd app ; cp "+appdesktopfile+" /usr/share/applications")
+        if os.path.isfile("/usr/share/applications/"+appdesktopfile):
+            if mainappfolder == any and mainappfoldername == any:
+                if lang == "en":
+                    exit("Successful! You have "+appname+" at the moment. Thank you for choosing us!")
+                if lang == "tr":
+                    exit("Başarılı! Siz artık "+appname+" programına sahipsiniz. Bizi seçtiğiniz için teşekkürler!")        
+        else:
+            if lang == "en":
+                exit("Error! This step is third. Closing apiutaller...")
+            if lang == "tr":
+                exit("Hata! Bu adım üçüncü. apitaller kapatılıyor...")
+    
+    if mainappfolder != any and mainappfoldername != any:
+        if os.path.isdir(mainappfolder):
+            pass
+        else:
+            if mainappfolder == "/usr/local/bin":
+                os.system("mkdir /usr/local ; mkdir /usr/local/bin/")
+            else:
+                os.system("mkdir "+mainappfolder)
+        os.system("mkdir "+mainappfolder+mainappfoldername)
+        os.system("cd app ; cp -r * "+mainappfolder+mainappfoldername)
+        if policyfile != any:
+            os.system("cd "+mainappfolder+mainappfoldername+" ; rm "+policyfile)
+        if appdesktopfile != any:
+            os.system("cd "+mainappfolder+mainappfoldername+" ; rm "+appdesktopfile)
+        os.system("cd "+mainappfolder+mainappfoldername+" ; rm "+appfileold)
+        os.system("mkdir "+mainappfolder+mainappfoldername+"/apiutaller")
+        os.system("cp apiutaller.py "+mainappfolder+mainappfoldername+"/apiutaller")
+        if os.path.isdir(mainappfolder+mainappfoldername):
+            if lang == "en":
+                exit("Successful! You have "+appname+" at the moment. Thank you for choosing us!")
+            if lang == "tr":
+                exit("Başarılı! Siz artık "+appname+" programına sahipsiniz. Bizi seçtiğiniz için teşekkürler!")        
+        else:
+            if lang == "en":
+                exit("Error! This step is last. Closing apiutaller...")
+            if lang == "tr":
+                exit("Hata! Bu adım sonuncu. apitaller kapatılıyor...")            
 
 def control_and_install():
     if os.path.isfile("/etc/debian_version"):
@@ -162,6 +182,18 @@ def control_and_install():
         elif fedora_dnf_dependencies == any and fedora_dnf_support == "true":
             main_install()
         elif fedora_dnf_support == "false":
+            if lang == "en":
+                exit("I'm sorry, you can't use "+appname+"! Because your distro not supported from "+appname+".\nClosing apiutaller...")
+            if lang == "tr":
+                exit("Üzgünüm, siz "+appname+" uygulamasını kullanamazsınız! Çünkü sizin dağıtımın "+appname+" tarafından desteklenmiyor.\napiutaller kapatılıyor...")            
+
+    elif os.path.isfile("/bin/pacman") or os.path.isfile("/usr/bin/pacman"):
+        if arch_pacman_dependencies != any and arch_pacman_support == "true":
+            os.system("pacman -S -y "+arch_pacman_dependencies+" --noconfirm")
+            main_install()
+        elif arch_pacman_dependencies == any and arch_pacman_support == "true":
+            main_install()
+        elif arch_pacman_support == "false":
             if lang == "en":
                 exit("I'm sorry, you can't use "+appname+"! Because your distro not supported from "+appname+".\nClosing apiutaller...")
             if lang == "tr":
@@ -238,32 +270,53 @@ def main_uninstall():
             exit("Error! This step is first. Closing apiutaller...")
         if lang == "tr":
             exit("Hata! Bu adım birinci. apiutaller kapatılıyor...")
-        
-    os.system("cd /usr/share/polkit-1/actions ; rm "+policyfile)
-    if os.path.isfile("/usr/share/polkit-1/actions/"+policyfile):
-        if lang == "en":
-            exit("Error! This step is second. Closing apiutaller...")
-        if lang == "tr":
-            exit("Hata! Bu adım ikinci. apiutaller kapatılıyor...")
-
-    os.system("cd /usr/share/applications ; rm "+appdesktopfile)
-    if os.path.isfile("/usr/share/applications/"+appdesktopfile):
-        if lang == "en":
-            exit("Error! This step is third. Closing apiutaller...")
-        if lang == "tr":
-            exit("Hata! Bu adım üçüncü. apiutaller kapatılıyor...")
-
-    os.system("cd "+mainappfolder+" ; rm -rf "+mainappfoldername)
-    if os.path.isdir(mainappfolder+mainappfoldername):
-        if lang == "en":
-            exit("Error! This step is last. Closing apiutaller...")
-        if lang == "tr":
-            exit("Hata! Bu adım sonuncu. apiutaller kapatılıyor...")
     else:
-        if lang == "en":
-            exit("Successful! You haven't "+appname+" at the moment. We will be happy if you share the uninstalling reason with "+appdev+".")
-        if lang == "tr":
-            exit("Başarılı! Siz artık "+appname+" uygulamasına sahip değilsiniz. Kaldırma sebebinizi "+appdev+" ile paylaşırsanız biz mutlu olacağız.")
+        if policyfile == any and appdesktopfile == any and mainappfolder == any and mainappfoldername == any:
+            if lang == "en":
+                exit("Successful! You haven't "+appname+" at the moment. We will be happy if you share the uninstalling reason with "+appdev+".")
+            if lang == "tr":
+                exit("Başarılı! Siz artık "+appname+" uygulamasına sahip değilsiniz. Kaldırma sebebinizi "+appdev+" ile paylaşırsanız biz mutlu olacağız.")
+
+    if policyfile != any:    
+        os.system("cd /usr/share/polkit-1/actions ; rm "+policyfile)
+        if os.path.isfile("/usr/share/polkit-1/actions/"+policyfile):
+            if lang == "en":
+                exit("Error! This step is second. Closing apiutaller...")
+            if lang == "tr":
+                exit("Hata! Bu adım ikinci. apiutaller kapatılıyor...")
+        else:
+            if appdesktopfile == any and mainappfolder == any and mainappfoldername == any:
+                if lang == "en":
+                    exit("Successful! You haven't "+appname+" at the moment. We will be happy if you share the uninstalling reason with "+appdev+".")
+                if lang == "tr":
+                    exit("Başarılı! Siz artık "+appname+" uygulamasına sahip değilsiniz. Kaldırma sebebinizi "+appdev+" ile paylaşırsanız biz mutlu olacağız.")
+    
+    if appdesktopfile != any:
+        os.system("cd /usr/share/applications ; rm "+appdesktopfile)
+        if os.path.isfile("/usr/share/applications/"+appdesktopfile):
+            if lang == "en":
+                exit("Error! This step is third. Closing apiutaller...")
+            if lang == "tr":
+                exit("Hata! Bu adım üçüncü. apiutaller kapatılıyor...")
+        else:
+            if mainappfolder == any and mainappfoldername == any:
+                if lang == "en":
+                    exit("Successful! You haven't "+appname+" at the moment. We will be happy if you share the uninstalling reason with "+appdev+".")
+                if lang == "tr":
+                    exit("Başarılı! Siz artık "+appname+" uygulamasına sahip değilsiniz. Kaldırma sebebinizi "+appdev+" ile paylaşırsanız biz mutlu olacağız.")
+
+    if mainappfolder != any and mainappfoldername != any:
+        os.system("cd "+mainappfolder+" ; rm -rf "+mainappfoldername)
+        if os.path.isdir(mainappfolder+mainappfoldername):
+            if lang == "en":
+                exit("Error! This step is last. Closing apiutaller...")
+            if lang == "tr":
+                exit("Hata! Bu adım sonuncu. apiutaller kapatılıyor...")
+        else:
+            if lang == "en":
+                exit("Successful! You haven't "+appname+" at the moment. We will be happy if you share the uninstalling reason with "+appdev+".")
+            if lang == "tr":
+                exit("Başarılı! Siz artık "+appname+" uygulamasına sahip değilsiniz. Kaldırma sebebinizi "+appdev+" ile paylaşırsanız biz mutlu olacağız.")
 
 
 
@@ -322,7 +375,7 @@ def license():
 
 
 lang="" # Don't change this variable!
-print("Copyright (C) 2022 MuKonqi (Muhammed Abdurrahman")
+print("Copyright (C) 2022 MuKonqi (Muhammed Abdurrahman)")
 if not os.getuid() == 0:
     exit("\nOnly root can run apiutaller!\nSadece kök apiutaller'i çalıştırabilir.\nClosing... / Kapatılıyor...")
 language=input("Choose English or Turkish as a language.\nLütfen İngilizce veya Türkçeyi bir dil olarak seçiniz.\nOptions / Seçenekler: en / tr\nLanguage / Dil: ")
