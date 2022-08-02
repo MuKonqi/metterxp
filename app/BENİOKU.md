@@ -1,4 +1,5 @@
 # [MetterXP](https://mukonqi.github.io/metterxp/tr/)
+## Maksimum ve daha iyi deneyim için tasarlandı.
 [Bu belgeyi İngilizce olarak görüntelemek istiyorsanız bu cümlenin üstüne tıklayın.](https://github.com/MuKonqi/metterxp/blob/main/app/README.md)
 
 MetterXP, program kurma/yeniden kurma/kaldırma, Flatpak uygulamaları kurma/yeniden kurma/kaldırma, program/paket arama, masaüstü ortamı/pencere yöneticisi kurma/yeniden kurma/kaldıma, paket yöneticisi kurma/yeniden kurma, sistemi güncelleme, çeşitli yapılandırmalar (.bashrc, GRUB, Cups, Wine ve bilgisayar adı) ve daha çokça özelliklere sahiptir.
