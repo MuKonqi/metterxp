@@ -22,7 +22,7 @@ def module_exit():
 def reopen():
     print("\nModül yeniden başlatılıyor...\nRestarting this module...")
     window.destroy()
-    os.system("pkexec python3 /usr/local/bin/metterxp/modules/app_it_rm.py")
+    os.system("pkexec /usr/bin/metterxp root_apps")
 
 if not os.getuid() == 0:
     if os.path.isfile(lang_en):

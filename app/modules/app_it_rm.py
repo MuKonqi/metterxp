@@ -23,7 +23,7 @@ def module_exit():
 def reopen():
     print("\nModül yeniden başlatılıyor...\nRestarting this module...")
     window.destroy()
-    os.system("pkexec python3 /usr/local/bin/metterxp/modules/app_it_rm.py")
+    os.system("pkexec /usr/bin/metterxp app_it_rm")
 
 if not os.getuid() == 0:
     if os.path.isfile(lang_en):
@@ -759,7 +759,7 @@ def flatpak():
             if os.path.isfile(lang_en):
                 window_2=Toplevel()
                 window_2.title("Output | MetterXP")
-                window_2.config(background="#000000")
+                window_2.config(background=bg)
                 window_2.resizable(0, 0)
                 scroll=Scrollbar(window_2)
                 text7=Label(window_2, background=bg, foreground=fg, font="arial 12", text="\nInformation: When the package name you entered is correct, the process has been completed successfully! \n\nNote: Changing the command output below does not change anything.\n")
@@ -771,7 +771,7 @@ def flatpak():
             elif os.path.isfile(lang_tr):
                 window_2=Toplevel()
                 window_2.title("Çıktı | MetterXP")
-                window_2.config(background="#000000")
+                window_2.config(background=bg)
                 window_2.resizable(0, 0)
                 scroll=Scrollbar(window_2)
                 text7=Label(window_2, background=bg, foreground=fg, font="arial 12", text="\nBilgilendirme: Eğer girdiğiniz paket adı hatalı değilse işlem başarıyla tamamlandı!\n\nNot: Aşağıdaki komut çıktısını değiştirmeniz herhangi bir şey değiştirmez.\n")
@@ -795,7 +795,7 @@ def flatpak():
             if os.path.isfile(lang_en):
                 window_2=Toplevel()
                 window_2.title("Output | MetterXP")
-                window_2.config(background="#000000")
+                window_2.config(background=bg)
                 window_2.resizable(0, 0)
                 scroll=Scrollbar(window_2)
                 text7=Label(window_2, background=bg, foreground=fg, font="arial 12", text="\nInformation: When the package name you entered is correct, the process has been completed successfully! \n\nNote: Changing the command output below does not change anything.\n")
@@ -807,7 +807,7 @@ def flatpak():
             elif os.path.isfile(lang_tr):
                 window_2=Toplevel()
                 window_2.title("Çıktı | MetterXP")
-                window_2.config(background="#000000")
+                window_2.config(background=bg)
                 window_2.resizable(0, 0)
                 scroll=Scrollbar(window_2)
                 text7=Label(window_2, background=bg, foreground=fg, font="arial 12", text="\nBilgilendirme: Eğer girdiğiniz paket adı hatalı değilse işlem başarıyla tamamlandı!\n\nNot: Aşağıdaki komut çıktısını değiştirmeniz herhangi bir şey değiştirmez.\n")
@@ -831,7 +831,7 @@ def flatpak():
             if os.path.isfile(lang_en):
                 window_2=Toplevel()
                 window_2.title("Output | MetterXP")
-                window_2.config(background="#000000")
+                window_2.config(background=bg)
                 window_2.resizable(0, 0)
                 scroll=Scrollbar(window_2)
                 text7=Label(window_2, background=bg, foreground=fg, font="arial 12", text="\nInformation: When the package name you entered is correct, the process has been completed successfully! \n\nNote: Changing the command output below does not change anything.\n")
@@ -843,7 +843,7 @@ def flatpak():
             elif os.path.isfile(lang_tr):
                 window_2=Toplevel()
                 window_2.title("Çıktı | MetterXP")
-                window_2.config(background="#000000")
+                window_2.config(background=bg)
                 window_2.resizable(0, 0)
                 scroll=Scrollbar(window_2)
                 text7=Label(window_2, background=bg, foreground=fg, font="arial 12", text="\nBilgilendirme: Eğer girdiğiniz paket adı hatalı değilse işlem başarıyla tamamlandı!\n\nNot: Aşağıdaki komut çıktısını değiştirmeniz herhangi bir şey değiştirmez.\n")
@@ -902,7 +902,7 @@ def flatpak():
         elif os.path.isfile(lang_tr):
             messagebox.showwarning("Uyarı","Flatpak bulunamadı. 'OK' tuşuna bastığınızda paket yöneticisi yükleyicisi açılacaktır.")
         window.destroy()
-        os.system("pkexec python3 /usr/local/bin/metterxp/modules/pm_it.py")
+        os.system("pkexec /usr/bin/metterxp pm_it")
         flatpak_main()
 def other():
     def packageit():
