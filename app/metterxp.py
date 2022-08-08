@@ -57,7 +57,7 @@ def system_up():
 def app_configre():
     subprocess.Popen("pkexec /usr/bin/metterxp app_configre", shell=TRUE)
 def bashrc_config():
-    subprocess.Popen("pkexec /usr/bin/metterxp bashrc_config")
+    subprocess.Popen("pkexec /usr/bin/metterxp bashrc_config", shell=TRUE)
 def root_apps():
     subprocess.Popen("pkexec /usr/bin/metterxp root_apps", shell=TRUE)
 def distros():
