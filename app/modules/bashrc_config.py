@@ -281,21 +281,18 @@ def bash():
                 elif os.path.isfile(lang_tr):
                     messagebox.showinfo("Bilgilendirme","Tüm değişiklikler başarıyla geri alındı.")
             if os.path.isfile(lang_en):
-                text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="How would you like to configure the .bashrc file?\nNote: In the configuration options, the order of clicking the options is important.\nYour current username: "+username)
                 bashbutton1=Button(window2, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Undo last change in .bashrc file", command=takeitbackbash)
                 bashbutton2=Button(window2, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Undo all changes to the .bashrc file made\nat the current startup of MetterXP", command=initialstatebash)
                 bashbutton3=Button(window2, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Undo all changes to the bashrc file made\nat the first startup of MetterXP", command=firststatebash)
                 bashspace4=Label(window2, background=bg, foreground=fg, font="arial 3", text="\n")
                 bashbutton_2=Button(window2, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close window\nBack to menu", command=window_close)
             elif os.path.isfile(lang_tr):
-                text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text=".bashrc dosyasını nasıl yapılandırmak istersiniz?\nNot: Yapılandırma seçeneklerinde, seçeneklerin tıklanma sırası önemlidir.\nMevcut kullanıcı adınız: "+username)
                 bashbutton1=Button(window2, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text=".bashrc dosyasındaki son değişikliği geri al", command=takeitbackbash)
                 bashbutton2=Button(window2, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Şuanki MetterXP açılışında yapılan\n.bashrc dosyasındaki tüm değişiklikleri geri al", command=initialstatebash)
                 bashbutton3=Button(window2, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="İlk MetterXP açılışında yapılan\n.bashrc dosyasındaki tüm değişiklikleri geri al", command=firststatebash)                
                 bashspace4=Label(window2, background=bg, foreground=fg, font="arial 3", text="\n")
                 bashbutton_2=Button(window2, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Pencereyi kapat\nMenüye dön", command=window_close)
             bashspace1=Label(window, background=bg, foreground=fg, font="arial 2", text="\n")
-            text1.pack()
             bashbutton1.pack()
             bashbutton2.pack()
             bashbutton3.pack()
@@ -304,6 +301,7 @@ def bash():
             bashspace1.pack()
 
         if os.path.isfile(lang_en):
+            text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="How would you like to configure the .bashrc file?\nNote: In the configuration options, the order of clicking the options is important.\nYour current username: "+username)
             bashbutton1=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Add my username without color", command=nocolor)
             bashbutton2=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Add my username with color\n(with the help of lolcat)", command=withcolor)
             bashbutton3=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Add system info with low color\n(with the help of yasfetch)", command=yasfetch)
@@ -315,6 +313,7 @@ def bash():
             bashspace2=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
             bashbutton_1=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Close window\nBack to menu", command=module_exit)
         elif os.path.isfile(lang_tr):
+            text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text=".bashrc dosyasını nasıl yapılandırmak istersiniz?\nNot: Yapılandırma seçeneklerinde, seçeneklerin tıklanma sırası önemlidir.\nMevcut kullanıcı adınız: "+username)
             bashbutton1=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Kullanıcı adımı renksiz bir şekilde ekle", command=nocolor)
             bashbutton2=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Kullanıcı adımı renkli bir şekilde ekle\n(lolcat yardımıyla)", command=withcolor)
             bashbutton3=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Sistem bilgisini az renkli bir şekilde ekle\n(yasfetch yardımıyla)", command=yasfetch)
@@ -325,6 +324,7 @@ def bash():
             bashbutton8=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text=".bashrc dosyası için sıfırlama seçenekleri", command=reset)
             bashspace2=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
             bashbutton_1=Button(window, cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Pencereyi kapat\nMenüye dön", command=module_exit)
+        text1.pack()
         bashbutton1.pack()
         bashbutton2.pack()
         bashbutton3.pack()
