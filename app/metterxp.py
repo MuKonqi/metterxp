@@ -416,10 +416,13 @@ def main_cli():
         exit()
     elif "install_yasfetch" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py --install")
+        exit()
     elif "reinstall_yasfetch" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py --reinstall")
+        exit()
     elif "uninstall_yasfetch" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py --uninstall")
+        exit()
     if os.path.isfile(solus):
         if "önbellektemizle" in args or "clearcache" in args:
             clear_cache_app()
