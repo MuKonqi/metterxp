@@ -30,11 +30,12 @@ if not os.getuid() == 0:
 
 def installer():
     if os.path.isfile(debian):
-        os.system("sudo apt install git -y")
+        os.system("sudo apt install git python3 -y")
     if os.path.isfile(fedora):
-        os.system("sudo dnf install git -y")
+        os.system("sudo dnf install git python3 -y")
     if os.path.isfile(solus):
-        os.system("sudo eopkg install git -y")
+        os.system("sudo eopkg install git python3 -y")
+    os.system("pip3 install psutil distro")
     os.system("git clone https://github.com/MuKonqi/yasfetch")
     if not os.path.isdir("/usr/local/"):
         os.system("cd /usr/ ; mkdir local")
@@ -57,7 +58,7 @@ def uninstaller():
 
 if "--install" in args:
     installer()
-elif "--reinstaller" in args:
+elif "--reinstall" in args:
     reinstaller()
-elif "--uninstaller" in args:
+elif "--uninstall" in args:
     uninstaller()
