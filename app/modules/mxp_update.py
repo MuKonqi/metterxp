@@ -19,7 +19,7 @@ args=sys.argv[1:]
 if not os.getuid() == 0:
     if os.path.isfile(lang_en):
         messagebox.showerror("Error","Only root can run this module!")
-        exit("Only root can run this module!\nClosing this module...")
+        exit("Only root can run this module!\nThis module is shutting down...")
     elif os.path.isfile(lang_tr):
         messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
         exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
@@ -69,7 +69,7 @@ os.system(" chmod +x /usr/local/bin/metterxp/metterxp/app/unsupported.app/* ;  m
 os.system(" chmod +x /usr/local/bin/metterxp/metterxp/app/modules/* ; mkdir /usr/local/bin/metterxp/modules ; mv /usr/local/bin/metterxp/metterxp/app/modules/* /usr/local/bin/metterxp/modules ;  mv /usr/local/bin/metterxp/metterxp/app/icon.png /usr/local/bin/metterxp/ ;  mv /usr/local/bin/metterxp/metterxp/app/LICENSE.txt /usr/local/bin/metterxp/")
 os.system("cd /usr/local/bin/metterxp/ ;  rm -rf metterxp")
 if os.path.isfile(lang_en):
-    messagebox.showinfo("Good New","Succesful! Updated MetterXP to a newer version. If you click 'OK', MetterXP will be close.")
+    messagebox.showinfo("Good New","Successful! Updated MetterXP to a newer version. If you click 'OK', MetterXP will be close.")
 elif os.path.isfile(lang_tr):
     messagebox.showinfo("İyi Haber","Başarılı! MetterXP daha yeni bir sürüme güncellendi. 'OK' tuşuna bastığınızda MetterXP kapatılacak.")
 exit()

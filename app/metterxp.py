@@ -56,6 +56,8 @@ def system_up():
     subprocess.Popen("pkexec /usr/bin/metterxp system_up", shell=TRUE)
 def app_configre():
     subprocess.Popen("pkexec /usr/bin/metterxp app_configre", shell=TRUE)
+def bashrc_config():
+    subprocess.Popen("pkexec /usr/bin/metterxp bashrc_config")
 def root_apps():
     subprocess.Popen("pkexec /usr/bin/metterxp root_apps", shell=TRUE)
 def distros():
@@ -181,14 +183,20 @@ else:
 
 
 def main_gui():
+    if os.path.isfile(lang_en):
+        if os.getuid() == 0:
+            messagebox.showwarning("Warning","You started MetterXP as root. MetterXP already requests root rights when it needs root rights.")
+    elif os.path.isfile(lang_tr):
+        if os.getuid() == 0:
+            messagebox.showinfo("Uyarı","MetterXP'ı kök olarak başlattınız. MetterXP, kök haklarına ihtiyaç duyduğunda zaten kök haklarını ister.")
+    
     window=Tk()
     window.config(background=bg)
     window.resizable(0, 0)
     window.geometry("418x418")
 
     def mxp_exit():
-        print("\nMetterXP kapatılıyor...\nClosing MetterXP...")
-        exit()
+        exit("\nMetterXP is shutting down...\nMetterXP kapatılıyor...")
     def options():
         window.destroy()
         mxp_options()
@@ -219,17 +227,17 @@ def main_gui():
         button2=Button(window, text="Search application/package", command=app_search, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")
         button3=Button(window, text="Install/reinstall/uninstall\ndesktop manager/window manager", command=de_wm_it_rm, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button4=Button(window, text="Update system", command=system_up, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button5=Button(window, text="Configre softwares", command=app_configre, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button6=Button(window, text="Open applications with root user", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button7=Button(window, text="About some GNU/Linux ditros", command=distros, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button8=Button(window, text="Install/reinstall package manager", command=pm_it, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button9=Button(window, text="Clean cache and/or unnecessary packages", command=clear_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
+        button5=Button(window, text="Configre software", command=app_configre, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
+        button6=Button(window, text=".bashrc file configuration", command=bashrc_config, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth= "3")
+        button7=Button(window, text="Opening programs with root user rights", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth ="3")
+        button8=Button(window, text="About some GNU/Linux distributions", command=distros, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
+        button9=Button(window, text="Install/reinstall package manager", command=pm_it, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
+        button10=Button(window, text="Clear cache and/or junk packages", command=clear_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg , borderwidth="3")
         if os.path.isfile(debian):
-            button10=Button(window, text="Fix package errors", command=fixer, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
-            button10.pack()
+            button11=Button(window, text="Solve package errors", command=fixer, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth=" 3")
+            button11.pack()
         space2=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_info_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="About MetterXP",command=mxp_info)
-        mxp_options_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP options",command=options)
         space3=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_exit_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Close MetterXP",command=mxp_exit)
     elif os.path.isfile(lang_tr):
@@ -253,16 +261,16 @@ def main_gui():
         button3=Button(window, text="Masaüstü ortamı/pencere yöneticisi\nkurma/yeniden kurma/kaldırma", command=de_wm_it_rm, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button4=Button(window, text="Sistemi güncelleme", command=system_up, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button5=Button(window, text="Programları yapılandırma", command=app_configre, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button6=Button(window, text="Programları kök kullanıcı haklarıyla açma", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button7=Button(window, text="Bazı GNU/Linux dağıtımları hakkında", command=distros, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button8=Button(window, text="Paket yöneticisi kurma/yeniden kurma", command=pm_it, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button9=Button(window, text="Önbelleği ve/veya gereksiz paketleri temizle", command=clear_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
+        button6=Button(window, text=".bashrc dosyasını yapılandırma", command=bashrc_config, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
+        button7=Button(window, text="Programları kök kullanıcı haklarıyla açma", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
+        button8=Button(window, text="Bazı GNU/Linux dağıtımları hakkında", command=distros, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
+        button9=Button(window, text="Paket yöneticisi kurma/yeniden kurma", command=pm_it, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
+        button10=Button(window, text="Önbelleği ve/veya gereksiz paketleri temizle", command=clear_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
         if os.path.isfile(debian):
-            button10=Button(window, text="Paket hatalarını çöz", command=fixer, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
-            button10.pack()
+            button11=Button(window, text="Paket hatalarını çöz", command=fixer, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
+            button11.pack()
         space2=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_info_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP hakkında",command=mxp_info)
-        mxp_options_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP seçenekleri",command=options)
         space3=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_exit_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP'ı kapat",command=mxp_exit)
     text1.pack()
@@ -276,9 +284,9 @@ def main_gui():
     button7.pack()
     button8.pack()
     button9.pack()
+    button10.pack()
     space2.pack()
     mxp_info_button.pack()
-    mxp_options_button.pack()
     space3.pack()
     mxp_exit_button.pack()
     mainloop()
@@ -295,6 +303,7 @@ def main_cli():
             print("dewmkurkaldır                  Masaüstü ortamı/window yöneticisi kur/yeniden kur/kaldır")
             print("sistemigüncelle                Sistemi güncelle")
             print("yapılandır                     Yazılımları yapılandır")
+            print("bashrc                         .bashrc dosyasını yapılandır")
             print("kök                            Programları kök kullanıcı haklarıyla açma")
             print("dağıtımlar                     Bazı GNU/Linux dağıtımları hakkında")
             print("pmkur                          Paket yöneticisi kur/yeniden kur")
@@ -317,6 +326,7 @@ def main_cli():
             print("dewmitrm                       Install/reinstall/uninstall desktop environment/window manager")
             print("systemup                       Update system")
             print("configre                       Configre softwares")
+            print("bashrc                         Configre .bashrc file")
             print("root                           Open applications with root user")
             print("distros                        About some GNU/Linux distros")
             print("pmit                           Install/reinstall package manager")
@@ -346,6 +356,8 @@ def main_cli():
     elif "yapılandır" in args or "configre" in args:
         app_configre()
         exit()
+    elif "bashrc" in args:
+        bashrc_config()
     elif "kök" in args or "root" in args:
         root_apps()
     elif "dağıtımlar" in args or "distros" in args:
@@ -368,6 +380,9 @@ def main_cli():
         exit()
     elif "app_configre" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/app_configre.py")
+        exit()
+    elif "bashrc_config" in args:
+        os.system("python3 /usr/local/bin/metterxp/modules/bashrc_config.py")
         exit()
     elif "app_it_rm" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/app_it_rm.py")
@@ -399,6 +414,12 @@ def main_cli():
     elif "system_up" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/system_up.py")
         exit()
+    elif "install_yasfetch" in args:
+        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py --install")
+    elif "reinstall_yasfetch" in args:
+        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py --reinstall")
+    elif "uninstall_yasfetch" in args:
+        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py --uninstall")
     if os.path.isfile(solus):
         if "önbellektemizle" in args or "clearcache" in args:
             clear_cache_app()
@@ -416,7 +437,7 @@ def main_cli():
 
 
 if os.name == "nt":
-    print("Welcome to MetterXP!\nMetterXP will not work on operating systems using the NT kernel.\nPlease try to open the program with a GNU/Linux distribution based on one of these three GNU/Linux distributions:\nDebian GNU/Linux, Fedora Linux, Solus\n\nClosing MetterXP ...")
+    print("Welcome to MetterXP!\nMetterXP will not work on operating systems using the NT kernel.\nPlease try to open the program with a GNU/Linux distribution based on one of these three GNU/Linux distributions:\nDebian GNU/Linux, Fedora Linux, Solus\n\nMetterXP is shutting down ...")
     exit()
 elif platform == "darwin":
     os.system("./unsupported.app/Contents/MacOS/applet")
@@ -427,5 +448,5 @@ elif os.path.isfile(fedora):
 elif os.path.isfile(solus):
     main_cli()
 else:
-    print("Welcome to MetterXP!\nThe distribution you are using does not fully support MetterXP.\nPlease try to open the program with a GNU/Linux distribution based on one of these three GNU/Linux distributions:\nDebian GNU/Linux, Fedora Linux, Solus\nClosing MetterXP...")
+    print("Welcome to MetterXP!\nThe distribution you are using does not fully support MetterXP.\nPlease try to open the program with a GNU/Linux distribution based on one of these three GNU/Linux distributions:\nDebian GNU/Linux, Fedora Linux, Solus\nMetterXP is shutting down...")
     exit()

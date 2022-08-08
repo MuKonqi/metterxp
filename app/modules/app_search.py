@@ -22,16 +22,7 @@ lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
 
 
 def module_exit():
-    print("\nModül kapatılıyor...\nClosing this module...")
-    exit()
-
-if os.getuid() == 0:
-    if os.path.isfile(lang_en):
-        messagebox.showerror("Error","Only normal user can run this module!")
-        exit("Only normal user can run this module!\nClosing this module...")
-    elif os.path.isfile(lang_tr):
-        messagebox.showerror("Hata","Sadece normal kullanıcı bu modülü çalıştırabilir!")
-        exit("\nSadece normal kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
+    exit("\nThis module is shutting down...\nModül kapatılıyor...")
     
 
 if not os.path.isdir("/usr/local/bin/metterxp/settings/lang/"):

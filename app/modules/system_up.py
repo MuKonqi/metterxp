@@ -16,7 +16,7 @@ lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
 if not os.getuid() == 0 :
     if os.path.isfile(lang_en):
         messagebox.showerror("Error","Only root can run this module!")
-        exit("Only root can run this module!\nClosing this module...")
+        exit("Only root can run this module!\nThis module is shutting down...")
     elif os.path.isfile(lang_tr):
         messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
         exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
@@ -45,7 +45,7 @@ elif os.path.isfile(fedora):
 elif os.path.isfile(solus):
     os.system(" eopkg up -y")
 if os.path.isfile(lang_en):
-    messagebox.showinfo("Information","Succesful! If a system update is available, it is complete.")
+    messagebox.showinfo("Information","Successful! If a system update is available, it is complete.")
 elif os.path.isfile(lang_tr):
     messagebox.showinfo("Bilgilendirme","Bir sistem güncellemesi varsa, tamamlandı.")
 exit()

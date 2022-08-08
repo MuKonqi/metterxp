@@ -18,8 +18,7 @@ lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
 
 
 def module_exit():
-    print("\nModül kapatılıyor...\nClosing this module...")
-    exit()
+    exit("\nThis module is shutting down...\nModül kapatılıyor...")
 def reopen():
     print("\nModül yeniden başlatılıyor...\nRestarting this module...")
     window.destroy()
@@ -28,7 +27,7 @@ def reopen():
 if not os.getuid() == 0:
     if os.path.isfile(lang_en):
         messagebox.showerror("Error","Only root can run this module!")
-        exit("Only root can run this module!\nClosing this module...")
+        exit("Only root can run this module!\nThis module is shutting down...")
     elif os.path.isfile(lang_tr):
         messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
         exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
@@ -165,6 +164,7 @@ def main():
         button7.destroy()
         button8.destroy()
         button9.destroy()
+        button10.destroy()
         button_1.destroy()
         button_2.destroy()
         text1.destroy()
@@ -183,6 +183,7 @@ def main():
         button7.destroy()
         button8.destroy()
         button9.destroy()
+        button10.destroy()
         button_1.destroy()
         button_2.destroy()
         text1.destroy()
@@ -201,7 +202,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install firefox -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Mozilla Firefox was installed.")
+                messagebox.showinfo("Information","Successful! Mozilla Firefox was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Mozilla Firefox başarıyla kuruldu.")
         def reit():
@@ -212,7 +213,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install firefox -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Mozilla Firefox was reinstalled.")
+                messagebox.showinfo("Information","Successful! Mozilla Firefox was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Mozilla Firefox başarıyla yeniden kuruldu.")
         def rm():
@@ -223,7 +224,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove firefox -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Mozilla Firefox was uninstalled.")
+                messagebox.showinfo("Information","Successful! Mozilla Firefox was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Mozilla Firefox başarıyla kaldırıldı.")
         button4.destroy()
@@ -232,6 +233,7 @@ def main():
         button7.destroy()
         button8.destroy()
         button9.destroy()
+        button10.destroy()
         button_1.destroy()
         button_2.destroy()
         if os.path.isfile(lang_en):
@@ -263,7 +265,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install brave -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succesful! Brave was installed.")
+                messagebox.showinfo("Information","Successful! Brave was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Brave başarıyla kuruldu.")
         def reit():
@@ -274,7 +276,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install brave -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succesful! Brave was reinstalled.")
+                messagebox.showinfo("Information","Successful! Brave was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Brave başarıyla yeniden kuruldu.")
         def rm():
@@ -285,7 +287,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove brave -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succesful! Brave rwas uninstalled.")
+                messagebox.showinfo("Information","Successful! Brave rwas uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Brave başarıyla kaldırıldı.")
         button4.destroy()
@@ -294,6 +296,7 @@ def main():
         button7.destroy()
         button8.destroy()
         button9.destroy()
+        button10.destroy()
         button_1.destroy()
         if os.path.isfile(lang_en):
             text1.config(text="What do you want to do for Brave browser?")
@@ -317,7 +320,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install vlc -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! VLC was installed.")
+                messagebox.showinfo("Information","Successful! VLC was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","VLC başarıyla kuruldu.")
         def reit():
@@ -328,7 +331,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install vlc -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! VLC was reinstalled.")
+                messagebox.showinfo("Information","Successful! VLC was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","VLC başarıyla yeniden kuruldu.")
         def rm():
@@ -339,7 +342,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove vlc -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! VLC was uninstalled.")
+                messagebox.showinfo("Information","Successful! VLC was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","VLC başarıyla kaldırıldı.")
         button4.destroy()
@@ -348,6 +351,7 @@ def main():
         button7.destroy()
         button8.destroy()
         button9.destroy()
+        button10.destroy()
         button_1.destroy()
         button_2.destroy()
         if os.path.isfile(lang_en):
@@ -374,7 +378,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install libreoffice -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! LibreOffice was installed.")
+                messagebox.showinfo("Information","Successful! LibreOffice was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","LibreOffice başarıyla kuruldu.")
         def reit():
@@ -385,7 +389,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install libtreoffice -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! LibreOffice was reinstalled.")
+                messagebox.showinfo("Information","Successful! LibreOffice was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","LibreOffice başarıyla yeniden kuruldu.")
         def rm():
@@ -396,7 +400,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove libreoffice -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! LibreOffice was uninstalled.")
+                messagebox.showinfo("Information","Successful! LibreOffice was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","LibreOffice başarıyla kaldırıldı.")
         button4.destroy()
@@ -405,6 +409,7 @@ def main():
         button7.destroy()
         button8.destroy()
         button9.destroy()
+        button10.destroy()
         button_1.destroy()
         button_2.destroy()
         if os.path.isfile(lang_en):
@@ -429,7 +434,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install cups -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Cups was installed.")
+                messagebox.showinfo("Information","Successful! Cups was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Cups başarıyla kuruldu.")
         def reit():
@@ -440,7 +445,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install cups -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Cups was reinstalled.")
+                messagebox.showinfo("Information","Successful! Cups was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Cups başarıyla yeniden kuruldu.")
         def rm():
@@ -451,7 +456,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove cups -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Cups was uninstalled.")
+                messagebox.showinfo("Information","Successful! Cups was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Cups başarıyla kaldırıldı.")
         button4.destroy()
@@ -460,6 +465,7 @@ def main():
         button7.destroy()
         button8.destroy()
         button9.destroy()
+        button10.destroy()
         button_1.destroy()
         button_2.destroy()
         if os.path.isfile(lang_en):
@@ -484,7 +490,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install gparted -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GParted was installed.")
+                messagebox.showinfo("Information","Successful! GParted was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GParted başarıyla kuruldu.")
         def reit():
@@ -495,7 +501,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install gparted -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GParted was reinstalled.")
+                messagebox.showinfo("Information","Successful! GParted was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GParted başarıyla yeniden kuruldu.")
         def rm():
@@ -506,7 +512,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove gparted -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GParted was uninstalled.")
+                messagebox.showinfo("Information","Successful! GParted was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GParted başarıyla kaldırıldı.")
         button4.destroy()
@@ -515,6 +521,7 @@ def main():
         button7.destroy()
         button8.destroy()
         button9.destroy()
+        button10.destroy()
         button_1.destroy()
         button_2.destroy()
         if os.path.isfile(lang_en):
@@ -539,7 +546,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install gimp -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GIMP was installed.")
+                messagebox.showinfo("Information","Successful! GIMP was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GIMP başarıyla kuruldu.")
         def reit():
@@ -550,7 +557,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install gimp -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GIMP was reinstalled.")
+                messagebox.showinfo("Information","Successful! GIMP was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GIMP başarıyla yeniden kuruldu.")
         def rm():
@@ -561,7 +568,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove gimp -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! GIMP was uninstalled.")
+                messagebox.showinfo("Information","Successful! GIMP was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","GIMP başarıyla kaldırıldı.")
         button4.destroy()
@@ -570,6 +577,7 @@ def main():
         button7.destroy()
         button8.destroy()
         button9.destroy()
+        button10.destroy()
         button_1.destroy()
         button_2.destroy()
         if os.path.isfile(lang_en):
@@ -595,7 +603,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install wine -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Wine was installed.")
+                messagebox.showinfo("Information","Successful! Wine was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Wine başarıyla kuruldu.")
         def reit():
@@ -606,7 +614,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install wine -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Wine was reinstalled.")
+                messagebox.showinfo("Information","Successful! Wine was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Wine başarıyla yeniden kuruldu.")
         def rm():
@@ -617,7 +625,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove wine -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Wine was uninstalled.")
+                messagebox.showinfo("Information","Successful! Wine was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Wine başarıyla kaldırıldı.")
         button4.destroy()
@@ -626,6 +634,7 @@ def main():
         button7.destroy()
         button8.destroy()
         button9.destroy()
+        button10.destroy()
         button_1.destroy()
         button_2.destroy()
         if os.path.isfile(lang_en):
@@ -650,7 +659,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install plank -y")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Plank was installed.")
+                messagebox.showinfo("Information","Successful! Plank was installed.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Plank başarıyla kuruldu.")
         def reit():
@@ -661,7 +670,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg install plank -y --rei")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Plank was reinstalled.")
+                messagebox.showinfo("Information","Successful! Plank was reinstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Plank başarıyla yeniden kuruldu.")
         def rm():
@@ -672,7 +681,7 @@ def main():
             elif os.path.isfile(solus):
                 os.system(" eopkg remove plank -y --purge")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Succcesful! Plank was uninstalled.")
+                messagebox.showinfo("Information","Successful! Plank was uninstalled.")
             elif os.path.isfile(lang_tr):
                 messagebox.showinfo("Bilgilendirme","Plank başarıyla kaldırıldı.")
         button4.destroy()
@@ -681,6 +690,7 @@ def main():
         button7.destroy()
         button8.destroy()
         button9.destroy()
+        button10.destroy()
         button_1.destroy()
         button_2.destroy()
         if os.path.isfile(lang_en):
@@ -691,6 +701,47 @@ def main():
             button_3=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to menu", command=reopen)
         elif os.path.isfile(lang_tr):
             text1.config(text="Plank rıhtımı için ne yapmak istiyorsunuz?")
+            button1.config(text="Kur", command=it)
+            button2.config(text="Yeniden kur", command=reit)
+            button3.config(text="Kaldır", command=rm)
+            button_3=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Modülü yeniden başlat\nMenüye dön", command=reopen)
+        button_3.pack()
+    def yasfetch():
+        def it():
+            os.system("pkexec metterxp install_yasfetch")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Successful! yasfetch was installed.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","yasfetch başarıyla kuruldu.")
+        def reit():
+            os.system("pkexec metterxp reinstall_yasfetch")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Successful! yasfetch was reinstalled.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","yasfetch başarıyla yeniden kuruldu.")
+        def rm():
+            os.system("pkexec metterxp uninstall_yasfetch")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Information","Successful! yasfetch was uninstalled.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","yasfetch başarıyla kaldırıldı.")
+        button4.destroy()
+        button5.destroy()
+        button6.destroy()
+        button7.destroy()
+        button8.destroy()
+        button9.destroy()
+        button10.destroy()
+        button_1.destroy()
+        button_2.destroy()
+        if os.path.isfile(lang_en):
+            text1.config(text="What do you want to do for yasfetch simple fetch application?")
+            button1.config(text="Install", command=it)
+            button2.config(text="Reinstall", command=reit)
+            button3.config(text="Uninstall", command=rm)
+            button_3=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to menu", command=reopen)
+        elif os.path.isfile(lang_tr):
+            text1.config(text="yasfetch basit bilgi alma uygulaması için ne yapmak istiyorsunuz?")
             button1.config(text="Kur", command=it)
             button2.config(text="Yeniden kur", command=reit)
             button3.config(text="Kaldır", command=rm)
@@ -708,6 +759,7 @@ def main():
         button7=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="GIMP image manipulation",command=gimp)
         button8=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Wine",command=wine)
         button9=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Plank dock",command=plank)
+        button10=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="yasfetch simple fetch application",command=yasfetch)
         space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
         button_1=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Other", command=to_other)
         button_2=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Flatpak applications", command=to_flatpak)
@@ -725,6 +777,7 @@ def main():
         button7=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="GIMP görüntü işleme programı",command=gimp)
         button8=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Wine",command=wine)
         button9=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Plank rıhtımı",command=plank)
+        button10=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="yasfetch basit bilgi alma uygulaması",command=yasfetch)
         space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
         button_1=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Diğer", command=to_other)
         button_2=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Flatpak uygulamaları", command=to_flatpak)
@@ -741,6 +794,7 @@ def main():
     button7.pack()
     button8.pack()
     button9.pack()
+    button10.pack()
     space2.pack()
     button_1.pack()
     button_2.pack()

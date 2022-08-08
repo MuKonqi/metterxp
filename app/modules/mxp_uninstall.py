@@ -19,14 +19,13 @@ args=sys.argv[1:]
 if not os.getuid() == 0:
     if os.path.isfile(lang_en):
         messagebox.showerror("Error","Only root can run this module!")
-        exit("Only root can run this module!\nClosing this module...")
+        exit("Only root can run this module!\nThis module is shutting down...")
     elif os.path.isfile(lang_tr):
         messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
         exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
 
 def module_exit():
-    print("\nModül kapatılıyor...\nClosing this module...")
-    exit()
+    exit("\nThis module is shutting down...\nModül kapatılıyor...")
 
 bg=""
 fg=""
@@ -125,10 +124,10 @@ def uninstall():
     os.system("cd /usr/share/applications ; rm metterxp.desktop")
     os.system("cd /usr/local/bin/ ; rm -rf metterxp")
     if os.path.isfile(lang_en):
-        messagebox.showinfo("Information","Succesful! MetterXP is uninstalled. We would appreciate it if you would let us know the reason for your removal.")
+        messagebox.showinfo("Information","Successful! MetterXP is uninstalled. We would appreciate it if you would let us know the reason for your removal.")
     elif os.path.isfile(lang_tr):
         messagebox.showinfo("Bilgilendirme","MetterXP başarıyla kaldırıldı. Kaldırılma sebebinizi bize bildirirseniz seviniriz.")
-    exit("See you!\nGörüşürüz!\n\nClosing this module...\nModül kapatılıyor...")
+    exit("See you!\nGörüşürüz!\n\nThis module is shutting down...\nModül kapatılıyor...")
 
 
 window=Tk()

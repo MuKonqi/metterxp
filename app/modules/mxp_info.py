@@ -15,8 +15,7 @@ lang_tr="/usr/local/bin/metterxp/settings/lang/tr.txt"
 lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
 
 def module_exit():
-    print("\nModül kapatılıyor...\nClosing this module...")
-    exit()
+    exit("\nThis module is shutting down...\nModül kapatılıyor...")
 
 if not os.path.isdir("/usr/local/bin/metterxp/settings/lang/"):
     def lang_open():
@@ -130,22 +129,62 @@ else:
 
 def metterxp():
     if os.path.isfile(lang_en):
-        os.system("xdg-open https://mukonqi.github.io/metterxp/en/index.html")
+        if os.getuid() == 0:
+            messagebox.showerror("Error","Links cannot be opened while rooted.")
+        if not os.getuid() == 0:
+            os.system("xdg-open https://mukonqi.github.io/metterxp/en/index.html")
     elif os.path.isfile(lang_tr):
-        os.system("xdg-open https://mukonqi.github.io/metterxp/tr/index.html")
+        if os.getuid() == 0:
+            messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+        if not os.getuid() == 0:
+            os.system("xdg-open https://mukonqi.github.io/metterxp/tr/index.html")
 def foss():
-    os.system("xdg-open https://www.gnu.org/philosophy/free-sw.tr.html")
+    if os.path.isfile(lang_en):
+        if os.getuid() == 0:
+            messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        if os.getuid() == 0:
+            messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://www.gnu.org/philosophy/free-sw.tr.html")
 def developer():
-    os.system("xdg-open https://mukonqi.github.io")
+    if os.path.isfile(lang_en):
+        if os.getuid() == 0:
+            messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        if os.getuid() == 0:
+            messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://mukonqi.github.io")
 def license():
-    os.system("xdg-open https://www.gnu.org/licenses/gpl-3.0-standalone.html")
+    if os.path.isfile(lang_en):
+        if os.getuid() == 0:
+            messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        if os.getuid() == 0:
+            messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://www.gnu.org/licenses/gpl-3.0-standalone.html")
 def base():
-    os.system("xdg-open https://github.com/MuKonqi/metterxp/tree/betterxp")
+    if os.path.isfile(lang_en):
+        if os.getuid() == 0:
+            messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        if os.getuid() == 0:
+            messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://github.com/MuKonqi/metterxp/tree/betterxp")
 def version():
     if os.path.isfile(lang_en):
-        os.system("xdg-open https://mukonqi.github.io/metterxp/en/change-log.html")
+        if os.getuid() == 0:
+            messagebox.showerror("Error","Links cannot be opened while rooted.")
+        if not os.getuid() == 0:
+            os.system("xdg-open https://mukonqi.github.io/metterxp/en/change-log.html")
     elif os.path.isfile(lang_tr):
-        os.system("xdg-open https://mukonqi.github.io/metterxp/tr/change-log.html")
+        if os.getuid() == 0:
+            messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+        if not os.getuid() == 0:
+            os.system("xdg-open https://mukonqi.github.io/metterxp/tr/change-log.html")
 
 if os.path.isfile(lang_en):
     window=Tk()
@@ -155,7 +194,7 @@ if os.path.isfile(lang_en):
     space1=Label(window, background=bg, foreground=fg, text="\n", font="arial 7") 
     button1=Button(window, font="arial 15 bold italic", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="MetterXP\nDesigned for maximum and better experience.", command=metterxp)
     space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
-    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Version: 2.0.1", command=version)
+    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Version: 2.1.0", command=version)
     button3=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Base: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=base)
     button4=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="License: GNU General Public License, Version 3.0 (GPLv3)", command=license)
     button5=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="License type: Free and Open Source Software (FOSS)", command=foss)
@@ -170,7 +209,7 @@ elif os.path.isfile(lang_tr):
     space1=Label(window, background=bg, foreground=fg, text="\n", font="arial 7") 
     button1=Button(window, font="arial 15 bold italic", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="MetterXP\nMaksimum ve daha iyi deneyim için tasarlandı.", command=metterxp)
     space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
-    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Sürüm: 2.0.1", command=version)
+    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Sürüm: 2.1.0", command=version)
     button3=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Temel: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=base)
     button4=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Lisans: GNU General Public License, Version 3.0 (GPLv3)", command=license)
     button5=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Lisans türü: Özgür ve Açık Kaynaklı Yazılım (FOSS)", command=foss)

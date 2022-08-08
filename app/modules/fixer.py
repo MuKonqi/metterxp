@@ -16,7 +16,7 @@ lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
 if not os.getuid() == 0:
     if os.path.isfile(lang_en):
         messagebox.showerror("Error","Only root can run this module!")
-        exit("Only root can run this module!\nClosing this module...")
+        exit("Only root can run this module!\nThis module is shutting down...")
     elif os.path.isfile(lang_tr):
         messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
         exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
@@ -40,7 +40,7 @@ if not os.path.isdir("/usr/local/bin/metterxp/settings/lang/"):
 
 os.system("apt-get install -f &&  dpkg --configure -a")
 if os.path.isfile(lang_en):
-    messagebox.showinfo("Information","Succesful! Fixed applicaton/package errors.")
+    messagebox.showinfo("Information","Successful! Fixed applicaton/package errors.")
 elif os.path.isfile(lang_tr):
     messagebox.showinfo("Bilgilendirme","Program/paket ahataları başarıyla çözüldü.")
 exit()

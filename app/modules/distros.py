@@ -20,20 +20,11 @@ lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
 
 
 def module_exit():
-    print("\nModül kapatılıyor...\nClosing this module...")
-    exit()
+    exit("\nThis module is shutting down...\nModül kapatılıyor...")
 def reopen():
     print("\nModül yeniden başlatılıyor...\nRestarting this module...")
     window.destroy()
     os.system("python3 /usr/local/bin/metterxp/modules/distros.py")
-
-if os.getuid() == 0:
-    if os.path.isfile(lang_en):
-        messagebox.showerror("Error","Only normal user can run this module!")
-        exit("Only normal user can run this module!\nClosing this module...")
-    elif os.path.isfile(lang_tr):
-        messagebox.showerror("Hata","Sadece normal kullanıcı bu modülü çalıştırabilir!")
-        exit("\nSadece normal kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
 
 
 if not os.path.isdir("/usr/local/bin/metterxp/settings/lang/"):
@@ -172,7 +163,12 @@ def mx():
     button9.destroy()
     button10.destroy()
 def mxopen():
-    os.system("xdg-open https://mxlinux.org")
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://mxlinux.org")
 def mxcopy():
     window.clipboard_append("https://mxlinux.org")
     window.update()
@@ -201,7 +197,12 @@ def manjaro():
     button9.destroy()
     button10.destroy()
 def manjaroopen():
-    os.system("xdg-open https://manjaro.org") 
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://manjaro.org") 
 def manjarocopy():
     window.clipboard_append("https://manjaro.org")
     window.update()
@@ -231,7 +232,12 @@ def mint():
     button10.destroy()
     button_2.pack()
 def mintopen():
-    os.system("xdg-open https://linuxmint.com")
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://linuxmint.com")
 def mintcopy():
     window.clipboard_append("https://linuxmint.com")
     window.update()
@@ -260,7 +266,12 @@ def ubuntu():
     button9.destroy()
     button10.destroy()
 def ubuntuopen():
-    os.system("xdg-open https://ubuntu.com")
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://ubuntu.com")
 def ubuntucopy():
     window.clipboard_append("https://ubuntu.com")
     window.update()
@@ -289,7 +300,12 @@ def debian():
     button9.destroy()
     button10.destroy()
 def debianopen():
-    os.system("xdg-open https://www.debian.org")     
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://www.debian.org")     
 def debiancopy():
     window.clipboard_append("https://www.debian.org")
     window.update()
@@ -318,7 +334,12 @@ def elementary():
     button9.destroy()
     button10.destroy()
 def elementaryopen():
-    os.system("xdg-open https://elementary.io")
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://elementary.io")
 def elementarycopy():
     window.clipboard_append("https://elementary.io")
     window.update()
@@ -347,7 +368,12 @@ def solus():
     button9.destroy()
     button10.destroy()
 def solusopen():
-    os.system("xdg-open https://getsol.us/home")
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://getsol.us/home")
 def soluscopy():
     window.clipboard_append("https://getsol.us/home")
     window.update()
@@ -376,7 +402,12 @@ def fedora():
     button9.destroy()
     button10.destroy()
 def fedoraopen():
-    os.system("xdg-open https://getfedora.org")
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://getfedora.org")
 def fedoracopy():
     window.clipboard_append("https://getfedora.org")
     window.update()
@@ -405,7 +436,12 @@ def pop():
     button9.destroy()
     button10.destroy()
 def popopen():
-    os.system("xdg-open https://pop.system76.com")
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://pop.system76.com")
 def popcopy():
     window.clipboard_append("https://pop.system76.com")
     window.update()
@@ -434,7 +470,12 @@ def zorin():
     button9.destroy()
     button10.destroy()
 def zorinopen():
-    os.system("xdg-open https://zorin.com/os")
+    if os.path.isfile(lang_en):
+        messagebox.showerror("Error","Links cannot be opened while rooted.")
+    elif os.path.isfile(lang_tr):
+        messagebox.showerror("Hata","Bağlantılar, kök haklarına sahipken açılamaz.")
+    if not os.getuid() == 0:
+        os.system("xdg-open https://zorin.com/os")
 def zorincopy():
     window.clipboard_append("https://zorin.com/os")
     window.update()

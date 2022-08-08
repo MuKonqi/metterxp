@@ -17,8 +17,7 @@ lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
 
 
 def module_exit():
-    print("\nModül kapatılıyor...\nClosing this module...")
-    exit()
+    exit("\nThis module is shutting down...\nModül kapatılıyor...")
 def reopen():
     print("\nModül yeniden başlatılıyor...\nRestarting this module...")
     window.destroy()
@@ -27,7 +26,7 @@ def reopen():
 if not os.getuid() == 0:
     if os.path.isfile(lang_en):
         messagebox.showerror("Error","Only root can run this module!")
-        exit("Only root can run this module!\nClosing this module...")
+        exit("Only root can run this module!\nThis module is shutting down...")
     elif os.path.isfile(lang_tr):
         messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
         exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
