@@ -62,7 +62,7 @@ void_xbps_support="false" # Options: true and false
 void_xbps_dependencies=any # Options: "dependencies" and any
 pisi_pisi_support="false" # Options: true and false
 pisi_pisi_dependencies=any # Options: "dependencies" and any
-other_gnulinux_support="true" # Options: true and false
+other_gnulinux_support="false" # Options: true and false
 python_pip_dependencies=any # Options: "dependencies" and any
 python3_pip3_dependencies=any # Options: "dependencies" and any
 
