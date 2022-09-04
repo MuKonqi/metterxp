@@ -14,6 +14,6 @@ MetterXP, şunlardan da fazla özelliklere sahiptir:
 * Fedora Linux ve onu taban alanlar
 * Solus ve onu taban alanlar
 ### Tarihçe:
-MetterXP, sonlandırılmış [BetterXP](https://github.com/MuKonqi/metterxp/tree/betterxp) (gelişriticisi: [MuKonqi (Muhammed Abdurrahman)](https://mukonqi.github.io)) projesinin devamıdır. [BetterXP](https://github.com/MuKonqi/metterxp/tree/betterxp) ise sonlandırılmış Terminalden kurtulun (gelişriticisi: [Ramkafasi](https://github.com/Ramkafasi)) projesine dayanmaktadır.
+MetterXP, sonlandırılmış [BetterXP](https://github.com/MuKonqi/metterxp/tree/betterxp) (geliştiricisi: [MuKonqi (Muhammed Abdurrahman)](https://mukonqi.github.io)) projesinin devamıdır. [BetterXP](https://github.com/MuKonqi/metterxp/tree/betterxp) ise sonlandırılmış Terminalden kurtulun (geliştiricisi: [Ramkafasi](https://github.com/Ramkafasi)) projesine dayanmaktadır.
 ### Yardım için [buraya](https://mukonqi.github.io/metterxp/tr/help.html) tıklayabilirsiniz.
 ### MetterXP, yükleyici ve kaldırıcı olarak [Apiutaller](https://github.com/MuKonqi/apiutaller)'i kullanmaktadır.
