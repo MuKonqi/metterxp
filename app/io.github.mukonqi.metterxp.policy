@@ -4,9 +4,9 @@
   "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
 <policyconfig>
 
-  <action id="python3.policy">
-    <message gettext-domain="python3">Authentication is required for MetterXP</message>
-    <message xml:lang="tr" gettext-domain="python3">MetterXP için kimlik doğrulaması gerekli</message>
+  <action id="io.github.mukonqi.metterxp.policy">
+    <message gettext-domain="metterxp">Authentication is required for MetterXP</message>
+    <message xml:lang="tr" gettext-domain="metterxp">MetterXP için kimlik doğrulaması gerekli</message>
     <defaults>
       <allow_any>auth_admin</allow_any>
       <allow_inactive>auth_admin</allow_inactive>

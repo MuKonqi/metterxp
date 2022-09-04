@@ -21,7 +21,7 @@ username=getpass.getuser()
 def module_exit():
     exit("\nThis module is shutting down...\nModül kapatılıyor...")
 def reopen():
-    print("\nModül yeniden başlatılıyor...\nRestarting this module")
+    print("\nRestarting this module...\nModül yeniden başlatılıyor...")
     window.destroy()
     os.system("pkexec /usr/bin/metterxp bashrc_config")
 

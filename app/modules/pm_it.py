@@ -17,7 +17,7 @@ lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
 def module_exit():
     exit("\nThis module is shutting down...\nModül kapatılıyor...")
 def reopen():
-    print("\nModül yeniden başlatılıyor...\nRestarting this module...")
+    print("\nRestarting this module...\nModül yeniden başlatılıyor...")
     window.destroy()
     os.system("pkexec /usr/bin/metterxp pm_it")
 def reboot():

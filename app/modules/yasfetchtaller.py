@@ -37,15 +37,7 @@ def installer():
         os.system("sudo eopkg install git python3 -y")
     os.system("pip3 install psutil distro")
     os.system("git clone https://github.com/MuKonqi/yasfetch")
-    if not os.path.isdir("/usr/local/"):
-        os.system("cd /usr/ ; mkdir local")
-    if not os.path.isdir("/usr/local/bin/"):
-        os.system("cd /usr/local/ ; mkdir bin")
-    if not os.path.isdir("/usr/local/bin/yasfetch/"):
-        os.system("cd /usr/local/bin/ ; mkdir yasfetch")
-    os.system("cd yasfetch ; cd app ; chmod +x * ; cp LICENSE.txt /usr/local/bin/yasfetch/")
-    os.system("cd yasfetch ; cd app ; chmod +x * ; cp yasfetch.py /usr/bin/yasfetch")
-    os.system("rm -rf yasfetch")
+    os.system("cd yasfetch ; python3 apiutaler.py --install")
     module_exit()
 def reinstaller():
     os.system("cd /usr/bin/ ; rm yasfetch")

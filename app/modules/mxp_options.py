@@ -493,7 +493,7 @@ def main():
         preview_text.pack()
         preview_buton.pack()
         space01.pack()
-        button01.pack() 
+        button01.pack()
     def langtr():
         print("Seçilen dil ayarlanıyor...")
         os.system("cd /usr/local/bin/metterxp/settings/lang ; rm * ; touch tr.txt")
@@ -586,7 +586,7 @@ def main():
     module_exit_buton.pack()        
     mainloop()
 def langset():
-    os.system("cd /usr/local/bin/metterxp/settings ; mkdir lang")
+    os.system("cd /usr/local/bin/metterxp/settings ; mkdir lang theme")
     def langen():
         print("Setting choosed language...")
         os.system("cd /usr/local/bin/metterxp/settings/lang ; rm * ; touch en.txt")
@@ -600,7 +600,7 @@ def langset():
         lwindow.destroy()
         main()
     lwindow=Tk()
-    lwindow.title("Choose a language for metterxp")
+    lwindow.title("Choose a language for MetterXP")
     lwindow.config(background=bg)
     lwindow.resizable(0, 0)
     text1=Label(lwindow, background=bg, foreground=fg, font="arial 10 bold", text="Please choose a language.\nLütfen bir dil seçin.")

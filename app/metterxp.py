@@ -183,6 +183,10 @@ else:
 
 
 def main_gui():
+    def mxp_root():
+        window.destroy()
+        os.system("pkexec /usr/bin/metterxp")
+
     if os.path.isfile(lang_en):
         if os.getuid() == 0:
             messagebox.showwarning("Warning","You started MetterXP as root. MetterXP already requests root rights when it needs root rights.")
@@ -214,6 +218,21 @@ def main_gui():
         file=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="File",menu=file)
         file.add_command(label="Quit", command=mxp_exit)
+        file.add_command(label="Not recommended: Starting MetterXP with root user rights", command=mxp_root)
+        run=Menu(menu1, tearoff=0)
+        menu1.add_cascade(label="Run",menu=run)
+        run.add_command(label="Installing/reinstalling/uninstall application", command=app_it_rm)
+        run.add_command(label="Program/package search", command=app_search)
+        run.add_command(label="Install/reinstall/remove desktop environment/window manager", command=de_wm_it_rm)
+        run.add_command(label="Update system", command=system_up)
+        run.add_command(label="Configre software", command=app_configre)
+        run.add_command(label=".bashrc file configuration", command=bashrc_config)
+        run.add_command(label="Opening programs with root user rights", command=root_apps)
+        run.add_command(label="About some GNU/Linux distributions", command=distros)
+        run.add_command(label="Install/reinstall package manager", command=pm_it)
+        run.add_command(label="Clear cache and/or unnecessary packages", command=clear_cache_app)
+        if os.path.isfile(debian):
+            run.add_command(label="Solve package errors", command=fixer)
         m_options=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="MetterXP",menu=m_options)
         m_options.add_command(label="About MetterXP",command=mxp_info)
@@ -232,7 +251,7 @@ def main_gui():
         button7=Button(window, text="Opening programs with root user rights", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth ="3")
         button8=Button(window, text="About some GNU/Linux distributions", command=distros, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button9=Button(window, text="Install/reinstall package manager", command=pm_it, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button10=Button(window, text="Clear cache and/or junk packages", command=clear_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg , borderwidth="3")
+        button10=Button(window, text="Clear cache and/or unnecessary packages", command=clear_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg , borderwidth="3")
         if os.path.isfile(debian):
             button11=Button(window, text="Solve package errors", command=fixer, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth=" 3")
             button11.pack()
@@ -247,6 +266,21 @@ def main_gui():
         file=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="Dosya",menu=file)
         file.add_command(label="Çıkış", command=mxp_exit)
+        file.add_command(label="Önerilmez: MetterXP'ı kök kullanıcı haklarıyla başlatma", command=mxp_root)
+        run=Menu(menu1, tearoff=0)
+        menu1.add_cascade(label="Çalıştır",menu=run)
+        run.add_command(label="Program kurma/yeniden kurma/kaldırma", command=app_it_rm)
+        run.add_command(label="Program/paket arama", command=app_search)
+        run.add_command(label="Masaüstü ortamı/pencere yöneticisi kurma/yeniden kurma/kaldırma", command=de_wm_it_rm)
+        run.add_command(label="Sistemi güncelleme", command=system_up)
+        run.add_command(label="Programları yapılandırma", command=app_configre)
+        run.add_command(label=".bashrc dosyası yapılandırma", command=bashrc_config)
+        run.add_command(label="Programları kök kullanıcı haklarıyla açma", command=root_apps)
+        run.add_command(label="Bazı GNU/Linux dağıtımları hakkında", command=distros)
+        run.add_command(label="Paket yöneticisi kurma/yeniden kurma", command=pm_it)
+        run.add_command(label="Önbelleği ve/veya gereksiz paketleri temizleme", command=clear_cache_app)
+        if os.path.isfile(debian):
+            run.add_command(label="Paket hatalarını çözme", command=fixer)
         m_options=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="MetterXP",menu=m_options)
         m_options.add_command(label="MetterXP hakkında",command=mxp_info)
@@ -265,9 +299,9 @@ def main_gui():
         button7=Button(window, text="Programları kök kullanıcı haklarıyla açma", command=root_apps, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button8=Button(window, text="Bazı GNU/Linux dağıtımları hakkında", command=distros, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button9=Button(window, text="Paket yöneticisi kurma/yeniden kurma", command=pm_it, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
-        button10=Button(window, text="Önbelleği ve/veya gereksiz paketleri temizle", command=clear_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
+        button10=Button(window, text="Önbelleği ve/veya gereksiz paketleri temizleme", command=clear_cache_app, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
         if os.path.isfile(debian):
-            button11=Button(window, text="Paket hatalarını çöz", command=fixer, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
+            button11=Button(window, text="Paket hatalarını çözme", command=fixer, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3")
             button11.pack()
         space2=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         mxp_info_button=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="MetterXP hakkında",command=mxp_info)

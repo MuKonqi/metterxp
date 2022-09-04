@@ -9,4 +9,4 @@ Exec=/usr/bin/metterxp
 Icon=/usr/local/bin/metterxp/icon.png
 Terminal=false
 Type=Application
-Categories=System;
+Categories=System;Utily;Settings;

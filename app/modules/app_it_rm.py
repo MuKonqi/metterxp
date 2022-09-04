@@ -20,7 +20,7 @@ lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
 def module_exit():
     exit("\nThis module is shutting down...\nModül kapatılıyor...")
 def reopen():
-    print("\nModül yeniden başlatılıyor...\nRestarting this module...")
+    print("\nRestarting this module...\nModül yeniden başlatılıyor...")
     window.destroy()
     os.system("pkexec /usr/bin/metterxp app_it_rm")
 
@@ -710,21 +710,21 @@ def main():
         def it():
             os.system("pkexec metterxp install_yasfetch")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Successful! yasfetch was installed.")
+                messagebox.showinfo("Information","Successful! Yasfetch was installed.")
             elif os.path.isfile(lang_tr):
-                messagebox.showinfo("Bilgilendirme","yasfetch başarıyla kuruldu.")
+                messagebox.showinfo("Bilgilendirme","Yasfetch başarıyla kuruldu.")
         def reit():
             os.system("pkexec metterxp reinstall_yasfetch")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Successful! yasfetch was reinstalled.")
+                messagebox.showinfo("Information","Successful! Yasfetch was reinstalled.")
             elif os.path.isfile(lang_tr):
-                messagebox.showinfo("Bilgilendirme","yasfetch başarıyla yeniden kuruldu.")
+                messagebox.showinfo("Bilgilendirme","Yasfetch başarıyla yeniden kuruldu.")
         def rm():
             os.system("pkexec metterxp uninstall_yasfetch")
             if os.path.isfile(lang_en):
-                messagebox.showinfo("Information","Successful! yasfetch was uninstalled.")
+                messagebox.showinfo("Information","Successful! Yasfetch was uninstalled.")
             elif os.path.isfile(lang_tr):
-                messagebox.showinfo("Bilgilendirme","yasfetch başarıyla kaldırıldı.")
+                messagebox.showinfo("Bilgilendirme","Yasfetch başarıyla kaldırıldı.")
         button4.destroy()
         button5.destroy()
         button6.destroy()
@@ -735,13 +735,13 @@ def main():
         button_1.destroy()
         button_2.destroy()
         if os.path.isfile(lang_en):
-            text1.config(text="What do you want to do for yasfetch simple fetch application?")
+            text1.config(text="What do you want to do for Yasfetch simple fetch application?")
             button1.config(text="Install", command=it)
             button2.config(text="Reinstall", command=reit)
             button3.config(text="Uninstall", command=rm)
             button_3=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, background=button_bg, foreground=button_fg, borderwidth="3", text="Restart this module\nBack to menu", command=reopen)
         elif os.path.isfile(lang_tr):
-            text1.config(text="yasfetch basit bilgi alma uygulaması için ne yapmak istiyorsunuz?")
+            text1.config(text="Yasfetch basit bilgi alma uygulaması için ne yapmak istiyorsunuz?")
             button1.config(text="Kur", command=it)
             button2.config(text="Yeniden kur", command=reit)
             button3.config(text="Kaldır", command=rm)
@@ -759,7 +759,7 @@ def main():
         button7=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="GIMP image manipulation",command=gimp)
         button8=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Wine",command=wine)
         button9=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Plank dock",command=plank)
-        button10=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="yasfetch simple fetch application",command=yasfetch)
+        button10=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Yasfetch simple fetch application",command=yasfetch)
         space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
         button_1=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Other", command=to_other)
         button_2=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Flatpak applications", command=to_flatpak)
@@ -777,7 +777,7 @@ def main():
         button7=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="GIMP görüntü işleme programı",command=gimp)
         button8=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Wine",command=wine)
         button9=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Plank rıhtımı",command=plank)
-        button10=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="yasfetch basit bilgi alma uygulaması",command=yasfetch)
+        button10=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Yasfetch basit bilgi alma uygulaması",command=yasfetch)
         space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
         button_1=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Diğer", command=to_other)
         button_2=Button(window, font="arial 10", cursor="hand2", activebackground=a_button_bg, activeforeground=a_button_fg, foreground=button_fg, background=button_bg, borderwidth="3", text="Flatpak uygulamaları", command=to_flatpak)
