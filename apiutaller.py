@@ -147,7 +147,7 @@ def main_install():
         if os.path.isdir(mainappfolder):
             pass
         else:
-            if mainappfolder == "/usr/local/bin":
+            if mainappfolder == "/usr/local/bin" or "/usr/local/bin/":
                 os.system("mkdir /usr/local ; mkdir /usr/local/bin/")
             else:
                 os.system("mkdir "+mainappfolder)
