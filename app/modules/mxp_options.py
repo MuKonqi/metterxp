@@ -193,7 +193,7 @@ def main():
             preview_buton=Button(window2, background="#FFFFFF", foreground="#000000", activebackground="#000000", activeforeground="#FFFFFF", font="arial 10", cursor="hand2", borderwidth="3", text="Click!", command=preview)
             space01=Label(window2, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
             button01=Button(window2, background="#FFFFFF", foreground="#000000", activebackground="#000000", activeforeground="#FFFFFF", font="arial 10", cursor="hand2", borderwidth="3", text="Apply black theme", command=theme1_set)
-        elif os.path.osfile(lang_tr):
+        elif os.path.isfile(lang_tr):
             window2=Tk()
             window2.title("Siyah tema önizleme | MetterXP ")
             window2.config(background="#000000")
