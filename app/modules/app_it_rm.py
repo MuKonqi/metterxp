@@ -58,6 +58,13 @@ if os.path.isfile("/usr/local/bin/metterxp/settings/theme/0.txt"):
     button_fg="#000000"
     a_button_bg="#03035B"
     a_button_fg="#FFFFFF"
+if os.path.isfile("/usr/local/bin/metterxp/settings/theme/0_1.txt"):
+    bg="darkgrey"
+    fg="#376296"
+    button_bg="#FFFFFF"
+    button_fg="#376296"
+    a_button_bg="#376296"
+    a_button_fg="#FFA500"
 elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/1.txt"):
     bg="#000000"
     fg="#FFFFFF"

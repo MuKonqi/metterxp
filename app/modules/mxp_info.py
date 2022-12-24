@@ -42,6 +42,13 @@ if os.path.isfile("/usr/local/bin/metterxp/settings/theme/0.txt"):
     button_fg="#000000"
     a_button_bg="#03035B"
     a_button_fg="#FFFFFF"
+if os.path.isfile("/usr/local/bin/metterxp/settings/theme/0_1.txt"):
+    bg="darkgrey"
+    fg="#376296"
+    button_bg="#FFFFFF"
+    button_fg="#376296"
+    a_button_bg="#376296"
+    a_button_fg="#FFA500"
 elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/1.txt"):
     bg="#000000"
     fg="#FFFFFF"
@@ -196,7 +203,7 @@ if os.path.isfile(lang_en):
     space1=Label(window, background=bg, foreground=fg, text="\n", font="arial 7") 
     button1=Button(window, font="arial 15 bold italic", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="MetterXP\nDesigned for maximum and better experience.", command=metterxp)
     space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
-    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Version: 2.2.0", command=version)
+    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Version: 2.2.1", command=version)
     button3=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Base: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=base)
     button4=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="License: GNU General Public License, Version 3.0 (GPLv3)", command=license)
     button5=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="License type: Free and Open Source Software (FOSS)", command=foss)
@@ -211,7 +218,7 @@ elif os.path.isfile(lang_tr):
     space1=Label(window, background=bg, foreground=fg, text="\n", font="arial 7") 
     button1=Button(window, font="arial 15 bold italic", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="MetterXP\nMaksimum ve daha iyi deneyim için tasarlandı.", command=metterxp)
     space2=Label(window, background=bg, foreground=fg, text="\n", font="arial 1")
-    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Sürüm: 2.2.0", command=version)
+    button2=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Sürüm: 2.2.1", command=version)
     button3=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Temel: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=base)
     button4=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Lisans: GNU General Public License, Version 3.0 (GPLv3)", command=license)
     button5=Button(window, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Lisans türü: Özgür ve Açık Kaynaklı Yazılım (FOSS)", command=foss)

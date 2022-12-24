@@ -35,6 +35,13 @@ if os.path.isfile("/usr/local/bin/metterxp/settings/theme/0.txt"):
     button_fg="#000000"
     a_button_bg="#03035B"
     a_button_fg="#FFFFFF"
+if os.path.isfile("/usr/local/bin/metterxp/settings/theme/0_1.txt"):
+    bg="darkgrey"
+    fg="#376296"
+    button_bg="#FFFFFF"
+    button_fg="#376296"
+    a_button_bg="#376296"
+    a_button_fg="#FFA500"
 elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/1.txt"):
     bg="#000000"
     fg="#FFFFFF"
@@ -127,14 +134,6 @@ else:
     cr_dir()
 
 def main():
-    def mxp_uninstall():
-        window.destroy()
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_uninstall.py")
-        exit()
-    def mxp_update():
-        window.destroy()
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py")
-        exit()
 
     def preview():
         if os.path.isfile(lang_en):
@@ -169,7 +168,39 @@ def main():
             preview_text=Label(window2, background="#000000", foreground="#FFFFFF", text="Ben önizlenmek için buradayım!")
             preview_buton=Button(window2, background="#FFFFFF", foreground="#000000", activebackground="#03035B", activeforeground="#FFFFFF", font="arial 10", cursor="hand2", borderwidth="3", text="Bana tıkla!", command=preview)
             space01=Label(window2, background="#000000", foreground="#FFFFFF", font="arial 3", text="\n")
-            button01=Button(window2, background="#FFFFFF", foreground="#000000", activebackground="#03035B", activeforeground="#FFFFFF", font="arial 10", cursor="hand2", borderwidth="3", text="metterxp Klasik temasını uygula", command=theme0_set)
+            button01=Button(window2, background="#FFFFFF", foreground="#000000", activebackground="#03035B", activeforeground="#FFFFFF", font="arial 10", cursor="hand2", borderwidth="3", text="MetterXP Klasik temasını uygula", command=theme0_set)
+        preview_text.pack()
+        preview_buton.pack()
+        space01.pack()
+        button01.pack()
+    def theme0_1():
+        def theme0_1_set():
+            window2.destroy()
+            os.system("cd /usr/local/bin/metterxp/settings/theme ; rm * ; touch 0_1.txt")
+            if os.path.isfile(lang_en):
+                messagebox.showinfo("Bilgilendirme","Theme applied! When you are click 'OK', MetterXP will be closed to apply the changes.")
+            elif os.path.isfile(lang_tr):
+                messagebox.showinfo("Bilgilendirme","İstenilen tema uygulandı! 'OK' tuşuna bastığınızda MetterXP değişikliklerin uygulanması için kapatılacak.")
+            window.destroy()        
+            module_exit()
+        if os.path.isfile(lang_en):
+            window2=Tk()
+            window2.title("MetterXP Modern preview | MetterXP ")
+            window2.config(background="darkgrey")
+            window2.resizable(0, 0)
+            preview_text=Label(window2, background="darkgrey", foreground="#376296", text="I'm here to preview.")
+            preview_buton=Button(window2, background="#FFFFFF", foreground="#376296", activebackground="#376296", activeforeground="#FFA500", font="arial 10", cursor="hand2", borderwidth="3", text="Click!", command=preview)
+            space01=Label(window2, background="darkgrey", foreground="#FFFFFF", font="arial 3", text="\n")
+            button01=Button(window2, background="#FFFFFF", foreground="#000000", activebackground="#376296", activeforeground="#FFA500", font="arial 10", cursor="hand2", borderwidth="3", text="Apply MetterXP modern theme", command=theme0_1_set)
+        elif os.path.isfile(lang_tr):
+            window2=Tk()
+            window2.title("MetterXP Modern önizleme | MetterXP ")
+            window2.config(background="darkgrey")
+            window2.resizable(0, 0)
+            preview_text=Label(window2, background="darkgrey", foreground="#376296", text="Ben önizlenmek için buradayım!")
+            preview_buton=Button(window2, background="#FFFFFF", foreground="#376296", activebackground="#376296", activeforeground="#FFA500", font="arial 10", cursor="hand2", borderwidth="3", text="Bana tıkla!", command=preview)
+            space01=Label(window2, background="darkgrey", foreground="#FFFFFF", font="arial 3", text="\n")
+            button01=Button(window2, background="#FFFFFF", foreground="#376296", activebackground="#376296", activeforeground="#FFA500", font="arial 10", cursor="hand2", borderwidth="3", text="MetterXP modern temasını uygula", command=theme0_1_set)
         preview_text.pack()
         preview_buton.pack()
         space01.pack()
@@ -513,6 +544,7 @@ def main():
         text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Please select the theme you want to action on.")
         space1=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         button1=Button(window, text="MetterXP Classic (default)", command=theme0, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
+        button1_1=Button(window, text="MetterXP Modern (recommend)", command=theme0_1, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")        
         button2=Button(window, text="Black", command=theme1, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")
         button3=Button(window, text="White", command=theme2, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button4=Button(window, text="Grey", command=theme3, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
@@ -529,10 +561,7 @@ def main():
         button12=Button(window, text="Türkçe (Turkish)", command=langtr, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button13=Button(window, text="English (İngilizce)", command=langen, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")
         space4=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
-        button14=Button(window, text="Update MetterXP", command=mxp_update, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")
-        button15=Button(window, text="Uninstall MetterXP", command=mxp_uninstall, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font =",arial 10", cursor="hand2", borderwidth="3")
-        space5=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
-        module_exit_buton=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Close this module\nand exit",command=module_exit)
+        module_exit_buton=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Close this module and exit",command=module_exit)
     elif os.path.isfile(lang_tr):
         window=Tk()
         window.title("MetterXP seçenekleri | MetterXP")
@@ -541,6 +570,7 @@ def main():
         text1=Label(window, background=bg, foreground=fg, font="arial 10 bold", text="Lütfen üzerinde işlem yapmak istediğiniz temayı seçin.")
         space1=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
         button1=Button(window, text="MetterXP Klasik (varsayılan)", command=theme0, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
+        button1_1=Button(window, text="MetterXP Modern (önerilen)", command=theme0_1, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button2=Button(window, text="Siyah", command=theme1, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")
         button3=Button(window, text="Beyaz", command=theme2, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         button4=Button(window, text="Gri", command=theme3, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
@@ -557,13 +587,11 @@ def main():
         button12=Button(window, text="English (İngilizce)", command=langen, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")
         button13=Button(window, text="Türkçe (Turkish)", command=langtr, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 10", cursor="hand2", borderwidth="3")
         space4=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
-        button14=Button(window, text="MetterXP'ı güncelle", command=mxp_update, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")        
-        button15=Button(window, text="MetterXP'i kaldır", command=mxp_uninstall, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg,  font=",arial 10", cursor="hand2", borderwidth="3")        
-        space5=Label(window, background=bg, foreground=fg, font="arial 3", text="\n")
-        module_exit_buton=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Çık ve\nmodülü kapat",command=module_exit)
+        module_exit_buton=Button(window, font="arial 10", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="3", text="Çık ve modülü kapat",command=module_exit)
     text1.pack()
     space1.pack()
     button1.pack()
+    button1_1.pack()
     button2.pack()
     button3.pack()
     button4.pack()
@@ -580,9 +608,6 @@ def main():
     button12.pack()
     button13.pack()
     space4.pack()
-    button14.pack()
-    button15.pack()
-    space5.pack()
     module_exit_buton.pack()        
     mainloop()
 def langset():
