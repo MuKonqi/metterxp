@@ -1,5 +1,5 @@
 # [MetterXP](https://mukonqi.github.io/metterxp/en/)
---> [Click on this sentence if you want to view this document in English.](https://github.com/MuKonqi/metterxp/blob/main/README.md)
+--> [Click on this sentence if you want to view this document in Turkish.](https://github.com/MuKonqi/metterxp/blob/main/BENİOKU.md)
 
 MetterXP has more than just:
 * Program install/reinstall/uninstall
