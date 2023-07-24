@@ -8,6 +8,7 @@ from tkinter import *
 from tkinter import messagebox
 import os
 import subprocess
+from subprocess import *
 
 beta="yes"
 
@@ -198,11 +199,10 @@ def version():
         if not os.getuid() == 0:
             os.system("xdg-open https://mukonqi.github.io/metterxp/tr/change-log.html")
 
+out=0
 v=open("/usr/local/bin/metterxp/version.txt", "r")
 vr=v.read()
 v.close()
-vl = subprocess.Popen("curl https://raw.githubusercontent.com/MuKonqi/metterxp/main/app/version.txt", shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
-vlb = subprocess.Popen("curl https://raw.githubusercontent.com/MuKonqi/metterxp/beta/app/version.txt", shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
 window=Tk()
 window.config(background=bg)
 window.resizable(0, 0)
@@ -215,6 +215,20 @@ if os.path.isfile(lang_en):
     button1=Button(parent, font="arial 15 bold italic", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="MetterXP\nDesigned for maximum and better experience.", command=metterxp)
     space2=Label(parent, background=bg, foreground=fg, text="\n", font="arial 1")
     button2=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Version: "+vr, command=version)
+    if beta == "no":
+        vl = subprocess.Popen("curl https://raw.githubusercontent.com/MuKonqi/metterxp/main/app/version.txt", shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        (out, err) = vl.communicate()
+        if out != vr:
+            buttonl=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Latest Version: "+out, command=version)
+        elif out == vr:
+            out=0   
+    elif beta == "yes":
+        vlb = subprocess.Popen("curl https://raw.githubusercontent.com/MuKonqi/metterxp/beta/app/version.txt", shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        (out, err) = vlb.communicate()
+        if out != vr:
+            buttonl=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Latest Pre-Release: "+out, command=version)
+        elif out == vr:
+            out=0
     button3=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Base: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=base)
     button4=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="License: GNU General Public License, Version 3.0 (GPLv3)", command=license)
     button5=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Coding type: Free and Open Source Software (FOSS)", command=foss)
@@ -225,9 +239,19 @@ elif os.path.isfile(lang_tr):
     space2=Label(parent, background=bg, foreground=fg, text="\n", font="arial 1")
     button2=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Sürüm: "+vr, command=version)
     if beta == "no":
-        buttonl=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Son Sürüm: "+str(vl.communicate()), command=version)
+        vl = subprocess.Popen("curl https://raw.githubusercontent.com/MuKonqi/metterxp/main/app/version.txt", shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        (out, err) = vl.communicate()
+        if out != vr:
+            buttonl=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Son Sürüm: "+out, command=version)
+        elif out == vr:
+            out=0   
     elif beta == "yes":
-        buttonl=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Son Ön Sürüm: "+str(vlb.communicate()), command=version)
+        vlb = subprocess.Popen("curl https://raw.githubusercontent.com/MuKonqi/metterxp/beta/app/version.txt", shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        (out, err) = vlb.communicate()
+        if out != vr:
+            buttonl=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Son Ön Sürüm: "+out, command=version)
+        elif out == vr:
+            out=0
     button3=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Temel: BetterXP 2.0.3-2, Terminalden kurtulun 2.0", command=base)
     button4=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Lisans: GNU General Public License, Version 3.0 (GPLv3)", command=license)
     button5=Button(parent, font="arial 12 bold", cursor="hand2", activeforeground=a_button_fg, activebackground=a_button_bg, background=a_button_bg, foreground=a_button_fg, text="Kodlanma türü: Özgür ve Açık Kaynaklı Yazılım (FOSS)", command=foss)
@@ -236,7 +260,8 @@ space1.pack(fill="x")
 button1.pack(fill="x")
 space2.pack(fill="x")
 button2.pack(fill="x")
-buttonl.pack(fill="x")
+if out != 0:
+    buttonl.pack(fill="x")
 button3.pack(fill="x")
 button4.pack(fill="x")
 button5.pack(fill="x")
