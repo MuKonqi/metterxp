@@ -1,4 +1,4 @@
-# [MetterXP v3.0-beta.1]https://github.com/MuKonqi/metterxp/tree/beta)
+# [MetterXP v3.0-beta.1](https://github.com/MuKonqi/metterxp/tree/beta)
 --> [Bu belgeyi Türkçe dilinde görüntülemek için buraya tıklayın.](https://github.com/MuKonqi/metterxp/blob/main/BENİOKU.md)
 
 MetterXP has more feature modules than:
