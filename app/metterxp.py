@@ -426,7 +426,7 @@ def main_cli():
         mxp_update()
         exit()
     elif "reset" in args or "sıfırla" in args:
-        mxp_uninstall()
+        mxp_reset()
         exit()
     elif "uninstall" in args or "kaldır" in args:
         mxp_uninstall()
