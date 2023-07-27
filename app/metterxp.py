@@ -42,13 +42,13 @@ def mxp_info():
 def mxp_options():
     subprocess.Popen("python3 /usr/local/bin/metterxp/modules/mxp_options.py", shell=TRUE)
 def mxp_update():
-    os.system("pkexec /usr/bin/metterxp mxp_update "+str(sys.argv[2]))
+    os.system("pkexec /usr/bin/metterxp mxp_update "+username)
     exit()
 def mxp_reset():
-    os.system("pkexec /usr/bin/metterxp mxp_reset "+str(sys.argv[2]))
+    os.system("pkexec /usr/bin/metterxp mxp_reset "+username)
     exit()
 def mxp_uninstall():
-    os.system("pkexec /usr/bin/metterxp mxp_uninstall "+str(sys.argv[2]))
+    os.system("pkexec /usr/bin/metterxp mxp_uninstall "+username)
     exit()
 
 def app_store():
