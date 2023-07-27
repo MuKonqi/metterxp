@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2021, 2022 MuKonqi (Muhammed Abdurrahman)
+# Copyright (C) 2021, 2022, 2023 MuKonqi (Muhammed Abdurrahman)
 
 # This file part of MetterXP.
 
@@ -47,5 +47,5 @@ elif os.path.isfile(solus):
 if os.path.isfile(lang_en):
     messagebox.showinfo("Information","Successful! If a system update is available, it is complete.")
 elif os.path.isfile(lang_tr):
-    messagebox.showinfo("Bilgilendirme","Bir sistem güncellemesi varsa, tamamlandı.")
+    messagebox.showinfo("Bilgilendirme","Başarılı! Bir sistem güncellemesi varsa, tamamlandı.")
 exit()
