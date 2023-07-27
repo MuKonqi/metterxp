@@ -40,38 +40,37 @@ args=sys.argv[1:]
 def mxp_info():
     subprocess.Popen("python3 /usr/local/bin/metterxp/modules/mxp_info.py", shell=TRUE)
 def mxp_options():
-    os.system("python3 /usr/local/bin/metterxp/modules/mxp_options.py")
-    exit()
+    subprocess.Popen("python3 /usr/local/bin/metterxp/modules/mxp_options.py", shell=TRUE)
 def mxp_update():
-    os.system("pkexec /usr/bin/metterxp mxp_update")
+    os.system("pkexec /usr/bin/metterxp mxp_update "+str(sys.argv[2]))
     exit()
 def mxp_reset():
-    os.system("pkexec /usr/bin/metterxp mxp_reset")
+    os.system("pkexec /usr/bin/metterxp mxp_reset "+str(sys.argv[2]))
     exit()
 def mxp_uninstall():
-    os.system("pkexec /usr/bin/metterxp mxp_uninstall")
+    os.system("pkexec /usr/bin/metterxp mxp_uninstall "+str(sys.argv[2]))
     exit()
 
 def app_store():
-    subprocess.Popen("pkexec /usr/bin/metterxp app_store", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp app_store "+username, shell=TRUE)
 def dewm_store():
-    subprocess.Popen("pkexec /usr/bin/metterxp dewm_store", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp dewm_store "+username, shell=TRUE)
 def pm_store():
-    subprocess.Popen("pkexec /usr/bin/metterxp pm_store", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp pm_store "+username, shell=TRUE)
 def app_configure():
-    subprocess.Popen("pkexec /usr/bin/metterxp app_configure", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp app_configure "+username, shell=TRUE)
 def bashrc_config():
     subprocess.Popen("python3 /usr/local/bin/metterxp/modules/bashrc_config.py", shell=TRUE)
 def fm_open():
-    subprocess.Popen("pkexec /usr/bin/metterxp fm_open", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp fm_open "+username, shell=TRUE)
 def distros():
     subprocess.Popen("python3 /usr/local/bin/metterxp/modules/distros.py", shell=TRUE)
 def system_up():
-    subprocess.Popen("pkexec /usr/bin/metterxp system_up", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp system_up "+username, shell=TRUE)
 def clear_cache_app():
-    subprocess.Popen("pkexec /usr/bin/metterxp clear_cache_app", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp clear_cache_app "+username, shell=TRUE)
 def fixer():
-    subprocess.Popen("pkexec /usr/bin/metterxp fixer", shell=TRUE)
+    subprocess.Popen("pkexec /usr/bin/metterxp fixer "+username, shell=TRUE)
 
 if not "mxp_options" in args:
     if not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp/"):
@@ -82,7 +81,7 @@ if not "mxp_options" in args:
             open_s()
 
 if len(sys.argv) == 3:
-    if sys.argv[2] == "p":
+    if str(sys.argv[2]) == "p":
         p=1
     
 bg=""
@@ -227,9 +226,6 @@ def main_gui():
     window.geometry("483x483")
     parent = Frame(window)
     
-    def options():
-        window.destroy()
-        mxp_options()
     def update():
         window.destroy()
         mxp_update()
@@ -247,7 +243,7 @@ def main_gui():
         m_options=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="File",menu=m_options)
         m_options.add_command(label="About",command=mxp_info)
-        m_options.add_command(label="Options",command=options)
+        m_options.add_command(label="Options",command=mxp_options)
         m_options.add_command(label="Update",command=update)
         m_options.add_command(label="Reset",command=reset)
         m_options.add_command(label="Uninstall",command=uninstall)
@@ -290,7 +286,7 @@ def main_gui():
         m_options=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="Dosya",menu=m_options)
         m_options.add_command(label="Hakkında",command=mxp_info)
-        m_options.add_command(label="Seçenekler",command=options)
+        m_options.add_command(label="Seçenekler",command=mxp_options)
         m_options.add_command(label="Güncelle",command=update)
         m_options.add_command(label="Sıfırla",command=reset)
         m_options.add_command(label="Kaldır",command=uninstall)
@@ -438,46 +434,46 @@ def main_cli():
         mxp_uninstall()
         exit()
     elif "app_configure" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/app_configure.py "+username)
+        os.system("python3 /usr/local/bin/metterxp/modules/app_configure.py "+str(sys.argv[2]))
         exit()
     elif "app_store" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/app_store.py "+username)
+        os.system("python3 /usr/local/bin/metterxp/modules/app_store.py "+str(sys.argv[2]))
         exit()
     elif "clear_cache_app" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/clear_cache_app.py "+username)
+        os.system("python3 /usr/local/bin/metterxp/modules/clear_cache_app.py "+str(sys.argv[2]))
         exit()
     elif "dewm_store" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/dewm_store.py "+username)
+        os.system("python3 /usr/local/bin/metterxp/modules/dewm_store.py "+str(sys.argv[2]))
         exit()
     elif "fixer" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/fixer.py "+username)
+        os.system("python3 /usr/local/bin/metterxp/modules/fixer.py "+str(sys.argv[2]))
         exit()
     elif "mxp_uninstall" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_uninstall.py "+username)
+        os.system("python3 /usr/local/bin/metterxp/modules/mxp_uninstall.py "+str(sys.argv[2]))
         exit()
     elif "mxp_update" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py "+username+" --update")
+        os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py "+str(sys.argv[2])+" --update")
         exit()
     elif "mxp_update" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py "+username+" --update")
+        os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py "+str(sys.argv[2])+" --update")
         exit()
     elif "pm_store" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/pm_store.py "+username)
+        os.system("python3 /usr/local/bin/metterxp/modules/pm_store.py "+str(sys.argv[2]))
         exit()
     elif "fm_open" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/fm_open.py "+username)
+        os.system("python3 /usr/local/bin/metterxp/modules/fm_open.py "+str(sys.argv[2]))
         exit()
     elif "system_up" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/system_up.py "+username)
+        os.system("python3 /usr/local/bin/metterxp/modules/system_up.py "+str(sys.argv[2]))
         exit()
     elif "install_yasfetch" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py "+username+" --install")
+        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py "+str(sys.argv[2])+" --install")
         exit()
     elif "reinstall_yasfetch" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py "+username+" --reinstall")
+        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py "+str(sys.argv[2])+" --reinstall")
         exit()
     elif "uninstall_yasfetch" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py "+username+" --uninstall")
+        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py "+str(sys.argv[2])+" --uninstall")
         exit()
     else:
         main_gui()

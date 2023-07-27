@@ -20,6 +20,7 @@ global gfs
 gfs=0
 
 def main():
+    global bg, fg, button_bg, button_fg, a_button_bg, a_button_fg
     if not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp/theme") or gfs == 1:
         if not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp/theme"):
             os.system("cd /home/"+username+"/.by-mukonqi ; mkdir metterxp/theme")
@@ -29,7 +30,7 @@ def main():
         button_fg="#000000"
         a_button_bg="#376296"
         a_button_fg="#FFFFFF"
-
+    
     def langen():
         os.system("cd /home/"+username+"/.by-mukonqi/metterxp/language/ ; rm * ; touch en.txt")
         messagebox.showinfo("Information","Successful! English language applied.")
