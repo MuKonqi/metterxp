@@ -50,19 +50,20 @@ if not os.getuid() == 0:
         messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
         exit()
 
-if "--update" in sys.argv[2]:
-    if os.path.isfile(debian):
-        os.system("apt install git -y")
-    elif os.path.isfile(fedora):
-        os.system("dnf install git -y")
-    elif os.path.isfile(solus):
-        os.system("eopkg install git -y")
-    if beta == "no":
-        os.system("cd /usr/local/bin/metterxp/ ; git clone https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
-    elif beta == "yes":
-        os.system("cd /usr/local/bin/metterxp/ ; git clone -b beta https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
-    os.system("cd /usr/local/bin/metterxp/modules ; rm mxp_reinstall.py")
-    os.system("cp /usr/local/bin/metterxp/metterxp/app/modules/mxp_reinstall.py /usr/local/bin/metterxp/modules"),
+if len(sys.argv) == 3:
+    if "--update" in sys.argv[2]:
+        if os.path.isfile(debian):
+            os.system("apt install git -y")
+        elif os.path.isfile(fedora):
+            os.system("dnf install git -y")
+        elif os.path.isfile(solus):
+            os.system("eopkg install git -y")
+        if beta == "no":
+            os.system("cd /usr/local/bin/metterxp/ ; git clone https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
+        elif beta == "yes":
+            os.system("cd /usr/local/bin/metterxp/ ; git clone -b beta https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
+        os.system("cd /usr/local/bin/metterxp/modules ; rm mxp_reinstall.py")
+        os.system("cp /usr/local/bin/metterxp/metterxp/app/modules/mxp_reinstall.py /usr/local/bin/metterxp/modules"),
     if len(sys.argv) == 4:
         if "--reset" in sys.argv[3]:
             os.system("python3 /usr/local/bin/metterxp/modules/mxp_reinstall.py "+str(sys.argv[1])+" --reset")
