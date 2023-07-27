@@ -117,9 +117,9 @@ elif os.path.isfile(t+"modern.txt") or "modern" in args:
 elif os.path.isfile(t+"machine.txt") or "machine" in args:
     bg="#2f2f2f"
     fg="#FFFFFF"
-    button_bg="##bf2422"
+    button_bg="#bf2422"
     button_fg="#2f2f2f"
-    a_button_bg="##5dc305"
+    a_button_bg="#5dc305"
     a_button_fg="#376296"
 elif os.path.isfile(t+"black.txt")  or "black" in args:
     bg="#000000"
@@ -252,8 +252,9 @@ def main_gui():
             open_m.add_command(label="Solve package errors", command=fixer)
         
         if p == 1:
+            spacep1=Label(window, background=bg, foreground=fg, font="arial 4", text="\n")
             buttonp=Button(window, text="APPLY THIS THEME", command=apply, font="arial 12 bold", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="4")
-            spacep=Label(window, background=bg, foreground=fg, font="arial 4", text="\n")
+            spacep2=Label(window, background=bg, foreground=fg, font="arial 4", text="\n")
 
         text1=Label(window, background=bg, foreground=fg, font="arial 11 bold italic", text="Please select the action you want to take.")
         space1=Label(parent, background=bg, foreground=fg, font="arial 3", text="\n")
@@ -293,8 +294,9 @@ def main_gui():
             open_m.add_command(label="Paket hatalarını çöz", command=fixer)
         
         if p == 1:
+            spacep1=Label(window, background=bg, foreground=fg, font="arial 4", text="\n")
             buttonp=Button(window, text="BU TEMAYI UYGULA", command=apply, font="arial 12 bold", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="4")
-            spacep=Label(window, background=bg, foreground=fg, font="arial 4", text="\n")
+            spacep2=Label(window, background=bg, foreground=fg, font="arial 4", text="\n")
 
         text1=Label(window, background=bg, foreground=fg, font="arial 11 bold italic", text="Lütfen yapmak istediğiniz işlemi seçiniz.")
         space1=Label(parent, background=bg, foreground=fg, font="arial 3", text="\n")
@@ -310,8 +312,9 @@ def main_gui():
         if os.path.isfile(debian):
             button10=Button(parent, text="Paket hatalarını çöz", command=fixer, font="arial 11 bold", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="5")
     if p == 1:
+        spacep1.pack()
         buttonp.pack()
-        spacep.pack()
+        spacep2.pack()
     text1.pack()
     parent.pack(expand=1)
     space1.pack(fill="x")
