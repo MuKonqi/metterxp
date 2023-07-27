@@ -25,14 +25,17 @@ from sys import platform
 import getpass
 username=getpass.getuser()
 
+t="/home/"+username+"/.by-mukonqi/metterxp/theme/"
+p=0
+
+en="/home/"+username+"/.by-mukonqi/metterxp/language/en.txt"
+tr="/home/"+username+"/.by-mukonqi/metterxp/language/tr.txt"
 
 debian="/etc/debian_version"
 fedora="/etc/fedora-release"
 solus="/etc/solus-release"
-lang_tr="/usr/local/bin/metterxp/settings/lang/tr.txt"
-lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
-args=sys.argv[1:]
 
+args=sys.argv[1:]
 
 def mxp_info():
     subprocess.Popen("python3 /usr/local/bin/metterxp/modules/mxp_info.py", shell=TRUE)
@@ -43,7 +46,7 @@ def mxp_uninstall():
     os.system("pkexec /usr/bin/metterxp mxp_uninstall")
     exit()
 def mxp_options():
-    os.system("pkexec /usr/bin/metterxp mxp_options")
+    os.system("python3 /usr/local/bin/metterxp/modules/mxp_options.py")
     exit()
 
 def app_store():
@@ -68,9 +71,8 @@ def fixer():
     subprocess.Popen("pkexec /usr/bin/metterxp fixer", shell=TRUE)
 
 if not "mxp_options" in args:
-    if not os.path.isdir("/usr/local/bin/metterxp/settings/lang/"):
+    if not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp/"):
         def lang_open():
-            messagebox.showerror("Warning","Can't found language setting. When you click 'OK' and enter your true password, language settings will open. ")
             mxp_options()
             exit()
         if os.path.isfile(debian):
@@ -80,118 +82,132 @@ if not "mxp_options" in args:
         elif os.path.isfile(solus):
             lang_open()
 
+if "2021" in args or "2022" in args or "modern" in args  or "machine" in args  or "black" in args or "white" in args or "gray" in args or "red" in args or "yellow" in args or "green" in args or "blue" in args or "navy-blue" in args or "purple" in args or "lilac" in args or "pink" in args:
+    p=1
+def apply():
+    os.system("cd "+t+" ; rm * ; touch "+args+".txt")
+    
 bg=""
 fg=""
 button_bg=""
 button_fg=""
 a_button_bg=""
 a_button_fg=""
-if os.path.isfile("/usr/local/bin/metterxp/settings/theme/0.txt"):
+if os.path.isfile(t+"2021.txt") or "2021" in args:
     bg="#000000"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#000000"
     a_button_bg="#03035B"
     a_button_fg="#FFFFFF"
-if os.path.isfile("/usr/local/bin/metterxp/settings/theme/0_1.txt"):
-    bg="darkgrey"
+elif os.path.isfile(t+"2022.txt") or "2022" in args:
+    bg="#a9a9a9"
     fg="#376296"
     button_bg="#FFFFFF"
     button_fg="#376296"
     a_button_bg="#376296"
-    a_button_fg="#FFA500"
-elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/1.txt"):
+    a_button_fg="#FFFFFF"
+elif os.path.isfile(t+"modern.txt") or "modern" in args:
+    bg="#2f2f2f"
+    fg="#376296"
+    button_bg="#a9a9a9"
+    button_fg="#000000"
+    a_button_bg="#376296"
+    a_button_fg="#FFFFFF"
+elif os.path.isfile(t+"machine.txt") or "machine" in args:
+    bg="#2f2f2f"
+    fg="#FFFFFF"
+    button_bg="##bf2422"
+    button_fg="#2f2f2f"
+    a_button_bg="##5dc305"
+    a_button_fg="#376296"
+elif os.path.isfile(t+"black.txt")  or "black" in args:
     bg="#000000"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#000000"
     a_button_bg="#000000"
     a_button_fg="#FFFFFF"
-elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/2.txt"):
+elif os.path.isfile(t+"white.txt") or "white" in args:
     bg="#FFFFFF"
     fg="#000000"
     button_bg="#000000"
     button_fg="#FFFFFF"
     a_button_bg="#FFFFFF"
     a_button_fg="#000000"
-elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/3.txt"):
-    bg="#808080"
-    fg="#FFFFFF"
-    button_bg="#FFFFFF"
-    button_fg="#808080"
-    a_button_bg="#808080"
-    a_button_fg="#FFFFFF"
-elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/4.txt"):
+elif os.path.isfile(t+"gray.txt") or "gray" in args:
+    bg="#a9a9a9"
+    fg="#000000"
+    button_bg="#000000"
+    button_fg="#a9a9a9"
+    a_button_bg="#a9a9a9"
+    a_button_fg="#000000"  
+elif os.path.isfile(t+"red.txt") or "red" in args:
     bg="#FF0000"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#FF0000"
     a_button_bg="#FF0000"
     a_button_fg="#FFFFFF"
-elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/5.txt"):
-    bg="#FFA500"
+elif os.path.isfile(t+"yellow.txt") or "yellow" in args:
+    bg="#FFFF00"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
-    button_fg="#FFA500"
-    a_button_bg="#FFA500"
-    a_button_fg="#FFFFFF"
-elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/6.txt"):
+    button_fg="#FFFF00"
+    a_button_bg="#FFFF00"
+    a_button_fg="#FFFFFF"   
+elif os.path.isfile(t+"green.txt") or "green" in args:
     bg="#008000"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#008000"
     a_button_bg="#008000"
     a_button_fg="#FFFFFF"
-elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/7.txt"):
+elif os.path.isfile(t+"blue.txt") or "blue" in args:
     bg="#0000FF"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#0000FF"
     a_button_bg="#0000FF"
-    a_button_fg="#FFFFFF"
-elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/8.txt"):
+    a_button_fg="#FFFFFF"    
+elif os.path.isfile(t+"navy-blue.txt") or "navy-blue" in args:
     bg="#000080"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#000080"
     a_button_bg="#000080"
-    a_button_fg="#FFFFFF"
-elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/9.txt"):
+    a_button_fg="#FFFFFF"      
+elif os.path.isfile(t+"purple.txt") or "purple" in args:
     bg="#800080"
-    fg="#FFFFFF"
-    button_bg="#FFFFFF"
+    fg="#000000"
+    button_bg="#000000"
     button_fg="#800080"
     a_button_bg="#800080"
-    a_button_fg="#FFFFFF"
-elif os.path.isfile("/usr/local/bin/metterxp/settings/theme/10.txt"):
+    a_button_fg="#000000"
+elif os.path.isfile(t+"lilac.txt") or "lilac" in args:
+    bg="#C8A2C8"
+    fg="#000000"
+    button_bg="#000000"
+    button_fg="#C8A2C8"
+    a_button_bg="#C8A2C8"
+    a_button_fg="#000000"
+elif os.path.isfile(t+"pink.txt") or "pink" in args:
     bg="#FFC0CB"
     fg="#000000"
     button_bg="#000000"
     button_fg="#FFC0CB"
     a_button_bg="#FFC0CB"
-    a_button_fg="#000000"
+    a_button_fg="#000000"         
 else:
-    if not "mxp_options" in args:
-        def theme_open():
-            if os.path.isfile("/usr/local/bin/metterxp/settings/lang/en.txt"):
-                messagebox.showwarning("Warning","Can't found theme config. When you click 'OK' MetterXP settings will open.")
-            elif os.path.isfile("/usr/local/bin/metterxp/settings/lang/tr.txt"):
-                messagebox.showwarning("Uyarı","Tema yapılandırması bulunamadı, MetterXP ayarları 'OK' tuşuna bastığınızda açılacaktır.")
-            mxp_options()
-            exit()
-        if os.path.isfile(debian):
-            theme_open()
-        elif os.path.isfile(fedora):
-            theme_open()
-        elif os.path.isfile(solus):
-            theme_open()
+    mxp_options()
+    exit()
 
 
 def main_gui():   
     if os.getuid() == 0:
-        if os.path.isfile(lang_en):
+        if os.path.isfile(en):
                 messagebox.showwarning("Fatal Request","You started MetterXP as root but MetterXP main page don't support it. Also MetterXP already requests root rights when it needs root rights.")
-        elif os.path.isfile(lang_tr):
+        elif os.path.isfile(tr):
                 messagebox.showinfo("Ölümcül İstek","MetterXP'ı kök olarak başlattınız ama MetterXP ana sayfası bunu desteklemez. Ayrıca MetterXP, kök haklarına ihtiyaç duyduğunda zaten kök haklarını ister.")
         exit()
 
@@ -211,7 +227,7 @@ def main_gui():
         window.destroy()
         mxp_uninstall()
 
-    if os.path.isfile(lang_en):
+    if os.path.isfile(en):
         window.title("Hello "+username+"! • MetterXP")
         menu1=Menu(window)
         window.config(menu=menu1)
@@ -234,6 +250,10 @@ def main_gui():
         open_m.add_command(label="Clear cache and/or unnecessary packages", command=clear_cache_app)
         if os.path.isfile(debian):
             open_m.add_command(label="Solve package errors", command=fixer)
+        
+        if p == 1:
+            buttonp=Button(parent, text="APPLY THIS THEME", command=apply, font="arial 12 bold", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="4")
+            spacep=Label(parent, background=bg, foreground=fg, font="arial 4", text="\n")
 
         text1=Label(window, background=bg, foreground=fg, font="arial 11 bold italic", text="Please select the action you want to take.")
         space1=Label(parent, background=bg, foreground=fg, font="arial 3", text="\n")
@@ -248,7 +268,7 @@ def main_gui():
         button9=Button(parent, text="Clear cache and/or unnecessary packages", command=clear_cache_app, font="arial 11 bold", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg , borderwidth="5")
         if os.path.isfile(debian):
             button10=Button(parent, text="Solve package errors", command=fixer, font="arial 11 bold", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="5")
-    elif os.path.isfile(lang_tr):
+    elif os.path.isfile(tr):
         window.title("Merhabalar "+username+"! • MetterXP")
         menu1=Menu(window)
         window.config(menu=menu1)
@@ -271,6 +291,10 @@ def main_gui():
         open_m.add_command(label="Önbelleği ve/veya gereksiz paketleri temizle", command=clear_cache_app)
         if os.path.isfile(debian):
             open_m.add_command(label="Paket hatalarını çöz", command=fixer)
+        
+        if p == 1:
+            buttonp=Button(parent, text="BU TEMAYI UYGULA", command=apply, font="arial 12 bold", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="4")
+            spacep=Label(parent, background=bg, foreground=fg, font="arial 4", text="\n")
 
         text1=Label(window, background=bg, foreground=fg, font="arial 11 bold italic", text="Lütfen yapmak istediğiniz işlemi seçiniz.")
         space1=Label(parent, background=bg, foreground=fg, font="arial 3", text="\n")
@@ -285,6 +309,9 @@ def main_gui():
         button9=Button(parent, text="Önbelleği ve/veya gereksiz paketleri temizle", command=clear_cache_app, font="arial 11 bold", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="5")
         if os.path.isfile(debian):
             button10=Button(parent, text="Paket hatalarını çöz", command=fixer, font="arial 11 bold", cursor="hand2", background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, borderwidth="5")
+    if p == 1:
+        buttonp.pack()
+        spacep.pack()
     text1.pack()
     parent.pack(expand=1)
     space1.pack(fill="x")
@@ -304,7 +331,7 @@ def main_gui():
 
 def main_cli():
     if "yardım" in args or "y" in args or "help" in args or "h" in args:
-        if os.path.isfile(lang_en):
+        if os.path.isfile(en):
             print("Here's how to call all feature modules:")
             print("l                              Show list of all modules (this) screen")
             print("list                           Show list of all modules (this) screen")
@@ -324,7 +351,7 @@ def main_cli():
             print("settings                      MetterXP")
             print("update                        Update")
             print("uninstall                     Uninstall")
-        elif os.path.isfile(lang_tr):
+        elif os.path.isfile(tr):
             print("İşte bütün özellik modüllerinin çağrılması:")
             print("l                              Tüm modüllerin listesini (burayı) göster")
             print("liste                          Tüm modüllerin listesini (burayı) göster")
@@ -390,9 +417,6 @@ def main_cli():
     elif "app_configure" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/app_configure.py")
         exit()
-    elif "bashrc_config" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/bashrc_config.py")
-        exit()
     elif "app_store" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/app_store.py")
         exit()
@@ -404,9 +428,6 @@ def main_cli():
         exit()
     elif "fixer" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/fixer.py")
-        exit()
-    elif "mxp_options" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_options.py")
         exit()
     elif "mxp_uninstall" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/mxp_uninstall.py")

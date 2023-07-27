@@ -1,4 +1,5 @@
-# [MetterXP v3.0-beta.2](https://github.com/MuKonqi/metterxp/tree/beta)
+# [MetterXP v3.0-beta.3](https://github.com/MuKonqi/metterxp/tree/beta)
+# Bu sürüm gerçekten stabil değil!
 --> [Click here to view this document in English.](https://github.com/MuKonqi/metterxp/blob/main/README.md)
 
 MetterXP, şunlardan da fazla özellik modüllerine sahiptir:
