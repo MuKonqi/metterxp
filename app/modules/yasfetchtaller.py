@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2022, 2023 MuKonqi (Muhammed Abdurrahman)
+# Copyright (C) 2022 MuKonqi (Muhammed Abdurrahman)
 
 # This file part of MetterXP.
 
@@ -15,6 +15,10 @@ solus="/etc/solus-release"
 lang_tr="/usr/local/bin/metterxp/settings/lang/tr.txt"
 lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
 args=sys.argv[1:]
+
+
+def module_exit():
+    exit("\nThis module is shutting down...\nModül kapatılıyor...")
 
 if not os.getuid() == 0:
     if os.path.isfile(lang_en):
@@ -33,8 +37,8 @@ def installer():
         os.system("sudo eopkg install git python3 -y")
     os.system("pip3 install psutil distro")
     os.system("git clone https://github.com/MuKonqi/yasfetch")
-    os.system("cd yasfetch ; python3 apiutlaler.py --install")
-    exit()
+    os.system("cd yasfetch ; python3 apiutaler.py --install")
+    module_exit()
 def reinstaller():
     os.system("cd /usr/bin/ ; rm yasfetch")
     os.system("cd /usr/local/bin/ ; rm -rf yasfetch")
@@ -42,7 +46,7 @@ def reinstaller():
 def uninstaller():
     os.system("cd /usr/bin/ ; rm yasfetch")
     os.system("cd /usr/local/bin/ ; rm -rf yasfetch")
-    exit()
+    module_exit()
 
 if "--install" in args:
     installer()

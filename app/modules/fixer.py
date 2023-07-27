@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2021, 2022, 2023 MuKonqi (Muhammed Abdurrahman)
+# Copyright (C) 2021, 2022 MuKonqi (Muhammed Abdurrahman)
 
 # This file part of MetterXP.
 
@@ -42,5 +42,5 @@ os.system("apt-get install -f &&  dpkg --configure -a")
 if os.path.isfile(lang_en):
     messagebox.showinfo("Information","Successful! Fixed applicaton/package errors.")
 elif os.path.isfile(lang_tr):
-    messagebox.showinfo("Bilgilendirme","Program/paket hataları başarıyla çözüldü.")
+    messagebox.showinfo("Bilgilendirme","Program/paket ahataları başarıyla çözüldü.")
 exit()

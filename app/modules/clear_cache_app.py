@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2021, 2022, 2023 MuKonqi (Muhammed Abdurrahman)
+# Copyright (C) 2021, 2022 MuKonqi (Muhammed Abdurrahman)
 
 # This file part of MetterXP.
 
