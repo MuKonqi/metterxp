@@ -62,5 +62,6 @@ if len(sys.argv) == 3:
         os.system("cd /home/"+sys.argv[1]+"/.by-mukonqi/ ; rm -rf metterxp") 
  
 os.system("cd /usr/local/bin/tmxp/ ; python3 apiutaller.py --reinstall")
+os.system("cd /usr/local/bin/ ; rm -rf tmxp")
 os.system("metterxp")
 exit()
