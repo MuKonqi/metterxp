@@ -49,16 +49,13 @@ def main():
     def mukonqi():
         
         def one():
-            pass
-        
+            os.system("metterxp 2021")
         def two():
-            pass
-        
+            os.system("metterxp 2022")
         def modern():
-            pass
-        
+            os.system("metterxp modern")
         def machine():
-            pass
+            os.system("metterxp machine")
         
         mwindow=Tk()
         mwindow.config(background=bg)
