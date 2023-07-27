@@ -25,7 +25,7 @@ if not os.path.isdir("/home/"+str(sys.argv[1])+"/.by-mukonqi/metterxp/"):
 
 beta="yes"
 
-if not "--reset" in sys.argv[2]:
+if not "--reset" in sys.argv[2:]:
     v=open("/usr/local/bin/metterxp/version.txt", "r")
     vr=v.read()
     v.close()
