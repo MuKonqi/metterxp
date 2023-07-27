@@ -40,6 +40,7 @@ if not "--reset" in sys.argv[2:]:
             messagebox.showerror("","MetterXP is already up-to-date.")
         elif os.path.isfile(tr):
             messagebox.showerror("","MetterXP zaten güncel.")
+        os.system("metterxp")
         exit()
 
 if not os.getuid() == 0:
