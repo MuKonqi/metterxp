@@ -23,9 +23,9 @@ if not os.path.isdir("/home/"+str(sys.argv[1])+"/.by-mukonqi/metterxp/"):
     if os.path.isfile(debian) or os.path.isfile(fedora) or os.path.isfile(solus):
         open_s()
 
+beta="yes"
 
 if not "--reset" in sys.argv[2:]:
-    beta="yes"
     v=open("/usr/local/bin/metterxp/version.txt", "r")
     vr=v.read()
     v.close()
@@ -56,8 +56,11 @@ if "--update" in sys.argv[2]:
     elif os.path.isfile(fedora):
         os.system("dnf install git -y")
     elif os.path.isfile(solus):
-        os.system("eopkg install git -y")    
-    os.system("cd /usr/local/bin/metterxp/ ; git clone https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
+        os.system("eopkg install git -y")
+    if beta == "no":
+        os.system("cd /usr/local/bin/metterxp/ ; git clone https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
+    elif beta == "yes":
+        os.system("cd /usr/local/bin/metterxp/ ; git clone -b beta https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
     os.system("cd /usr/local/bin/metterxp/modules ; rm mxp_update.py")
     os.system("cp /usr/local/bin/metterxp/metterxp/app/modules/mxp_update.py /usr/local/bin/metterxp/modules")
     if "--reset" in sys.argv[3]:
