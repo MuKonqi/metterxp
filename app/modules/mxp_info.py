@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2021, 2022 MuKonqi (Muhammed Abdurrahman)
+# Copyright (C) 2021, 2022, 2023 MuKonqi (Muhammed Abdurrahman)
 
 # This file part of MetterXP.
 
@@ -17,9 +17,6 @@ fedora="/etc/fedora-release"
 solus="/etc/solus-release"
 lang_tr="/usr/local/bin/metterxp/settings/lang/tr.txt"
 lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
-
-def module_exit():
-    exit("\nThis module is shutting down...\nModül kapatılıyor...")
 
 if not os.path.isdir("/usr/local/bin/metterxp/settings/lang/"):
     def lang_open():

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2022 MuKonqi (Muhammed Abdurrahman)
+# Copyright (C) 2022, 2023 MuKonqi (Muhammed Abdurrahman)
 
 # This file part of MetterXP.
 
@@ -87,8 +87,80 @@ def main():
         mbutton3.pack(fill="x")
         mbutton4.pack(fill="x")
     
+    
     def colors():
-        pass
+        def black():
+            subprocess.Popen("metterxp black p", shell=TRUE)
+        def white():
+            subprocess.Popen("metterxp white p", shell=TRUE)
+        def gray():
+            subprocess.Popen("metterxp gray p", shell=TRUE)
+        def red():
+            subprocess.Popen("metterxp red p", shell=TRUE)
+        def yellow():
+            subprocess.Popen("metterxp yellow p", shell=TRUE)
+        def green():
+            subprocess.Popen("metterxp green p", shell=TRUE)
+        def blue():
+            subprocess.Popen("metterxp blue p", shell=TRUE)
+        def navy():
+            subprocess.Popen("metterxp navy-blue p", shell=TRUE)
+        def purple():
+            subprocess.Popen("metterxp purple p", shell=TRUE)
+        def lilac():
+            subprocess.Popen("metterxp lilac p", shell=TRUE)
+        def pink():
+            subprocess.Popen("metterxp pink p", shell=TRUE)
+            
+        cwindow=Tk()
+        cwindow.config(background=bg)
+        cwindow.resizable(0, 0)
+        cparent = Frame(cwindow)
+        cparent.pack(expand=1)
+        cwindow.geometry("600x600")
+        if os.path.isfile(en):
+            cwindow.title("Themes from developer - Settings | MetterXP")
+            ctext1=Label(cparent, background=bg, foreground=fg, font="arial 11 bold italic", text="Please select a theme.")
+            cspace1=Label(cparent, background=bg, foreground=fg, font="arial 3", text="\n")
+            cbutton1=Button(cparent, text="Black (Dark)", command=black, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font=",arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton2=Button(cparent, text="White (White)", command=white, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton3=Button(cparent, text="Gray", command=gray, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font=",arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton4=Button(cparent, text="Red", command=red, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton5=Button(cparent, text="Yellow", command=yellow, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton6=Button(cparent, text="Green", command=green, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton7=Button(cparent, text="Blue", command=blue, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton8=Button(cparent, text="Navy Blue", command=navy, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton9=Button(cparent, text="Purple", command=purple, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton10=Button(cparent, text="Lilac", command=lilac, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton11=Button(cparent, text="Pink", command=pink, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+        elif os.path.isfile(tr):
+            cwindow.title("Geliştiriciden temalar - Ayarlar | MetterXP")
+            ctext1=Label(cparent, background=bg, foreground=fg, font="arial 11 bold italic", text="Lütfen bir tema seçin.")
+            cspace1=Label(cparent, background=bg, foreground=fg, font="arial 3", text="\n")
+            cbutton1=Button(cparent, text="Siyah (Koyu)", command=black, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font=",arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton2=Button(cparent, text="Beyaz (Açık)", command=white, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton3=Button(cparent, text="Gri", command=gray, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font=",arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton4=Button(cparent, text="Kırmızı", command=red, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton5=Button(cparent, text="Sarı", command=yellow, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton6=Button(cparent, text="Yeşil", command=green, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton7=Button(cparent, text="Mavi", command=blue, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton8=Button(cparent, text="Lacivert", command=navy, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton9=Button(cparent, text="Mor", command=purple, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton10=Button(cparent, text="Lila", command=lilac, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+            cbutton11=Button(cparent, text="Pembe", command=pink, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
+        ctext1.pack(fill="x")
+        cspace1.pack(fill="x")
+        cbutton1.pack(fill="x")
+        cbutton2.pack(fill="x")
+        cbutton3.pack(fill="x")
+        cbutton4.pack(fill="x")
+        cbutton5.pack(fill="x")
+        cbutton6.pack(fill="x")
+        cbutton7.pack(fill="x")
+        cbutton8.pack(fill="x")
+        cbutton9.pack(fill="x")
+        cbutton10.pack(fill="x")
+        cbutton11.pack(fill="x")
     
     
     def people():
@@ -246,11 +318,11 @@ elif os.path.isfile(t+"red.txt"):
     a_button_fg="#FFFFFF"
 elif os.path.isfile(t+"yellow.txt"):
     bg="#FFFF00"
-    fg="#FFFFFF"
-    button_bg="#FFFFFF"
+    fg="#000000"
+    button_bg="#000000"
     button_fg="#FFFF00"
     a_button_bg="#FFFF00"
-    a_button_fg="#FFFFFF"   
+    a_button_fg="#000000"    
 elif os.path.isfile(t+"green.txt"):
     bg="#008000"
     fg="#FFFFFF"

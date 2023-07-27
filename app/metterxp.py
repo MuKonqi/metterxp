@@ -39,14 +39,17 @@ args=sys.argv[1:]
 
 def mxp_info():
     subprocess.Popen("python3 /usr/local/bin/metterxp/modules/mxp_info.py", shell=TRUE)
+def mxp_options():
+    os.system("python3 /usr/local/bin/metterxp/modules/mxp_options.py")
+    exit()
 def mxp_update():
     os.system("pkexec /usr/bin/metterxp mxp_update")
     exit()
+def mxp_reset():
+    os.system("pkexec /usr/bin/metterxp mxp_reset")
+    exit()
 def mxp_uninstall():
     os.system("pkexec /usr/bin/metterxp mxp_uninstall")
-    exit()
-def mxp_options():
-    os.system("python3 /usr/local/bin/metterxp/modules/mxp_options.py")
     exit()
 
 def app_store():
@@ -72,26 +75,15 @@ def fixer():
 
 if not "mxp_options" in args:
     if not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp/"):
-        def lang_open():
+        def open_s():
             mxp_options()
             exit()
-        if os.path.isfile(debian):
-            lang_open()
-        elif os.path.isfile(fedora):
-            lang_open()
-        elif os.path.isfile(solus):
-            lang_open()
+        if os.path.isfile(debian) or os.path.isfile(fedora) or os.path.isfile(solus):
+            open_s()
 
 if len(sys.argv) == 3:
     if sys.argv[2] == "p":
         p=1
-def apply():
-    os.system("cd "+t+" ; rm * ; touch "+str(sys.argv[1])+".txt")
-    if os.path.isfile(t+str(sys.argv[1])+".txt"):
-        if os.path.isfile(en):
-            messagebox.showinfo("Information","Theme applied.")
-        elif os.path.isfile(tr):
-            messagebox.showinfo("Bilgilendirme","Tema uygulandı.")
     
 bg=""
 fg=""
@@ -106,62 +98,62 @@ if os.path.isfile(t+"2021.txt") or "2021" in args:
     button_fg="#000000"
     a_button_bg="#03035B"
     a_button_fg="#FFFFFF"
-elif os.path.isfile(t+"2022.txt") or "2022" in args:
+if os.path.isfile(t+"2022.txt") or "2022" in args:
     bg="#a9a9a9"
     fg="#376296"
     button_bg="#FFFFFF"
     button_fg="#376296"
     a_button_bg="#376296"
     a_button_fg="#FFFFFF"
-elif os.path.isfile(t+"modern.txt") or "modern" in args:
+if os.path.isfile(t+"modern.txt") or "modern" in args:
     bg="#2f2f2f"
     fg="#376296"
     button_bg="#a9a9a9"
     button_fg="#000000"
     a_button_bg="#376296"
     a_button_fg="#FFFFFF"
-elif os.path.isfile(t+"machine.txt") or "machine" in args:
+if os.path.isfile(t+"machine.txt") or "machine" in args:
     bg="#2f2f2f"
     fg="#FFFFFF"
     button_bg="#bf2422"
     button_fg="#2f2f2f"
     a_button_bg="#5dc305"
     a_button_fg="#376296"
-elif os.path.isfile(t+"black.txt")  or "black" in args:
+if os.path.isfile(t+"black.txt")  or "black" in args:
     bg="#000000"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#000000"
     a_button_bg="#000000"
     a_button_fg="#FFFFFF"
-elif os.path.isfile(t+"white.txt") or "white" in args:
+if os.path.isfile(t+"white.txt") or "white" in args:
     bg="#FFFFFF"
     fg="#000000"
     button_bg="#000000"
     button_fg="#FFFFFF"
     a_button_bg="#FFFFFF"
     a_button_fg="#000000"
-elif os.path.isfile(t+"gray.txt") or "gray" in args:
+if os.path.isfile(t+"gray.txt") or "gray" in args:
     bg="#a9a9a9"
     fg="#000000"
     button_bg="#000000"
     button_fg="#a9a9a9"
     a_button_bg="#a9a9a9"
     a_button_fg="#000000"  
-elif os.path.isfile(t+"red.txt") or "red" in args:
+if os.path.isfile(t+"red.txt") or "red" in args:
     bg="#FF0000"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#FF0000"
     a_button_bg="#FF0000"
     a_button_fg="#FFFFFF"
-elif os.path.isfile(t+"yellow.txt") or "yellow" in args:
+if os.path.isfile(t+"yellow.txt") or "yellow" in args:
     bg="#FFFF00"
-    fg="#FFFFFF"
-    button_bg="#FFFFFF"
+    fg="#000000"
+    button_bg="#000000"
     button_fg="#FFFF00"
     a_button_bg="#FFFF00"
-    a_button_fg="#FFFFFF"   
+    a_button_fg="#000000"    
 elif os.path.isfile(t+"green.txt") or "green" in args:
     bg="#008000"
     fg="#FFFFFF"
@@ -169,47 +161,59 @@ elif os.path.isfile(t+"green.txt") or "green" in args:
     button_fg="#008000"
     a_button_bg="#008000"
     a_button_fg="#FFFFFF"
-elif os.path.isfile(t+"blue.txt") or "blue" in args:
+if os.path.isfile(t+"blue.txt") or "blue" in args:
     bg="#0000FF"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#0000FF"
     a_button_bg="#0000FF"
     a_button_fg="#FFFFFF"    
-elif os.path.isfile(t+"navy-blue.txt") or "navy-blue" in args:
+if os.path.isfile(t+"navy-blue.txt") or "navy-blue" in args:
     bg="#000080"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
     button_fg="#000080"
     a_button_bg="#000080"
     a_button_fg="#FFFFFF"      
-elif os.path.isfile(t+"purple.txt") or "purple" in args:
+if os.path.isfile(t+"purple.txt") or "purple" in args:
     bg="#800080"
     fg="#000000"
     button_bg="#000000"
     button_fg="#800080"
     a_button_bg="#800080"
     a_button_fg="#000000"
-elif os.path.isfile(t+"lilac.txt") or "lilac" in args:
+if os.path.isfile(t+"lilac.txt") or "lilac" in args:
     bg="#C8A2C8"
     fg="#000000"
     button_bg="#000000"
     button_fg="#C8A2C8"
     a_button_bg="#C8A2C8"
     a_button_fg="#000000"
-elif os.path.isfile(t+"pink.txt") or "pink" in args:
+if os.path.isfile(t+"pink.txt") or "pink" in args:
     bg="#FFC0CB"
     fg="#000000"
     button_bg="#000000"
     button_fg="#FFC0CB"
     a_button_bg="#FFC0CB"
     a_button_fg="#000000"         
-else:
+if not os.path.isdir(t):
     mxp_options()
     exit()
 
 
 def main_gui():   
+    def apply():
+        os.system("cd "+t+" ; rm * ; touch "+str(sys.argv[1])+".txt")
+        if os.path.isfile(t+str(sys.argv[1])+".txt"):
+            if os.path.isfile(en):
+                messagebox.showinfo("Information","Theme applied.")
+            elif os.path.isfile(tr):
+                messagebox.showinfo("Bilgilendirme","Tema uygulandı.")
+            spacep1.destroy()
+            buttonp.destroy()
+            spacep2.destroy()
+        
+    
     if os.getuid() == 0:
         if os.path.isfile(en):
                 messagebox.showwarning("Fatal Request","You started MetterXP as root but MetterXP main page don't support it. Also MetterXP already requests root rights when it needs root rights.")
@@ -229,6 +233,9 @@ def main_gui():
     def update():
         window.destroy()
         mxp_update()
+    def reset():
+        window.destroy()
+        mxp_reset()
     def uninstall():
         window.destroy()
         mxp_uninstall()
@@ -242,6 +249,7 @@ def main_gui():
         m_options.add_command(label="About",command=mxp_info)
         m_options.add_command(label="Options",command=options)
         m_options.add_command(label="Update",command=update)
+        m_options.add_command(label="Reset",command=reset)
         m_options.add_command(label="Uninstall",command=uninstall)
         open_m=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="Open",menu=open_m)
@@ -284,6 +292,7 @@ def main_gui():
         m_options.add_command(label="Hakkında",command=mxp_info)
         m_options.add_command(label="Seçenekler",command=options)
         m_options.add_command(label="Güncelle",command=update)
+        m_options.add_command(label="Sıfırla",command=reset)
         m_options.add_command(label="Kaldır",command=uninstall)
         open_m=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="Aç",menu=open_m)
@@ -357,8 +366,9 @@ def main_cli():
                 print("fix                             Fix package errors")
             print("Here's how to call all MetterXP modules:")
             print("about                         About")
-            print("settings                      MetterXP")
+            print("settings                      Settings")
             print("update                        Update")
+            print("reset                         Reset")
             print("uninstall                     Uninstall")
         elif os.path.isfile(tr):
             print("İşte bütün özellik modüllerinin çağrılması:")
@@ -377,8 +387,9 @@ def main_cli():
                 print("çöz                             Paket hatalarını çöz")
             print("İşte bütün MetterXP modüllerinin çağrılması:")
             print("hakkında                       Hakkında")
-            print("ayarlar                        Ayarları")
+            print("ayarlar                        Ayarlar")
             print("güncelle                       Güncelle")
+            print("sıfırla                        Sıfırla")
             print("kaldır                         Kaldır")
         exit()
     elif "app" in args or "uygulama" in args:
@@ -420,47 +431,53 @@ def main_cli():
     elif "update" in args or "güncelle" in args:
         mxp_update()
         exit()
+    elif "reset" in args or "sıfırla" in args:
+        mxp_uninstall()
+        exit()
     elif "uninstall" in args or "kaldır" in args:
         mxp_uninstall()
         exit()
     elif "app_configure" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/app_configure.py")
+        os.system("python3 /usr/local/bin/metterxp/modules/app_configure.py "+username)
         exit()
     elif "app_store" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/app_store.py")
+        os.system("python3 /usr/local/bin/metterxp/modules/app_store.py "+username)
         exit()
     elif "clear_cache_app" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/clear_cache_app.py")
+        os.system("python3 /usr/local/bin/metterxp/modules/clear_cache_app.py "+username)
         exit()
     elif "dewm_store" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/dewm_store.py")
+        os.system("python3 /usr/local/bin/metterxp/modules/dewm_store.py "+username)
         exit()
     elif "fixer" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/fixer.py")
+        os.system("python3 /usr/local/bin/metterxp/modules/fixer.py "+username)
         exit()
     elif "mxp_uninstall" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_uninstall.py")
+        os.system("python3 /usr/local/bin/metterxp/modules/mxp_uninstall.py "+username)
         exit()
     elif "mxp_update" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py --updateupdater")
+        os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py "+username+" --update")
+        exit()
+    elif "mxp_update" in args:
+        os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py "+username+" --update")
         exit()
     elif "pm_store" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/pm_store.py")
+        os.system("python3 /usr/local/bin/metterxp/modules/pm_store.py "+username)
         exit()
     elif "fm_open" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/fm_open.py")
+        os.system("python3 /usr/local/bin/metterxp/modules/fm_open.py "+username)
         exit()
     elif "system_up" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/system_up.py")
+        os.system("python3 /usr/local/bin/metterxp/modules/system_up.py "+username)
         exit()
     elif "install_yasfetch" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py --install")
+        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py "+username+" --install")
         exit()
     elif "reinstall_yasfetch" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py --reinstall")
+        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py "+username+" --reinstall")
         exit()
     elif "uninstall_yasfetch" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py --uninstall")
+        os.system("python3 /usr/local/bin/metterxp/modules/yasfetchtaller.py "+username+" --uninstall")
         exit()
     else:
         main_gui()
