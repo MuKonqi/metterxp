@@ -92,7 +92,6 @@ def apply():
             messagebox.showinfo("Information","Theme applied.")
         elif os.path.isfile(tr):
             messagebox.showinfo("Bilgilendirme","Tema uygulandı.")
-        exit()
     
 bg=""
 fg=""
