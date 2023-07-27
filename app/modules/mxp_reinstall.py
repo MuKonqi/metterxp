@@ -62,10 +62,12 @@ if "--update" in sys.argv[2]:
     elif beta == "yes":
         os.system("cd /usr/local/bin/metterxp/ ; git clone -b beta https://github.com/MuKonqi/metterxp ; cd metterxp ;  chmod +x *")
     os.system("cd /usr/local/bin/metterxp/modules ; rm mxp_update.py")
-    os.system("cp /usr/local/bin/metterxp/metterxp/app/modules/mxp_update.py /usr/local/bin/metterxp/modules")
-    if "--reset" in sys.argv[3]:
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py "+str(sys.argv[1])+" --reset")
-    os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py "+str(sys.argv[1]))
+    os.system("cp /usr/local/bin/metterxp/metterxp/app/modules/mxp_update.py /usr/local/bin/metterxp/modules"),
+    if len(sys.argv) == 4:
+        if "--reset" in sys.argv[3]:
+            os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py "+str(sys.argv[1])+" --reset")
+    else:
+        os.system("python3 /usr/local/bin/metterxp/modules/mxp_update.py "+str(sys.argv[1]))
     exit()
 
 if "--reset" in sys.argv[2]:
