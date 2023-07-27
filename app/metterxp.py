@@ -82,7 +82,7 @@ if not "mxp_options" in args:
         elif os.path.isfile(solus):
             lang_open()
 
-if sys.argv[2] == "p":
+if sys.argv[2:] == "p":
     p=1
 def apply():
     os.system("cd "+t+" ; rm * ; touch "+str(sys.argv[1])+".txt")
