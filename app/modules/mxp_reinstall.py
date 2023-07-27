@@ -71,8 +71,9 @@ if len(sys.argv) == 3:
         os.system("python3 /usr/local/bin/metterxp/modules/mxp_reinstall.py "+str(sys.argv[1]))
     exit()
 
-if "--reset" in sys.argv[2]:
-    os.system("cd /home/"+sys.argv[1]+"/.by-mukonqi/ ; rm -rf metterxp") 
+if len(sys.argv) == 3:
+    if "--reset" in sys.argv[2]:
+        os.system("cd /home/"+sys.argv[1]+"/.by-mukonqi/ ; rm -rf metterxp") 
  
 os.system("cd /usr/local/bin/metterxp/metterxp/ ; python3 apiutaller.py --reinstall")
 os.system("metterxp")
