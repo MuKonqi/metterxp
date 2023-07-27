@@ -85,7 +85,7 @@ if not "mxp_options" in args:
 if "2021" in args or "2022" in args or "modern" in args  or "machine" in args  or "black" in args or "white" in args or "gray" in args or "red" in args or "yellow" in args or "green" in args or "blue" in args or "navy-blue" in args or "purple" in args or "lilac" in args or "pink" in args:
     p=1
 def apply():
-    os.system("cd "+t+" ; rm * ; touch "+args+".txt")
+    os.system("cd "+t+" ; rm * ; touch "+str(args)+".txt")
     
 bg=""
 fg=""
