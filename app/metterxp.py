@@ -450,10 +450,10 @@ def main_cli():
         os.system("python3 /usr/local/bin/metterxp/modules/mxp_uninstall.py "+str(sys.argv[2]))
         exit()
     elif "mxp_update" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_reinstall.py "+str(sys.argv[2])+" --update")
+        os.system("python3 /usr/local/bin/metterxp/modules/mxp_reinstall.py "+str(sys.argv[2])+"")
         exit()
     elif "mxp_reset" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_reinstall.py "+str(sys.argv[2])+" --update --reset")
+        os.system("python3 /usr/local/bin/metterxp/modules/mxp_reinstall.py "+str(sys.argv[2])+" --reset")
         exit()
     elif "pm_store" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/pm_store.py "+str(sys.argv[2]))

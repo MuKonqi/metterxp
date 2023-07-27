@@ -25,7 +25,7 @@ if not os.path.isdir("/home/"+str(sys.argv[1])+"/.by-mukonqi/metterxp/"):
 
 beta="yes"
 
-if not "--reset" in sys.argv[2:]:
+if not "--reset" in sys.argv[2]:
     v=open("/usr/local/bin/metterxp/version.txt", "r")
     vr=v.read()
     v.close()
@@ -55,8 +55,6 @@ if beta == "no":
     os.system("cd /usr/local/bin/ ; git clone https://github.com/MuKonqi/metterxp tmxp ; cd metterxp ;  chmod +x *")
 elif beta == "yes":
     os.system("cd /usr/local/bin/ ; git clone -b beta https://github.com/MuKonqi/metterxp tmxp ; cd metterxp ;  chmod +x *")
-os.system("cd /usr/local/bin/metterxp/modules ; rm mxp_reinstall.py")
-os.system("cp /usr/local/bin/tmxp/app/modules/mxp_reinstall.py /usr/local/bin/metterxp/modules"),
 
 if len(sys.argv) == 3:
     if "--reset" in sys.argv[2]:
