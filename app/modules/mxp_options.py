@@ -49,23 +49,14 @@ def main():
 
 
     def mukonqi():
-        def applied():
-            mwindow.destroy()
-            swindow.destroy()
-            os.system("metterxp")
-            exit()
         def one():
             subprocess.Popen("metterxp 2021 p", shell=TRUE)
-            applied()
         def two():
             subprocess.Popen("metterxp 2022 p", shell=TRUE)
-            applied()
         def modern():
             subprocess.Popen("metterxp modern p", shell=TRUE)
-            applied()
         def machine():
             subprocess.Popen("metterxp machine p", shell=TRUE)
-            applied()
         
         mwindow=Tk()
         mwindow.config(background=bg)
