@@ -8,6 +8,8 @@ from tkinter import *
 from tkinter import messagebox
 import os
 import getpass
+import subprocess
+from subprocess import *
 username=getpass.getuser()
 t="/home/"+username+"/.by-mukonqi/metterxp/theme/"
 
@@ -49,13 +51,13 @@ def main():
     def mukonqi():
         
         def one():
-            os.system("metterxp 2021")
+            subprocess.Popen("metterxp 2021", shell=TRUE)
         def two():
-            os.system("metterxp 2022")
+            subprocess.Popen("metterxp 2022", shell=TRUE)
         def modern():
-            os.system("metterxp modern")
+            subprocess.Popen("metterxp modern", shell=TRUE)
         def machine():
-            os.system("metterxp machine")
+            subprocess.Popen("metterxp machine", shell=TRUE)
         
         mwindow=Tk()
         mwindow.config(background=bg)
@@ -211,9 +213,9 @@ elif os.path.isfile(t+"modern.txt"):
 elif os.path.isfile(t+"machine.txt"):
     bg="#2f2f2f"
     fg="#FFFFFF"
-    button_bg="##bf2422"
+    button_bg="#bf2422"
     button_fg="#2f2f2f"
-    a_button_bg="##5dc305"
+    a_button_bg="#5dc305"
     a_button_fg="#376296"
 elif os.path.isfile(t+"black.txt"):
     bg="#000000"
