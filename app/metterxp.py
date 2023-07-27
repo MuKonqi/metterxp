@@ -82,10 +82,16 @@ if not "mxp_options" in args:
         elif os.path.isfile(solus):
             lang_open()
 
-if "2021" in args or "2022" in args or "modern" in args  or "machine" in args  or "black" in args or "white" in args or "gray" in args or "red" in args or "yellow" in args or "green" in args or "blue" in args or "navy-blue" in args or "purple" in args or "lilac" in args or "pink" in args:
+if sys.argv[2] == "p":
     p=1
 def apply():
-    os.system("cd "+t+" ; rm * ; touch "+str(args)+".txt")
+    os.system("cd "+t+" ; rm * ; touch "+str(sys.argv[1])+".txt")
+    if os.path.isfile(t+str(sys.argv[1])+".txt"):
+        if os.path.isfile(en):
+            messagebox.showinfo("Information","Theme applied.")
+        elif os.path.isfile(tr):
+            messagebox.showinfo("Bilgilendirme","Tema uygulandı.")
+        exit()
     
 bg=""
 fg=""
