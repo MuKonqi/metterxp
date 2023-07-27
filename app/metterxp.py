@@ -450,7 +450,6 @@ def main_cli():
         os.system("python3 /usr/local/bin/metterxp/modules/mxp_uninstall.py "+str(sys.argv[2]))
         exit()
     elif "mxp_update" in args:
-        print("gel lan buraya")
         os.system("python3 /usr/local/bin/metterxp/modules/mxp_reinstall.py "+str(sys.argv[2])+" --update")
         exit()
     elif "mxp_reset" in args:
