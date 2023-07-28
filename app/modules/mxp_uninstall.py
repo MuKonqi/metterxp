@@ -14,20 +14,17 @@ debian="/etc/debian_version"
 fedora="/etc/fedora-release"
 solus="/etc/solus-release"
 
-if not os.path.isdir("/home/"+sys.argv[1]+"/.by-mukonqi/metterxp/"):
-    def open_s():
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_options.py")
-        exit()
-    if os.path.isfile(debian) or os.path.isfile(fedora) or os.path.isfile(solus):
-        open_s()
+if not os.path.isdir("/home/"+str(sys.argv[1])+"/.by-mukonqi/metterxp/"):
+    messagebox.showerror("User Error - Fatal | MetterXP","Please start only MetterXP (just select MetterXP in the applications section or type metterxp) to set up language and theme preferences.")
+    exit()
 
 if not os.getuid() == 0:
     if os.path.isfile(en):
         messagebox.showerror("Error","Only root can run this module!")
-        exit("Only root can run this module!\nThis module is shutting down...")
+        exit()
     elif os.path.isfile(tr):
         messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
-        exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
+        exit()
 
 os.system("cd /usr/local/bin/metterxp/apiutaller/ ; python3 apiutaller.py --uninstall")
 if os.path.isfile(en):

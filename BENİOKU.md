@@ -1,4 +1,4 @@
-# [MetterXP v3.0-beta.6](https://github.com/MuKonqi/metterxp/tree/beta)
+# [MetterXP v3.0-beta.7](https://github.com/MuKonqi/metterxp/tree/beta)
 # Bu sürüm gerçekten stabil değil!
 --> [Click here to view this document in English.](https://github.com/MuKonqi/metterxp/blob/main/README.md)
 

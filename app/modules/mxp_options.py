@@ -51,13 +51,13 @@ def main():
 
     def mukonqi():
         def one():
-            subprocess.Popen("metterxp 2021 p", shell=TRUE)
+            subprocess.Popen("metterxp 2021 p", shell=True)
         def two():
-            subprocess.Popen("metterxp 2022 p", shell=TRUE)
+            subprocess.Popen("metterxp 2022 p", shell=True)
         def modern():
-            subprocess.Popen("metterxp modern p", shell=TRUE)
+            subprocess.Popen("metterxp modern p", shell=True)
         def machine():
-            subprocess.Popen("metterxp machine p", shell=TRUE)
+            subprocess.Popen("metterxp machine p", shell=True)
         
         mwindow=Tk()
         mwindow.config(background=bg)
@@ -66,7 +66,7 @@ def main():
         mparent.pack(expand=1)
         mwindow.geometry("412x412")
         if os.path.isfile(en):
-            mwindow.title("Themes from developer - Settings | MetterXP")
+            mwindow.title("Themes From Developer - Settings | MetterXP")
             mtext1=Label(mparent, background=bg, foreground=fg, font="arial 11 bold italic", text="Please select a theme.")
             mspace1=Label(mparent, background=bg, foreground=fg, font="arial 3", text="\n")
             mbutton1=Button(mparent, text="Classic [From BetterXP (2021)]", command=one, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font=",arial 11 bold", cursor="hand2", borderwidth="8")
@@ -74,7 +74,7 @@ def main():
             mbutton3=Button(mparent, text="Modern", command=modern, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font=",arial 11 bold", cursor="hand2", borderwidth="8")
             mbutton4=Button(mparent, text="Machine", command=machine, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="8")
         elif os.path.isfile(tr):
-            mwindow.title("Geliştiriciden temalar - Ayarlar | MetterXP")
+            mwindow.title("Geliştiriciden Temalar - Ayarlar | MetterXP")
             mtext1=Label(mparent, background=bg, foreground=fg, font="arial 11 bold italic", text="Lütfen bir tema seçin.")
             mspace1=Label(mparent, background=bg, foreground=fg, font="arial 3", text="\n")
             mbutton1=Button(mparent, text="Klasik [BetterXP'dan (2021)]", command=one, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font=",arial 11 bold", cursor="hand2", borderwidth="8")
@@ -91,36 +91,36 @@ def main():
     
     def colors():
         def black():
-            subprocess.Popen("metterxp black p", shell=TRUE)
+            subprocess.Popen("metterxp black p", shell=True)
         def white():
-            subprocess.Popen("metterxp white p", shell=TRUE)
+            subprocess.Popen("metterxp white p", shell=True)
         def gray():
-            subprocess.Popen("metterxp gray p", shell=TRUE)
+            subprocess.Popen("metterxp gray p", shell=True)
         def red():
-            subprocess.Popen("metterxp red p", shell=TRUE)
+            subprocess.Popen("metterxp red p", shell=True)
         def yellow():
-            subprocess.Popen("metterxp yellow p", shell=TRUE)
+            subprocess.Popen("metterxp yellow p", shell=True)
         def green():
-            subprocess.Popen("metterxp green p", shell=TRUE)
+            subprocess.Popen("metterxp green p", shell=True)
         def blue():
-            subprocess.Popen("metterxp blue p", shell=TRUE)
+            subprocess.Popen("metterxp blue p", shell=True)
         def navy():
-            subprocess.Popen("metterxp navy-blue p", shell=TRUE)
+            subprocess.Popen("metterxp navy-blue p", shell=True)
         def purple():
-            subprocess.Popen("metterxp purple p", shell=TRUE)
+            subprocess.Popen("metterxp purple p", shell=True)
         def lilac():
-            subprocess.Popen("metterxp lilac p", shell=TRUE)
+            subprocess.Popen("metterxp lilac p", shell=True)
         def pink():
-            subprocess.Popen("metterxp pink p", shell=TRUE)
+            subprocess.Popen("metterxp pink p", shell=True)
             
         cwindow=Tk()
         cwindow.config(background=bg)
         cwindow.resizable(0, 0)
         cparent = Frame(cwindow)
         cparent.pack(expand=1)
-        cwindow.geometry("600x600")
+        cwindow.geometry("483x483")
         if os.path.isfile(en):
-            cwindow.title("Themes from developer - Settings | MetterXP")
+            cwindow.title("Simple Color Themes - Settings | MetterXP")
             ctext1=Label(cparent, background=bg, foreground=fg, font="arial 11 bold italic", text="Please select a theme.")
             cspace1=Label(cparent, background=bg, foreground=fg, font="arial 3", text="\n")
             cbutton1=Button(cparent, text="Black (Dark)", command=black, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font=",arial 11 bold", cursor="hand2", borderwidth="3")
@@ -135,7 +135,7 @@ def main():
             cbutton10=Button(cparent, text="Lilac", command=lilac, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
             cbutton11=Button(cparent, text="Pink", command=pink, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font="arial 11 bold", cursor="hand2", borderwidth="3")
         elif os.path.isfile(tr):
-            cwindow.title("Geliştiriciden temalar - Ayarlar | MetterXP")
+            cwindow.title("Basit Renk Temaları - Ayarlar | MetterXP")
             ctext1=Label(cparent, background=bg, foreground=fg, font="arial 11 bold italic", text="Lütfen bir tema seçin.")
             cspace1=Label(cparent, background=bg, foreground=fg, font="arial 3", text="\n")
             cbutton1=Button(cparent, text="Siyah (Koyu)", command=black, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font=",arial 11 bold", cursor="hand2", borderwidth="3")
@@ -165,7 +165,28 @@ def main():
     
     
     def people():
-        pass
+        def complex_atno():
+            subprocess.Popen("metterxp complex_atno p", shell=True)
+        
+        pwindow=Tk()
+        pwindow.config(background=bg)
+        pwindow.resizable(0, 0)
+        pparent = Frame(pwindow)
+        pparent.pack(expand=1)
+        pwindow.geometry("400x600")
+        if os.path.isfile(en):
+            pwindow.title("Themes From People - Settings | MetterXP")
+            ptext1=Label(pparent, background=bg, foreground=fg, font="arial 11 bold italic", text="Please select a theme.")
+            pspace1=Label(pparent, background=bg, foreground=fg, font="arial 3", text="\n")
+            pbutton1=Button(pparent, text="atno's complex theme", command=complex_atno, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font=",arial 11 bold", cursor="hand2", borderwidth="8")
+        elif os.path.isfile(tr):
+            pwindow.title("İnsanlardan Temalar - Ayarlar | MetterXP")
+            ptext1=Label(pparent, background=bg, foreground=fg, font="arial 11 bold italic", text="Lütfen bir tema seçin.")
+            pspace1=Label(pparent, background=bg, foreground=fg, font="arial 3", text="\n")
+            pbutton1=Button(pparent, text="atno'nun karmaşık teması", command=complex_atno, background=button_bg, foreground=button_fg, activebackground=a_button_bg, activeforeground=a_button_fg, font=",arial 11 bold", cursor="hand2", borderwidth="8")
+        ptext1.pack(fill="x")
+        pspace1.pack(fill="x")
+        pbutton1.pack(fill="x")
     
     
     def custom():
@@ -365,7 +386,14 @@ elif os.path.isfile(t+"pink.txt"):
     button_bg="#000000"
     button_fg="#FFC0CB"
     a_button_bg="#FFC0CB"
-    a_button_fg="#000000"         
+    a_button_fg="#000000"  
+elif os.path.isfile(t+"complex_atno.txt"):
+    bg="#474747"
+    fg="#00252e"
+    button_bg="#012547"
+    button_fg="#8c0606"
+    a_button_bg="#034d96"
+    a_button_fg="#a4d46a"       
 else:
     gfs=1
     if os.path.isfile(en):

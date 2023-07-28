@@ -17,11 +17,8 @@ fedora="/etc/fedora-release"
 solus="/etc/solus-release"
 
 if not os.path.isdir("/home/"+str(sys.argv[1])+"/.by-mukonqi/metterxp/"):
-    def open_s():
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_options.py")
-        exit()
-    if os.path.isfile(debian) or os.path.isfile(fedora) or os.path.isfile(solus):
-        open_s()
+    messagebox.showerror("User Error - Fatal | MetterXP","Please start only MetterXP (just select MetterXP in the applications section or type metterxp) to set up language and theme preferences.")
+    exit()
 
 beta="yes"
 

@@ -6,41 +6,33 @@
 
 import os
 from tkinter import messagebox
+import sys
 
+en="/home/"+sys.argv[1]+"/.by-mukonqi/metterxp/language/en.txt"
+tr="/home/"+sys.argv[1]+"/.by-mukonqi/metterxp/language/tr.txt"
 debian="/etc/debian_version"
-fedora="/etc/fedora-release"
-solus="/etc/solus-release"
-lang_tr="/usr/local/bin/metterxp/settings/lang/tr.txt"
-lang_en="/usr/local/bin/metterxp/settings/lang/en.txt"
+
+if not os.path.isdir("/home/"+str(sys.argv[1])+"/.by-mukonqi/metterxp/"):
+    messagebox.showerror("User Error - Fatal | MetterXP","Please start only MetterXP (just select MetterXP in the applications section or type metterxp) to set up language and theme preferences.")
+    exit()
+
+if not os.path.isfile(debian):
+    if os.path.isfile(en):
+        messagebox.showerror("Fatal Error","This feature module does not support non-Debian based distros.")
+    elif os.path.isfile(tr):
+        messagebox.showerror("Fatal Error","Bu özellik modülü Debian tabanlı olmayan dağıtımları desteklemez.")        
 
 if not os.getuid() == 0:
-    if os.path.isfile(lang_en):
+    if os.path.isfile(en):
         messagebox.showerror("Error","Only root can run this module!")
-        exit("Only root can run this module!\nThis module is shutting down...")
-    elif os.path.isfile(lang_tr):
-        messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
-        exit("\nSadece kök kullanıcı bu modülü çalıştırabilir!\nModül kapatılıyor...")
-
-if os.path.isfile(lang_en):
-    messagebox.showinfo("Information","When you press the 'OK' button then the process will start. Please don't close MetterXP during the process.")
-elif os.path.isfile(lang_tr):
-    messagebox.showinfo("Bilgilendirme","'OK' düğmesine bastığınızda işlem başlayacaktır. Lütfen işlem sırasında MetterXP'ı kapatmayın.")
-
-if not os.path.isdir("/usr/local/bin/metterxp/settings/lang/"):
-    def lang_open():
-        messagebox.showerror("Warning","Can't found language setting. When you click 'OK' and enter your true password, language settings will open. ")
-        os.system("pkexec /usr/bin/metterxp mxp_options")
         exit()
-    if os.path.isfile(debian):
-        lang_open()
-    elif os.path.isfile(fedora):
-        lang_open()
-    elif os.path.isfile(solus):
-        lang_open()
+    elif os.path.isfile(tr):
+        messagebox.showerror("Hata","Sadece kök kullanıcı bu modülü çalıştırabilir!")
+        exit()
 
 os.system("apt-get install -f &&  dpkg --configure -a")
-if os.path.isfile(lang_en):
-    messagebox.showinfo("Information","Successful! Fixed applicaton/package errors.")
-elif os.path.isfile(lang_tr):
+if os.path.isfile(en):
+    messagebox.showinfo("Information","Successful! Applicaton/package errors are fixed.")
+elif os.path.isfile(tr):
     messagebox.showinfo("Bilgilendirme","Program/paket hataları başarıyla çözüldü.")
 exit()

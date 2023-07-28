@@ -805,7 +805,7 @@ def flatpak():
         get_packagename=packagename.get()
         c2_package=" -y"
         cf_package=c1_package+get_packagename+c2_package
-        run_cf_package = subprocess.Popen(cf_package, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        run_cf_package = subprocess.Popen(cf_package, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
         (out, err) = run_cf_package.communicate()
         if out == "":
             if os.path.isfile(lang_en):
@@ -838,7 +838,7 @@ def flatpak():
         get_packagename=packagename.get()
         c2_package=" -y --reinstall"
         cf_package=c1_package+get_packagename+c2_package
-        run_cf_package = subprocess.Popen(cf_package, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        run_cf_package = subprocess.Popen(cf_package, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
         (out, err) = run_cf_package.communicate()
         if out == "":
             if os.path.isfile(lang_en):
@@ -871,7 +871,7 @@ def flatpak():
         get_packagename=packagename.get()
         c2_package=" -y"
         cf_package=c1_package+get_packagename+c2_package
-        run_cf_package = subprocess.Popen(cf_package, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        run_cf_package = subprocess.Popen(cf_package, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
         (out, err) = run_cf_package.communicate()
         if out == "":
             if os.path.isfile(lang_en):
@@ -903,7 +903,7 @@ def flatpak():
         c1_package="flatpak search "
         get_packagename=packagename.get()
         cf_package=c1_package+get_packagename
-        run_cf_package = subprocess.Popen(cf_package, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        run_cf_package = subprocess.Popen(cf_package, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
         (out, err) = run_cf_package.communicate()
         if out == "":
             if os.path.isfile(lang_en):
@@ -977,7 +977,7 @@ def other():
             get_packagename=packagename.get()
             c2_package=" -y"
         cf_package=c1_package+get_packagename+c2_package
-        run_cf_package = subprocess.Popen(cf_package, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        run_cf_package = subprocess.Popen(cf_package, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
         (out, err) = run_cf_package.communicate()
         if out == "":
             if os.path.isfile(lang_en):
@@ -1019,7 +1019,7 @@ def other():
             get_packagename=packagename.get()
             c2_package=" -y --rei"
         cf_package=c1_package+get_packagename+c2_package
-        run_cf_package = subprocess.Popen(cf_package, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        run_cf_package = subprocess.Popen(cf_package, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
         (out, err) = run_cf_package.communicate()
         if out == "":
             if os.path.isfile(lang_en):
@@ -1061,7 +1061,7 @@ def other():
             get_packagename=packagename.get()
             c2_package=" -y --purge"
         cf_package=c1_package+get_packagename+c2_package
-        run_cf_package = subprocess.Popen(cf_package, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        run_cf_package = subprocess.Popen(cf_package, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
         (out, err) = run_cf_package.communicate()
         if out == "":
             if os.path.isfile(lang_en):
@@ -1098,7 +1098,7 @@ def other():
             c1_package="eopkg search "
         get_packagename=packagename.get()
         cf_package=c1_package+get_packagename
-        run_cf_package = subprocess.Popen(cf_package, shell=TRUE, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
+        run_cf_package = subprocess.Popen(cf_package, shell=True, stderr=subprocess.PIPE, stdout=subprocess.PIPE, stdin=subprocess.PIPE, universal_newlines=True)
         (out, err) = run_cf_package.communicate()
         if out == "":
             if os.path.isfile(lang_en):
