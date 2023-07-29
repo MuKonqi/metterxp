@@ -37,8 +37,8 @@ solus="/etc/solus-release"
 
 args=sys.argv[1:]
 
-def mxp_info():
-    subprocess.Popen("python3 /usr/local/bin/metterxp/modules/mxp_info.py", shell=True)
+def mxp_about():
+    subprocess.Popen("python3 /usr/local/bin/metterxp/modules/mxp_about.py", shell=True)
 def mxp_options():
     subprocess.Popen("python3 /usr/local/bin/metterxp/modules/mxp_options.py", shell=True)
 def mxp_update():
@@ -78,7 +78,7 @@ if not "mxp_options" in args:
             mxp_options()
             exit()
 
-if len(sys.argv) == 3:
+if len(sys.argv) > 2:
     if str(sys.argv[2]) == "p":
         p=1
     
@@ -88,7 +88,14 @@ button_bg=""
 button_fg=""
 a_button_bg=""
 a_button_fg=""
-if os.path.isfile(t+"2021.txt"):
+if os.path.isfile(t+"2011.txt"):
+    bg="#9e9c9d"
+    fg="#e3af79"
+    button_bg="#d2d1d2"
+    button_fg="#3a1212"
+    a_button_bg="#0b75aa"
+    a_button_fg="#FFFFFF"    
+elif os.path.isfile(t+"2021.txt"):
     bg="#000000"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
@@ -102,20 +109,20 @@ elif os.path.isfile(t+"2022.txt"):
     button_fg="#376296"
     a_button_bg="#376296"
     a_button_fg="#FFFFFF"
-elif os.path.isfile(t+"modern.txt"):
-    bg="#2f2f2f"
-    fg="#376296"
-    button_bg="#a9a9a9"
-    button_fg="#000000"
-    a_button_bg="#376296"
-    a_button_fg="#FFFFFF"
-elif os.path.isfile(t+"machine.txt"):
+elif os.path.isfile(t+"23Q2.txt"):
     bg="#2f2f2f"
     fg="#FFFFFF"
     button_bg="#bf2422"
     button_fg="#2f2f2f"
     a_button_bg="#5dc305"
     a_button_fg="#376296"
+elif os.path.isfile(t+"23H2.txt"):
+    bg="#2f2f2f"
+    fg="#376296"
+    button_bg="#a9a9a9"
+    button_fg="#000000"
+    a_button_bg="#376296"
+    a_button_fg="#FFFFFF"
 elif os.path.isfile(t+"black.txt"):
     bg="#000000"
     fg="#FFFFFF"
@@ -199,12 +206,44 @@ elif os.path.isfile(t+"complex_atno.txt"):
     button_bg="#012547"
     button_fg="#8c0606"
     a_button_bg="#034d96"
-    a_button_fg="#a4d46a"  
+    a_button_fg="#a4d46a"
+elif os.path.isfile(t+"theme.txt"):
+    bgo=open(t+"bg.txt", "r")
+    bgr="#"+bgo.read()
+    bgo.close()
+    bg=bgr.replace("\n","") 
+    fgo=open(t+"fg.txt", "r")
+    fgr="#"+fgo.read()
+    fgo.close()
+    fg=fgr.replace("\n","")
+    bbgo=open(t+"button_bg.txt", "r")
+    button_bgr="#"+bbgo.read()
+    bbgo.close()
+    button_bg=button_bgr.replace("\n","")
+    bfgo=open(t+"button_fg.txt", "r")
+    button_fgr="#"+bfgo.read()
+    bfgo.close()
+    button_fg=button_fgr.replace("\n","")
+    abbgo=open(t+"a_button_bg.txt", "r")
+    a_button_bgr="#"+abbgo.read()
+    abbgo.close()
+    a_button_bg=a_button_bgr.replace("\n","")
+    abfgo=open(t+"a_button_fg.txt", "r")
+    a_button_fgr="#"+abfgo.read()
+    abfgo.close()
+    a_button_fg=a_button_fgr.replace("\n","")
 elif username != "root" and not os.path.isdir(t):
     mxp_options()
     exit()
 
-if "2021" in args:
+if "2011" in args:
+    bg="#9e9c9d"
+    fg="#e3af79"
+    button_bg="#d2d1d2"
+    button_fg="#3a1212"
+    a_button_bg="#0b75aa"
+    a_button_fg="#FFFFFF"    
+elif "2021" in args:
     bg="#000000"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
@@ -218,20 +257,20 @@ elif "2022" in args:
     button_fg="#376296"
     a_button_bg="#376296"
     a_button_fg="#FFFFFF"
-elif "modern" in args:
-    bg="#2f2f2f"
-    fg="#376296"
-    button_bg="#a9a9a9"
-    button_fg="#000000"
-    a_button_bg="#376296"
-    a_button_fg="#FFFFFF"
-elif "machine" in args:
+elif "23Q2" in args:
     bg="#2f2f2f"
     fg="#FFFFFF"
     button_bg="#bf2422"
     button_fg="#2f2f2f"
     a_button_bg="#5dc305"
     a_button_fg="#376296"
+elif "23H2" in args:
+    bg="#2f2f2f"
+    fg="#376296"
+    button_bg="#a9a9a9"
+    button_fg="#000000"
+    a_button_bg="#376296"
+    a_button_fg="#FFFFFF"
 elif "black" in args:
     bg="#000000"
     fg="#FFFFFF"
@@ -315,12 +354,18 @@ elif "complex_atno" in args:
     button_bg="#012547"
     button_fg="#8c0606"
     a_button_bg="#034d96"
-    a_button_fg="#a4d46a"  
+    a_button_fg="#a4d46a"
+elif "ct" in args:
+    bg="#"+str(sys.argv[3])
+    fg="#"+str(sys.argv[4])
+    button_bg="#"+str(sys.argv[5])
+    button_fg="#"+str(sys.argv[6])
+    a_button_bg="#"+str(sys.argv[7])
+    a_button_fg="#"+str(sys.argv[8])
 
 def main_gui():   
     def apply():
-        os.system("cd "+t+" ; rm * ; touch "+str(sys.argv[1])+".txt")
-        if os.path.isfile(t+str(sys.argv[1])+".txt"):
+        def applied():
             if os.path.isfile(en):
                 messagebox.showinfo("Information","Theme applied.")
             elif os.path.isfile(tr):
@@ -328,7 +373,19 @@ def main_gui():
             spacep1.destroy()
             buttonp.destroy()
             spacep2.destroy()
-        
+        if str(sys.argv[1]) != "ct":
+            os.system("cd "+t+" ; rm * ; touch "+str(sys.argv[1])+".txt")
+            if os.path.isfile(t+str(sys.argv[1])+".txt"):
+                applied()
+        elif str(sys.argv[1]) == "ct":
+            os.system("cd "+t+" ; rm * ; touch theme.txt")
+            os.system("cd "+t+" ; echo "+str(sys.argv[3])+" >> bg.txt")
+            os.system("cd "+t+" ; echo "+str(sys.argv[4])+" >> fg.txt")
+            os.system("cd "+t+" ; echo "+str(sys.argv[5])+" >> button_bg.txt")
+            os.system("cd "+t+" ; echo "+str(sys.argv[6])+" >> button_fg.txt")
+            os.system("cd "+t+" ; echo "+str(sys.argv[7])+" >> a_button_bg.txt")
+            os.system("cd "+t+" ; echo "+str(sys.argv[8])+" >> a_button_fg.txt")
+            applied()
     
     if os.getuid() == 0:
         if os.path.isfile(en):
@@ -337,10 +394,12 @@ def main_gui():
                 messagebox.showinfo("Ölümcül İstek","MetterXP'ı kök olarak başlattınız ama MetterXP ana sayfası bunu desteklemez. Ayrıca MetterXP, kök haklarına ihtiyaç duyduğunda zaten kök haklarını ister.")
         exit()
 
-    window=Tk()
+    window=Tk(className="MetterXP")
     window.config(background=bg)
     window.resizable(0, 0)
-    window.geometry("483x483")
+    window.geometry("483x571")
+    icon = PhotoImage(file="/usr/local/bin/metterxp/icon.png")
+    window.iconphoto(True, icon)
     parent = Frame(window)
     
     def update():
@@ -359,7 +418,7 @@ def main_gui():
         window.config(menu=menu1)
         m_options=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="File",menu=m_options)
-        m_options.add_command(label="About",command=mxp_info)
+        m_options.add_command(label="About",command=mxp_about)
         m_options.add_command(label="Options",command=mxp_options)
         m_options.add_command(label="Update",command=update)
         m_options.add_command(label="Reset",command=reset)
@@ -402,7 +461,7 @@ def main_gui():
         window.config(menu=menu1)
         m_options=Menu(menu1, tearoff=0)
         menu1.add_cascade(label="Dosya",menu=m_options)
-        m_options.add_command(label="Hakkında",command=mxp_info)
+        m_options.add_command(label="Hakkında",command=mxp_about)
         m_options.add_command(label="Seçenekler",command=mxp_options)
         m_options.add_command(label="Güncelle",command=update)
         m_options.add_command(label="Sıfırla",command=reset)
@@ -536,7 +595,7 @@ def main_cli():
         fixer()
         exit()
     elif "about" in args or "hakkında" in args:
-        mxp_info()
+        mxp_about()
         exit()
     elif "settings" in args or "ayarlar" in args:
         mxp_options()

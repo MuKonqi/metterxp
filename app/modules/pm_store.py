@@ -148,7 +148,7 @@ else:
         theme_open()
 
 
-window=Tk()
+window=Tk(className="MetterXP")
 if os.path.isfile(lang_en):
     window.title("Package manager store | MetterXP")
 elif os.path.isfile(lang_tr):
@@ -158,6 +158,8 @@ window.resizable(0, 0)
 window.geometry("350x200")
 parent = Frame(window)
 parent.pack(expand=1)
+icon = PhotoImage(file="/usr/local/bin/metterxp/icon.png")
+window.iconphoto(True, icon)
 
 def flatpak():
     window.geometry("365x365")

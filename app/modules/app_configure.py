@@ -146,7 +146,7 @@ else:
         theme_open()
 
 
-window=Tk()
+window=Tk(className="MetterXP")
 if os.path.isfile(lang_en):
     window.title("Configre softwares | MetterXP")
 elif os.path.isfile(lang_tr):
@@ -154,6 +154,8 @@ elif os.path.isfile(lang_tr):
 window.config(background=bg)
 window.resizable(0, 0)
 window.geometry("322x322")
+icon = PhotoImage(file="/usr/local/bin/metterxp/icon.png")
+window.iconphoto(True, icon)
 parent = Frame(window)
 
 def grub():
@@ -217,7 +219,7 @@ def pcrename():
         elif os.path.isfile(lang_tr):
             messagebox.showinfo("Bilgilendirme"," 'OK' tuşuna bastığınızda bilgisayarınızın yeni adını uygulamak için bilgisayarınız yeniden başlatılacak.")
         reboot()
-    window2=Tk()
+    window2=Tk(className="MetterXP")
     window2.config(background=bg)
     window2.resizable(0, 0)
     window2.geometry("400x150")

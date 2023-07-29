@@ -132,7 +132,7 @@ if not os.getuid() != 0:
         exit()
         
 
-window=Tk()
+window=Tk(className="MetterXP")
 if os.path.isfile(lang_en):
     window.title("Configure .bashrc file | MetterXP")
 elif os.path.isfile(lang_tr):
@@ -140,6 +140,8 @@ elif os.path.isfile(lang_tr):
 window.config(background=bg)
 window.resizable(0, 0)
 window.geometry("571x571")
+icon = PhotoImage(file="/usr/local/bin/metterxp/icon.png")
+window.iconphoto(True, icon)
 parent = Frame(window)
 parent.pack(expand=1)
 
@@ -256,7 +258,7 @@ def bash():
                 messagebox.showinfo("Bilgilendirme","Yapılandırma başarıyla tamamlandı.")
 
         def reset():
-            window2=Tk()
+            window2=Tk(className="MetterXP")
             window2.config(background=bg)
             window2.resizable(0, 0)
             parent2 = Frame(window2)

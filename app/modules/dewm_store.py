@@ -150,7 +150,7 @@ else:
         theme_open()
 
 
-window=Tk()
+window=Tk(className="MetterXP")
 if os.path.isfile(lang_en):
     window.title("Desktop Environment and Window Manager store | MetterXP")
 elif os.path.isfile(lang_tr):
@@ -159,6 +159,8 @@ window.config(background=bg)
 window.resizable(0, 0)
 parent = Frame(window)
 window.geometry("483x483")
+icon = PhotoImage(file="/usr/local/bin/metterxp/icon.png")
+window.iconphoto(True, icon)
 parent.pack(expand=1)
 
 if os.path.isfile(debian) or os.path.isfile(fedora):

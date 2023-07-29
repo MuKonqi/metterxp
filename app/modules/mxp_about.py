@@ -38,7 +38,14 @@ button_bg=""
 button_fg=""
 a_button_bg=""
 a_button_fg=""
-if os.path.isfile(t+"2021.txt"):
+if os.path.isfile(t+"2011.txt"):
+    bg="#9e9c9d"
+    fg="#e3af79"
+    button_bg="#d2d1d2"
+    button_fg="#3a1212"
+    a_button_bg="#0b75aa"
+    a_button_fg="#FFFFFF"    
+elif os.path.isfile(t+"2021.txt"):
     bg="#000000"
     fg="#FFFFFF"
     button_bg="#FFFFFF"
@@ -52,20 +59,20 @@ elif os.path.isfile(t+"2022.txt"):
     button_fg="#376296"
     a_button_bg="#376296"
     a_button_fg="#FFFFFF"
-elif os.path.isfile(t+"modern.txt"):
-    bg="#2f2f2f"
-    fg="#376296"
-    button_bg="#a9a9a9"
-    button_fg="#000000"
-    a_button_bg="#376296"
-    a_button_fg="#FFFFFF"
-elif os.path.isfile(t+"machine.txt"):
+elif os.path.isfile(t+"23Q2.txt"):
     bg="#2f2f2f"
     fg="#FFFFFF"
     button_bg="#bf2422"
     button_fg="#2f2f2f"
     a_button_bg="#5dc305"
     a_button_fg="#376296"
+elif os.path.isfile(t+"23H2.txt"):
+    bg="#2f2f2f"
+    fg="#376296"
+    button_bg="#a9a9a9"
+    button_fg="#000000"
+    a_button_bg="#376296"
+    a_button_fg="#FFFFFF"
 elif os.path.isfile(t+"black.txt"):
     bg="#000000"
     fg="#FFFFFF"
@@ -150,6 +157,31 @@ elif os.path.isfile(t+"complex_atno.txt"):
     button_fg="#8c0606"
     a_button_bg="#034d96"
     a_button_fg="#a4d46a"  
+elif os.path.isfile(t+"theme.txt"):
+    bgo=open(t+"bg.txt", "r")
+    bgr="#"+bgo.read()
+    bgo.close()
+    bg=bgr.replace("\n","") 
+    fgo=open(t+"fg.txt", "r")
+    fgr="#"+fgo.read()
+    fgo.close()
+    fg=fgr.replace("\n","")
+    bbgo=open(t+"button_bg.txt", "r")
+    button_bgr="#"+bbgo.read()
+    bbgo.close()
+    button_bg=button_bgr.replace("\n","")
+    bfgo=open(t+"button_fg.txt", "r")
+    button_fgr="#"+bfgo.read()
+    bfgo.close()
+    button_fg=button_fgr.replace("\n","")
+    abbgo=open(t+"a_button_bg.txt", "r")
+    a_button_bgr="#"+abbgo.read()
+    abbgo.close()
+    a_button_bg=a_button_bgr.replace("\n","")
+    abfgo=open(t+"a_button_fg.txt", "r")
+    a_button_fgr="#"+abfgo.read()
+    abfgo.close()
+    a_button_fg=a_button_fgr.replace("\n","")
 else:
     os.system("python3 /usr/local/bin/metterxp/modules/mxp_options.py")
     exit()
@@ -160,7 +192,7 @@ def metterxp():
     elif os.path.isfile(tr):
         os.system("xdg-open https://mukonqi.github.io/metterxp/tr/index.html")
 def foss():
-    os.system("xdg-open https://www.gnu.org/philosophy/free-sw.tr.html")
+    os.system("xdg-open https://www.gnu.org/philosophy/free-sw.html")
 def developer():
     if os.path.isfile(en):
         os.system("xdg-open https://github.com/MuKonqi")
@@ -179,12 +211,14 @@ def version():
 v=open("/usr/local/bin/metterxp/version.txt", "r")
 vr=v.read()
 v.close()
-window=Tk()
+window=Tk(className="MetterXP")
 window.config(background=bg)
 window.resizable(0, 0)
 window.geometry("600x365")
 parent = Frame(window)
 parent.pack(expand=1)
+icon = PhotoImage(file="/usr/local/bin/metterxp/icon.png")
+window.iconphoto(True, icon)
 space1=Label(parent, background=bg, foreground=fg, text="\n", font="arial 4")
 if os.path.isfile(en):
     window.title("About | MetterXP")

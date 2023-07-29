@@ -1,9 +1,9 @@
 #!/usr/bin/env xdg-open
 [Desktop Entry]
-Version=2.x.x
+Version=3.x.x
 Name=MetterXP
 Encoding=UTF-8
-Comment=Designed for maximum and better experience.
+Comment=Advanced tool box.
 Path=/usr/local/bin/metterxp
 Exec=/usr/bin/metterxp
 Icon=/usr/local/bin/metterxp/icon.png
