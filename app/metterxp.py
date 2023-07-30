@@ -50,7 +50,6 @@ def mxp_reset():
 def mxp_uninstall():
     os.system("pkexec /usr/bin/metterxp mxp_uninstall "+username)
     exit()
-
 def app_store():
     subprocess.Popen("pkexec /usr/bin/metterxp app_store "+username, shell=True)
 def dewm_store():
@@ -71,7 +70,7 @@ def clear_cache_app():
     subprocess.Popen("pkexec /usr/bin/metterxp clear_cache_app "+username, shell=True)
 def fixer():
     subprocess.Popen("pkexec /usr/bin/metterxp fixer "+username, shell=True)
-
+    
 if not "mxp_options" in args:
     if username != "root" and not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp/"):
         if os.path.isfile(debian) or os.path.isfile(fedora) or os.path.isfile(solus):
@@ -81,7 +80,6 @@ if not "mxp_options" in args:
 if len(sys.argv) > 2:
     if str(sys.argv[2]) == "p":
         p=1
-    
 bg=""
 fg=""
 button_bg=""
@@ -628,7 +626,7 @@ def main_cli():
         os.system("python3 /usr/local/bin/metterxp/modules/mxp_uninstall.py "+str(sys.argv[2]))
         exit()
     elif "mxp_update" in args:
-        os.system("python3 /usr/local/bin/metterxp/modules/mxp_reinstall.py "+str(sys.argv[2])+"")
+        os.system("python3 /usr/local/bin/metterxp/modules/mxp_reinstall.py "+str(sys.argv[2]))
         exit()
     elif "mxp_reset" in args:
         os.system("python3 /usr/local/bin/metterxp/modules/mxp_reinstall.py "+str(sys.argv[2])+" --reset")
@@ -653,18 +651,13 @@ def main_cli():
         exit()
     else:
         main_gui()
-
-
+        
 if os.name == "nt":
     print("Welcome to MetterXP!\nMetterXP will not work on operating systems using the NT kernel.\nPlease try to open the program with a GNU/Linux distribution based on one of these three GNU/Linux distributions:\nDebian GNU/Linux, Fedora Linux, Solus")
     exit()
 elif platform == "darwin":
     os.system("./unsupported.app/Contents/MacOS/applet")
-elif os.path.isfile(debian):
-    main_cli()
-elif os.path.isfile(fedora):
-    main_cli()
-elif os.path.isfile(solus):
+elif os.path.isfile(debian) or os.path.isfile(fedora) or os.path.isfile(solus):
     main_cli()
 else:
     print("Welcome to MetterXP!\nThe distribution you are using dosn't support MetterXP.\nPlease try to open the program with a GNU/Linux distribution based on one of these three GNU/Linux distributions:\nDebian GNU/Linux, Fedora Linux, Solus")

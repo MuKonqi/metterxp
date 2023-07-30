@@ -17,12 +17,9 @@ username=getpass.getuser()
 t="/home/"+username+"/.by-mukonqi/metterxp/theme/"
 en="/home/"+username+"/.by-mukonqi/metterxp/language/en.txt"
 tr="/home/"+username+"/.by-mukonqi/metterxp/language/tr.txt"
-debian="/etc/debian_version"
-fedora="/etc/fedora-release"
-solus="/etc/solus-release"
 
 if not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp/"):
-    messagebox.showerror("User Error - Fatal | MetterXP","Please start only MetterXP (just select MetterXP in the applications section or type metterxp) to set up language and theme preferences.")
+    os.system("python3 /usr/local/bin/metterxp/modules/mxp_options.py")
     exit()
 
 if os.getuid() == 0:
@@ -187,10 +184,7 @@ else:
     exit()
 
 def metterxp():
-    if os.path.isfile(en):
-        os.system("xdg-open https://mukonqi.github.io/metterxp/tr/index.html")
-    elif os.path.isfile(tr):
-        os.system("xdg-open https://mukonqi.github.io/metterxp/tr/index.html")
+    os.system("xdg-open https://github.com/MuKonqi/metterxp/wiki/")
 def foss():
     os.system("xdg-open https://www.gnu.org/philosophy/free-sw.html")
 def developer():
@@ -203,10 +197,29 @@ def license():
 def base():
     os.system("xdg-open https://github.com/MuKonqi/metterxp/tree/betterxp")
 def version():
+    vwindow=Tk(className="MetterXP")
+    vwindow.config(background=bg)
+    vwindow.resizable(0, 0)
     if os.path.isfile(en):
-        os.system("xdg-open https://mukonqi.github.io/metterxp/en/change-log.html")
+        vwindow.title(vr+" - About | MetterXP")
+        vlabel1=Label(vwindow, background=bg, foreground=fg, text="\nListed below are the things that have changed in the "+vr+" version compared to the old version:\n", font="arial 12 bold italic")
+        ch=open("/usr/local/bin/metterxp/changelog-en.txt", "r")
+        chr=ch.read()
+        ch.close()
     elif os.path.isfile(tr):
-        os.system("xdg-open https://mukonqi.github.io/metterxp/tr/change-log.html")
+        vwindow.title(vr+" - Hakkında | MetterXP")
+        vlabel1=Label(vwindow, background=bg, foreground=fg, text="\nAşağıda "+vr+" sürümünde eski sürüme göre değişen şeyler listelenmiştir:\n", font="arial 12 bold italic")
+        ch=open("/usr/local/bin/metterxp/changelog-tr.txt", "r")
+        chr=ch.read()
+        ch.close()
+    vscroll=Scrollbar(vwindow)
+    vtext1=Text(vwindow, font="arial 11 bold italic", yscrollcommand=vscroll.set)
+    vtext1.insert(END, chr)
+    vtext1.config(state=DISABLED)
+    vscroll.config(command=vtext1.yview)
+    vlabel1.pack(fill="x")
+    vscroll.pack(side=RIGHT,fill=Y)
+    vtext1.pack(fill="x")
 
 v=open("/usr/local/bin/metterxp/version.txt", "r")
 vr=v.read()

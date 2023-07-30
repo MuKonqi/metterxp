@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright (C) 2022, 2023 MuKonqi (Muhammed Abdurrahman)
+# Copyright (C) 2023 MuKonqi (Muhammed Abdurrahman)
 
 # This file part of MetterXP.
 
@@ -19,6 +19,13 @@ tr="/home/"+username+"/.by-mukonqi/metterxp/language/tr.txt"
 
 global gfs
 gfs=0
+
+if os.getuid() == 0:
+    if os.path.isfile(en):
+        messagebox.showerror("Error","Root can't run this module!")
+    elif os.path.isfile(tr):
+        messagebox.showerror("Hata","Kök kullanıcı bu modülü çalıştıramaz!")
+    exit()
 
 def main():
     global bg, fg, button_bg, button_fg, a_button_bg, a_button_fg
@@ -368,11 +375,22 @@ def first_start():
     a_button_bg="#376296"
     a_button_fg="#FFFFFF"
     def llangen():
-        os.system("cd /home/"+username+"/.by-mukonqi/metterxp/language/ ; touch en.txt")
+        if not os.path.isdir("/home/"+username+"/.by-mukonqi/"):
+            os.system("cd /home/"+username+"/ ; mkdir .by-mukonqi ; cd .by-mukonqi ; mkdir metterxp ; mkdir metterxp/language")
+        elif not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp"):
+            os.system("cd /home/"+username+"/.by-mukonqi ; mkdir metterxp ; mkdir metterxp/language")
+        elif not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp/language/"):
+            os.system("cd /home/"+username+"/.by-mukonqi/metterxp ; mkdir language")
         messagebox.showinfo("Information","English language applied! When you click 'OK', MetterXP settings will open.")
         lwindow.destroy()
         main()
     def llangtr():
+        if not os.path.isdir("/home/"+username+"/.by-mukonqi/"):
+            os.system("cd /home/"+username+"/ ; mkdir .by-mukonqi ; cd .by-mukonqi ; mkdir metterxp ; mkdir metterxp/language")
+        elif not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp"):
+            os.system("cd /home/"+username+"/.by-mukonqi ; mkdir metterxp ; mkdir metterxp/language")
+        elif not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp/language/"):
+            os.system("cd /home/"+username+"/.by-mukonqi/metterxp ; mkdir language")
         os.system("cd /home/"+username+"/.by-mukonqi/metterxp/language ; touch tr.txt")
         messagebox.showinfo("Bilgilendirme","İstenilen dil uygulandı! 'OK' tuşuna bastığınızda MetterXP ayarları açılacak.")
         lwindow.destroy()
@@ -396,13 +414,19 @@ def first_start():
     mainloop()
 
 if not os.path.isdir("/home/"+username+"/.by-mukonqi/"):
-    os.system("cd /home/"+username+" ; mkdir .by-mukonqi")
-    os.system("cd /home/"+username+"/.by-mukonqi ; mkdir metterxp ; mkdir metterxp/language")
     first_start()
-if not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp"):
-    os.system("cd /home/"+username+"/.by-mukonqi ; mkdir metterxp ; mkdir metterxp/language")
+    exit()
+elif not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp"):
     first_start()
-
+    exit()
+elif not os.path.isdir("/home/"+username+"/.by-mukonqi/metterxp/language/"):
+    os.system("cd /home/"+username+"/.by-mukonqi/metterxp ; mkdir language")
+    first_start()
+    exit()
+elif not os.path.isfile("/home/"+username+"/.by-mukonqi/metterxp/language/en.txt") and not os.path.isfile("/home/"+username+"/.by-mukonqi/metterxp/language/tr.txt"):
+    first_start()
+    exit()
+    
 bg=""
 fg=""
 button_bg=""

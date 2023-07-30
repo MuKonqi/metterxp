@@ -14,7 +14,7 @@ debian="/etc/debian_version"
 fedora="/etc/fedora-release"
 solus="/etc/solus-release"
 
-if os.path.isdir("/home/"+str(sys.argv[1])+"/.by-mukonqi/metterxp/"):
+if not os.path.isdir("/home/"+str(sys.argv[1])+"/.by-mukonqi/metterxp/"):
     messagebox.showerror("User Error - Fatal | MetterXP","Please start only MetterXP (just select MetterXP in the applications section or type metterxp) to set up language and theme preferences.")
     exit()
 

@@ -1,5 +1,4 @@
-# [MetterXP v3.0-beta.8](https://github.com/MuKonqi/metterxp/tree/beta)
-# This is really not stable version!
+# [MetterXP v3.0-beta.9](https://github.com/MuKonqi/metterxp/tree/beta)
 --> [Bu belgeyi Türkçe dilinde görüntülemek için buraya tıklayın.](https://github.com/MuKonqi/metterxp/blob/main/BENİOKU.md)
 
 MetterXP has more feature modules than:
@@ -10,11 +9,7 @@ MetterXP has more feature modules than:
 * Configuring .bashrc file
 * Opening file managers
 * Inform about some GNU/Linux distributions
-### Supported GNU/Linux distributions:
-* Debian GNU/Linux and those based on it
-* Fedora Linux and those based on it
-* Solus and those based on it
+### [Installation of MetterXP](https://github.com/MuKonqi/metterxp/wiki/EN:-Help#how-to-install-metterxp)
 ### History:
 MetterXP is the continuation of the terminated [BetterXP](https://github.com/MuKonqi/metterxp/tree/betterxp) (developer: [MuKonqi (Muhammed Abdurrahman)](https://github.com/MuKonqi)) project. [BetterXP](https://github.com/MuKonqi/metterxp/tree/betterxp) is based on terminated Terminalden kurtulun (developer: [Ramkafasi](https://github.com/Ramkafasi)) project.
-
 * Note: MetterXP uses [Apiutaller](https://github.com/MuKonqi/apiutaller) as installation wizard.

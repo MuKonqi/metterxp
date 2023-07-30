@@ -1,0 +1,48 @@
+Tamamen yeni tema ve dil kontrol sistemi:
+    Artık bilgiler şurada depolanıyor: /home/<kullanıcıadınız>/.by-mukonqi/metterxp/
+    Eklenen temalar:
+        Emektar
+        Makine
+        Varsayılan
+        Sarı
+        Lila
+        atno'nun karmaşık teması
+        Ve özel tema: Kullanıcı artık tamamen kendi temasını oluşturabilir!
+    Silinen temalar:
+        Turuncu (canım istediği için sildim :D)
+    Düzenlenen temalar:
+        Modern: turuncu renk kaldırıldı (canım istediği için kaldırdım :D)
+Tüm arayüzde köklü değişiklikler yapıldı:
+    parent'ler (frame) eklendi: Artık butonlar, yazılar vs. daha derli toplu gözüküyor.
+    Pencere boyutu artık koddaki değer tarafından ayarlanıyor: Bu, boşluklar olmasını sağlayarak güzelliği artırdı.
+Artık program kendi ikonuyla birlikte görev çubuğunda gözüküyor ve kendi adıyla gösteriliyor.
+"MetterXP ayarları" düzenlendi:
+    "Ayarlar" yeni adı oldu.
+    Arayüz en baştan yapıldı.
+"MetterXP hakkında" düzenlendi:
+    "Hakkında" oldu ve arayüzünde iyileştirmeler yapıldı.
+    Sürüm bilgisi artık bir dosya sayesinde sağlanıyor.
+    Kurulu olan sürüm, internette olandan farklı ise artık orada en yeni sürüm yer alıyor.
+Yazılarda iyileştirmeler yapıldı:
+    İngilizce için bazı çeviri hataları giderildi.
+    Kapatılıyor vb. ifadeler kaldırıldı, konsola çıktı yazılması kaldırıldı.
+Kapatma butonları gibi şeyler kaldırıldı (çarpı tuşu varken neden gerek olsun ki)
+"Program/paket arama", "Uygulama mağazası' bölümüne taşındı:
+    Diğer ve Flatpak kısmında görülebilir.
+"Uygulamaları kök haklarıyla açma" düzenlendi:
+    "Dosya yöneticilerini kök haklarıyla açma" oldu.
+    Özel uygulama başlatma kaldırıldı. Onun yerine yeni uygulamalar yapıldı: Muktart, Mukander
+Sıfırlama özelliği eklendi.
+Güncelleme, Sıfırlama, Kaldırma kısmında artık Apiutaller sihirbazının v2.0 sürümüne yeniden kurma eklemem ve bazı iyileştirmeler sayesinde artık o kullanılıyor.
+Güncelleme artık yeni bir sürüm yoksa hata veriyor, uygulanmıyor.
+İşleyişini bozabilecek modüllerde kök haklarıyla çalıştırıldığında hata vermesi eklendi.
+Dağıtımlar bölümüne kullanılan dağıtım hakkında bilgi ana sayfaya eklendi.
+Bazı modüllerin dosya adlarında değişiklikler yapıldı.
+README.md ile BENİOKU.md dosyalarında yazılar güncellendi.
+Kodda iyileştirmeler yapıldı.
+
+İnternet:
+    MetterXP'ın kendi internet sitesi:
+        Pek gerek olmadığını düşündüğümden ve son zamanlarda bazı kullandığım dağıtımlarda Jekyll sıkıntı yaptığından şuanlık kapatıldı.
+    Eklendi: MetterXP viki
+        En gerekli şey yardım bölümü idi, artık ona vikiden ulaşılabilir.
