@@ -1,2 +1,3 @@
-# Duyuru!
-BetterXP, ömrünü tamamlamıştır. Lütfen [MetterXP projesi](https://github.com/MuKonqi/metterxp/tree/main)ne bakınız.
+# Önemli Duyuru
+## BetterXP'ın desteği bitmiştir.
+## Lütfen onun sunduğu şeylerin çok daha modern, güzel ve dünyaya uyumlu bir şekilde devam ettiren [MetterXP](https://github.com/MuKonqi/metterxp)'a bakınız.
