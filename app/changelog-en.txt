@@ -1,0 +1,54 @@
+Completely new theme and language control system:
+    Information is now stored in: /home/<your username>/.by-mukonqi/metterxp/
+        This means that a user on a system can now use their own settings. So if there are 2 or more users on the computer, they no longer have to use common settings. Everyone can have their own taste!
+    Added themes:
+        Veteran
+        Machine
+        Default
+        Yellow
+        Lilac
+        atno's complex theme
+        And custom theme: The user can now completely create their own theme!
+    Deleted themes:
+        Orange (I deleted it because I felt like it :D)
+    Edited themes:
+        Modern: orange color removed (I removed it because I felt like it :D)
+The whole interface has been radically changed:
+    added parents (frame): Now buttons, text etc. look more organized.
+    The window size is now set by the value in the code: This has improved the beauty by allowing for gaps.
+The program now appears in the taskbar with its own icon and is shown with its own name.
+In the "Application store" section:
+    Yasfetch section was created and moved to the place where the projects belonging to me are located.
+"MetterXP settings" has been edited:
+    "Settings" is the new name.
+    The interface has been redone from scratch.
+Edited "About MetterXP":
+    "About" is the new name and the interface has been improved.
+    Version information is now provided by a file.
+    Added change log (here).
+    If the installed version is different from the one on the internet, the newest version is now there.
+Improvements have been made to the text:
+    Fixed some translation errors for English.
+    Removed phrases like "shutting down", removed output to console.
+Removed things like shutdown buttons (why do you need them when you have a cross key)
+"Program/package search" has been moved to the 'App store' section:
+    Other and Flatpak' section.
+"Opening apps with root rights" edited:
+    "Open file managers with root rights".
+    Removed custom app launching. New apps were made instead: Muktart, Mukander
+Reset feature added:
+    You can use it to fix bugs if you think you've corrupted the program's files, or you can use it for something else.
+Update, Reset, Uninstall now uses the v2.0 version of the Apiutaller wizard, thanks to my reinstallation addition and some improvements.
+Update now gives an error if there is no new version, it is not applied.
+Added error when running with root rights on modules that may break functionality.
+Added information about the distribution used in the distributions section to the main page.
+Changes were made to the filenames of some modules.
+Updated the text in README.md and BENİOKU.md files.
+Switched to Apiutaller v2.0 wizard.
+Improvements were made to the code.
+
+Internet:
+    MetterXP's own website:
+        Currently closed as I don't think it's needed and Jekyll has been causing problems in some distributions I've been using lately.
+    Added: MetterXP wiki
+        The most necessary thing was the help section, which is now available on the wiki.
